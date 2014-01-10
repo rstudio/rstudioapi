@@ -13,8 +13,8 @@ check(version_needed = NULL)
   version.}
 }
 \value{
-\code{isRstudio} a boolean; \code{checkRstudio} an error
-message if Rstudio is not running
+\code{available} a boolean; \code{check} an error message
+if Rstudio is not running
 }
 \description{
 Check if RStudio is running.

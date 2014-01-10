@@ -1,6 +1,6 @@
 #' Check if RStudio is running.
 #' 
-#' @return \code{isRstudio} a boolean; \code{checkRstudio} an error message
+#' @return \code{available} a boolean; \code{check} an error message
 #'   if Rstudio is not running
 #' @param version_needed An optional version specification. If supplied, 
 #'   ensures that Rstudio is at least that version.
