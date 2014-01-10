@@ -16,6 +16,22 @@ check <- function() {
   if (!available()) stop("RStudio not running", call. = FALSE)
 }
 
+#' Return the current version of the RStudio api.
+#' 
+#' @return A \code{\link{numeric_version}} which you can compare to a string
+#'   and get correct results.
+#' @export
+#' @examples
+#' \donttest{
+#' if (rstudio::version() < "0.98.100") {
+#'   message("Your version of Rstudio is quite old")
+#' }
+#' }
+version <- function() {
+  check()
+  packageVersion("rstudio")
+}
+
 #' Call an Rstudio API function
 #' 
 #' This function will return an error if Rstudio is not running, or the 
