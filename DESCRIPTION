@@ -1,11 +1,9 @@
 Package: rstudioapi
-Title: Safely access the RStudio API. 
+Title: Safely access the RStudio API.
 Description: This package provides functions to make it easy to access
-  the RStudio API when available, and provide informative error messages
-  when not.
+    the RStudio API when available, and provide informative error messages
+    when not.
 Version: 0.1
 Author: RStudio
 Maintainer: Hadley Wickham <hadley@rstudio.com>
-Depends: R (>= 3.0.2)
 License: MIT + file LICENSE
-LazyData: true
