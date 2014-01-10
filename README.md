@@ -25,7 +25,7 @@ rstudioapi::call("viewer", "http://localhost:8080")
 # This will raise an error if rstudio is not running, or the function
 # is not found. To run a different function if it's not available,
 # use exists
-if (rstudio::exists("viewer")) {
+if (rstudioapi::exists("viewer")) {
   rstudioapi::call("viewer", "http://localhost:8080")
 } else {
   browseURL("http://localhost:8080")
