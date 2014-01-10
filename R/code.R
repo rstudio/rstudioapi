@@ -1,19 +1,32 @@
-#' Check if RStudio is running?
+#' Check if RStudio is running.
 #' 
 #' @return \code{isRstudio} a boolean; \code{checkRstudio} an error message
 #'   if Rstudio is not running
+#' @param version_needed An optional version specification. If supplied, 
+#'   ensures that Rstudio is at least that version.
 #' @export
 #' @examples
 #' rstudioapi::available()
 #' \dontrun{rstudioapi::check()}
-available <- function() {
-  identical(.Platform$GUI, "RStudio")
+available <- function(version_needed = NULL) {
+  identical(.Platform$GUI, "RStudio") && version_ok(version_needed)
+}
+
+version_ok <- function(version = NULL) {
+  if (is.null(version)) return(TRUE)
+  
+  version() >= version
 }
 
 #' @rdname available
 #' @export
-check <- function() {
+check <- function(version_needed = NULL) {
   if (!available()) stop("RStudio not running", call. = FALSE)
+  if (!version_ok(version_needed)) {
+    stop("Need at least version ", version_needed, " of RStudio. ", 
+      "Currently running ", version(), call. = FALSE)
+  }
+  invisible(TRUE)  
 }
 
 #' Return the current version of the RStudio api.

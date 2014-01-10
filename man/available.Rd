@@ -1,18 +1,23 @@
 \name{available}
 \alias{available}
 \alias{check}
-\title{Check if RStudio is running?}
+\title{Check if RStudio is running.}
 \usage{
-available()
+available(version_needed = NULL)
 
-check()
+check(version_needed = NULL)
+}
+\arguments{
+  \item{version_needed}{An optional version specification.
+  If supplied, ensures that Rstudio is at least that
+  version.}
 }
 \value{
 \code{isRstudio} a boolean; \code{checkRstudio} an error
 message if Rstudio is not running
 }
 \description{
-Check if RStudio is running?
+Check if RStudio is running.
 }
 \examples{
 rstudioapi::available()
