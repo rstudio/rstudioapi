@@ -81,18 +81,21 @@ call <- function(fname, ...) {
 #' @param name name of object to look for
 #' @param ... other arguments passed on to \code{\link[base]{exists}} and 
 #'   \code{\link[base]{get}}
+#' @param version_needed An optional version specification. If supplied, 
+#'   ensures that Rstudio is at least that version. This is useful if 
+#'   function behaviour has changed over time.
 #' @export
 #' @examples
 #' rstudioapi::exists("viewer")
 #' \dontrun{rstudioapi::exists("viewer")}
-exists <- function(name, ...) {
-  if (!available()) return(FALSE)
+exists <- function(name, version_needed = NULL, ...) {
+  if (!available(version_needed)) return(FALSE)
   base::exists(name, envir = asNamespace("rstudio"), ...)
 }
 
 #' @export
 #' @rdname exists
-find <- function(name, ...) {
-  check()
-  find(name, envir = asNamespace("rstudio"), ...)
+find <- function(name, version_needed = NULL, ...) {
+  check(version_needed)
+  get(name, envir = asNamespace("rstudio"), ...)
 }

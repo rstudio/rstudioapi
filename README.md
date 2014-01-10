@@ -30,6 +30,14 @@ if (rstudioapi::exists("viewer")) {
 } else {
   browseURL("http://localhost:8080")
 }
+
+# You can use find to get the function. Throws an error if the function
+# does not exist.
+rstudioapi::find("viewer")
+
+# You can also check version in exists and find
+rstudioapi::find("viewer", 0.99)
+rstudioapi::exists("viewer", 0.99)
 ```
 
 # Installation
