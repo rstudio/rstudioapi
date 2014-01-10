@@ -16,6 +16,6 @@ Check if RStudio is running?
 }
 \examples{
 rstudioapi::available()
-\donttest{rstudioapi::check()}
+\dontrun{rstudioapi::check()}
 }
 

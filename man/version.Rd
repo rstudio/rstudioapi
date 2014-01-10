@@ -12,7 +12,7 @@ string and get correct results.
 Return the current version of the RStudio api.
 }
 \examples{
-\donttest{
+\dontrun{
 if (rstudio::version() < "0.98.100") {
   message("Your version of Rstudio is quite old")
 }

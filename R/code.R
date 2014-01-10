@@ -5,7 +5,7 @@
 #' @export
 #' @examples
 #' rstudioapi::available()
-#' \donttest{rstudioapi::check()}
+#' \dontrun{rstudioapi::check()}
 available <- function() {
   identical(.Platform$GUI, "RStudio")
 }
@@ -22,7 +22,7 @@ check <- function() {
 #'   and get correct results.
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' if (rstudio::version() < "0.98.100") {
 #'   message("Your version of Rstudio is quite old")
 #' }
@@ -71,7 +71,7 @@ call <- function(fname, ...) {
 #' @export
 #' @examples
 #' rstudioapi::exists("viewer")
-#' \donttest{rstudioapi::exists("viewer")}
+#' \dontrun{rstudioapi::exists("viewer")}
 exists <- function(name, ...) {
   if (!available()) return(FALSE)
   base::exists(name, envir = asNamespace("rstudio"), ...)

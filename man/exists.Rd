@@ -22,6 +22,6 @@ an error.
 }
 \examples{
 rstudioapi::exists("viewer")
-\donttest{rstudioapi::exists("viewer")}
+\dontrun{rstudioapi::exists("viewer")}
 }
 
