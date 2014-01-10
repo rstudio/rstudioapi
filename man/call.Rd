@@ -1,8 +1,8 @@
-\name{callApi}
-\alias{callApi}
+\name{call}
+\alias{call}
 \title{Call an Rstudio API function}
 \usage{
-callApi(fname, ...)
+call(fname, ...)
 }
 \arguments{
   \item{fname}{name of the Rstudio function to call.  See
@@ -14,12 +14,11 @@ callApi(fname, ...)
 \description{
 This function will return an error if Rstudio is not
 running, or the function is not available. If you want to
-fall back to different behavour, use
-\code{\link{existsRstudio}}.
+fall back to different behavour, use \code{\link{exists}}.
 }
 \examples{
-if (isRstudio()) {
-  callApi("versionInfo")
+if (rstudioapi::available()) {
+  rstudioapi::call("versionInfo")
 }
 }
 

@@ -1,11 +1,11 @@
-\name{isRstudio}
-\alias{checkRstudio}
-\alias{isRstudio}
+\name{available}
+\alias{available}
+\alias{check}
 \title{Check if RStudio is running?}
 \usage{
-isRstudio()
+available()
 
-checkRstudio()
+check()
 }
 \value{
 \code{isRstudio} a boolean; \code{checkRstudio} an error
@@ -15,7 +15,7 @@ message if Rstudio is not running
 Check if RStudio is running?
 }
 \examples{
-isRstudio()
-\donttest{checkRstudio()}
+rstudioapi::available()
+\donttest{rstudioapi::check()}
 }
 

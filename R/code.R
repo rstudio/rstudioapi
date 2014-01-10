@@ -4,23 +4,23 @@
 #'   if Rstudio is not running
 #' @export
 #' @examples
-#' isRstudio()
-#' \donttest{checkRstudio()}
-isRstudio <- function() {
+#' rstudioapi::available()
+#' \donttest{rstudioapi::check()}
+available <- function() {
   identical(.Platform$GUI, "RStudio")
 }
 
-#' @rdname isRstudio
+#' @rdname available
 #' @export
-checkRstudio <- function() {
-  if (!isRstudio()) stop("RStudio not running", call. = FALSE)
+check <- function() {
+  if (!available()) stop("RStudio not running", call. = FALSE)
 }
 
 #' Call an Rstudio API function
 #' 
 #' This function will return an error if Rstudio is not running, or the 
 #' function is not available. If you want to fall back to different 
-#' behavour, use \code{\link{existsRstudio}}.
+#' behavour, use \code{\link{exists}}.
 #' 
 #' @param fname name of the Rstudio function to call. 
 #'   See \code{help(package = "Rstudio")}. For a complete list of functions
@@ -28,42 +28,42 @@ checkRstudio <- function() {
 #' @param ... Other arguments passed on to the function
 #' @export
 #' @examples
-#' if (isRstudio()) {
-#'   callApi("versionInfo")
+#' if (rstudioapi::available()) {
+#'   rstudioapi::call("versionInfo")
 #' }
-callApi <- function(fname, ...) {
-  checkRstudio()
+call <- function(fname, ...) {
+  check()
   
-  if (!existsRstudio(fname, mode = "function")) {
+  if (!exists(fname, mode = "function")) {
     stop("Function ", fname, " not found in Rstudio", call. = FALSE)
   }
   
-  f <- getRstudio(fname, mode = "function")
+  f <- get(fname, mode = "function")
   f(...)
 }
 
 #' Exists/get for Rstudio functions
 #' 
-#' These are specialised versions of \code{\link{get}} and \code{\link{exists}}
-#' that look in the rstudio package namespace. If Rstudio is not running,
-#' \code{existsRstudio} will return \code{FALSE}, and \code{getRstudio}
-#' will raise an error.
+#' These are specialised versions of \code{\link[base]{get}} and 
+#' \code{\link[base]{exists}} that look in the rstudio package namespace. 
+#' If Rstudio is not running,  \code{exists} will return \code{FALSE}, 
+#' and \code{getRstudio} will raise an error.
 #' 
 #' @param name name of object to look for
-#' @param ... other arguments passed on to \code{\link{exists}} and 
-#'   \code{\link{get}}
+#' @param ... other arguments passed on to \code{\link[base]{exists}} and 
+#'   \code{\link[base]{get}}
 #' @export
 #' @examples
-#' existsRstudio("viewer")
-#' \donttest{existsRstudio("viewer")}
-existsRstudio <- function(name, ...) {
-  if (!isRstudio()) return(FALSE)
-  exists(name, envir = asNamespace("rstudio"), ...)
+#' rstudioapi::exists("viewer")
+#' \donttest{rstudioapi::exists("viewer")}
+exists <- function(name, ...) {
+  if (!available()) return(FALSE)
+  base::exists(name, envir = asNamespace("rstudio"), ...)
 }
 
 #' @export
-#' @rdname existsRstudio
-getRstudio <- function(name, ...) {
-  checkRstudio()
-  get(name, envir = asNamespace("rstudio"), ...)
+#' @rdname exists
+get <- function(name, ...) {
+  check()
+  base::get(name, envir = asNamespace("rstudio"), ...)
 }
