@@ -67,7 +67,7 @@ call <- function(fname, ...) {
     stop("Function ", fname, " not found in Rstudio", call. = FALSE)
   }
   
-  f <- get(fname, mode = "function")
+  f <- find(fname, mode = "function")
   f(...)
 }
 
@@ -92,7 +92,7 @@ exists <- function(name, ...) {
 
 #' @export
 #' @rdname exists
-get <- function(name, ...) {
+find <- function(name, ...) {
   check()
-  base::get(name, envir = asNamespace("rstudio"), ...)
+  find(name, envir = asNamespace("rstudio"), ...)
 }

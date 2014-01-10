@@ -1,11 +1,11 @@
 \name{exists}
 \alias{exists}
-\alias{get}
+\alias{find}
 \title{Exists/get for Rstudio functions}
 \usage{
 exists(name, ...)
 
-get(name, ...)
+find(name, ...)
 }
 \arguments{
   \item{name}{name of object to look for}
