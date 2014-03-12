@@ -42,5 +42,5 @@ rstudioapi::hasFun("viewer", 0.99)
 
 # Installation
 
-* Install the development version with `devtool::install_github("rstudio/rstudioapi")
+* Install the development version with `devtools::install_github("rstudio/rstudioapi")
 `
