@@ -1,30 +1,30 @@
 #' Check if RStudio is running.
 #' 
-#' @return \code{available} a boolean; \code{check} an error message
+#' @return \code{isAvailable} a boolean; \code{verifyAvailable} an error message
 #'   if Rstudio is not running
 #' @param version_needed An optional version specification. If supplied, 
 #'   ensures that Rstudio is at least that version.
 #' @export
 #' @examples
-#' rstudioapi::available()
-#' \dontrun{rstudioapi::check()}
-available <- function(version_needed = NULL) {
+#' rstudioapi::isAvailable()
+#' \dontrun{rstudioapi::verifyAvailable()}
+isAvailable <- function(version_needed = NULL) {
   identical(.Platform$GUI, "RStudio") && version_ok(version_needed)
 }
 
 version_ok <- function(version = NULL) {
   if (is.null(version)) return(TRUE)
   
-  version() >= version
+  getVersion() >= version
 }
 
-#' @rdname available
+#' @rdname isAvailable
 #' @export
-check <- function(version_needed = NULL) {
-  if (!available()) stop("RStudio not running", call. = FALSE)
+verifyAvailable <- function(version_needed = NULL) {
+  if (!isAvailable()) stop("RStudio not running", call. = FALSE)
   if (!version_ok(version_needed)) {
     stop("Need at least version ", version_needed, " of RStudio. ", 
-      "Currently running ", version(), call. = FALSE)
+      "Currently running ", getVersion(), call. = FALSE)
   }
   invisible(TRUE)  
 }
@@ -36,12 +36,12 @@ check <- function(version_needed = NULL) {
 #' @export
 #' @examples
 #' \dontrun{
-#' if (rstudio::version() < "0.98.100") {
+#' if (rstudio::getVersion() < "0.98.100") {
 #'   message("Your version of Rstudio is quite old")
 #' }
 #' }
-version <- function() {
-  check()
+getVersion <- function() {
+  verifyAvailable()
   packageVersion("rstudio")
 }
 
@@ -49,7 +49,7 @@ version <- function() {
 #' 
 #' This function will return an error if Rstudio is not running, or the 
 #' function is not available. If you want to fall back to different 
-#' behavour, use \code{\link{exists}}.
+#' behavour, use \code{\link{hasFun}}.
 #' 
 #' @param fname name of the Rstudio function to call. 
 #'   See \code{help(package = "Rstudio")}. For a complete list of functions
@@ -57,17 +57,17 @@ version <- function() {
 #' @param ... Other arguments passed on to the function
 #' @export
 #' @examples
-#' if (rstudioapi::available()) {
-#'   rstudioapi::call("versionInfo")
+#' if (rstudioapi::isAvailable()) {
+#'   rstudioapi::callFun("versionInfo")
 #' }
-call <- function(fname, ...) {
-  check()
+callFun <- function(fname, ...) {
+  verifyAvailable()
   
-  if (!exists(fname, mode = "function")) {
+  if (!exists(fname, envir = asNamespace("rstudio"), mode = "function")) {
     stop("Function ", fname, " not found in Rstudio", call. = FALSE)
   }
   
-  f <- find(fname, mode = "function")
+  f <- findFun(fname, mode = "function")
   f(...)
 }
 
@@ -86,16 +86,15 @@ call <- function(fname, ...) {
 #'   function behaviour has changed over time.
 #' @export
 #' @examples
-#' rstudioapi::exists("viewer")
-#' \dontrun{rstudioapi::exists("viewer")}
-exists <- function(name, version_needed = NULL, ...) {
-  if (!available(version_needed)) return(FALSE)
-  base::exists(name, envir = asNamespace("rstudio"), ...)
+#' rstudioapi::hasFun("viewer")
+hasFun <- function(name, version_needed = NULL, ...) {
+  if (!isAvailable(version_needed)) return(FALSE)
+  exists(name, envir = asNamespace("rstudio"), ...)
 }
 
 #' @export
-#' @rdname exists
-find <- function(name, version_needed = NULL, ...) {
-  check(version_needed)
+#' @rdname hasFun
+findFun <- function(name, version_needed = NULL, ...) {
+  verifyAvailable(version_needed)
   get(name, envir = asNamespace("rstudio"), ...)
 }

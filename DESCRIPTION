@@ -7,3 +7,4 @@ Version: 0.1
 Author: RStudio
 Maintainer: Hadley Wickham <hadley@rstudio.com>
 License: MIT + file LICENSE
+Roxygen: list(wrap = FALSE)

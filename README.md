@@ -11,33 +11,33 @@ The rstudioapi package is designed to make it easy to conditionally access the R
 # Always prefix function calls with rstudioapi::
 
 # Returns T/F
-rstudioapi::available()
+rstudioapi::isAvailable()
 # Returns error if not available
-rstudioapi::check()
+rstudioapi::verifyAvailable()
 
 # Optional argument allows you to specify version requirement
-rstudioapi::available("0.99")
-rstudioapi::check("0.99")
+rstudioapi::isAvailable("0.99")
+rstudioapi::verifyAvailable("0.99")
 
 # Call an rstudio function
-rstudioapi::call("viewer", "http://localhost:8080")
+rstudioapi::callFun("viewer", "http://localhost:8080")
 
 # This will raise an error if rstudio is not running, or the function
 # is not found. To run a different function if it's not available,
 # use exists
-if (rstudioapi::exists("viewer")) {
-  rstudioapi::call("viewer", "http://localhost:8080")
+if (rstudioapi::hasFun("viewer")) {
+  rstudioapi::callFun("viewer", "http://localhost:8080")
 } else {
   browseURL("http://localhost:8080")
 }
 
 # You can use find to get the function. Throws an error if the function
 # does not exist.
-rstudioapi::find("viewer")
+rstudioapi::findFun("viewer")
 
 # You can also check version in exists and find
-rstudioapi::find("viewer", 0.99)
-rstudioapi::exists("viewer", 0.99)
+rstudioapi::findFun("viewer", 0.99)
+rstudioapi::hasFun("viewer", 0.99)
 ```
 
 # Installation
