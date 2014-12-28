@@ -42,8 +42,22 @@ verifyAvailable <- function(version_needed = NULL) {
 #' }
 getVersion <- function() {
   verifyAvailable()
-  packageVersion("rstudio")
+  callFun("versionInfo")$version
 }
+
+#' Get a citation for RStudio
+#' 
+#' @return An object inheriting from class \code{bibentry}.
+#' 
+#' @export
+getCitation <- function() {
+  verifyAvailable()
+  if (usingTools())
+    callFun("versionInfo")$citation
+  else
+    utils::citation("rstudio")
+}
+
 
 #' Call an Rstudio API function
 #' 
@@ -63,9 +77,12 @@ getVersion <- function() {
 callFun <- function(fname, ...) {
   verifyAvailable()
   
-  if (!exists(fname, envir = asNamespace("rstudio"), mode = "function")) {
+  if (usingTools())
+    found <- exists(toolsName(fname), envir = toolsEnv(), mode = "function")
+  else
+    found <- exists(fname, envir = asNamespace("rstudio"), mode = "function")
+  if (!found)
     stop("Function ", fname, " not found in Rstudio", call. = FALSE)
-  }
   
   f <- findFun(fname, mode = "function")
   f(...)
@@ -89,12 +106,31 @@ callFun <- function(fname, ...) {
 #' rstudioapi::hasFun("viewer")
 hasFun <- function(name, version_needed = NULL, ...) {
   if (!isAvailable(version_needed)) return(FALSE)
-  exists(name, envir = asNamespace("rstudio"), ...)
+  if (usingTools())
+    exists(toolsName(name), toolsEnv(), ...)
+  else
+    exists(name, envir = asNamespace("rstudio"), ...)
 }
 
 #' @export
 #' @rdname hasFun
 findFun <- function(name, version_needed = NULL, ...) {
   verifyAvailable(version_needed)
-  get(name, envir = asNamespace("rstudio"), ...)
+  if (usingTools())
+    get(toolsName(name), toolsEnv(), ...)
+  else
+    get(name, envir = asNamespace("rstudio"), ...)
 }
+
+usingTools <- function() {
+  exists(toolsName("versionInfo"), envir = toolsEnv())
+}
+
+toolsName <- function(name) {
+  paste(".rs.api.", name, sep="")
+}
+
+toolsEnv <- function() {
+  as.environment(match("tools:rstudio", search()))
+}
+
