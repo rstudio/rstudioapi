@@ -36,26 +36,13 @@ verifyAvailable <- function(version_needed = NULL) {
 #' @export
 #' @examples
 #' \dontrun{
-#' if (rstudio::getVersion() < "0.98.100") {
+#' if (rstudioapi::getVersion() < "0.98.100") {
 #'   message("Your version of Rstudio is quite old")
 #' }
 #' }
 getVersion <- function() {
   verifyAvailable()
   callFun("versionInfo")$version
-}
-
-#' Get a citation for RStudio
-#' 
-#' @return An object inheriting from class \code{bibentry}.
-#' 
-#' @export
-getCitation <- function() {
-  verifyAvailable()
-  if (usingTools())
-    callFun("versionInfo")$citation
-  else
-    utils::citation("rstudio")
 }
 
 

@@ -2,21 +2,21 @@
 % Please edit documentation in R/code.R
 \name{callFun}
 \alias{callFun}
-\title{Call an Rstudio API function}
+\title{Call an RStudio API function}
 \usage{
 callFun(fname, ...)
 }
 \arguments{
-\item{fname}{name of the Rstudio function to call.
+\item{fname}{name of the RStudio function to call.
 See \code{help(package = "Rstudio")}. For a complete list of functions
 in the current API.}
 
 \item{...}{Other arguments passed on to the function}
 }
 \description{
-This function will return an error if Rstudio is not running, or the
+This function will return an error if RStudio is not running, or the
 function is not available. If you want to fall back to different
-behavour, use \code{\link{hasFun}}.
+behavior, use \code{\link{hasFun}}.
 }
 \examples{
 if (rstudioapi::isAvailable()) {

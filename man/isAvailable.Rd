@@ -11,11 +11,11 @@ verifyAvailable(version_needed = NULL)
 }
 \arguments{
 \item{version_needed}{An optional version specification. If supplied,
-ensures that Rstudio is at least that version.}
+ensures that RStudio is at least that version.}
 }
 \value{
 \code{isAvailable} a boolean; \code{verifyAvailable} an error message
-  if Rstudio is not running
+  if RStudio is not running
 }
 \description{
 Check if RStudio is running.
