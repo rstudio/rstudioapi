@@ -22,8 +22,7 @@ function behavior has changed over time.}
 \description{
 These are specialized versions of \code{\link[base]{get}} and
 \code{\link[base]{exists}} that look in the rstudio package namespace.
-If RStudio is not running,  \code{exists} will return \code{FALSE},
-and \code{getRstudio} will raise an error.
+If RStudio is not running,  \code{hasFun} will return \code{FALSE}.
 }
 \examples{
 rstudioapi::hasFun("viewer")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/code.R
 \name{getVersion}
 \alias{getVersion}
-\title{Return the current version of the RStudio API.}
+\title{Return the current version of the RStudio API}
 \usage{
 getVersion()
 }
@@ -11,12 +11,12 @@ A \code{\link{numeric_version}} which you can compare to a string
   and get correct results.
 }
 \description{
-Return the current version of the RStudio API.
+Return the current version of the RStudio API
 }
 \examples{
 \dontrun{
 if (rstudioapi::getVersion() < "0.98.100") {
-  message("Your version of Rstudio is quite old")
+  message("Your version of RStudio is quite old")
 }
 }
 }

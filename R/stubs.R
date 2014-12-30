@@ -7,11 +7,6 @@ versionInfo <- function() {
 }
 
 #' @export
-diagnosticsReport <- function() {
-  callFun("diagnosticsReport")
-}
-
-#' @export
 previewRd <- function(rdFile) {
   callFun("previewRd", rdFile)
 }

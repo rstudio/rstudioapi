@@ -1,9 +1,9 @@
 #' Check if RStudio is running.
 #' 
 #' @return \code{isAvailable} a boolean; \code{verifyAvailable} an error message
-#'   if Rstudio is not running
+#'   if RStudio is not running
 #' @param version_needed An optional version specification. If supplied, 
-#'   ensures that Rstudio is at least that version.
+#'   ensures that RStudio is at least that version.
 #' @export
 #' @examples
 #' rstudioapi::isAvailable()
@@ -29,7 +29,7 @@ verifyAvailable <- function(version_needed = NULL) {
   invisible(TRUE)  
 }
 
-#' Return the current version of the RStudio api.
+#' Return the current version of the RStudio API
 #' 
 #' @return A \code{\link{numeric_version}} which you can compare to a string
 #'   and get correct results.
@@ -37,7 +37,7 @@ verifyAvailable <- function(version_needed = NULL) {
 #' @examples
 #' \dontrun{
 #' if (rstudioapi::getVersion() < "0.98.100") {
-#'   message("Your version of Rstudio is quite old")
+#'   message("Your version of RStudio is quite old")
 #' }
 #' }
 getVersion <- function() {
@@ -46,15 +46,13 @@ getVersion <- function() {
 }
 
 
-#' Call an Rstudio API function
+#' Call an RStudio API function
 #' 
-#' This function will return an error if Rstudio is not running, or the 
+#' This function will return an error if RStudio is not running, or the 
 #' function is not available. If you want to fall back to different 
-#' behavour, use \code{\link{hasFun}}.
+#' behavior, use \code{\link{hasFun}}.
 #' 
-#' @param fname name of the Rstudio function to call. 
-#'   See \code{help(package = "Rstudio")}. For a complete list of functions
-#'   in the current API.
+#' @param fname name of the RStudio function to call. 
 #' @param ... Other arguments passed on to the function
 #' @export
 #' @examples
@@ -69,25 +67,24 @@ callFun <- function(fname, ...) {
   else
     found <- exists(fname, envir = asNamespace("rstudio"), mode = "function")
   if (!found)
-    stop("Function ", fname, " not found in Rstudio", call. = FALSE)
+    stop("Function ", fname, " not found in RStudio", call. = FALSE)
   
   f <- findFun(fname, mode = "function")
   f(...)
 }
 
-#' Exists/get for Rstudio functions
+#' Exists/get for RStudio functions
 #' 
-#' These are specialised versions of \code{\link[base]{get}} and 
+#' These are specialized versions of \code{\link[base]{get}} and 
 #' \code{\link[base]{exists}} that look in the rstudio package namespace. 
-#' If Rstudio is not running,  \code{exists} will return \code{FALSE}, 
-#' and \code{getRstudio} will raise an error.
+#' If RStudio is not running,  \code{hasFun} will return \code{FALSE}.
 #' 
 #' @param name name of object to look for
 #' @param ... other arguments passed on to \code{\link[base]{exists}} and 
 #'   \code{\link[base]{get}}
 #' @param version_needed An optional version specification. If supplied, 
-#'   ensures that Rstudio is at least that version. This is useful if 
-#'   function behaviour has changed over time.
+#'   ensures that RStudio is at least that version. This is useful if 
+#'   function behavior has changed over time.
 #' @export
 #' @examples
 #' rstudioapi::hasFun("viewer")

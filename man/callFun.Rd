@@ -7,9 +7,7 @@
 callFun(fname, ...)
 }
 \arguments{
-\item{fname}{name of the RStudio function to call.
-See \code{help(package = "Rstudio")}. For a complete list of functions
-in the current API.}
+\item{fname}{name of the RStudio function to call.}
 
 \item{...}{Other arguments passed on to the function}
 }
