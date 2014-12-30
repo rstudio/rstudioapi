@@ -1,0 +1,13 @@
+rstudioapi 0.2
+--------------------------------------------------------------------------------
+
+* Compatibility with calling conventions for RStudio v0.99
+
+* Stubs and documentation for versionInfo, previewRd, and viewer functions
+
+
+rstudioapi 0.1
+--------------------------------------------------------------------------------
+
+Initial release to CRAN
+
