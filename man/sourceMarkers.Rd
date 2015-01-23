@@ -17,7 +17,7 @@ sourceMarkers(name, markers, basePath = NULL,
 \arguments{
   \item{name}{Name of marker set (will replace any markers of the same name previously shown)}
   \item{markers}{List or data frame containing source markers (see below for details on how to specify markers)}
-  \item{basePath}{Optional. If all source files are within a base path then specifying that path here will result in file names being displayed as relative paths}
+  \item{basePath}{Optional. If all source files are within a base path then specifying that path here will result in file names being displayed as relative paths. Note that in this case markers still need to specify source file names as full paths.}
   \item{autoSelect}{Optional. Automatically select and drive focus to either the first marker or the first marker that is an error.}
 }
 
