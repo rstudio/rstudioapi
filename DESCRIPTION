@@ -1,8 +1,7 @@
 Package: rstudioapi
 Title: Safely Access the RStudio API
-Description: This package provides functions to make it easy to access
-    the RStudio API when available, and provide informative error messages
-    when not.
+Description: Access the RStudio API (if available) and provide informative error messages
+    when it's not.
 Version: 0.3
 Authors@R: c(
     person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"),
