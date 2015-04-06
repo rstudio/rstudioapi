@@ -26,7 +26,7 @@ sourceMarkers(name, markers, basePath = NULL,
 The \code{markers} argument can contains either a list of marker lists or a data frame with the appropriate marker columns. The fields in a marker are as follows (all are required):
 
 \tabular{ll}{
-   \code{type} \tab Marker type ("error", "warning", "info", or "style")\cr
+   \code{type} \tab Marker type ("error", "warning", "info", "style", or "usage")\cr
    \code{file} \tab Path to source file\cr
    \code{line} \tab Line number witin source file \cr
    \code{column} \tab Column number within line\cr
