@@ -7,7 +7,7 @@ Display Source Markers
 Display user navigable source markers in a pane within RStudio
 }
 \note{
-The \code{sourceMarkers} function was added in version 0.99.206 of RStudio.
+The \code{sourceMarkers} function was added in version 0.99.225 of RStudio.
 }
 \usage{
 sourceMarkers(name, markers, basePath = NULL,
