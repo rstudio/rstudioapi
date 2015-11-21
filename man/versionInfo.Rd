@@ -46,4 +46,3 @@ ver$citation
 }
 
 }
-

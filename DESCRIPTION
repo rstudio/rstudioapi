@@ -1,7 +1,7 @@
 Package: rstudioapi
 Title: Safely Access the RStudio API
-Description: Access the RStudio API (if available) and provide informative error messages
-    when it's not.
+Description: Access the RStudio API (if available) and provide informative error
+    messages when it's not.
 Version: 0.3.1
 Authors@R: c(
     person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"),
@@ -11,3 +11,4 @@ Authors@R: c(
 Maintainer: JJ Allaire <jj@rstudio.com>
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
+RoxygenNote: 5.0.0
