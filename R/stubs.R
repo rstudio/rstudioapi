@@ -45,7 +45,7 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #' @param id The document id. When \code{NULL} or blank,
 #'   the mutation will apply to the currently open, or last
 #'   focused, RStudio document. Use the \code{id} returned
-#'   from \code{\link{getActiveDocumentContext()}} to ensure
+#'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
 #' @export
@@ -66,7 +66,7 @@ replaceRanges <- function(ranges, text, id = "") {
 #' @param id The document id. When \code{NULL} or blank,
 #'   the mutation will apply to the currently open, or last
 #'   focused, RStudio document. Use the \code{id} returned
-#'   from \code{\link{getActiveDocumentContext()}} to ensure
+#'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
 #' @export

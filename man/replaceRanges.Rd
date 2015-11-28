@@ -21,7 +21,7 @@ as the \code{ranges} list.}
 \item{id}{The document id. When \code{NULL} or blank,
 the mutation will apply to the currently open, or last
 focused, RStudio document. Use the \code{id} returned
-from \code{\link{getActiveDocumentContext()}} to ensure
+from \code{\link{getActiveDocumentContext}()} to ensure
 that the operation is applied on the intended document.}
 }
 \description{
