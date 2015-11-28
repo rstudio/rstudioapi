@@ -36,7 +36,7 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #'
 #'   \code{startRow, startColumn, endRow, endColumn}
 #'
-#' @param A character vector, indicating what text should be
+#' @param text A character vector, indicating what text should be
 #'   inserted at each aforementioned range. This should either
 #'   be length one (in which case, this text is applied to each
 #'   range specified); otherwise, it should be the same length

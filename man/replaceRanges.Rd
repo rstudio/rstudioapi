@@ -12,17 +12,17 @@ replaceRanges(ranges, text, id = "")
 
   \code{startRow, startColumn, endRow, endColumn}}
 
+\item{text}{A character vector, indicating what text should be
+inserted at each aforementioned range. This should either
+be length one (in which case, this text is applied to each
+range specified); otherwise, it should be the same length
+as the \code{ranges} list.}
+
 \item{id}{The document id. When \code{NULL} or blank,
 the mutation will apply to the currently open, or last
 focused, RStudio document. Use the \code{id} returned
 from \code{\link{getActiveDocumentContext()}} to ensure
 that the operation is applied on the intended document.}
-
-\item{A}{character vector, indicating what text should be
-inserted at each aforementioned range. This should either
-be length one (in which case, this text is applied to each
-range specified); otherwise, it should be the same length
-as the \code{ranges} list.}
 }
 \description{
 Use this to change the contents of an open document.
