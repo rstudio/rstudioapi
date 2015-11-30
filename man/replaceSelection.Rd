@@ -19,7 +19,8 @@ from \code{\link{getActiveDocumentContext}()} to ensure
 that the operation is applied on the intended document.}
 }
 \description{
-Change the selection in a document.
+Replaces the contents of the currently active selection
+in the document with id \code{id} with \code{text}.
 }
 \seealso{
 Other Source Document Methods: \code{\link{getActiveDocumentContext}},

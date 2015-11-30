@@ -57,7 +57,8 @@ replaceRanges <- function(ranges, text, id = NULL) {
 
 #' Replace Selection within a Document
 #'
-#' Change the selection in a document.
+#' Replaces the contents of the currently active selection
+#' in the document with id \code{id} with \code{text}.
 #'
 #' @param text A character vector, indicating what
 #'   text should be inserted. This will be coerced
