@@ -4,7 +4,7 @@
 \alias{replaceRanges}
 \title{Replace Text within a Document}
 \usage{
-replaceRanges(ranges, text, id = "")
+replaceRanges(ranges, text, id = NULL)
 }
 \arguments{
 \item{ranges}{A list of ranges. Each range is a four-element
@@ -25,10 +25,10 @@ from \code{\link{getActiveDocumentContext}()} to ensure
 that the operation is applied on the intended document.}
 }
 \description{
-Use this to change the contents of an open document.
+Use this to change the contents of a document open in RStudio.
 }
 \seealso{
-Other Source.Document.Methods: \code{\link{getActiveDocumentContext}},
+Other Source Document Methods: \code{\link{getActiveDocumentContext}},
   \code{\link{replaceSelection}}
 }
 

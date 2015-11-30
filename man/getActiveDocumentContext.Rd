@@ -7,13 +7,12 @@
 getActiveDocumentContext()
 }
 \value{
-A \code{list} with elements:
+A \code{data.frame} with elements:
 \tabular{ll}{
 \code{id:}\tab The document ID.\cr
 \code{path:}\tab The path to the document on disk.\cr
 \code{contents:}\tab The contents of the document.\cr
-\code{selection:}\tab The contents of the current selection.\cr
-\code{range:}\tab The coordinates of the current selection, as a four-element integer vector.
+\code{selections:}\tab The \code{\link{selection}}s in the document. When the document has multiple selections active, the first selection listed is the primary, or main, selection.\cr
 }
 }
 \description{
@@ -21,7 +20,7 @@ Returns information about the currently active
 RStudio document.
 }
 \seealso{
-Other Source.Document.Methods: \code{\link{replaceRanges}},
+Other Source Document Methods: \code{\link{replaceRanges}},
   \code{\link{replaceSelection}}
 }
 

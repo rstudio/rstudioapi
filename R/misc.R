@@ -1,3 +1,6 @@
+`%||%` <- function(x, y)
+  if (is.null(x)) y else x
+
 #' Create a Position
 #'
 #' Creates a \code{position}, which can be used to indicate
@@ -9,6 +12,8 @@
 #'
 #' @param row The row (using 1-based indexing).
 #' @param column The column (using 1-based indexing).
+#'
+#' @name position
 #'
 #' @export
 #' @family location
@@ -49,10 +54,12 @@ print.position <- function(x, ...) {
 #' with each position indicating the \code{start} and \code{end}
 #' of the range, respectively.
 #'
-#' @param start A \code\link{position}} indicating the
+#' @param start A \code{\link{position}} indicating the
 #'   start of the range.
-#' @param end A \code\link{position} indicating the
+#' @param end A \code{\link{position}} indicating the
 #'   end of the range.
+#'
+#' @name range
 #'
 #' @export
 makeRange <- function(start, end) {

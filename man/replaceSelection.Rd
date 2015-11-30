@@ -4,7 +4,7 @@
 \alias{replaceSelection}
 \title{Replace Selection within a Document}
 \usage{
-replaceSelection(text, id = "")
+replaceSelection(text, id = NULL)
 }
 \arguments{
 \item{text}{A character vector, indicating what
@@ -22,7 +22,7 @@ that the operation is applied on the intended document.}
 Change the selection in a document.
 }
 \seealso{
-Other Source.Document.Methods: \code{\link{getActiveDocumentContext}},
+Other Source Document Methods: \code{\link{getActiveDocumentContext}},
   \code{\link{replaceRanges}}
 }
 
