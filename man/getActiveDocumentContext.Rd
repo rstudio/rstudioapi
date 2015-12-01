@@ -12,12 +12,17 @@ A \code{data.frame} with elements:
 \code{id:}\tab The document ID.\cr
 \code{path:}\tab The path to the document on disk.\cr
 \code{contents:}\tab The contents of the document.\cr
-\code{selections:}\tab The \code{\link{selection}}s in the document. When the document has multiple selections active, the first selection listed is the primary, or main, selection.\cr
+\code{selection:}\tab A \code{list} of selections. See details for more information.\cr
 }
 }
 \description{
 Returns information about the currently active
 RStudio document.
+}
+\details{
+The \code{selection} field returns is a list of document selection objects.
+A document selection is just a pairing of a document \code{range}, and the
+\code{text} within that range.
 }
 \seealso{
 Other Source Document Methods: \code{\link{replaceRanges}},

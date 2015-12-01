@@ -31,10 +31,8 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #'
 #' Use this to change the contents of a document open in RStudio.
 #'
-#' @param ranges A list of ranges. Each range is a four-element
-#'   integer vector, defining a document range with coordinates:
-#'
-#'   \code{startRow, startColumn, endRow, endColumn}
+#' @param ranges A list of \code{range} objects, as created by
+#'   \code{\link{makeRange}}.
 #'
 #' @param text A character vector, indicating what text should be
 #'   inserted at each aforementioned range. This should either
@@ -51,7 +49,6 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #' @export
 #' @family Source Document Methods
 replaceRanges <- function(ranges, text, id = NULL) {
-  id <- id %||% ""
   callFun("replaceRanges", ranges, text, id)
 }
 
@@ -74,7 +71,6 @@ replaceRanges <- function(ranges, text, id = NULL) {
 #' @export
 #' @family Source Document Methods
 replaceSelection <- function(text, id = NULL) {
-  id <- id %||% ""
   callFun("replaceSelection", text, id)
 }
 
@@ -83,16 +79,22 @@ replaceSelection <- function(text, id = NULL) {
 #' Returns information about the currently active
 #' RStudio document.
 #'
+#' The \code{selection} field returns is a list of document selection objects.
+#' A document selection is just a pairing of a document \code{range}, and the
+#' \code{text} within that range.
+#'
 #' @return A \code{data.frame} with elements:
 #' \tabular{ll}{
 #' \code{id:}\tab The document ID.\cr
 #' \code{path:}\tab The path to the document on disk.\cr
 #' \code{contents:}\tab The contents of the document.\cr
-#' \code{selections:}\tab The \code{\link{selection}}s in the document. When the document has multiple selections active, the first selection listed is the primary, or main, selection.\cr
+#' \code{selection:}\tab A \code{list} of selections. See details for more information.\cr
 #' }
 #'
 #' @export
 #' @family Source Document Methods
 getActiveDocumentContext <- function() {
-  callFun("getActiveDocumentContext")
+  context <- callFun("getActiveDocumentContext")
+  context$selection <- as.document_selection(context$selection)
+  context
 }

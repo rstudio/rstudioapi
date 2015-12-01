@@ -7,10 +7,8 @@
 replaceRanges(ranges, text, id = NULL)
 }
 \arguments{
-\item{ranges}{A list of ranges. Each range is a four-element
-  integer vector, defining a document range with coordinates:
-
-  \code{startRow, startColumn, endRow, endColumn}}
+\item{ranges}{A list of \code{range} objects, as created by
+\code{\link{makeRange}}.}
 
 \item{text}{A character vector, indicating what text should be
 inserted at each aforementioned range. This should either

@@ -1,35 +1,31 @@
-`%||%` <- function(x, y)
-  if (is.null(x)) y else x
-
-#' Create a Position
+#' Create a Document Position
 #'
-#' Creates a \code{position}, which can be used to indicate
-#' e.g. the row + column location of the cursor in a document.
+#' Creates a \code{document_position}, which can be used to indicate e.g. the
+#' row + column location of the cursor in a document.
 #'
-#' The values \code{-Inf} and \code{Inf} can be used to indicate
-#' the 'first' or 'last' row / column, depending on which document
-#' the position is applied to.
+#' The values \code{-Inf} and \code{Inf} can be used to indicate the 'first' or
+#' 'last' row / column, depending on which document the position is applied to.
 #'
 #' @param row The row (using 1-based indexing).
 #' @param column The column (using 1-based indexing).
 #'
-#' @name position
+#' @name document_position
 #'
 #' @export
 #' @family location
 makePosition <- function(row, column) {
-  structure(c(as.numeric(row), as.numeric(column)),
-            class = "position")
+  structure(c(row = as.numeric(row), column = as.numeric(column)),
+            class = "document_position")
 }
 
 #' @export
-is.position <- function(x) {
-  inherits(x, "position")
+is.document_position <- function(x) {
+  inherits(x, "document_position")
 }
 
 #' @export
-as.position <- function(x) {
-  if (is.position(x))
+as.document_position <- function(x) {
+  if (is.document_position(x))
     return(x)
 
   if (length(x) != 2 || !is.numeric(x))
@@ -38,43 +34,129 @@ as.position <- function(x) {
   makePosition(row = x[[1]], column = x[[2]])
 }
 
-formatPosition <- function(pos, open = "[", close = ")") {
+formatPosition <- function(pos, open = "[", close = "]") {
   formatted <- paste(format(pos), collapse = ", ")
   paste(open, formatted, close, sep = "")
 }
 
 #' @export
-print.position <- function(x, ...) {
-  cat("Position: ", formatPosition(x), "\n", sep = "")
+print.document_position <- function(x, ...) {
+  cat("Document Position: ", formatPosition(x), "\n", sep = "")
 }
 
 #' Create a Range
 #'
-#' A \code{range} is a pair of \code{\link{position}} objects,
-#' with each position indicating the \code{start} and \code{end}
-#' of the range, respectively.
+#' A \code{document_range} is a pair of \code{\link{document_position}} objects,
+#' with each position indicating the \code{start} and \code{end} of the range,
+#' respectively.
 #'
-#' @param start A \code{\link{position}} indicating the
-#'   start of the range.
-#' @param end A \code{\link{position}} indicating the
-#'   end of the range.
+#' @param start A \code{\link{position}} indicating the start of the range.
+#' @param end A \code{\link{position}} indicating the end of the range.
 #'
-#' @name range
+#' @return A \code{document_range} object, which is simply an \code{R} list with
+#'   fields:
+#'
+#' \tabular{ll}{
+#' \code{start:}\tab The start position.\cr
+#' \code{end:}\tab The end position.\cr
+#' }
+#'
+#' @name document_range
 #'
 #' @export
-makeRange <- function(start, end) {
-  structure(list(as.position(start), as.position(end)),
-            class = "range")
+makeRange <- function(start, end = NULL) {
+
+  # Allow users to construct [a, b, c, d] ranges directly
+  if (is.null(end)) {
+
+    if (length(start) != 4 || !is.numeric(start))
+      stop("invalid range specification", call. = FALSE)
+
+    end <- start[3:4]
+    start <- start[1:2]
+  }
+
+  structure(list(start = as.document_position(start),
+                 end   = as.document_position(end)),
+            class = "document_range")
+}
+
+#' @export
+is.document_range <- function(x) {
+  inherits(x, "document_range")
+}
+
+#' @export
+as.document_range <- function(x) {
+  if (is.document_range(x))
+    x
+  else
+    makeRange(x)
 }
 
 formatRange <- function(x) {
-  paste(formatPosition(x[[1]]), "--", formatPosition(x[[2]]))
+  x <- as.document_range(x)
+  startPos <- as.document_position(x$start)
+  endPos <- as.document_position(x$end)
+  paste(formatPosition(startPos), "--", formatPosition(endPos))
 }
 
 #' @export
-print.range <- function(x, ...) {
-  cat("Range:",
-      "\n- Start: ", formatPosition(x[[1]]),
-      "\n- End: ", formatPosition(x[[2]]),
+print.document_range <- function(x, ...) {
+  cat("Document Range:",
+      "\n- Start: ", formatPosition(x$start),
+      "\n- End: ", formatPosition(x$end),
       sep = "")
+}
+
+#' @export
+as.document_selection <- function(x) {
+
+  invalidMsg <- "'x' should be a list of {range, text} pairs"
+
+  if (!is.list(x))
+    stop(invalidMsg, call. = FALSE)
+
+  result <- lapply(x, function(el) {
+
+    named <- all(c("range", "text") %in% names(el))
+    if (!named)
+      stop(invalidMsg, call. = FALSE)
+
+    list(
+      range = as.document_range(el$range),
+      text  = el$text
+    )
+
+  })
+
+  structure(result, class = "document_selection")
+
+}
+
+#' @export
+formatSelection <- function(x) {
+  vapply(x, FUN.VALUE = character(1), function(el) {
+    rng <- formatRange(el$range)
+    txt <- truncateText(el$text)
+    paste(rng, ": '", txt, "'", sep = "")
+  })
+}
+
+#' @export
+print.document_selection <- function(x, ...) {
+
+  cat("Document Selection:")
+  formatted <- formatSelection(x)
+  lapply(formatted, function(el) {
+    cat("\n- ", el)
+  })
+
+}
+
+truncateText <- function(text, n = 20L, truncated = "<...>") {
+  if (nchar(text) < n)
+    text
+  else
+    paste(substring(text, 1, n), truncated, sep = "")
 }
