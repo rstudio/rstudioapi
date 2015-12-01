@@ -96,5 +96,5 @@ replaceSelection <- function(text, id = NULL) {
 getActiveDocumentContext <- function() {
   context <- callFun("getActiveDocumentContext")
   context$selection <- as.document_selection(context$selection)
-  context
+  `class<-`(context, "document_context")
 }

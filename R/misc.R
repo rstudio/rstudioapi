@@ -6,6 +6,7 @@
 #' The values \code{-Inf} and \code{Inf} can be used to indicate the 'first' or
 #' 'last' row / column, depending on which document the position is applied to.
 #'
+#' @param x An object coercable to \code{document_position}.
 #' @param row The row (using 1-based indexing).
 #' @param column The column (using 1-based indexing).
 #'
@@ -18,11 +19,13 @@ makePosition <- function(row, column) {
             class = "document_position")
 }
 
+#' @rdname document_position
 #' @export
 is.document_position <- function(x) {
   inherits(x, "document_position")
 }
 
+#' @name document_position
 #' @export
 as.document_position <- function(x) {
   if (is.document_position(x))
@@ -50,11 +53,12 @@ print.document_position <- function(x, ...) {
 #' with each position indicating the \code{start} and \code{end} of the range,
 #' respectively.
 #'
-#' @param start A \code{\link{position}} indicating the start of the range.
-#' @param end A \code{\link{position}} indicating the end of the range.
+#' @param x An object coercable to \code{document_range}.
+#' @param start A \code{\link{document_position}} indicating the start of the
+#'   range.
+#' @param end A \code{\link{document_position}} indicating the end of the range.
 #'
-#' @return A \code{document_range} object, which is simply an \code{R} list with
-#'   fields:
+#' @return An \R \code{list} with class \code{document_range} and fields:
 #'
 #' \tabular{ll}{
 #' \code{start:}\tab The start position.\cr
@@ -81,11 +85,13 @@ makeRange <- function(start, end = NULL) {
             class = "document_range")
 }
 
+#' @name document_range
 #' @export
 is.document_range <- function(x) {
   inherits(x, "document_range")
 }
 
+#' @name document_range
 #' @export
 as.document_range <- function(x) {
   if (is.document_range(x))
@@ -109,7 +115,7 @@ print.document_range <- function(x, ...) {
       sep = "")
 }
 
-#' @export
+
 as.document_selection <- function(x) {
 
   invalidMsg <- "'x' should be a list of {range, text} pairs"
@@ -134,7 +140,6 @@ as.document_selection <- function(x) {
 
 }
 
-#' @export
 formatSelection <- function(x) {
   vapply(x, FUN.VALUE = character(1), function(el) {
     rng <- formatRange(el$range)
@@ -154,9 +159,20 @@ print.document_selection <- function(x, ...) {
 
 }
 
+#' @export
+print.document_context <- function(x, ...) {
+  cat("Document Context: ",
+      "\n- id:        '", x$id, "'",
+      "\n- path:      '", x$path, "'",
+      "\n- contents:  <", length(x$contents), " rows>",
+      "\n\n", sep = "")
+  print(x$selection)
+}
+
 truncateText <- function(text, n = 20L, truncated = "<...>") {
   if (nchar(text) < n)
     text
   else
     paste(substring(text, 1, n), truncated, sep = "")
 }
+
