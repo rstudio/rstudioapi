@@ -140,7 +140,7 @@ as.document_selection <- function(x) {
 formatSelection <- function(x) {
   vapply(x, FUN.VALUE = character(1), function(el) {
     rng <- formatRange(el$range)
-    txt <- truncateText(el$text)
+    txt <- formatText(el$text)
     paste(rng, ": '", txt, "'", sep = "")
   })
 }
@@ -166,10 +166,15 @@ print.document_context <- function(x, ...) {
   print(x$selection)
 }
 
-truncateText <- function(text, n = 20L, truncated = "<...>") {
-  if (nchar(text) < n)
+formatText <- function(text, n = 20L, truncated = "<...>") {
+
+  result <- if (nchar(text) < n)
     text
   else
-    paste(substring(text, 1, n), truncated, sep = "")
+    paste(text, truncated)
+
+  # use capture.output and print.default to escape e.g. newlines
+  captured <- capture.output(print.default(result, quote = FALSE))
+  substring(captured, 5)
 }
 
