@@ -46,10 +46,21 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
+#' @note
+#' The \code{replaceRanges} function was added with version 0.99.796 of RStudio.
+#'
 #' @export
 #' @family Source Document Methods
 replaceRanges <- function(ranges, text, id = NULL) {
   callFun("replaceRanges", ranges, text, id)
+}
+
+#' Insert Text at Position(s) in a Document
+#'
+#' Use this to insert text within a document open in RStudio.
+#'
+insertText <- function(positions, text, id = NULL) {
+  callFun("insertText", positions, text, id)
 }
 
 #' Replace Selection within a Document
@@ -68,6 +79,10 @@ replaceRanges <- function(ranges, text, id = NULL) {
 #'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
+#' @note
+#' The \code{replaceSelection} function was added with version 0.99.796 of
+#' RStudio.
+#'
 #' @export
 #' @family Source Document Methods
 replaceSelection <- function(text, id = NULL) {
@@ -82,6 +97,10 @@ replaceSelection <- function(text, id = NULL) {
 #' The \code{selection} field returns is a list of document selection objects.
 #' A document selection is just a pairing of a document \code{range}, and the
 #' \code{text} within that range.
+#'
+#' @note
+#' The \code{getActiveDocumentContext} function was added with version 0.99.796
+#' of RStudio.
 #'
 #' @return A \code{data.frame} with elements:
 #' \tabular{ll}{

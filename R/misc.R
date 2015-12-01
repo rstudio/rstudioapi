@@ -3,9 +3,6 @@
 #' Creates a \code{document_position}, which can be used to indicate e.g. the
 #' row + column location of the cursor in a document.
 #'
-#' The values \code{-Inf} and \code{Inf} can be used to indicate the 'first' or
-#' 'last' row / column, depending on which document the position is applied to.
-#'
 #' @param x An object coercable to \code{document_position}.
 #' @param row The row (using 1-based indexing).
 #' @param column The column (using 1-based indexing).

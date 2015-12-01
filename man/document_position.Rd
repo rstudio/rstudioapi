@@ -24,8 +24,4 @@ as.document_position(x)
 Creates a \code{document_position}, which can be used to indicate e.g. the
 row + column location of the cursor in a document.
 }
-\details{
-The values \code{-Inf} and \code{Inf} can be used to indicate the 'first' or
-'last' row / column, depending on which document the position is applied to.
-}
 

@@ -24,6 +24,10 @@ The \code{selection} field returns is a list of document selection objects.
 A document selection is just a pairing of a document \code{range}, and the
 \code{text} within that range.
 }
+\note{
+The \code{getActiveDocumentContext} function was added with version 0.99.796
+of RStudio.
+}
 \seealso{
 Other Source Document Methods: \code{\link{replaceRanges}},
   \code{\link{replaceSelection}}

@@ -22,6 +22,10 @@ that the operation is applied on the intended document.}
 Replaces the contents of the currently active selection
 in the document with id \code{id} with \code{text}.
 }
+\note{
+The \code{replaceSelection} function was added with version 0.99.796 of
+RStudio.
+}
 \seealso{
 Other Source Document Methods: \code{\link{getActiveDocumentContext}},
   \code{\link{replaceRanges}}
