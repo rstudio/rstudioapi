@@ -67,8 +67,12 @@ test_that("various APIs for interacting with an RStudio document work", {
     ""
   )
 
-  after <- readLines(path)
-  expect_identical(before, after)
+  ctx <- getActiveDocumentContext()
+  after <- ctx$contents
+
+  # 'readLines' will not include a final newline,
+  # so accommodate that
+  expect_identical(before, after[-length(after)])
 
 })
 
