@@ -34,14 +34,14 @@ as.document_position <- function(x) {
   makePosition(row = x[[1]], column = x[[2]])
 }
 
-formatPosition <- function(pos, open = "[", close = "]") {
-  formatted <- paste(format(pos), collapse = ", ")
-  paste(open, formatted, close, sep = "")
+#' @export
+format.document_position <- function(pos, open = "[", close = "]") {
+  paste(open, paste(pos, collapse = ", "), close, sep = "")
 }
 
 #' @export
 print.document_position <- function(x, ...) {
-  cat("Document Position: ", formatPosition(x), "\n", sep = "")
+  cat("Document Position: ", format(x), "\n", sep = "")
 }
 
 #' Create a Range
@@ -67,7 +67,8 @@ print.document_position <- function(x, ...) {
 #' @export
 makeRange <- function(start, end = NULL) {
 
-  # Allow users to construct [a, b, c, d] ranges directly
+  # Allow users to write e.g. 'makeRange(c(1, 2, 3, 4))';
+  # ie, ignore using the 'end' argument
   if (is.null(end)) {
 
     if (length(start) != 4 || !is.numeric(start))
@@ -92,23 +93,24 @@ is.document_range <- function(x) {
 #' @export
 as.document_range <- function(x) {
   if (is.document_range(x))
-    x
-  else
-    makeRange(x)
+    return(x)
+
+  makeRange(x)
 }
 
-formatRange <- function(x) {
-  x <- as.document_range(x)
+#' @rname document_range
+#' @export
+format.document_range <- function(x, ...) {
   startPos <- as.document_position(x$start)
   endPos <- as.document_position(x$end)
-  paste(formatPosition(startPos), "--", formatPosition(endPos))
+  paste(format(startPos, ...), "--", format(endPos, ...))
 }
 
 #' @export
 print.document_range <- function(x, ...) {
   cat("Document Range:",
-      "\n- Start: ", formatPosition(x$start),
-      "\n- End: ", formatPosition(x$end),
+      "\n- Start: ", format(x$start),
+      "\n- End: ", format(x$end),
       sep = "")
 }
 
@@ -139,7 +141,7 @@ as.document_selection <- function(x) {
 
 formatSelection <- function(x) {
   vapply(x, FUN.VALUE = character(1), function(el) {
-    rng <- formatRange(el$range)
+    rng <- format(el$range)
     txt <- formatText(el$text)
     paste(rng, ": '", txt, "'", sep = "")
   })
@@ -178,4 +180,3 @@ formatText <- function(text, n = 20L, truncated = "<...>") {
   captured <- capture.output(print.default(result, quote = FALSE))
   substring(captured, 5)
 }
-
