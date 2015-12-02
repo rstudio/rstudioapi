@@ -3,7 +3,6 @@
 \name{document_range}
 \alias{as.document_range}
 \alias{document_range}
-\alias{format.document_range}
 \alias{is.document_range}
 \alias{makeRange}
 \title{Create a Range}
@@ -13,8 +12,6 @@ makeRange(start, end = NULL)
 is.document_range(x)
 
 as.document_range(x)
-
-\method{format}{document_range}(x, ...)
 }
 \arguments{
 \item{start}{A \code{\link{document_position}} indicating the start of the

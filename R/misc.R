@@ -43,8 +43,8 @@ as.document_position.default <- function(x) {
 }
 
 #' @export
-format.document_position <- function(pos, open = "[", close = "]") {
-  paste(open, paste(pos, collapse = ", "), close, sep = "")
+format.document_position <- function(x, ...) {
+  paste("[", paste(x, collapse = ", "), "]", sep = "")
 }
 
 #' @export
@@ -113,7 +113,6 @@ as.document_range.default <- function(x) {
   makeRange(x)
 }
 
-#' @name document_range
 #' @export
 format.document_range <- function(x, ...) {
   startPos <- as.document_position(x$start)
