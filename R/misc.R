@@ -25,8 +25,16 @@ is.document_position <- function(x) {
 #' @name document_position
 #' @export
 as.document_position <- function(x) {
-  if (is.document_position(x))
-    return(x)
+  UseMethod("as.document_position")
+}
+
+#' @export
+as.document_position.document_position <- function(x) {
+  x
+}
+
+#' @export
+as.document_position.default <- function(x) {
 
   if (length(x) != 2 || !is.numeric(x))
     stop("'x' should be a numeric vector of length 2", call. = FALSE)
@@ -92,13 +100,20 @@ is.document_range <- function(x) {
 #' @name document_range
 #' @export
 as.document_range <- function(x) {
-  if (is.document_range(x))
-    return(x)
+  UseMethod("as.document_range")
+}
 
+#' @export
+as.document_range.document_range <- function(x) {
+  x
+}
+
+#' @export
+as.document_range.default <- function(x) {
   makeRange(x)
 }
 
-#' @rname document_range
+#' @name document_range
 #' @export
 format.document_range <- function(x, ...) {
   startPos <- as.document_position(x$start)
@@ -113,7 +128,6 @@ print.document_range <- function(x, ...) {
       "\n- End: ", format(x$end),
       sep = "")
 }
-
 
 as.document_selection <- function(x) {
 
