@@ -1,5 +1,8 @@
 context("Document API")
 
+## The tests contained in this file 'pass' if, after sourcing
+## in RStudio, the contents don't change. :)
+
 # -- Scratch Space -- #
 #
 #
@@ -10,26 +13,26 @@ context("Document API")
 
 test_that("various APIs for interacting with an RStudio document work", {
 
-  scratchRanges <- Map(c, Map(c, 4:8, 1), Map(c, 4:8, Inf))
+  scratchRanges <- Map(c, Map(c, 7:11, 1), Map(c, 7:11, Inf))
 
   # Insert text at position
-  insertText(makePosition(4, Inf), " Hello")
+  insertText(makePosition(7, Inf), " Hello")
   insertText(list(
-    makePosition(5, Inf),
-    makePosition(6, Inf)
+    makePosition(8, Inf),
+    makePosition(9, Inf)
   ), " Hello")
 
   insertText(list(
-    makePosition(7, Inf),
-    makePosition(8, Inf)
+    makePosition(10, Inf),
+    makePosition(11, Inf)
   ), c(" First", " Second"))
 
   # Clean up
   insertText(scratchRanges, "#")
 
   # Insert text at range
-  insertText(c(4, 1, 4, Inf), "# Howdy")
-  insertText(makeRange(start = c(5, 1), end = c(5, Inf)), "# Hello There")
+  insertText(c(7, 1, 7, Inf), "# Howdy")
+  insertText(makeRange(start = c(8, 1), end = c(8, Inf)), "# Hello There")
 
   # Clean up
   insertText(scratchRanges, "#")
@@ -39,11 +42,11 @@ test_that("various APIs for interacting with an RStudio document work", {
   insertText(c(Inf, 1), "# Hello!\n")
 
   # Add an extra comment to the scratch space
-  pos <- Map(c, 4:8, 1)
+  pos <- Map(c, 7:11, 1)
   insertText(pos, "# ")
 
   # Remove the aforementioned extra comment
-  rng <- Map(c, Map(c, 4:8, 1), Map(c, 4:8, 3))
+  rng <- Map(c, Map(c, 7:11, 1), Map(c, 7:11, 3))
   insertText(rng, "")
 
   # Clean up things we appended to the document
