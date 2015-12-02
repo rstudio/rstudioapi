@@ -12,13 +12,7 @@ context("Document API")
 #  -- Scratch Space -- #
 
 test_that("various APIs for interacting with an RStudio document work", {
-
-  if (!rstudioapi::isAvailable("0.99.796")) {
-    if (rstudioapi::isAvailable())
-      skip("Insufficient RStudio version")
-    else
-      skip("Not in RStudio")
-  }
+  skip_if_not_rstudio("0.99.796")
 
   context <- getActiveDocumentContext()
   path <- context$path
