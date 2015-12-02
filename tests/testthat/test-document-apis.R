@@ -13,6 +13,10 @@ context("Document API")
 
 test_that("various APIs for interacting with an RStudio document work", {
 
+  context <- getActiveDocumentContext()
+  path <- context$path
+  before <- readLines(path)
+
   scratchRanges <- Map(c, Map(c, 7:11, 1), Map(c, 7:11, Inf))
 
   # Insert text at position
@@ -50,12 +54,14 @@ test_that("various APIs for interacting with an RStudio document work", {
   insertText(rng, "")
 
   # Clean up things we appended to the document
-  context <- getActiveDocumentContext()
   end <- grep("^# -- Final Scratch Space -- #", context$contents)
   insertText(
     makeRange(start = c(end + 1, 1), end = c(Inf, 1)),
     ""
   )
+
+  after <- readLines(path)
+  expect_identical(before, after)
 
 })
 
