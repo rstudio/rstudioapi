@@ -166,6 +166,7 @@ print.document_context <- function(x, ...) {
   print(x$selection)
 }
 
+#' @importFrom utils capture.output
 formatText <- function(text, n = 20L, truncated = "<...>") {
 
   result <- if (nchar(text) < n)

@@ -1,6 +1,5 @@
 
 
-
 #' @export
 versionInfo <- function() {
   callFun("versionInfo")
@@ -27,12 +26,12 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
   callFun("navigateToFile", file, as.integer(line), as.integer(column))
 }
 
-#' Replace Text within a Document
+#' Insert Text into a Document.
 #'
 #' Use this to change the contents of a document open in RStudio.
 #'
-#' @param ranges A list of \code{range} objects, as created by
-#'   \code{\link{makeRange}}.
+#' @param location An object specifying the positions, or ranges, wherein
+#'   text should be inserted. See \bold{Details} for more information.
 #'
 #' @param text A character vector, indicating what text should be
 #'   inserted at each aforementioned range. This should either
@@ -46,47 +45,41 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
+#' @details
+#' To operate on the current selection in a document, call \code{insertText()}
+#' with only a text argument, e.g.
+#'
+#' \preformatted{
+#'     insertText("# Hello\\n")
+#'     insertText(text = "# Hello\\n")
+#' }
+#'
+#' Otherwise, specify a (list of) positions or ranges, as in:
+#'
+#' \preformatted{
+#'     # insert text at the start of the document
+#'     insertText(c(1, 1), "# Hello\\n")
+#'
+#'     # insert text at the end of the document
+#'     insertText(Inf, "# Hello\\n")
+#'
+#'     # comment out the first 5 rows
+#'     pos <- Map(c, 1:5, 1)
+#'     insertText(pos, "# ")
+#'
+#'     # uncomment the first 5 rows, undoing the previous action
+#'     rng <- Map(c, Map(c, 1:5, 1), Map(c, 1:5, 3))
+#'     insertText(rng, "")
+#'
+#' }
+#'
 #' @note
 #' The \code{replaceRanges} function was added with version 0.99.796 of RStudio.
 #'
 #' @export
 #' @family Source Document Methods
-replaceRanges <- function(ranges, text, id = NULL) {
-  callFun("replaceRanges", ranges, text, id)
-}
-
-#' Insert Text at Position(s) in a Document
-#'
-#' Use this to insert text within a document open in RStudio.
-#'
-insertText <- function(positions, text, id = NULL) {
-  callFun("insertText", positions, text, id)
-}
-
-#' Replace Selection within a Document
-#'
-#' Replaces the contents of the currently active selection
-#' in the document with id \code{id} with \code{text}.
-#'
-#' @param text A character vector, indicating what
-#'   text should be inserted. This will be coerced
-#'   into a length one character vector as with
-#'   \code{paste(text, collapse = "\\n")}.
-#'
-#' @param id The document id. When \code{NULL} or blank,
-#'   the mutation will apply to the currently open, or last
-#'   focused, RStudio document. Use the \code{id} returned
-#'   from \code{\link{getActiveDocumentContext}()} to ensure
-#'   that the operation is applied on the intended document.
-#'
-#' @note
-#' The \code{replaceSelection} function was added with version 0.99.796 of
-#' RStudio.
-#'
-#' @export
-#' @family Source Document Methods
-replaceSelection <- function(text, id = NULL) {
-  callFun("replaceSelection", text, id)
+insertText <- function(location, text, id = NULL) {
+  callFun("insertText", location, text, id)
 }
 
 #' Get the Active Document Context

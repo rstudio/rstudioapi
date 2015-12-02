@@ -29,7 +29,6 @@ The \code{getActiveDocumentContext} function was added with version 0.99.796
 of RStudio.
 }
 \seealso{
-Other Source Document Methods: \code{\link{replaceRanges}},
-  \code{\link{replaceSelection}}
+Other Source Document Methods: \code{\link{insertText}}
 }
 

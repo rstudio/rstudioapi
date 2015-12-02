@@ -2,11 +2,61 @@
 % Please edit documentation in R/stubs.R
 \name{insertText}
 \alias{insertText}
-\title{Insert Text at Position(s) in a Document}
+\title{Insert Text into a Document.}
 \usage{
-insertText(positions, text, id = NULL)
+insertText(location, text, id = NULL)
+}
+\arguments{
+\item{location}{An object specifying the positions, or ranges, wherein
+text should be inserted. See \bold{Details} for more information.}
+
+\item{text}{A character vector, indicating what text should be
+inserted at each aforementioned range. This should either
+be length one (in which case, this text is applied to each
+range specified); otherwise, it should be the same length
+as the \code{ranges} list.}
+
+\item{id}{The document id. When \code{NULL} or blank,
+the mutation will apply to the currently open, or last
+focused, RStudio document. Use the \code{id} returned
+from \code{\link{getActiveDocumentContext}()} to ensure
+that the operation is applied on the intended document.}
 }
 \description{
-Use this to insert text within a document open in RStudio.
+Use this to change the contents of a document open in RStudio.
+}
+\details{
+To operate on the current selection in a document, call \code{insertText()}
+with only a text argument, e.g.
+
+\preformatted{
+    insertText("# Hello\\n")
+    insertText(text = "# Hello\\n")
+}
+
+Otherwise, specify a (list of) positions or ranges, as in:
+
+\preformatted{
+    # insert text at the start of the document
+    insertText(c(1, 1), "# Hello\\n")
+
+    # insert text at the end of the document
+    insertText(Inf, "# Hello\\n")
+
+    # comment out the first 5 rows
+    pos <- Map(c, 1:5, 1)
+    insertText(pos, "# ")
+
+    # uncomment the first 5 rows, undoing the previous action
+    rng <- Map(c, Map(c, 1:5, 1), Map(c, 1:5, 3))
+    insertText(rng, "")
+
+}
+}
+\note{
+The \code{replaceRanges} function was added with version 0.99.796 of RStudio.
+}
+\seealso{
+Other Source Document Methods: \code{\link{getActiveDocumentContext}}
 }
 
