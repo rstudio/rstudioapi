@@ -12,4 +12,5 @@ Maintainer: JJ Allaire <jj@rstudio.com>
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 5.0.1
-Suggests: testthat
+Suggests:
+    testthat

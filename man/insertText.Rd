@@ -54,7 +54,7 @@ Otherwise, specify a (list of) positions or ranges, as in:
 }
 }
 \note{
-The \code{replaceRanges} function was added with version 0.99.796 of RStudio.
+The \code{insertText} function was added with version 0.99.796 of RStudio.
 }
 \seealso{
 Other Source Document Methods: \code{\link{getActiveDocumentContext}}

@@ -74,7 +74,7 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 #' }
 #'
 #' @note
-#' The \code{replaceRanges} function was added with version 0.99.796 of RStudio.
+#' The \code{insertText} function was added with version 0.99.796 of RStudio.
 #'
 #' @export
 #' @family Source Document Methods
