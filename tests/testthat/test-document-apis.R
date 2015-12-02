@@ -13,6 +13,9 @@ context("Document API")
 
 test_that("various APIs for interacting with an RStudio document work", {
 
+  if (!rstudioapi::isAvailable())
+    skip("Not in RStudio")
+
   context <- getActiveDocumentContext()
   path <- context$path
   before <- readLines(path)
