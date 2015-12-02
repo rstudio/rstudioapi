@@ -13,7 +13,7 @@ context("Document API")
 
 test_that("various APIs for interacting with an RStudio document work", {
 
-  if (!rstudioapi::isAvailable())
+  if (!rstudioapi::isAvailable("0.99.796"))
     skip("Not in RStudio")
 
   context <- getActiveDocumentContext()
