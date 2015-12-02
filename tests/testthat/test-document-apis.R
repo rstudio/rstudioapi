@@ -38,16 +38,22 @@ test_that("various APIs for interacting with an RStudio document work", {
   insertText(Inf, "# Hello!\n")
   insertText(c(Inf, 1), "# Hello!\n")
 
-  # Comment out the first 5 lines
+  # Add an extra comment to the scratch space
   pos <- Map(c, 4:8, 1)
   insertText(pos, "# ")
 
-  # Uncomment the first 5 lines
+  # Remove the aforementioned extra comment
   rng <- Map(c, Map(c, 4:8, 1), Map(c, 4:8, 3))
   insertText(rng, "")
 
+  # Clean up things we appended to the document
+  context <- getActiveDocumentContext()
+  end <- grep("^# -- Final Scratch Space -- #", context$contents)
+  insertText(
+    makeRange(start = c(end + 1, 1), end = c(Inf, 1)),
+    ""
+  )
+
 })
 
-# -- Scratch Space -- #
-# Hello!
-# Hello!
+# -- Final Scratch Space -- #
