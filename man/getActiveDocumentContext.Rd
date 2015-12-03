@@ -7,12 +7,12 @@
 getActiveDocumentContext()
 }
 \value{
-A \code{data.frame} with elements:
+A \code{list} with elements:
 \tabular{ll}{
-\code{id:}\tab The document ID.\cr
-\code{path:}\tab The path to the document on disk.\cr
-\code{contents:}\tab The contents of the document.\cr
-\code{selection:}\tab A \code{list} of selections. See details for more information.\cr
+\code{id} \tab The document ID.\cr
+\code{path} \tab The path to the document on disk.\cr
+\code{contents} \tab The contents of the document.\cr
+\code{selection} \tab A \code{list} of selections. See \bold{Details} for more information.\cr
 }
 }
 \description{
@@ -20,7 +20,7 @@ Returns information about the currently active
 RStudio document.
 }
 \details{
-The \code{selection} field returns is a list of document selection objects.
+The \code{selection} field returned is a list of document selection objects.
 A document selection is just a pairing of a document \code{range}, and the
 \code{text} within that range.
 }
@@ -29,6 +29,6 @@ The \code{getActiveDocumentContext} function was added with version 0.99.796
 of RStudio.
 }
 \seealso{
-Other Source Document Methods: \code{\link{insertText}}
+Other source document methods: \code{\link{insertText}}
 }
 

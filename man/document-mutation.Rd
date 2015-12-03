@@ -2,9 +2,15 @@
 % Please edit documentation in R/document-api.R
 \name{insertText}
 \alias{insertText}
-\title{Insert Text into a Document.}
+\alias{modifyRange}
+\alias{setDocumentContents}
+\title{Modify the Contents of a Document}
 \usage{
 insertText(location, text, id = NULL)
+
+modifyRange(location, text, id = NULL)
+
+setDocumentContents(text, id = NULL)
 }
 \arguments{
 \item{location}{An object specifying the positions, or ranges, wherein
@@ -23,9 +29,13 @@ from \code{\link{getActiveDocumentContext}()} to ensure
 that the operation is applied on the intended document.}
 }
 \description{
-Use this to change the contents of a document open in RStudio.
+Use these functions to modify the contents of a document open in RStudio.
 }
 \details{
+\code{location} should be a (list of) \code{\link{document_position}} or
+\code{\link{document_range}} object(s), or numeric vectors coercable to
+such objects.
+
 To operate on the current selection in a document, call \code{insertText()}
 with only a text argument, e.g.
 
@@ -49,14 +59,21 @@ Otherwise, specify a (list of) positions or ranges, as in:
 
     # uncomment the first 5 rows, undoing the previous action
     rng <- Map(c, Map(c, 1:5, 1), Map(c, 1:5, 3))
-    insertText(rng, "")
-
+    modifyRange(rng, "")
 }
+
+\code{modifyRange} is a synonym for \code{insertText}, but makes its intent
+clearer when working with ranges, as performing text insertion with a range
+will replace the text previously existing in that range with new text. For
+clarity, prefer using \code{insertText} when working with
+\code{\link{document_position}}s, and \code{modifyRange} when working with
+\code{\link{document_range}}s.
 }
 \note{
-The \code{insertText} function was added with version 0.99.796 of RStudio.
+The \code{insertText}, \code{modifyRange} and \code{setDocumentContents}
+functions were added with version 0.99.796 of RStudio.
 }
 \seealso{
-Other Source Document Methods: \code{\link{getActiveDocumentContext}}
+Other source document methods: \code{\link{getActiveDocumentContext}}
 }
 

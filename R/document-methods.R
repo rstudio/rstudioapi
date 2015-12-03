@@ -125,7 +125,7 @@ print.document_range <- function(x, ...) {
   cat("Document Range:",
       "\n- Start: ", format(x$start),
       "\n- End: ", format(x$end),
-      sep = "")
+      "\n", sep = "")
 }
 
 as.document_selection <- function(x) {
@@ -163,12 +163,12 @@ formatSelection <- function(x) {
 #' @export
 print.document_selection <- function(x, ...) {
 
-  cat("Document Selection:")
+  cat("Document Selection:", sep = "")
   formatted <- formatSelection(x)
   lapply(formatted, function(el) {
-    cat("\n- ", el)
+    cat("\n- ", el, sep = "")
   })
-
+  cat("\n", sep = "")
 }
 
 #' @export
@@ -177,6 +177,6 @@ print.document_context <- function(x, ...) {
       "\n- id:        '", x$id, "'",
       "\n- path:      '", x$path, "'",
       "\n- contents:  <", length(x$contents), " rows>",
-      "\n\n", sep = "")
+      "\n", sep = "")
   print(x$selection)
 }
