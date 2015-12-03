@@ -66,6 +66,11 @@ insertText <- function(location, text, id = NULL) {
 #'   focused, RStudio document. Use the \code{id} returned
 #'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
+#'
+#' @note
+#' The \code{setDocumentContents} function was added with version 0.99.796 of
+#' RStudio.
+#'
 #' @export
 setDocumentContents <- function(text, id = NULL) {
 
