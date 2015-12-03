@@ -19,4 +19,8 @@ that the operation is applied on the intended document.}
 Set the contents of a document, deleting any other text existing in the
 document previously.
 }
+\note{
+The \code{setDocumentContents} function was added with version 0.99.796 of
+RStudio.
+}
 
