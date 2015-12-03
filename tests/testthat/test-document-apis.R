@@ -21,15 +21,15 @@ test_that("various APIs for interacting with an RStudio document work", {
   scratchRanges <- Map(c, Map(c, 7:11, 1), Map(c, 7:11, Inf))
 
   # Insert text at position
-  insertText(makePosition(7, Inf), " Hello")
+  insertText(document_position(7, Inf), " Hello")
   insertText(list(
-    makePosition(8, Inf),
-    makePosition(9, Inf)
+    document_position(8, Inf),
+    document_position(9, Inf)
   ), " Hello")
 
   insertText(list(
-    makePosition(10, Inf),
-    makePosition(11, Inf)
+    document_position(10, Inf),
+    document_position(11, Inf)
   ), c(" First", " Second"))
 
   # Clean up
@@ -37,7 +37,7 @@ test_that("various APIs for interacting with an RStudio document work", {
 
   # Insert text at range
   insertText(c(7, 1, 7, Inf), "# Howdy")
-  insertText(makeRange(start = c(8, 1), end = c(8, Inf)), "# Hello There")
+  insertText(document_range(start = c(8, 1), end = c(8, Inf)), "# Hello There")
 
   # Clean up
   insertText(scratchRanges, "#")
@@ -57,7 +57,7 @@ test_that("various APIs for interacting with an RStudio document work", {
   # Clean up things we appended to the document
   end <- grep("^# -- Final Scratch Space -- #", context$contents)
   insertText(
-    makeRange(start = c(end + 1, 1), end = c(Inf, 1)),
+    document_range(start = c(end + 1, 1), end = c(Inf, 1)),
     ""
   )
 

@@ -11,7 +11,7 @@
 #'
 #' @export
 #' @family location
-makePosition <- function(row, column) {
+document_position <- function(row, column) {
   structure(c(row = as.numeric(row), column = as.numeric(column)),
             class = "document_position")
 }
@@ -39,7 +39,7 @@ as.document_position.default <- function(x) {
   if (length(x) != 2 || !is.numeric(x))
     stop("'x' should be a numeric vector of length 2", call. = FALSE)
 
-  makePosition(row = x[[1]], column = x[[2]])
+  document_position(row = x[[1]], column = x[[2]])
 }
 
 #' @export
@@ -73,9 +73,9 @@ print.document_position <- function(x, ...) {
 #' @name document_range
 #'
 #' @export
-makeRange <- function(start, end = NULL) {
+document_range <- function(start, end = NULL) {
 
-  # Allow users to write e.g. 'makeRange(c(1, 2, 3, 4))';
+  # Allow users to write e.g. 'document_range(c(1, 2, 3, 4))';
   # ie, ignore using the 'end' argument
   if (is.null(end)) {
 
@@ -110,13 +110,13 @@ as.document_range.document_range <- function(x) {
 
 #' @export
 as.document_range.default <- function(x) {
-  makeRange(x)
+  document_range(x)
 }
 
 #' @export
 format.document_range <- function(x, ...) {
   startPos <- as.document_position(x$start)
-  endPos <- as.document_position(x$end)
+  endPos   <- as.document_position(x$end)
   paste(format(startPos, ...), "--", format(endPos, ...))
 }
 

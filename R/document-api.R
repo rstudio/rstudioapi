@@ -54,6 +54,29 @@ insertText <- function(location, text, id = NULL) {
   callFun("insertText", location, text, id)
 }
 
+#' Set the Contents of a Document
+#'
+#' Set the contents of a document, deleting any other text existing in the
+#' document previously.
+#'
+#' @param text The text to insert into the document.
+#'
+#' @param id The document id. When \code{NULL} or blank,
+#'   the mutation will apply to the currently open, or last
+#'   focused, RStudio document. Use the \code{id} returned
+#'   from \code{\link{getActiveDocumentContext}()} to ensure
+#'   that the operation is applied on the intended document.
+#' @export
+setDocumentContents <- function(text, id = NULL) {
+
+  location <- document_range(
+    document_position(1, 1),
+    document_position(Inf, 1)
+  )
+
+  insertText(location, text, id)
+}
+
 #' Get the Active Document Context
 #'
 #' Returns information about the currently active
@@ -80,5 +103,5 @@ insertText <- function(location, text, id = NULL) {
 getActiveDocumentContext <- function() {
   context <- callFun("getActiveDocumentContext")
   context$selection <- as.document_selection(context$selection)
-  `class<-`(context, "document_context")
+  structure(context, class = "document_context")
 }

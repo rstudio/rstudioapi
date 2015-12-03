@@ -4,10 +4,9 @@
 \alias{as.document_range}
 \alias{document_range}
 \alias{is.document_range}
-\alias{makeRange}
 \title{Create a Range}
 \usage{
-makeRange(start, end = NULL)
+document_range(start, end = NULL)
 
 is.document_range(x)
 

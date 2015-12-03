@@ -4,10 +4,9 @@
 \alias{as.document_position}
 \alias{document_position}
 \alias{is.document_position}
-\alias{makePosition}
 \title{Create a Document Position}
 \usage{
-makePosition(row, column)
+document_position(row, column)
 
 is.document_position(x)
 
