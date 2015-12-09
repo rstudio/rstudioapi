@@ -1,3 +1,8 @@
+rstudioapi 0.4
+--------------------------------------------------------------------------------
+
+* Add API methods for interacting with a document open in RStudio: 'insertText()', 'modifyRange()' and 'getActiveDocumentContext()'.
+
 rstudioapi 0.3
 --------------------------------------------------------------------------------
 
