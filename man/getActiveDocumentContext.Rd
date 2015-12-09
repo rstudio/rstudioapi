@@ -28,7 +28,4 @@ A document selection is just a pairing of a document \code{range}, and the
 The \code{getActiveDocumentContext} function was added with version 0.99.796
 of RStudio.
 }
-\seealso{
-Other source document methods: \code{\link{insertText}}
-}
 

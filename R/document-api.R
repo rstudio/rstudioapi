@@ -62,15 +62,16 @@
 #'
 #' @rdname document-mutation
 #' @export
-#' @family source document methods
 insertText <- function(location, text, id = NULL) {
   callFun("insertText", location, text, id)
 }
 
+#' @name document-mutation
 #' @rdname document-mutation
 #' @export
 modifyRange <- insertText
 
+#' @name document-mutation
 #' @rdname document-mutation
 #' @export
 setDocumentContents <- function(text, id = NULL) {
@@ -105,7 +106,6 @@ setDocumentContents <- function(text, id = NULL) {
 #' }
 #'
 #' @export
-#' @family source document methods
 getActiveDocumentContext <- function() {
   context <- callFun("getActiveDocumentContext")
   context$selection <- as.document_selection(context$selection)
