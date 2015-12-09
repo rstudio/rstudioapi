@@ -26,4 +26,3 @@ Once the file is open, the cursor is moved to the specified location.
 
 Note that if your intent is to navigate to a particular function within a file, you can also cause RStudio to navigate there by invoking \code{\link[utils]{View}} on the function, which has the advantage of falling back on deparsing if the file is not available.
 }
-

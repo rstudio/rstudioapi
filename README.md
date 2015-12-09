@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/rstudio/rstudioapi.png?branch=master)](https://travis-ci.org/rstudio/rstudioapi)
 
-The rstudioapi package is designed to make it easy to conditionally access the Rstudio API from CRAN packages, avoiding any potential problems with `R CMD check`. This package contains a handful of useful wrapper functions to access the API. To see the functions that are currently available in the API, run `help(package = "rstudio")`
+The `rstudioapi` package is designed to make it easy to conditionally access the
+[RStudio](http://www.rstudio.com/) API from CRAN packages, avoiding any
+potential problems with `R CMD check`. This package contains a handful of useful
+wrapper functions to access the API. To see the functions that are currently
+available in the API, run `help(package = "rstudio")`
 
 # Example uses
 
@@ -42,5 +46,5 @@ rstudioapi::hasFun("viewer", 0.99)
 
 # Installation
 
-* Install the development version with `devtools::install_github("rstudio/rstudioapi")
-`
+* Install the development version with
+`devtools::install_github("rstudio/rstudioapi")`.

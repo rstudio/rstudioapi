@@ -36,4 +36,3 @@ The \code{markers} argument can contains either a list of marker lists or a data
 Note that if the \code{message} field is of class "html" (i.e. \code{inherits(message, "html") == TRUE}) then it's contents will be treated as HTML.
 
 }
-
