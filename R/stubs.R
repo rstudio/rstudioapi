@@ -26,3 +26,7 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
   callFun("navigateToFile", file, as.integer(line), as.integer(column))
 }
 
+#' @export
+askForPassword <- function(prompt) {
+  callFun("askForPassword", prompt)
+}
