@@ -18,6 +18,10 @@ askForPassword(prompt)
   \item{prompt}{Single element character vector containing the prompt to be displayed}
 }
 
+\details{
+RStudio also sets the global \code{askpass} option to the \code{rstudioapi::askForPassword} function so that it can be invoked in a front-end independent manner.
+}
+
 \examples{
 \dontrun{
 rstudioapi::askForPassword("Please enter your password")
