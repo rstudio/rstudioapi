@@ -3,6 +3,8 @@ rstudioapi 0.5 (unreleased)
 
 * Add askForPassword function
 
+* Add getActiveProject function
+
 rstudioapi 0.4
 --------------------------------------------------------------------------------
 

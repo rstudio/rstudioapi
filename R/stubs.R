@@ -30,3 +30,9 @@ navigateToFile <- function(file, line = 1L, column = 1L) {
 askForPassword <- function(prompt) {
   callFun("askForPassword", prompt)
 }
+
+#' @export
+getActiveProject <- function() {
+  callFun("getActiveProject")
+}
+
