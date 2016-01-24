@@ -1,4 +1,4 @@
-rstudioapi 0.5 (unreleased)
+rstudioapi 0.5
 --------------------------------------------------------------------------------
 
 * Add askForPassword function
