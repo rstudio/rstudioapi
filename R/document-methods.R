@@ -200,7 +200,7 @@ primary_selection <- function(x, ...) {
 
 #' @export
 primary_selection.document_context <- function(x, ...) {
-  x$selection[[1]]
+  primary_selection(x$selection)
 }
 
 #' @export
