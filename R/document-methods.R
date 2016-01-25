@@ -181,3 +181,29 @@ print.document_context <- function(x, ...) {
   print(x$selection)
 }
 
+#' Extract the Primary Selection
+#'
+#' By default, functions returning a document context will
+#' return a list of selections, including both the 'primary'
+#' selection and also 'other' selections (e.g. to handle the
+#' case where a user might have multiple cursors active).
+#' Use \code{primary_selection()} to extract the primary
+#' selection.
+#'
+#' @param x A document context, or a selection.
+#' @param ... Optional arguments (currently ignored).
+#'
+#' @export
+primary_selection <- function(x, ...) {
+  UseMethod("primary_selection")
+}
+
+#' @export
+primary_selection.document_context <- function(x, ...) {
+  x$selection[[1]]
+}
+
+#' @export
+primary_selection.document_selection <- function(x, ...) {
+  x[[1]]
+}

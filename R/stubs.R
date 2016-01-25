@@ -43,7 +43,7 @@ getActiveProject <- function() {
 #' @param code A character vector of code.
 #' @param echo Whether to echo the code in the console before executing.
 #' @param execute Execute the code sent to the console?
-#' @param focs Focus the console?
+#' @param focus Focus the console?
 #'
 #' @note
 #' The \code{sendToConsole} function was added in version 0.99.853 of RStudio.

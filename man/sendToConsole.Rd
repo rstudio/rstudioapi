@@ -13,7 +13,7 @@ sendToConsole(code, echo = TRUE, execute = TRUE, focus = TRUE)
 
 \item{execute}{Execute the code sent to the console?}
 
-\item{focs}{Focus the console?}
+\item{focus}{Focus the console?}
 }
 \description{
 Send, and execute, within the RStudio console.
