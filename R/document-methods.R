@@ -180,3 +180,4 @@ print.document_context <- function(x, ...) {
       "\n", sep = "")
   print(x$selection)
 }
+
