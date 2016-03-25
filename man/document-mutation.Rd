@@ -4,7 +4,9 @@
 \alias{document-mutation}
 \alias{insertText}
 \alias{modifyRange}
+\alias{setCursorPosition}
 \alias{setDocumentContents}
+\alias{setSelectionRanges}
 \title{Modify the Contents of a Document}
 \usage{
 insertText(location, text, id = NULL)
@@ -12,6 +14,10 @@ insertText(location, text, id = NULL)
 modifyRange(location, text, id = NULL)
 
 setDocumentContents(text, id = NULL)
+
+setCursorPosition(position, id = NULL)
+
+setSelectionRanges(ranges, id = NULL)
 }
 \arguments{
 \item{location}{An object specifying the positions, or ranges, wherein
@@ -73,5 +79,8 @@ clarity, prefer using \code{insertText} when working with
 \note{
 The \code{insertText}, \code{modifyRange} and \code{setDocumentContents}
 functions were added with version 0.99.796 of RStudio.
+
+The \code{setCursorPosition} and \code{setSelectionRanges} functions were
+added with version 0.99.1111 of RStudio.
 }
 

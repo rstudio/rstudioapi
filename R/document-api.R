@@ -60,6 +60,9 @@
 #' The \code{insertText}, \code{modifyRange} and \code{setDocumentContents}
 #' functions were added with version 0.99.796 of RStudio.
 #'
+#' The \code{setCursorPosition} and \code{setSelectionRanges} functions were
+#' added with version 0.99.1111 of RStudio.
+#'
 #' @rdname document-mutation
 #' @export
 insertText <- function(location, text, id = NULL) {
@@ -84,10 +87,23 @@ setDocumentContents <- function(text, id = NULL) {
   insertText(location, text, id)
 }
 
-#' Get the Active Document Context
+#' @name document-mutation
+#' @rdname document-mutation
+#' @export
+setCursorPosition <- function(position, id = NULL) {
+  callFun("setSelectionRanges", position, id)
+}
+
+#' @name document-mutation
+#' @rdname document-mutation
+#' @export
+setSelectionRanges <- function(ranges, id = NULL) {
+  callFun("setSelectionRanges", ranges, id)
+}
+
+#' Retrieve Information about an RStudio Editor
 #'
-#' Returns information about the currently active
-#' RStudio document.
+#' Returns information about an RStudio editor.
 #'
 #' The \code{selection} field returned is a list of document selection objects.
 #' A document selection is just a pairing of a document \code{range}, and the
@@ -95,7 +111,8 @@ setDocumentContents <- function(text, id = NULL) {
 #'
 #' @note
 #' The \code{getActiveDocumentContext} function was added with version 0.99.796
-#' of RStudio.
+#' of RStudio, while the \code{getSourceEditorContext} and the \code{getConsoleEditorContext}
+#' functions were added with version 0.99.1111.
 #'
 #' @return A \code{list} with elements:
 #' \tabular{ll}{
@@ -105,9 +122,29 @@ setDocumentContents <- function(text, id = NULL) {
 #' \code{selection} \tab A \code{list} of selections. See \bold{Details} for more information.\cr
 #' }
 #'
+#' @rdname editor-information
+#' @name editor-information
 #' @export
 getActiveDocumentContext <- function() {
   context <- callFun("getActiveDocumentContext")
+  context$selection <- as.document_selection(context$selection)
+  structure(context, class = "document_context")
+}
+
+#' @rdname editor-information
+#' @name editor-information
+#' @export
+getSourceEditorContext <- function() {
+  context <- callFun("getSourceEditorContext")
+  context$selection <- as.document_selection(context$selection)
+  structure(context, class = "document_context")
+}
+
+#' @rdname editor-information
+#' @name editor-information
+#' @export
+getConsoleEditorContext <- function() {
+  context <- callFun("getConsoleEditorContext")
   context$selection <- as.document_selection(context$selection)
   structure(context, class = "document_context")
 }
