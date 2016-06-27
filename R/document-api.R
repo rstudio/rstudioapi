@@ -17,6 +17,10 @@
 #'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
+#' @param position Cursor position
+#'
+#' @param ranges Selection ranges
+#'
 #' @details
 #'
 #' \code{location} should be a (list of) \code{\link{document_position}} or

@@ -34,6 +34,10 @@ the mutation will apply to the currently open, or last
 focused, RStudio document. Use the \code{id} returned
 from \code{\link{getActiveDocumentContext}()} to ensure
 that the operation is applied on the intended document.}
+
+\item{position}{Cursor position}
+
+\item{ranges}{Selection ranges}
 }
 \description{
 Use these functions to modify the contents of a document open in RStudio.
