@@ -49,8 +49,9 @@ createProjectTemplate <- function(package = ".",
 
   # create templates directory
   templates_dir <- file.path(package, "inst/rstudio/templates/project")
-  if (!dir.create(templates_dir, recursive = TRUE))
-    stop(sprintf("failed to create '%s' directory", templates_dir))
+  if (!file.exists(templates_dir))
+    if (!dir.create(templates_dir, recursive = TRUE))
+      stop(sprintf("failed to create '%s' directory", templates_dir))
 
   # construct DCF metadata contents
   dcf <- paste(names(metadata), ": ", metadata, sep = "")
