@@ -56,6 +56,20 @@ createProjectTemplate <- function(package = ".",
   # construct DCF metadata contents
   dcf <- paste(names(metadata), ": ", metadata, sep = "")
 
+  # add header linking to online documentation
+  header <- c(
+    "# This file provides the metadata necessary for RStudio to",
+    "# use the '%s()' function when initializing a project. See",
+    "# the documentation online at: ",
+    "#",
+    "#   https://rstudio.github.io/rstudio-extensions/rstudio_project_templates.html",
+    "#",
+    "# for more details.",
+    ""
+  )
+  header <- sprintf(header, binding)
+  dcf <- c(header, dcf)
+
   # construct path to file
   name <- gsub("[^a-zA-Z0-9_.]", "_", binding)
   path <- file.path(templates_dir, paste(name, "dcf", sep = "."))
