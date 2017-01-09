@@ -57,7 +57,7 @@ createProjectTemplate <- function(package = ".",
   dcf <- paste(names(metadata), ": ", metadata, sep = "")
 
   # construct path to file
-  name <- gsub("[^a-zA-Z0-9_]", "_", binding)
+  name <- gsub("[^a-zA-Z0-9_.]", "_", binding)
   path <- file.path(templates_dir, paste(name, "dcf", sep = "."))
   if (file.exists(path) && !overwrite)
     stop(sprintf("a skeleton function already exists at path '%s'", path))
