@@ -1,6 +1,8 @@
 rstudioapi 0.6
 --------------------------------------------------------------------------------
 
+* Add createProjectTemplate function
+
 * Add sendToConsole function
 
 * Add APIs for setting cursor position in document
