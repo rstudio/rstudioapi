@@ -36,6 +36,26 @@ getActiveProject <- function() {
   callFun("getActiveProject")
 }
 
+#' Save Active RStudio Plot as an Image
+#'
+#' Save the currnently active RStudio as an image file.
+#'
+#' @param file Target filename
+#' @param format Image format ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps")
+#' @param height Image height in pixels
+#' @param width Image width in pixels
+#'
+#' @note The \code{savePlotAsImage} function was introduced in RStudio 1.1.57
+#'
+#' @export
+savePlotAsImage <- function(file,
+                            format = c("png", "jpeg", "bmp", "tiff", "emf", "svg", "eps"),
+                            width,
+                            height) {
+  format <- match.arg(format)
+  callFun("savePlotAsImage", file, format, width, height)
+}
+
 
 #' Send Code to the R Console
 #'
