@@ -1,7 +1,13 @@
-rstudioapi 0.6
+rstudioapi 0.7
 --------------------------------------------------------------------------------
 
 * Add createProjectTemplate function
+
+* Add setPersistentValue/getPersistentValue functions
+
+
+rstudioapi 0.6
+--------------------------------------------------------------------------------
 
 * Add sendToConsole function
 

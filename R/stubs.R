@@ -56,5 +56,32 @@ sendToConsole <- function (code, execute = TRUE) {
   callFun("sendToConsole", code, TRUE, execute, TRUE)
 }
 
+#' Persistent Keys and Values
+#'
+#' Store persistent keys and values. Storage is per-project, if there is
+#' no project currently active then a global store is used.
+#'
+#' @param name Key name
+#' @param value Key value
+#' @return The stored value as a character vector (\code{NULL} if no value
+#'   of the specified name is available).
+#'
+#' @note The \code{setPersistentValue} and \code{getPersistentValue} functions
+#'  were added in version 1.1.57 of RStudio.
+#'
+#' @name persistent-values
+#' @export
+setPersistentValue <- function(name, value) {
+  callFun("setPersistentValue", name, value)
+}
+
+#' @rdname persistent-values
+#' @export
+getPersistentValue <- function(name) {
+  callFun("getPersistentValue", name)
+}
+
+
+
 
 
