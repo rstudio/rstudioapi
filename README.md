@@ -6,7 +6,7 @@ The `rstudioapi` package is designed to make it easy to conditionally access the
 [RStudio](http://www.rstudio.com/) API from CRAN packages, avoiding any
 potential problems with `R CMD check`. This package contains a handful of useful
 wrapper functions to access the API. To see the functions that are currently
-available in the API, run `help(package = "rstudio")`
+available in the API, run `help(package = "rstudioapi")`
 
 # Example uses
 
