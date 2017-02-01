@@ -2,37 +2,20 @@
 % Please edit documentation in R/dialogs.R
 \name{showPrompt}
 \alias{showPrompt}
-\title{Show Question Dialog Box}
+\title{Show Prompt Dialog Box}
 \usage{
-showPrompt(title, message, default = NULL)
-
 showPrompt(title, message, default = NULL)
 }
 \arguments{
 \item{title}{The title to display in the dialog box.}
 
 \item{message}{A character vector witht he contents to display in
-the main dialog area. Contents can contain the following HTML tags:
-"p", "em", "strong", "b" and "i".}
+the main dialog area.}
 
 \item{default}{An optional character vector that fills the prompt field
 with a default value.}
-
-\item{url}{An optional url to display under the \code{message}.}
-
-\item{title}{The title to display in the dialog box.}
-
-\item{message}{A character vector witht he contents to display in
-the main dialog area.}
 }
 \description{
-Shows a dialog box with a given title and contents.
-
 Shows a dialog box with a prompt field.
-}
-\details{
-\preformatted{
-    showDialog("A Dialog Example", "Showing <b>bold</b> text in the message.")
-}
 }
 

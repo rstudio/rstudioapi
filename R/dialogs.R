@@ -42,29 +42,6 @@ updateDialog <- function(...) {
   callFun("updateDialog", ...)
 }
 
-#' Show Question Dialog Box
-#'
-#' Shows a dialog box with a given title and contents.
-#'
-#' @param title The title to display in the dialog box.
-#'
-#' @param message A character vector witht he contents to display in
-#'   the main dialog area. Contents can contain the following HTML tags:
-#'   "p", "em", "strong", "b" and "i".
-#'
-#' @param url An optional url to display under the \code{message}.
-#'
-#' @details
-#'
-#' \preformatted{
-#'     showDialog("A Dialog Example", "Showing <b>bold</b> text in the message.")
-#' }
-#'
-#' @export
-showPrompt <- function(title, message, default = "") {
-  callFun("showPrompt", title, message, default)
-}
-
 #' Show Prompt Dialog Box
 #'
 #' Shows a dialog box with a prompt field.
