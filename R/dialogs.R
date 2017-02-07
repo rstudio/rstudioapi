@@ -16,6 +16,8 @@
 #'     showDialog("A dialog", "Showing <b>bold</b> text in the message.")
 #' }
 #'
+#' @note The \code{showDialog} function was added in version 1.1.67 of RStudio.
+#'
 #' @export
 showDialog <- function(title, message, url = NULL) {
   callFun("showDialog", title, message, url)
@@ -37,6 +39,8 @@ showDialog <- function(title, message, url = NULL) {
 #'     updateDialog(code = "con <- NULL")
 #' }
 #'
+#' @note The \code{updateDialog} function was added in version 1.1.67 of RStudio.
+#'
 #' @export
 updateDialog <- function(...) {
   callFun("updateDialog", ...)
@@ -53,6 +57,8 @@ updateDialog <- function(...) {
 #'
 #' @param default An optional character vector that fills the prompt field
 #'   with a default value.
+#'
+#' @note The \code{showPrompt} function was added in version 1.1.67 of RStudio.
 #'
 #' @export
 showPrompt <- function(title, message, default = NULL) {
@@ -74,7 +80,7 @@ showPrompt <- function(title, message, default = NULL) {
 #' @param cancel An optional character vector that overrides the caption for
 #'   the Cancel button.
 #'
-#' @details
+#' @note The \code{showQuestion} function was added in version 1.1.67 of RStudio.
 #'
 #' @export
 showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
@@ -90,6 +96,8 @@ showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
 #'
 #' @param default The default value to use when the preference is not available.
 #'
+#' @note The \code{readPreference} function was added in version 1.1.67 of RStudio.
+#'
 #' @export
 readPreference <- function(name, default) {
   callFun("readPreference", name, default)
@@ -103,6 +111,8 @@ readPreference <- function(name, default) {
 #' @param name The name of the preference.
 #'
 #' @param value The value of the preference.
+#'
+#' @note The \code{writePreference} function was added in version 1.1.67 of RStudio.
 #'
 #' @export
 writePreference <- function(name, value) {

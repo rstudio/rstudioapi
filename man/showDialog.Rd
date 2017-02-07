@@ -23,4 +23,6 @@ Shows a dialog box with a given title and contents.
     showDialog("A dialog", "Showing <b>bold</b> text in the message.")
 }
 }
-
+\note{
+The \code{showDialog} function was added in version 1.1.67 of RStudio.
+}

@@ -23,4 +23,3 @@ rstudioapi::sendToConsole(".Platform", execute = TRUE)
 }
 
 }
-

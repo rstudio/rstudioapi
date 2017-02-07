@@ -22,4 +22,3 @@ Save the currnently active RStudio as an image file.
 \note{
 The \code{savePlotAsImage} function was introduced in RStudio 1.1.57
 }
-

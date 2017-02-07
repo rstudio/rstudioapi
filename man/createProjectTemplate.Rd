@@ -39,4 +39,3 @@ Create a project template. See
 \url{https://rstudio.github.io/rstudio-extensions/rstudio_project_templates.html}
 for more information.
 }
-
