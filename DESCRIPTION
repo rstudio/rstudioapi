@@ -12,6 +12,6 @@ Authors@R: c(
 Maintainer: JJ Allaire <jj@rstudio.com>
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.0
 Suggests:
     testthat

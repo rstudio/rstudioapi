@@ -21,7 +21,6 @@ the Cancel button.}
 \description{
 Shows a dialog box asking a question.
 }
-\details{
-
+\note{
+The \code{showQuestion} function was added in version 1.1.67 of RStudio.
 }
-

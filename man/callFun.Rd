@@ -21,4 +21,3 @@ if (rstudioapi::isAvailable()) {
   rstudioapi::callFun("versionInfo")
 }
 }
-

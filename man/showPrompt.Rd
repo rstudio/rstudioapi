@@ -18,4 +18,6 @@ with a default value.}
 \description{
 Shows a dialog box with a prompt field.
 }
-
+\note{
+The \code{showPrompt} function was added in version 1.1.67 of RStudio.
+}

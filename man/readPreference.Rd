@@ -15,4 +15,6 @@ readPreference(name, default)
 Reads a user interface preference, useful to rember preferences across
 different r sessions for the same user.
 }
-
+\note{
+The \code{readPreference} function was added in version 1.1.67 of RStudio.
+}

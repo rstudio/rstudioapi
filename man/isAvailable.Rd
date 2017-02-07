@@ -24,4 +24,3 @@ Check if RStudio is running.
 rstudioapi::isAvailable()
 \dontrun{rstudioapi::verifyAvailable()}
 }
-

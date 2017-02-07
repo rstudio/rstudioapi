@@ -15,4 +15,6 @@ writePreference(name, value)
 Writes a user interface preference, useful to rember preferences across
 different r sessions for the same user.
 }
-
+\note{
+The \code{writePreference} function was added in version 1.1.67 of RStudio.
+}

@@ -19,4 +19,3 @@ case where a user might have multiple cursors active).
 Use \code{primary_selection()} to extract the primary
 selection.
 }
-

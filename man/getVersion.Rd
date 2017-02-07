@@ -20,4 +20,3 @@ if (rstudioapi::getVersion() < "0.98.100") {
 }
 }
 }
-

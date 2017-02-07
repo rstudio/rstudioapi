@@ -3,8 +3,10 @@
 \name{editor-information}
 \alias{editor-information}
 \alias{getActiveDocumentContext}
-\alias{getConsoleEditorContext}
+\alias{editor-information}
 \alias{getSourceEditorContext}
+\alias{editor-information}
+\alias{getConsoleEditorContext}
 \title{Retrieve Information about an RStudio Editor}
 \usage{
 getActiveDocumentContext()
@@ -35,4 +37,3 @@ The \code{getActiveDocumentContext} function was added with version 0.99.796
 of RStudio, while the \code{getSourceEditorContext} and the \code{getConsoleEditorContext}
 functions were added with version 0.99.1111.
 }
-
