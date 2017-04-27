@@ -12,7 +12,7 @@ readPreference(name, default)
 \item{default}{The default value to use when the preference is not available.}
 }
 \description{
-Reads a user interface preference, useful to rember preferences across
+Reads a user interface preference, useful to remember preferences across
 different r sessions for the same user.
 }
 \note{

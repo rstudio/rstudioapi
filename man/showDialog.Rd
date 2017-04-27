@@ -9,7 +9,7 @@ showDialog(title, message, url = NULL)
 \arguments{
 \item{title}{The title to display in the dialog box.}
 
-\item{message}{A character vector witht he contents to display in
+\item{message}{A character vector with the contents to display in
 the main dialog area. Contents can contain the following HTML tags:
 "p", "em", "strong", "b" and "i".}
 

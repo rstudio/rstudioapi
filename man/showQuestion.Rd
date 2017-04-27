@@ -9,7 +9,7 @@ showQuestion(title, message, ok = NULL, cancel = NULL)
 \arguments{
 \item{title}{The title to display in the dialog box.}
 
-\item{message}{A character vector witht he contents to display in
+\item{message}{A character vector with the contents to display in
 the main dialog area.}
 
 \item{ok}{And optional character vector that overrides the caption for
