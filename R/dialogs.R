@@ -4,7 +4,7 @@
 #'
 #' @param title The title to display in the dialog box.
 #'
-#' @param message A character vector witht he contents to display in
+#' @param message A character vector with the contents to display in
 #'   the main dialog area. Contents can contain the following HTML tags:
 #'   "p", "em", "strong", "b" and "i".
 #'
@@ -52,7 +52,7 @@ updateDialog <- function(...) {
 #'
 #' @param title The title to display in the dialog box.
 #'
-#' @param message A character vector witht he contents to display in
+#' @param message A character vector with the contents to display in
 #'   the main dialog area.
 #'
 #' @param default An optional character vector that fills the prompt field
@@ -71,7 +71,7 @@ showPrompt <- function(title, message, default = NULL) {
 #'
 #' @param title The title to display in the dialog box.
 #'
-#' @param message A character vector witht he contents to display in
+#' @param message A character vector with the contents to display in
 #'   the main dialog area.
 #'
 #' @param ok And optional character vector that overrides the caption for
@@ -89,7 +89,7 @@ showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
 
 #' Read Preference
 #'
-#' Reads a user interface preference, useful to rember preferences across
+#' Reads a user interface preference, useful to remember preferences across
 #' different r sessions for the same user.
 #'
 #' @param name The name of the preference.
@@ -105,7 +105,7 @@ readPreference <- function(name, default) {
 
 #' Write Preference
 #'
-#' Writes a user interface preference, useful to rember preferences across
+#' Writes a user interface preference, useful to remember preferences across
 #' different r sessions for the same user.
 #'
 #' @param name The name of the preference.

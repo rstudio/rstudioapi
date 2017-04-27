@@ -12,7 +12,7 @@ writePreference(name, value)
 \item{value}{The value of the preference.}
 }
 \description{
-Writes a user interface preference, useful to rember preferences across
+Writes a user interface preference, useful to remember preferences across
 different r sessions for the same user.
 }
 \note{

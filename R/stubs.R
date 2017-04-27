@@ -101,7 +101,17 @@ getPersistentValue <- function(name) {
   callFun("getPersistentValue", name)
 }
 
-
-
-
-
+#' Check if Console Supports ANSI Color Escapes
+#'
+#' @return a boolean
+#'
+#' @examples
+#' if (rstudioapi::hasColorConsole()) {
+#'   message("RStudio console supports ANSI color sequences.")
+#' }
+#' @note The \code{hasColorConsole} function was added in version 1.1.216
+#'  of RStudio.
+#' @export
+hasColorConsole <- function() {
+  callFun("getConsoleHasColor")
+}
