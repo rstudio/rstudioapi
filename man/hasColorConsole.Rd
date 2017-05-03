@@ -17,7 +17,10 @@ The \code{hasColorConsole} function was added in version 1.1.216
  of RStudio.
 }
 \examples{
+\dontrun{
 if (rstudioapi::hasColorConsole()) {
   message("RStudio console supports ANSI color sequences.")
 }
+}
+
 }

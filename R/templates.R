@@ -15,7 +15,7 @@
 #'   \code{.png} of size less than 64KB.
 #' @param open_files (optional) Files that should be opened by RStudio when the project is
 #'   generated. Shell-style globs can be used to indicate when multiple files
-#'   matching some pattern should be opened – for example,  OpenFiles: R/*.R
+#'   matching some pattern should be opened -- for example,  OpenFiles: R/*.R
 #'   would indicate that RStudio should open all .R files within the R folder of
 #'   the generated project.
 #' @param overwrite Boolean; overwrite a pre-existing template file if one exists?
@@ -78,7 +78,8 @@ createProjectTemplate <- function(package = ".",
 
   # write out
   writeLines(dcf, con = path)
-  if (edit) file.edit(path)
+  if (edit)
+    utils::file.edit(path)
 
   TRUE
 }
