@@ -5,6 +5,10 @@ rstudioapi 0.7
 
 * Add setPersistentValue/getPersistentValue functions
 
+* Add hasColorConsole function
+
+* Add API methods for interacting with Terminal tab: 'sendToTerminal()',
+'getActiveTerminalId()', and clearTerminal()'
 
 rstudioapi 0.6
 --------------------------------------------------------------------------------
