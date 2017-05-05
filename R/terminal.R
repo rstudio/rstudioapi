@@ -18,7 +18,7 @@
 #' }
 #'
 #' @export
-sendToTerminal <- function (text, id = NULL) {
+sendToTerminal <- function(text, id = NULL) {
   callFun("sendToTerminal", text, id)
 }
 
@@ -40,18 +40,45 @@ sendToTerminal <- function (text, id = NULL) {
 #' }
 #'
 #' @export
-clearTerminal <- function (id = NULL) {
+clearTerminal <- function(id = NULL) {
   callFun("clearTerminal", id)
 }
+
 
 #' Get Current Terminal
 #'
 #' Get the identifier for the currently active terminal.
 #'
-#' @note The \code{getActiveTerminalId} function was added in version 1.1.223 of RStudio.
+#' @return The terminal identifier as a character vector (\code{NULL} if no
+#'   terminal is currently open).
+##'
+##' @note The \code{getActiveTerminalId} function was added in version 1.1.223 of RStudio.
 #'
 #' @export
 getActiveTerminalId <- function() {
   callFun("getActiveTerminalId")
 }
 
+
+#' Create a Terminal
+#'
+#' Create a new Terminal.
+#'
+#' @param id The terminal id. When \code{NULL} or blank,
+#'   the terminal id will be chosen by the system.
+##'
+#' @return The terminal identifier as a character vector (\code{NULL} if
+#'   unable to create the terminal or the given terminal identifier is already
+#'   in use).
+#'
+##' @note The \code{createTerminal} function was added in version 1.1.223 of RStudio.
+#'
+#' @examples
+#' \dontrun{
+#' terminalId <- rstudioapi::createTerminal("My Terminal")
+#' }
+#'
+#' @export
+createTerminal <- function(id = NULL) {
+  callFun("createTerminal", id)
+}

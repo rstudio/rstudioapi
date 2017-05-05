@@ -6,6 +6,10 @@
 \usage{
 getActiveTerminalId()
 }
+\value{
+The terminal identifier as a character vector (\code{NULL} if no
+  terminal is currently open).
+}
 \description{
 Get the identifier for the currently active terminal.
 }
