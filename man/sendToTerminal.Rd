@@ -12,14 +12,15 @@ sendToTerminal(text, id = NULL)
 \item{id}{The terminal id. When \code{NULL} or blank,
 the text will be inserted into the currently open, or last
 focused, RStudio terminal. Use the \code{id} returned
-from \code{\link{getActiveTerminalId}()} to ensure
-that the text is inserted to the intended terminal.}
+from \code{\link{getActiveTerminalId}()} or
+\code{\link{createTerminal}()} to ensure the text is inserted
+to the intended terminal.}
 }
 \description{
 Send text to specified terminal.
 }
 \note{
-The \code{sendToTerminal} function was added in version 1.1.223 of RStudio.
+The \code{sendToTerminal} function was added in version 1.1.227 of RStudio.
 }
 \examples{
 \dontrun{

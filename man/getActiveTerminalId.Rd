@@ -14,5 +14,5 @@ The terminal identifier as a character vector (\code{NULL} if no
 Get the identifier for the currently active terminal.
 }
 \note{
-The \code{getActiveTerminalId} function was added in version 1.1.223 of RStudio.
+The \code{getActiveTerminalId} function was added in version 1.1.227 of RStudio.
 }

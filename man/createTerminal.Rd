@@ -7,8 +7,8 @@
 createTerminal(id = NULL)
 }
 \arguments{
-\item{id}{The terminal id. When \code{NULL} or blank,
-the terminal id will be chosen by the system.}
+\item{id}{The terminal id. When \code{NULL} or blank, the terminal id
+will be chosen by the system.}
 }
 \value{
 The terminal identifier as a character vector (\code{NULL} if
@@ -19,7 +19,7 @@ The terminal identifier as a character vector (\code{NULL} if
 Create a new Terminal.
 }
 \note{
-The \code{createTerminal} function was added in version 1.1.223 of RStudio.
+The \code{createTerminal} function was added in version 1.1.227 of RStudio.
 }
 \examples{
 \dontrun{

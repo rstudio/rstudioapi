@@ -9,14 +9,14 @@ clearTerminal(id = NULL)
 \arguments{
 \item{id}{The terminal id. When \code{NULL} or blank,
 the currently open, or last focused, RStudio terminal will be cleared.
-Use the \code{id} returned from \code{\link{getActiveTerminalId}()} to ensure
-that the intended terminal is cleared.}
+Use the \code{id} returned from \code{\link{getActiveTerminalId}()}
+or \code{\link{createTerminal}()} to ensure the intended terminal is cleared.}
 }
 \description{
 Clears the buffer for specified terminal.
 }
 \note{
-The \code{clearTerminal} function was added in version 1.1.223 of RStudio.
+The \code{clearTerminal} function was added in version 1.1.227 of RStudio.
 }
 \examples{
 \dontrun{
