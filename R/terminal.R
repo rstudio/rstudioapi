@@ -84,6 +84,7 @@ createTerminal <- function(id = NULL) {
   callFun("createTerminal", id)
 }
 
+
 #' Is Terminal Busy
 #'
 #' Is a terminal reporting that it is busy?
@@ -103,3 +104,16 @@ isTerminalBusy <- function(id = NULL) {
   callFun("isTerminalBusy", id)
 }
 
+
+#' Get All Terminal Ids
+#'
+#' Return a character vector containing all the current terminal identifiers.
+#'
+#' @return The terminal identifiers as a character vector.
+#'
+#' @note The \code{getActiveTerminalId} function was added in version 1.1.227 of RStudio.
+#'
+#' @export
+getAllTerminalIds <- function() {
+  callFun("getAllTerminalIds")
+}
