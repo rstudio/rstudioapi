@@ -4,22 +4,18 @@
 #' Send text to specified terminal.
 #'
 #' @param text Character vector containing text to be inserted.
-#' @param id The terminal id. When \code{NULL} or blank,
-#'   the text will be inserted into the currently open, or last
-#'   focused, RStudio terminal. Use the \code{id} returned
-#'   from \code{\link{getActiveTerminalId}()} or
-#'   \code{\link{createTerminal}()} to ensure the text is inserted
-#'   to the intended terminal.
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
 #'
 #' @note The \code{sendToTerminal} function was added in version 1.1.227 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::sendToTerminal("ls -l", id = "Terminal 1")
+#' rstudioapi::sendToTerminal("ls -l\n", id = "Terminal 1")
 #' }
 #'
 #' @export
-sendToTerminal <- function(text, id = NULL) {
+sendToTerminal <- function(text, id) {
   callFun("sendToTerminal", text, id)
 }
 
@@ -28,10 +24,8 @@ sendToTerminal <- function(text, id = NULL) {
 #'
 #' Clears the buffer for specified terminal.
 #'
-#' @param id The terminal id. When \code{NULL} or blank,
-#'   the currently open, or last focused, RStudio terminal will be cleared.
-#'   Use the \code{id} returned from \code{\link{getActiveTerminalId}()}
-#'   or \code{\link{createTerminal}()} to ensure the intended terminal is cleared.
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
 #'
 #' @note The \code{clearTerminal} function was added in version 1.1.227 of RStudio.
 #'
@@ -41,23 +35,8 @@ sendToTerminal <- function(text, id = NULL) {
 #' }
 #'
 #' @export
-clearTerminal <- function(id = NULL) {
+clearTerminal <- function(id) {
   callFun("clearTerminal", id)
-}
-
-
-#' Get Current Terminal
-#'
-#' Get the identifier for the currently active terminal.
-#'
-#' @return The terminal identifier as a character vector (\code{NULL} if no
-#'   terminal is currently open).
-#'
-#' @note The \code{getActiveTerminalId} function was added in version 1.1.227 of RStudio.
-#'
-#' @export
-getActiveTerminalId <- function() {
-  callFun("getActiveTerminalId")
 }
 
 
@@ -89,18 +68,15 @@ createTerminal <- function(id = NULL) {
 #'
 #' Is a terminal reporting that it is busy?
 #'
-#' @param id The terminal id. When \code{NULL} or blank,
-#'   the currently open, or last focused, RStudio terminal will be checked.
-#'   Use the \code{id} returned from \code{\link{getActiveTerminalId}()} or
-#'   \code{\link{createTerminal}()} to ensure the intended terminal
-#'   is queried.
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
 #'
 #' @return a boolean
 #'
 #' @note The \code{isTerminalBusy} function was added in version 1.1.227 of RStudio.
 #'
 #' @export
-isTerminalBusy <- function(id = NULL) {
+isTerminalBusy <- function(id) {
   callFun("isTerminalBusy", id)
 }
 
@@ -111,9 +87,36 @@ isTerminalBusy <- function(id = NULL) {
 #'
 #' @return The terminal identifiers as a character vector.
 #'
-#' @note The \code{getActiveTerminalId} function was added in version 1.1.227 of RStudio.
+#' @note The \code{getAllTerminals} function was added in version 1.1.227 of RStudio.
 #'
 #' @export
-getAllTerminalIds <- function() {
-  callFun("getAllTerminalIds")
+getAllTerminals <- function() {
+  callFun("getAllTerminals")
+}
+
+
+#' Retrieve Information about an RStudio Terminal
+#'
+#' Returns information about an RStudio terminal instance.
+#'
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#'
+#' @return A \code{list} with elements:
+#' \tabular{ll}{
+#' \code{handle} \tab the internal handle\cr
+#' \code{caption} \tab caption (terminal identifier)\cr
+#' \code{title} \tab title set by the shell\cr
+#' \code{running} \tab is terminal process executing\cr
+#' \code{busy} \tab is terminal running a program\cr
+#' \code{connection} \tab websockets or rpc\cr
+#' \code{sequence} \tab creation sequence\cr
+#' \code{lines} \tab lines of text in terminal buffer\cr
+#' }
+#'
+#' @note The \code{getTerminalContext} function was added in version 1.1.227 of RStudio.
+#'
+#' @export
+getTerminalContext <- function(id) {
+  callFun("getTerminalContext", id)
 }

@@ -4,13 +4,11 @@
 \alias{clearTerminal}
 \title{Clear Terminal Buffer}
 \usage{
-clearTerminal(id = NULL)
+clearTerminal(id)
 }
 \arguments{
-\item{id}{The terminal id. When \code{NULL} or blank,
-the currently open, or last focused, RStudio terminal will be cleared.
-Use the \code{id} returned from \code{\link{getActiveTerminalId}()}
-or \code{\link{createTerminal}()} to ensure the intended terminal is cleared.}
+\item{id}{The terminal id. The \code{id} is obtained from
+\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
 }
 \description{
 Clears the buffer for specified terminal.

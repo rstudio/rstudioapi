@@ -4,14 +4,11 @@
 \alias{isTerminalBusy}
 \title{Is Terminal Busy}
 \usage{
-isTerminalBusy(id = NULL)
+isTerminalBusy(id)
 }
 \arguments{
-\item{id}{The terminal id. When \code{NULL} or blank,
-the currently open, or last focused, RStudio terminal will be checked.
-Use the \code{id} returned from \code{\link{getActiveTerminalId}()} or
-\code{\link{createTerminal}()} to ensure the intended terminal
-is queried.}
+\item{id}{The terminal id. The \code{id} is obtained from
+\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
 }
 \value{
 a boolean

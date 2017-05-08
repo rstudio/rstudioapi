@@ -4,17 +4,13 @@
 \alias{sendToTerminal}
 \title{Send Text to a Terminal}
 \usage{
-sendToTerminal(text, id = NULL)
+sendToTerminal(text, id)
 }
 \arguments{
 \item{text}{Character vector containing text to be inserted.}
 
-\item{id}{The terminal id. When \code{NULL} or blank,
-the text will be inserted into the currently open, or last
-focused, RStudio terminal. Use the \code{id} returned
-from \code{\link{getActiveTerminalId}()} or
-\code{\link{createTerminal}()} to ensure the text is inserted
-to the intended terminal.}
+\item{id}{The terminal id. The \code{id} is obtained from
+\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
 }
 \description{
 Send text to specified terminal.
@@ -24,7 +20,7 @@ The \code{sendToTerminal} function was added in version 1.1.227 of RStudio.
 }
 \examples{
 \dontrun{
-rstudioapi::sendToTerminal("ls -l", id = "Terminal 1")
+rstudioapi::sendToTerminal("ls -l\\n", id = "Terminal 1")
 }
 
 }
