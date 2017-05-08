@@ -7,14 +7,14 @@
 isTerminalBusy(id)
 }
 \arguments{
-\item{id}{The terminal id. The \code{id} is obtained from
+\item{id}{The terminal id. The \code{id}(s) are obtained from
 \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
 }
 \value{
 a boolean
 }
 \description{
-Is a terminal reporting that it is busy?
+Are terminals reporting that they are busy?
 }
 \note{
 The \code{isTerminalBusy} function was added in version 1.1.227 of RStudio.

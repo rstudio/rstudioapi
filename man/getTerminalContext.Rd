@@ -2,12 +2,12 @@
 % Please edit documentation in R/terminal.R
 \name{getTerminalContext}
 \alias{getTerminalContext}
-\title{Retrieve Information about an RStudio Terminal}
+\title{Retrieve Information about RStudio Terminals}
 \usage{
 getTerminalContext(id)
 }
 \arguments{
-\item{id}{The terminal id. The \code{id} is obtained from
+\item{id}{The terminal id. The \code{id}(s) are obtained from
 \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
 }
 \value{
@@ -21,10 +21,13 @@ A \code{list} with elements:
 \code{connection} \tab websockets or rpc\cr
 \code{sequence} \tab creation sequence\cr
 \code{lines} \tab lines of text in terminal buffer\cr
+\code{cols} \tab columns in terminal\cr
+\code{rows} \tab rows in terminal\cr
+\code{pid} \tab process id of terminal shell\cr
 }
 }
 \description{
-Returns information about an RStudio terminal instance.
+Returns information about RStudio terminal instances.
 }
 \note{
 The \code{getTerminalContext} function was added in version 1.1.227 of RStudio.

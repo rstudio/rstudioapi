@@ -66,9 +66,9 @@ createTerminal <- function(id = NULL) {
 
 #' Is Terminal Busy
 #'
-#' Is a terminal reporting that it is busy?
+#' Are terminals reporting that they are busy?
 #'
-#' @param id The terminal id. The \code{id} is obtained from
+#' @param id The terminal id. The \code{id}(s) are obtained from
 #'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
 #'
 #' @return a boolean
@@ -95,11 +95,11 @@ getAllTerminals <- function() {
 }
 
 
-#' Retrieve Information about an RStudio Terminal
+#' Retrieve Information about RStudio Terminals
 #'
-#' Returns information about an RStudio terminal instance.
+#' Returns information about RStudio terminal instances.
 #'
-#' @param id The terminal id. The \code{id} is obtained from
+#' @param id The terminal id. The \code{id}(s) are obtained from
 #'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
 #'
 #' @return A \code{list} with elements:
@@ -112,6 +112,9 @@ getAllTerminals <- function() {
 #' \code{connection} \tab websockets or rpc\cr
 #' \code{sequence} \tab creation sequence\cr
 #' \code{lines} \tab lines of text in terminal buffer\cr
+#' \code{cols} \tab columns in terminal\cr
+#' \code{rows} \tab rows in terminal\cr
+#' \code{pid} \tab process id of terminal shell\cr
 #' }
 #'
 #' @note The \code{getTerminalContext} function was added in version 1.1.227 of RStudio.
