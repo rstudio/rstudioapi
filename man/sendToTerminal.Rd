@@ -4,13 +4,13 @@
 \alias{sendToTerminal}
 \title{Send Text to a Terminal}
 \usage{
-sendToTerminal(text, id)
+sendToTerminal(id, text)
 }
 \arguments{
-\item{text}{Character vector containing text to be inserted.}
-
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
+
+\item{text}{Character vector containing text to be inserted.}
 }
 \description{
 Send text to specified terminal.

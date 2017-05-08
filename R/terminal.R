@@ -3,9 +3,9 @@
 #'
 #' Send text to specified terminal.
 #'
-#' @param text Character vector containing text to be inserted.
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#' @param text Character vector containing text to be inserted.
 #'
 #' @note The \code{sendToTerminal} function was added in version 1.1.227 of RStudio.
 #'
@@ -15,8 +15,8 @@
 #' }
 #'
 #' @export
-sendToTerminal <- function(text, id) {
-  callFun("sendToTerminal", text, id)
+sendToTerminal <- function(id, text) {
+  callFun("sendToTerminal", id, text)
 }
 
 
@@ -143,4 +143,23 @@ getTerminalContext <- function(id) {
 #' @export
 showTerminal <- function(id = NULL) {
   callFun("showTerminal", id)
+}
+
+
+#' Get Terminal Buffer
+#'
+#' Returns contents of a terminal buffer.
+#'
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#' @param stripAnsi If TRUE, strip out Ansi escape sequences before returning
+#' terminal buffer.
+#'
+#' @return The terminal contents, one line per row.
+#'
+#' @note The \code{getTerminalBuffer} function was added in version 1.1.227 of RStudio.
+#'
+#' @export
+getTerminalBuffer <- function(id, stripAnsi = FALSE) {
+  callFun("getTerminalBuffer", id, stripAnsi)
 }
