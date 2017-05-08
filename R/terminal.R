@@ -163,3 +163,19 @@ showTerminal <- function(id = NULL) {
 getTerminalBuffer <- function(id, stripAnsi = FALSE) {
   callFun("getTerminalBuffer", id, stripAnsi)
 }
+
+
+#' Kill Terminal
+#'
+#' Kill processes and close a terminal.
+#'
+#' @param id The terminal id. The \code{id}(s) are obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#'
+#' @note The \code{kilTerminal} function was added in version 1.1.227 of RStudio.
+#'
+#' @export
+killTerminal <- function(id) {
+  callFun("killTerminal", id)
+}
+
