@@ -123,3 +123,24 @@ getAllTerminals <- function() {
 getTerminalContext <- function(id) {
   callFun("getTerminalContext", id)
 }
+
+
+#' Bring Terminal to Front
+#'
+#' Select terminal tab and display requested terminal.
+#'
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}. If NULL, the
+#'   terminal tab will be selected but no specific terminal will be chosen.
+#'
+#' @note The \code{showTerminal} function was added in version 1.1.227 of RStudio.
+#'
+#' @examples
+#' \dontrun{
+#' rstudioapi::showTerminal("Terminal 1")
+#' }
+#'
+#' @export
+showTerminal <- function(id = NULL) {
+  callFun("showTerminal", id)
+}
