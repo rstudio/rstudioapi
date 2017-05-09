@@ -7,12 +7,13 @@
 killTerminal(id)
 }
 \arguments{
-\item{id}{The terminal id. The \code{id}(s) are obtained from
-\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
+\item{id}{The terminal id. The \code{id} is obtained from
+\code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+or \code{\link{createTerminal}()}.'}
 }
 \description{
 Kill processes and close a terminal.
 }
 \note{
-The \code{kilTerminal} function was added in version 1.1.227 of RStudio.
+The \code{killTerminal} function was added in version 1.1.227 of RStudio.
 }

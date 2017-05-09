@@ -8,8 +8,9 @@ showTerminal(id = NULL)
 }
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
-\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}. If NULL, the
-terminal tab will be selected but no specific terminal will be chosen.}
+\code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+or \code{\link{createTerminal}()}. If NULL, the terminal tab will be
+selected but no specific terminal will be chosen.}
 }
 \description{
 Select terminal tab and display requested terminal.

@@ -8,7 +8,8 @@ getTerminalBuffer(id, stripAnsi = FALSE)
 }
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
-\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
+\code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+or \code{\link{createTerminal}()}.'}
 
 \item{stripAnsi}{If TRUE, strip out Ansi escape sequences before returning
 terminal buffer.}

@@ -7,8 +7,9 @@
 getTerminalContext(id)
 }
 \arguments{
-\item{id}{The terminal id. The \code{id}(s) are obtained from
-\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
+\item{id}{The terminal id. The \code{id} is obtained from
+\code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+or \code{\link{createTerminal}()}.'}
 }
 \value{
 A \code{list} with elements:

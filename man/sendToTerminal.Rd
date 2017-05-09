@@ -8,7 +8,8 @@ sendToTerminal(id, text)
 }
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
-\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
+\code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+or \code{\link{createTerminal}()}.}
 
 \item{text}{Character vector containing text to be inserted.}
 }
@@ -20,7 +21,7 @@ The \code{sendToTerminal} function was added in version 1.1.227 of RStudio.
 }
 \examples{
 \dontrun{
-rstudioapi::sendToTerminal("ls -l\\n", id = "Terminal 1")
+rstudioapi::sendToTerminal(id="My Terminal", "ls -l\\n")
 }
 
 }

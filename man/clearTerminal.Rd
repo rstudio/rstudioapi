@@ -8,7 +8,8 @@ clearTerminal(id)
 }
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
-\code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.}
+\code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+or \code{\link{createTerminal}()}.'}
 }
 \description{
 Clears the buffer for specified terminal.

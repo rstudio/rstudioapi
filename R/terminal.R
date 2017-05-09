@@ -4,14 +4,15 @@
 #' Send text to specified terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.
 #' @param text Character vector containing text to be inserted.
 #'
 #' @note The \code{sendToTerminal} function was added in version 1.1.227 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::sendToTerminal("ls -l\n", id = "Terminal 1")
+#' rstudioapi::sendToTerminal(id="My Terminal", "ls -l\n")
 #' }
 #'
 #' @export
@@ -25,7 +26,8 @@ sendToTerminal <- function(id, text) {
 #' Clears the buffer for specified terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.'
 #'
 #' @note The \code{clearTerminal} function was added in version 1.1.227 of RStudio.
 #'
@@ -68,8 +70,9 @@ createTerminal <- function(id = NULL) {
 #'
 #' Are terminals reporting that they are busy?
 #'
-#' @param id The terminal id. The \code{id}(s) are obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.'
 #'
 #' @return a boolean
 #'
@@ -99,8 +102,9 @@ getAllTerminals <- function() {
 #'
 #' Returns information about RStudio terminal instances.
 #'
-#' @param id The terminal id. The \code{id}(s) are obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.'
 #'
 #' @return A \code{list} with elements:
 #' \tabular{ll}{
@@ -130,8 +134,9 @@ getTerminalContext <- function(id) {
 #' Select terminal tab and display requested terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}. If NULL, the
-#'   terminal tab will be selected but no specific terminal will be chosen.
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}. If NULL, the terminal tab will be
+#'   selected but no specific terminal will be chosen.
 #'
 #' @note The \code{showTerminal} function was added in version 1.1.227 of RStudio.
 #'
@@ -151,7 +156,8 @@ showTerminal <- function(id = NULL) {
 #' Returns contents of a terminal buffer.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.'
 #' @param stripAnsi If TRUE, strip out Ansi escape sequences before returning
 #' terminal buffer.
 #'
@@ -169,13 +175,24 @@ getTerminalBuffer <- function(id, stripAnsi = FALSE) {
 #'
 #' Kill processes and close a terminal.
 #'
-#' @param id The terminal id. The \code{id}(s) are obtained from
-#'   \code{\link{getAllTerminals}()} or  \code{\link{createTerminal}()}.
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.'
 #'
-#' @note The \code{kilTerminal} function was added in version 1.1.227 of RStudio.
+#' @note The \code{killTerminal} function was added in version 1.1.227 of RStudio.
 #'
 #' @export
 killTerminal <- function(id) {
   callFun("killTerminal", id)
 }
 
+#' Get Visible Terminal
+#'
+#' @return Terminal selected in the client, if any.
+#'
+#' @note The \code{getVisibleTerminal} function was added in version 1.1.227 of RStudio.
+#'
+#' @export
+getVisibleTerminal <- function() {
+  callFun("getVisibleTerminal")
+}

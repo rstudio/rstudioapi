@@ -7,7 +7,7 @@ rstudioapi 0.7
 
 * Add hasColorConsole function
 
-* Add API methods for interacting with Terminal tab: 'sendToTerminal', 'getActiveTerminalId', 'createTerminal', 'isTerminalBusy', 'getTerminalContext', and 'clearTerminal'
+* Add API methods for interacting with Terminal tab: 'clearTerminal', 'createTerminal', 'getAllTerminals', 'getTerminalBuffer', 'getTerminalContext', 'getVisibleTerminal', 'isTerminalBusy', 'killTerminal', 'sendToTerminal', and 'showTerminal'.
 
 rstudioapi 0.6
 --------------------------------------------------------------------------------
