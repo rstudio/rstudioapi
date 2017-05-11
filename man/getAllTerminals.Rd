@@ -13,5 +13,5 @@ The terminal identifiers as a character vector.
 Return a character vector containing all the current terminal identifiers.
 }
 \note{
-The \code{getAllTerminals} function was added in version 1.1.227 of RStudio.
+The \code{getAllTerminals} function was added in version 1.1.233 of RStudio.
 }

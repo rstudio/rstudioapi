@@ -18,5 +18,5 @@ a boolean
 Are terminals reporting that they are busy?
 }
 \note{
-The \code{isTerminalBusy} function was added in version 1.1.227 of RStudio.
+The \code{isTerminalBusy} function was added in version 1.1.233 of RStudio.
 }

@@ -13,5 +13,5 @@ Terminal selected in the client, if any.
 Get Visible Terminal
 }
 \note{
-The \code{getVisibleTerminal} function was added in version 1.1.227 of RStudio.
+The \code{getVisibleTerminal} function was added in version 1.1.233 of RStudio.
 }

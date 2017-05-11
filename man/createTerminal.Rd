@@ -19,7 +19,7 @@ The terminal identifier as a character vector (\code{NULL} if
 Create a new Terminal.
 }
 \note{
-The \code{createTerminal} function was added in version 1.1.227 of RStudio.
+The \code{createTerminal} function was added in version 1.1.233 of RStudio.
 }
 \examples{
 \dontrun{

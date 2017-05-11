@@ -15,7 +15,7 @@ or \code{\link{createTerminal}()}.'}
 Clears the buffer for specified terminal.
 }
 \note{
-The \code{clearTerminal} function was added in version 1.1.227 of RStudio.
+The \code{clearTerminal} function was added in version 1.1.233 of RStudio.
 }
 \examples{
 \dontrun{

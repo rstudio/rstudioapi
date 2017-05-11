@@ -15,5 +15,5 @@ or \code{\link{createTerminal}()}.'}
 Kill processes and close a terminal.
 }
 \note{
-The \code{killTerminal} function was added in version 1.1.227 of RStudio.
+The \code{killTerminal} function was added in version 1.1.233 of RStudio.
 }

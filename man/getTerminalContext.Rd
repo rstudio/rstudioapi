@@ -31,5 +31,5 @@ A \code{list} with elements:
 Returns information about RStudio terminal instances.
 }
 \note{
-The \code{getTerminalContext} function was added in version 1.1.227 of RStudio.
+The \code{getTerminalContext} function was added in version 1.1.233 of RStudio.
 }
