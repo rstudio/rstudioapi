@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::sendToTerminal(id="My Terminal", "ls -l\n")
+#' rstudioapi::sendToTerminal(id='My Terminal', 'ls -l\n')
 #' }
 #'
 #' @export
@@ -33,7 +33,7 @@ sendToTerminal <- function(id, text) {
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::clearTerminal("Terminal 1")
+#' rstudioapi::clearTerminal('Terminal 1')
 #' }
 #'
 #' @export
@@ -57,7 +57,7 @@ clearTerminal <- function(id) {
 #'
 #' @examples
 #' \dontrun{
-#' terminalId <- rstudioapi::createTerminal("My Terminal")
+#' terminalId <- rstudioapi::createTerminal('My Terminal')
 #' }
 #'
 #' @export
@@ -81,6 +81,24 @@ createTerminal <- function(id = NULL) {
 #' @export
 isTerminalBusy <- function(id) {
   callFun("isTerminalBusy", id)
+}
+
+
+#' Is Terminal Running
+#'
+#' Does a terminal have a process associated with it?
+#'
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
+#'   or \code{\link{createTerminal}()}.'
+#'
+#' @return a boolean
+#'
+#' @note The \code{isTerminalRunning} function was added in version 1.1.228 of RStudio.
+#'
+#' @export
+isTerminalRunning <- function(id) {
+  callFun("isTerminalRunning", id)
 }
 
 
@@ -129,25 +147,27 @@ getTerminalContext <- function(id) {
 }
 
 
-#' Bring Terminal to Front
+#' Activate Terminal
 #'
-#' Select terminal tab and display requested terminal.
+#' Ensure terminal is running and optionally bring to front in RStudio.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
 #'   or \code{\link{createTerminal}()}. If NULL, the terminal tab will be
 #'   selected but no specific terminal will be chosen.
+#' @param show If TRUE, bring the terminal to front in RStudio.
+#' terminal buffer.
 #'
-#' @note The \code{showTerminal} function was added in version 1.1.227 of RStudio.
+#' @note The \code{activateTerminal} function was added in version 1.1.228 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::showTerminal("Terminal 1")
+#' rstudioapi::activateTerminal('Terminal 1', show=TRUE)
 #' }
 #'
 #' @export
-showTerminal <- function(id = NULL) {
-  callFun("showTerminal", id)
+activateTerminal <- function(id = NULL, show = TRUE) {
+  callFun("activateTerminal", id, show)
 }
 
 
