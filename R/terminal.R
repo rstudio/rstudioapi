@@ -137,6 +137,7 @@ getAllTerminals <- function() {
 #' \code{cols} \tab columns in terminal\cr
 #' \code{rows} \tab rows in terminal\cr
 #' \code{pid} \tab process id of terminal shell\cr
+#' \code{full_screen} \tab full screen program running\cr
 #' }
 #'
 #' @note The \code{getTerminalContext} function was added in version 1.1.233 of RStudio.

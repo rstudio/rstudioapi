@@ -25,6 +25,7 @@ A \code{list} with elements:
 \code{cols} \tab columns in terminal\cr
 \code{rows} \tab rows in terminal\cr
 \code{pid} \tab process id of terminal shell\cr
+\code{full_screen} \tab full screen program running\cr
 }
 }
 \description{
