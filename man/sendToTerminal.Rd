@@ -17,7 +17,7 @@ or \code{\link{createTerminal}()}.}
 Send text to specified terminal.
 }
 \note{
-The \code{sendToTerminal} function was added in version 1.1.233 of RStudio.
+The \code{sendToTerminal} function was added in version 1.1.234 of RStudio.
 }
 \examples{
 \dontrun{

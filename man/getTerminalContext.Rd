@@ -17,6 +17,7 @@ A \code{list} with elements:
 \code{handle} \tab the internal handle\cr
 \code{caption} \tab caption (terminal identifier)\cr
 \code{title} \tab title set by the shell\cr
+\code{working_dir} \tab working directory\cr
 \code{running} \tab is terminal process executing\cr
 \code{busy} \tab is terminal running a program\cr
 \code{connection} \tab websockets or rpc\cr
@@ -32,5 +33,5 @@ A \code{list} with elements:
 Returns information about RStudio terminal instances.
 }
 \note{
-The \code{getTerminalContext} function was added in version 1.1.233 of RStudio.
+The \code{getTerminalContext} function was added in version 1.1.234 of RStudio.
 }

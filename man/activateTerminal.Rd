@@ -19,7 +19,7 @@ terminal buffer.}
 Ensure terminal is running and optionally bring to front in RStudio.
 }
 \note{
-The \code{activateTerminal} function was added in version 1.1.233 of RStudio.
+The \code{activateTerminal} function was added in version 1.1.234 of RStudio.
 }
 \examples{
 \dontrun{
