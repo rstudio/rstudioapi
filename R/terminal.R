@@ -130,6 +130,7 @@ getAllTerminals <- function() {
 #' \code{caption} \tab caption (terminal identifier)\cr
 #' \code{title} \tab title set by the shell\cr
 #' \code{working_dir} \tab working directory\cr
+#' \code{shell} \tab shell type\cr
 #' \code{running} \tab is terminal process executing\cr
 #' \code{busy} \tab is terminal running a program\cr
 #' \code{connection} \tab websockets or rpc\cr
