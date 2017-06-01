@@ -1,6 +1,6 @@
 # rstudioapi
 
-[![Build Status](https://travis-ci.org/rstudio/rstudioapi.png?branch=master)](https://travis-ci.org/rstudio/rstudioapi)
+[![Travis-CI Build Status](https://travis-ci.org/rstudio/rstudioapi.svg?branch=master)](https://travis-ci.org/rstudio/rstudioapi)
 
 The `rstudioapi` package is designed to make it easy to conditionally access the
 [RStudio](http://www.rstudio.com/) API from CRAN packages, avoiding any
