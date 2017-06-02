@@ -4,20 +4,20 @@
 #' Send text to specified terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.
 #' @param text Character vector containing text to be inserted.
 #'
-#' @note The \code{sendToTerminal} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalSend} function was added in version 1.1.251 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::sendToTerminal(id='My Terminal', 'ls -l\n')
+#' rstudioapi::terminalSend(id='My Terminal', 'ls -l\n')
 #' }
 #'
 #' @export
-sendToTerminal <- function(id, text) {
-  callFun("sendToTerminal", id, text)
+terminalSend <- function(id, text) {
+  callFun("terminalSend", id, text)
 }
 
 
@@ -26,19 +26,19 @@ sendToTerminal <- function(id, text) {
 #' Clears the buffer for specified terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.'
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.'
 #'
-#' @note The \code{clearTerminal} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalClear} function was added in version 1.1.251 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::clearTerminal('Terminal 1')
+#' rstudioapi::terminalClear('Terminal 1')
 #' }
 #'
 #' @export
-clearTerminal <- function(id) {
-  callFun("clearTerminal", id)
+terminalClear <- function(id) {
+  callFun("terminalClear", id)
 }
 
 
@@ -53,16 +53,16 @@ clearTerminal <- function(id) {
 #'   unable to create the terminal or the given terminal identifier is already
 #'   in use).
 #'
-#' @note The \code{createTerminal} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalCreate} function was added in version 1.1.251 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' terminalId <- rstudioapi::createTerminal('My Terminal')
+#' terminalId <- rstudioapi::terminalCreate('My Terminal')
 #' }
 #'
 #' @export
-createTerminal <- function(id = NULL) {
-  callFun("createTerminal", id)
+terminalCreate <- function(id = NULL) {
+  callFun("terminalCreate", id)
 }
 
 
@@ -71,16 +71,16 @@ createTerminal <- function(id = NULL) {
 #' Are terminals reporting that they are busy?
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.'
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.'
 #'
 #' @return a boolean
 #'
-#' @note The \code{isTerminalBusy} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalBusy} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-isTerminalBusy <- function(id) {
-  callFun("isTerminalBusy", id)
+terminalBusy <- function(id) {
+  callFun("terminalBusy", id)
 }
 
 
@@ -89,16 +89,16 @@ isTerminalBusy <- function(id) {
 #' Does a terminal have a process associated with it?
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.'
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.'
 #'
 #' @return a boolean
 #'
-#' @note The \code{isTerminalRunning} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalRunning} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-isTerminalRunning <- function(id) {
-  callFun("isTerminalRunning", id)
+terminalRunning <- function(id) {
+  callFun("terminalRunning", id)
 }
 
 
@@ -108,11 +108,11 @@ isTerminalRunning <- function(id) {
 #'
 #' @return The terminal identifiers as a character vector.
 #'
-#' @note The \code{getAllTerminals} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalList} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-getAllTerminals <- function() {
-  callFun("getAllTerminals")
+terminalList <- function() {
+  callFun("terminalList")
 }
 
 
@@ -121,8 +121,8 @@ getAllTerminals <- function() {
 #' Returns information about RStudio terminal instances.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.'
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.'
 #'
 #' @return A \code{list} with elements:
 #' \tabular{ll}{
@@ -142,11 +142,11 @@ getAllTerminals <- function() {
 #' \code{full_screen} \tab full screen program running\cr
 #' }
 #'
-#' @note The \code{getTerminalContext} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalContext} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-getTerminalContext <- function(id) {
-  callFun("getTerminalContext", id)
+terminalContext <- function(id) {
+  callFun("terminalContext", id)
 }
 
 
@@ -155,22 +155,22 @@ getTerminalContext <- function(id) {
 #' Ensure terminal is running and optionally bring to front in RStudio.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}. If NULL, the terminal tab will be
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}. If NULL, the terminal tab will be
 #'   selected but no specific terminal will be chosen.
 #' @param show If TRUE, bring the terminal to front in RStudio.
 #' terminal buffer.
 #'
-#' @note The \code{activateTerminal} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalActivate} function was added in version 1.1.250 of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::activateTerminal('Terminal 1', show=TRUE)
+#' rstudioapi::terminalActivate('Terminal 1', show=TRUE)
 #' }
 #'
 #' @export
-activateTerminal <- function(id = NULL, show = TRUE) {
-  callFun("activateTerminal", id, show)
+terminalActivate <- function(id = NULL, show = TRUE) {
+  callFun("terminalActivate", id, show)
 }
 
 
@@ -179,18 +179,18 @@ activateTerminal <- function(id = NULL, show = TRUE) {
 #' Returns contents of a terminal buffer.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.'
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.'
 #' @param stripAnsi If FALSE, don't strip out Ansi escape sequences before returning
 #' terminal buffer.
 #'
 #' @return The terminal contents, one line per row.
 #'
-#' @note The \code{getTerminalBuffer} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalBuffer} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-getTerminalBuffer <- function(id, stripAnsi = TRUE) {
-  callFun("getTerminalBuffer", id, stripAnsi)
+terminalBuffer <- function(id, stripAnsi = TRUE) {
+  callFun("terminalBuffer", id, stripAnsi)
 }
 
 
@@ -199,23 +199,23 @@ getTerminalBuffer <- function(id, stripAnsi = TRUE) {
 #' Kill processes and close a terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
-#'   \code{\link{getAllTerminals}()}, \code{\link{getVisibleTerminal}()},
-#'   or \code{\link{createTerminal}()}.'
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   or \code{\link{terminalCreate}()}.'
 #'
-#' @note The \code{killTerminal} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalKill} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-killTerminal <- function(id) {
-  callFun("killTerminal", id)
+terminalKill<- function(id) {
+  callFun("terminalKill", id)
 }
 
 #' Get Visible Terminal
 #'
 #' @return Terminal selected in the client, if any.
 #'
-#' @note The \code{getVisibleTerminal} function was added in version 1.1.234 of RStudio.
+#' @note The \code{terminalVisible} function was added in version 1.1.251 of RStudio.
 #'
 #' @export
-getVisibleTerminal <- function() {
-  callFun("getVisibleTerminal")
+terminalVisible<- function() {
+  callFun("terminalVisible")
 }
