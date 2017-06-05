@@ -130,25 +130,19 @@ setSelectionRanges <- function(ranges, id = NULL) {
 #' @name editor-information
 #' @export
 getActiveDocumentContext <- function() {
-  context <- callFun("getActiveDocumentContext")
-  context$selection <- as.document_selection(context$selection)
-  structure(context, class = "document_context")
+  getDocumentContext("getActiveDocumentContext")
 }
 
 #' @rdname editor-information
 #' @name editor-information
 #' @export
 getSourceEditorContext <- function() {
-  context <- callFun("getSourceEditorContext")
-  context$selection <- as.document_selection(context$selection)
-  structure(context, class = "document_context")
+  getDocumentContext("getSourceEditorContext")
 }
 
 #' @rdname editor-information
 #' @name editor-information
 #' @export
 getConsoleEditorContext <- function() {
-  context <- callFun("getConsoleEditorContext")
-  context$selection <- as.document_selection(context$selection)
-  structure(context, class = "document_context")
+  getDocumentContext("getConsoleEditorContext")
 }
