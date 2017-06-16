@@ -6,12 +6,16 @@
 #'
 #' @export
 getThemeInfo <- function(title, message, url = NULL) {
+  editor <- .rs.readUiPref("theme")
+  global <- .rs.readUiPref("flat_theme")
+
   list(
-    editor = .rs.readUiPref("theme"),
+    editor = editor,
     global = switch(
-      .rs.readUiPref("flat_theme"),
+      if (is.null(global)) "" else global,
       alternate = "Sky",
-      default = "Modern"
+      default = "Modern",
+      "Classic"
     )
   )
 }
