@@ -119,3 +119,30 @@ getPersistentValue <- function(name) {
 hasColorConsole <- function() {
   callFun("getConsoleHasColor")
 }
+
+#' Save Open Documents
+#'
+#' Save documents currently open in the RStudio IDE. Note that this
+#' function is used only to save titled documents; untitled documents
+#' cannot be saved through this API.
+#'
+#' @param id The IDs of the document(s) to be saved. When \code{NULL},
+#'   this is interpreted as a request to save the active document.
+#'
+#' @note The \code{documentSave} and \code{documentSaveAll} functions
+#'   were added in version 1.1.{TODO}.
+#'
+#' @name document-save
+NULL
+
+#' @rdname document-save
+#' @export
+documentSave <- function(id = NULL) {
+  callFun("documentSave", id)
+}
+
+#' @rdname document-save
+#' @export
+documentSaveAll <- function() {
+  callFun("documentSaveAll")
+}
