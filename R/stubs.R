@@ -36,6 +36,18 @@ getActiveProject <- function() {
   callFun("getActiveProject")
 }
 
+#' Restart the R Session
+#'
+#' Restart the \R session, and (optionally) run a command
+#' after restarting \R.
+#'
+#' @param command The \R code to execute (as a string).
+#'
+#' @export
+restartSession <- function(command = NULL) {
+  callFun("restartSession", command)
+}
+
 #' Save Active RStudio Plot as an Image
 #'
 #' Save the currnently active RStudio as an image file.
