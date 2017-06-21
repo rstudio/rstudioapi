@@ -119,3 +119,18 @@ getPersistentValue <- function(name) {
 hasColorConsole <- function() {
   callFun("getConsoleHasColor")
 }
+
+#' Restart the R Session
+#'
+#' Restart the RStudio \R session.
+#'
+#' @param command An \R command (as a string) to be run
+#'   after restarting \R.
+#'
+#' @note The \code{restartSession} function was added in version 1.1.281
+#'   of RStudio.
+#'
+#' @export
+restartSession <- function(command = "") {
+  callFun("restartSession", command)
+}
