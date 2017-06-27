@@ -142,6 +142,9 @@ restartSession <- function(command = "") {
 #' file dialogs with RStudio Desktop, and RStudio's own web dialogs
 #' with RStudio Server.
 #'
+#' When the selected file resolves within the user's home directory,
+#' RStudio will return an aliased path -- that is, prefixed with \code{~/}.
+#'
 #' @param caption The window title.
 #' @param label The label to use for the 'Accept' / 'OK' button.
 #' @param path The initial working directory, from which the file dialog

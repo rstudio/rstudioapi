@@ -35,6 +35,10 @@ Prompt the user for the path to a file or folder, using the system
 file dialogs with RStudio Desktop, and RStudio's own web dialogs
 with RStudio Server.
 }
+\details{
+When the selected file resolves within the user's home directory,
+RStudio will return an aliased path -- that is, prefixed with \code{~/}.
+}
 \note{
 The \code{selectFile} and \code{selectDirectory} functions were
   added in version 1.1.287 of RStudio.
