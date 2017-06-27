@@ -134,3 +134,47 @@ hasColorConsole <- function() {
 restartSession <- function(command = "") {
   callFun("restartSession", command)
 }
+
+
+#' Select a File / Folder
+#'
+#' Prompt the user for the path to a file or folder, using the system
+#' file dialogs with RStudio Desktop, and RStudio's own web dialogs
+#' with RStudio Server.
+#'
+#' @param caption The window title.
+#' @param label The label to use for the 'Accept' / 'OK' button.
+#' @param path The initial working directory, from which the file dialog
+#'   should begin browsing. When \code{NULL}, defaults to the current RStudio
+#'   project directory.
+#' @param filter A glob filter, to be used when attempting to open a file
+#'   with a particular extension. For example, to scope the dialog to
+#'   \R files, one could use \code{R Files (*.R)} here.
+#' @param existing Boolean; should the file dialog limit itself to existing
+#'   files on the filesystem, or allow the user to select the path to a new file?
+#'
+#' @note The \code{selectFile} and \code{selectDirectory} functions were
+#'   added in version 1.1.287 of RStudio.
+#'
+#' @name file-dialogs
+NULL
+
+#' @name file-dialogs
+#' @export
+selectFile <- function(caption = "Select File",
+                       label = "Select",
+                       path = NULL,
+                       filter = NULL,
+                       existing = TRUE)
+{
+  callFun("selectFile", caption, label, path, filter, existing)
+}
+
+#' @name file-dialogs
+#' @export
+selectDirectory <- function(caption = "Select Directory",
+                            label = "Select",
+                            path = NULL)
+{
+  callFun("selectFile", caption, label, path)
+}
