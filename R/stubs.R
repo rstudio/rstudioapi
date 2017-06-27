@@ -187,7 +187,9 @@ selectDirectory <- function(caption = "Select Directory",
 #' Initialize and open RStudio projects.
 #'
 #' Calling \code{openProject()} without arguments effectively re-opens the
-#' currently open project in RStudio.
+#' currently open project in RStudio. When switching projects, users will
+#' be prompted to save any unsaved files; alternatively, you can explicitly
+#' save any open documents using \code{\link{documentSaveAll}()}.
 #'
 #' @param path Either the path to an existing \code{.Rproj} file, or a path
 #'   to a directory in which a new project should be initialized and opened.

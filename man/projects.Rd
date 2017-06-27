@@ -26,7 +26,9 @@ Initialize and open RStudio projects.
 }
 \details{
 Calling \code{openProject()} without arguments effectively re-opens the
-currently open project in RStudio.
+currently open project in RStudio. When switching projects, users will
+be prompted to save any unsaved files; alternatively, you can explicitly
+save any open documents using \code{\link{documentSaveAll}()}.
 }
 \note{
 The \code{openProject} and \code{initializeProject} functions were
