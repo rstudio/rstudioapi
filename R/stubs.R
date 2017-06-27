@@ -181,3 +181,35 @@ selectDirectory <- function(caption = "Select Directory",
 {
   callFun("selectFile", caption, label, path)
 }
+
+#' Open a Project in RStudio
+#'
+#' Initialize and open RStudio projects.
+#'
+#' Calling \code{openProject()} without arguments effectively re-opens the
+#' currently open project in RStudio.
+#'
+#' @param path Either the path to an existing \code{.Rproj} file, or a path
+#'   to a directory in which a new project should be initialized and opened.
+#' @param newSession Boolean; should the project be opened in a new session,
+#'   or should the current RStudio session switch to that project? Note that
+#'   \code{TRUE} values are only supported with RStudio Desktop and RStudio
+#'   Server Pro.
+#'
+#' @note The \code{openProject} and \code{initializeProject} functions were
+#'   added in version 1.1.287 of RStudio.
+#'
+#' @name projects
+NULL
+
+#' @name projects
+#' @export
+openProject <- function(path = NULL, newSession = FALSE) {
+  callFun("openProject", path, newSession)
+}
+
+#' @name projects
+#' @export
+initializeProject <- function(path = getwd()) {
+  callFun("initializeProject", path)
+}
