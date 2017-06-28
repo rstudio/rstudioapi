@@ -10,7 +10,7 @@ Open a file in RStudio, optionally at a specified location.
 The \code{navigateToFile} function was added in version 0.99.719 of RStudio.
 }
 \usage{
-navigateToFile(file, line = 1L, column = 1L) 
+navigateToFile(file, line = -1L, column = -1L)
 }
 
 \arguments{
@@ -20,9 +20,11 @@ navigateToFile(file, line = 1L, column = 1L)
 }
 
 \details{
-The \code{navigateToFile} opens a file in RStudio. If the file is already open, its tab or window is activated. 
+The \code{navigateToFile} opens a file in RStudio. If the file is already open, its tab or window is activated.
 
-Once the file is open, the cursor is moved to the specified location.
+Once the file is open, the cursor is moved to the specified location.  If the \code{line}
+and \code{column} arguments are both equal to \code{-1L} (the default), then
+the cursor position in the document that is opened will be preserved.
 
 Note that if your intent is to navigate to a particular function within a file, you can also cause RStudio to navigate there by invoking \code{\link[utils]{View}} on the function, which has the advantage of falling back on deparsing if the file is not available.
 }

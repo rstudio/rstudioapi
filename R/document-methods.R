@@ -141,6 +141,8 @@ as.document_selection <- function(x) {
     if (!named)
       stop(invalidMsg, call. = FALSE)
 
+    Encoding(el$text) <- "UTF-8"
+
     list(
       range = as.document_range(el$range),
       text  = el$text
@@ -206,4 +208,12 @@ primary_selection.document_context <- function(x, ...) {
 #' @export
 primary_selection.document_selection <- function(x, ...) {
   x[[1]]
+}
+
+getDocumentContext <- function(fn) {
+  context <- callFun(fn)
+  Encoding(context$path)     <- "UTF-8"
+  Encoding(context$contents) <- "UTF-8"
+  context$selection <- as.document_selection(context$selection)
+  structure(context, class = "document_context")
 }

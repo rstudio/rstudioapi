@@ -1,6 +1,6 @@
-#' Modify the Contents of a Document
+#' Interact with Documents open in RStudio
 #'
-#' Use these functions to modify the contents of a document open in RStudio.
+#' Use these functions to interact with documents open in RStudio.
 #'
 #' @param location An object specifying the positions, or ranges, wherein
 #'   text should be inserted. See \bold{Details} for more information.
@@ -17,9 +17,11 @@
 #'   from \code{\link{getActiveDocumentContext}()} to ensure
 #'   that the operation is applied on the intended document.
 #'
-#' @param position Cursor position
+#' @param position The cursor position, typically created through
+#'   \code{\link{document_position}()}.
 #'
-#' @param ranges Selection ranges
+#' @param ranges A list of one or more ranges, typically created
+#'   through \code{\link{document_range}()}.
 #'
 #' @details
 #'
@@ -67,19 +69,23 @@
 #' The \code{setCursorPosition} and \code{setSelectionRanges} functions were
 #' added with version 0.99.1111 of RStudio.
 #'
-#' @rdname document-mutation
+#' The \code{documentSave} and \code{documentSaveAll} functions were added
+#' with version 1.1.287 of RStudio.
+#'
+#' @name rstudio-documents
+NULL
+
+#' @name rstudio-documents
 #' @export
 insertText <- function(location, text, id = NULL) {
   callFun("insertText", location, text, id)
 }
 
-#' @name document-mutation
-#' @rdname document-mutation
+#' @name rstudio-documents
 #' @export
 modifyRange <- insertText
 
-#' @name document-mutation
-#' @rdname document-mutation
+#' @name rstudio-documents
 #' @export
 setDocumentContents <- function(text, id = NULL) {
 
@@ -91,18 +97,28 @@ setDocumentContents <- function(text, id = NULL) {
   insertText(location, text, id)
 }
 
-#' @name document-mutation
-#' @rdname document-mutation
+#' @name rstudio-documents
 #' @export
 setCursorPosition <- function(position, id = NULL) {
   callFun("setSelectionRanges", position, id)
 }
 
-#' @name document-mutation
-#' @rdname document-mutation
+#' @name rstudio-documents
 #' @export
 setSelectionRanges <- function(ranges, id = NULL) {
   callFun("setSelectionRanges", ranges, id)
+}
+
+#' @name rstudio-documents
+#' @export
+documentSave <- function(id = NULL) {
+  callFun("documentSave", id)
+}
+
+#' @name rstudio-documents
+#' @export
+documentSaveAll <- function() {
+  callFun("documentSaveAll")
 }
 
 #' Retrieve Information about an RStudio Editor
@@ -126,29 +142,21 @@ setSelectionRanges <- function(ranges, id = NULL) {
 #' \code{selection} \tab A \code{list} of selections. See \bold{Details} for more information.\cr
 #' }
 #'
-#' @rdname editor-information
-#' @name editor-information
+#' @rdname rstudio-editors
+#' @name rstudio-editors
 #' @export
 getActiveDocumentContext <- function() {
-  context <- callFun("getActiveDocumentContext")
-  context$selection <- as.document_selection(context$selection)
-  structure(context, class = "document_context")
+  getDocumentContext("getActiveDocumentContext")
 }
 
-#' @rdname editor-information
-#' @name editor-information
+#' @name rstudio-editors
 #' @export
 getSourceEditorContext <- function() {
-  context <- callFun("getSourceEditorContext")
-  context$selection <- as.document_selection(context$selection)
-  structure(context, class = "document_context")
+  getDocumentContext("getSourceEditorContext")
 }
 
-#' @rdname editor-information
-#' @name editor-information
+#' @name rstudio-editors
 #' @export
 getConsoleEditorContext <- function() {
-  context <- callFun("getConsoleEditorContext")
-  context$selection <- as.document_selection(context$selection)
-  structure(context, class = "document_context")
+  getDocumentContext("getConsoleEditorContext")
 }
