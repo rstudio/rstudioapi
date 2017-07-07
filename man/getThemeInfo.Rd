@@ -4,7 +4,7 @@
 \alias{getThemeInfo}
 \title{Retrieve Themes}
 \usage{
-getThemeInfo(title, message, url = NULL)
+getThemeInfo()
 }
 \description{
 Retrieves a list with themes information. Currently, \code{editor} as
