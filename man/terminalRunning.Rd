@@ -18,5 +18,5 @@ a boolean
 Does a terminal have a process associated with it?
 }
 \note{
-The \code{terminalRunning} function was added in version 1.1.251 of RStudio.
+The \code{terminalRunning} function was added in version 1.1.305 of RStudio.
 }

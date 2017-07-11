@@ -4,11 +4,13 @@
 \alias{terminalCreate}
 \title{Create a Terminal}
 \usage{
-terminalCreate(id = NULL)
+terminalCreate(id = NULL, show = TRUE)
 }
 \arguments{
 \item{id}{The terminal id. When \code{NULL} or blank, the terminal id
 will be chosen by the system.}
+
+\item{show}{If FALSE, terminal won't be brought to front}
 }
 \value{
 The terminal identifier as a character vector (\code{NULL} if
@@ -19,7 +21,7 @@ The terminal identifier as a character vector (\code{NULL} if
 Create a new Terminal.
 }
 \note{
-The \code{terminalCreate} function was added in version 1.1.251 of RStudio.
+The \code{terminalCreate} function was added in version 1.1.305 of RStudio.
 }
 \examples{
 \dontrun{

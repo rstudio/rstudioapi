@@ -8,7 +8,7 @@
 #'   or \code{\link{terminalCreate}()}.
 #' @param text Character vector containing text to be inserted.
 #'
-#' @note The \code{terminalSend} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalSend} function was added in version 1.1.305 of RStudio.
 #'
 #' @examples
 #' \dontrun{
@@ -29,7 +29,7 @@ terminalSend <- function(id, text) {
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
 #'   or \code{\link{terminalCreate}()}.'
 #'
-#' @note The \code{terminalClear} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalClear} function was added in version 1.1.305 of RStudio.
 #'
 #' @examples
 #' \dontrun{
@@ -48,12 +48,13 @@ terminalClear <- function(id) {
 #'
 #' @param id The terminal id. When \code{NULL} or blank, the terminal id
 #' will be chosen by the system.
+#' @param show If FALSE, terminal won't be brought to front
 #'
 #' @return The terminal identifier as a character vector (\code{NULL} if
 #'   unable to create the terminal or the given terminal identifier is already
 #'   in use).
 #'
-#' @note The \code{terminalCreate} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalCreate} function was added in version 1.1.305 of RStudio.
 #'
 #' @examples
 #' \dontrun{
@@ -61,8 +62,8 @@ terminalClear <- function(id) {
 #' }
 #'
 #' @export
-terminalCreate <- function(id = NULL) {
-  callFun("terminalCreate", id)
+terminalCreate <- function(id = NULL, show = TRUE) {
+  callFun("terminalCreate", id, show)
 }
 
 
@@ -76,7 +77,7 @@ terminalCreate <- function(id = NULL) {
 #'
 #' @return a boolean
 #'
-#' @note The \code{terminalBusy} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalBusy} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
 terminalBusy <- function(id) {
@@ -94,7 +95,7 @@ terminalBusy <- function(id) {
 #'
 #' @return a boolean
 #'
-#' @note The \code{terminalRunning} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalRunning} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
 terminalRunning <- function(id) {
@@ -108,7 +109,7 @@ terminalRunning <- function(id) {
 #'
 #' @return The terminal identifiers as a character vector.
 #'
-#' @note The \code{terminalList} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalList} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
 terminalList <- function() {
@@ -133,6 +134,7 @@ terminalList <- function() {
 #' \code{shell} \tab shell type\cr
 #' \code{running} \tab is terminal process executing\cr
 #' \code{busy} \tab is terminal running a program\cr
+#' \code{exit_code} \tab process exit code or NULL\cr
 #' \code{connection} \tab websockets or rpc\cr
 #' \code{sequence} \tab creation sequence\cr
 #' \code{lines} \tab lines of text in terminal buffer\cr
@@ -142,7 +144,7 @@ terminalList <- function() {
 #' \code{full_screen} \tab full screen program running\cr
 #' }
 #'
-#' @note The \code{terminalContext} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalContext} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
 terminalContext <- function(id) {
@@ -161,7 +163,7 @@ terminalContext <- function(id) {
 #' @param show If TRUE, bring the terminal to front in RStudio.
 #' terminal buffer.
 #'
-#' @note The \code{terminalActivate} function was added in version 1.1.250 of RStudio.
+#' @note The \code{terminalActivate} function was added in version 1.1.305 of RStudio.
 #'
 #' @examples
 #' \dontrun{
@@ -186,7 +188,7 @@ terminalActivate <- function(id = NULL, show = TRUE) {
 #'
 #' @return The terminal contents, one line per row.
 #'
-#' @note The \code{terminalBuffer} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalBuffer} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
 terminalBuffer <- function(id, stripAnsi = TRUE) {
@@ -202,7 +204,7 @@ terminalBuffer <- function(id, stripAnsi = TRUE) {
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
 #'   or \code{\link{terminalCreate}()}.'
 #'
-#' @note The \code{terminalKill} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalKill} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
 terminalKill<- function(id) {
@@ -213,9 +215,29 @@ terminalKill<- function(id) {
 #'
 #' @return Terminal selected in the client, if any.
 #'
-#' @note The \code{terminalVisible} function was added in version 1.1.251 of RStudio.
+#' @note The \code{terminalVisible} function was added in version 1.1.305 of RStudio.
 #'
 #' @export
-terminalVisible<- function() {
+terminalVisible <- function() {
   callFun("terminalVisible")
+}
+
+#' Execute Command
+#'
+#' Execute a command, showing results in the terminal pane.
+#'
+#' @param command System command to be invoked, as a character string.
+#' @param args Arguments to command
+#' @param workingDir Working directory for command
+#' @param show If FALSE, terminal won't be brought to front
+#'
+#' @return The terminal identifier as a character vector (\code{NULL} if
+#'   unable to create the terminal).
+#'
+#' @note The \code{terminalExecute} function was added in version 1.1.305 of RStudio.
+#'
+#' @export
+terminalExecute <- function(command, args = character(),
+                            workingDir = NULL, show = TRUE) {
+  callFun("terminalExecute", command, args, workingDir, show)
 }

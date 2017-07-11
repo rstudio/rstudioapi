@@ -21,6 +21,7 @@ A \code{list} with elements:
 \code{shell} \tab shell type\cr
 \code{running} \tab is terminal process executing\cr
 \code{busy} \tab is terminal running a program\cr
+\code{exit_code} \tab process exit code or NULL\cr
 \code{connection} \tab websockets or rpc\cr
 \code{sequence} \tab creation sequence\cr
 \code{lines} \tab lines of text in terminal buffer\cr
@@ -34,5 +35,5 @@ A \code{list} with elements:
 Returns information about RStudio terminal instances.
 }
 \note{
-The \code{terminalContext} function was added in version 1.1.251 of RStudio.
+The \code{terminalContext} function was added in version 1.1.305 of RStudio.
 }
