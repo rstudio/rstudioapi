@@ -6,7 +6,7 @@
 
 * Add setPersistentValue/getPersistentValue functions
 
-* Add methods for interacting with Terminal tab: 'terminalActivate', 'terminalClear', 'terminalCreate', 'terminalList', 'terminalBuffer', 'terminalContext', 'terminalVisible', 'terminalBusy', 'terminalRunning', 'terminalKill', and 'terminalSend'.
+* Add methods for interacting with Terminal tab: 'terminalActivate', 'terminalClear', 'terminalCreate', 'terminalList', 'terminalBuffer', 'terminalContext', 'terminalVisible', 'terminalBusy', 'terminalRunning', 'terminalKill', 'terminalSend', 'terminalExecute', and 'terminalExitCode'.
 
 # rstudioapi 0.6
 
