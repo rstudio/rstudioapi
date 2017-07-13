@@ -7,7 +7,7 @@
 terminalVisible()
 }
 \value{
-Terminal selected in the client, if any.
+Terminal identifier selected in the client, if any.
 }
 \description{
 Get Visible Terminal

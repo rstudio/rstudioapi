@@ -1,11 +1,11 @@
 
 #' Send Text to a Terminal
 #'
-#' Send text to specified terminal.
+#' Send text to an existing terminal.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #' @param text Character vector containing text to be inserted.
 #'
 #' @note The \code{terminalSend} function was added in version 1.1.305 of RStudio.
@@ -27,7 +27,7 @@ terminalSend <- function(id, text) {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.'
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #'
 #' @note The \code{terminalClear} function was added in version 1.1.305 of RStudio.
 #'
@@ -46,8 +46,8 @@ terminalClear <- function(id) {
 #'
 #' Create a new Terminal.
 #'
-#' @param id The terminal id. When \code{NULL} or blank, the terminal id
-#' will be chosen by the system.
+#' @param id The desired terminal id. When \code{NULL} or blank,
+#' the terminal id will be chosen by the system.
 #' @param show If FALSE, terminal won't be brought to front
 #'
 #' @return The terminal identifier as a character vector (\code{NULL} if
@@ -73,7 +73,7 @@ terminalCreate <- function(id = NULL, show = TRUE) {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.'
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #'
 #' @return a boolean
 #'
@@ -91,7 +91,7 @@ terminalBusy <- function(id) {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.'
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #'
 #' @return a boolean
 #'
@@ -123,7 +123,7 @@ terminalList <- function() {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.'
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #'
 #' @return A \code{list} with elements:
 #' \tabular{ll}{
@@ -158,8 +158,9 @@ terminalContext <- function(id) {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}. If NULL, the terminal tab will be
-#'   selected but no specific terminal will be chosen.
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
+#'   If NULL, the terminal tab will be selected but no specific terminal
+#'   will be chosen.
 #' @param show If TRUE, bring the terminal to front in RStudio.
 #' terminal buffer.
 #'
@@ -182,7 +183,7 @@ terminalActivate <- function(id = NULL, show = TRUE) {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.'
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #' @param stripAnsi If FALSE, don't strip out Ansi escape sequences before returning
 #' terminal buffer.
 #'
@@ -202,7 +203,7 @@ terminalBuffer <- function(id, stripAnsi = TRUE) {
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-#'   or \code{\link{terminalCreate}()}.'
+#'   \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
 #'
 #' @note The \code{terminalKill} function was added in version 1.1.305 of RStudio.
 #'
@@ -213,7 +214,7 @@ terminalKill<- function(id) {
 
 #' Get Visible Terminal
 #'
-#' @return Terminal selected in the client, if any.
+#' @return Terminal identifier selected in the client, if any.
 #'
 #' @note The \code{terminalVisible} function was added in version 1.1.305 of RStudio.
 #'
@@ -227,8 +228,8 @@ terminalVisible <- function() {
 #' Execute a command, showing results in the terminal pane.
 #'
 #' @param command System command to be invoked, as a character string.
-#' @param args Arguments to command
 #' @param workingDir Working directory for command
+#' @param env Vector of name=value strings to set environment variables
 #' @param show If FALSE, terminal won't be brought to front
 #'
 #' @return The terminal identifier as a character vector (\code{NULL} if
@@ -236,8 +237,35 @@ terminalVisible <- function() {
 #'
 #' @note The \code{terminalExecute} function was added in version 1.1.305 of RStudio.
 #'
+#' @examples
+#' \dontrun{
+#' termId <- rstudioapi::terminalExecute(
+#'     command = 'echo $HELLO && echo $WORLD',
+#'     workingDir = '/usr/local',
+#'     env = c('HELLO=WORLD', 'WORLD=EARTH'))
+#' }
 #' @export
-terminalExecute <- function(command, args = character(),
-                            workingDir = NULL, show = TRUE) {
-  callFun("terminalExecute", command, args, workingDir, show)
+terminalExecute <- function(command,
+                            workingDir = NULL,
+                            env = character(),
+                            show = TRUE) {
+  callFun("terminalExecute", command, workingDir, env, show)
+}
+
+
+#' Terminal Exit Code
+#'
+#' Get exit code of terminal process, or NULL if still running.
+#'
+#' @param id The terminal id. The \code{id} is obtained from
+#'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
+#'   ,\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
+#'
+#' @return The exit code as an integer vector, or NULL if process still running.
+#'
+#' @note The \code{terminalExitCode} function was added in version 1.1.305 of RStudio.
+#'
+#' @export
+terminalExitCode <- function(id) {
+  callFun("terminalExitCode", id)
 }

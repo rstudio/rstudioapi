@@ -9,8 +9,9 @@ terminalActivate(id = NULL, show = TRUE)
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-or \code{\link{terminalCreate}()}. If NULL, the terminal tab will be
-selected but no specific terminal will be chosen.}
+\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
+If NULL, the terminal tab will be selected but no specific terminal
+will be chosen.}
 
 \item{show}{If TRUE, bring the terminal to front in RStudio.
 terminal buffer.}

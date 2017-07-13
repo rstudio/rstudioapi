@@ -9,12 +9,12 @@ terminalSend(id, text)
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-or \code{\link{terminalCreate}()}.}
+\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 
 \item{text}{Character vector containing text to be inserted.}
 }
 \description{
-Send text to specified terminal.
+Send text to an existing terminal.
 }
 \note{
 The \code{terminalSend} function was added in version 1.1.305 of RStudio.

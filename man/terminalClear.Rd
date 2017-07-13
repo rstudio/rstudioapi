@@ -9,7 +9,7 @@ terminalClear(id)
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-or \code{\link{terminalCreate}()}.'}
+\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 }
 \description{
 Clears the buffer for specified terminal.

@@ -9,7 +9,7 @@ terminalBuffer(id, stripAnsi = TRUE)
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-or \code{\link{terminalCreate}()}.'}
+\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 
 \item{stripAnsi}{If FALSE, don't strip out Ansi escape sequences before returning
 terminal buffer.}

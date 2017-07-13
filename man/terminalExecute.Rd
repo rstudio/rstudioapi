@@ -4,15 +4,15 @@
 \alias{terminalExecute}
 \title{Execute Command}
 \usage{
-terminalExecute(command, args = character(), workingDir = NULL,
+terminalExecute(command, workingDir = NULL, env = character(),
   show = TRUE)
 }
 \arguments{
 \item{command}{System command to be invoked, as a character string.}
 
-\item{args}{Arguments to command}
-
 \item{workingDir}{Working directory for command}
+
+\item{env}{Vector of name=value strings to set environment variables}
 
 \item{show}{If FALSE, terminal won't be brought to front}
 }
@@ -25,4 +25,12 @@ Execute a command, showing results in the terminal pane.
 }
 \note{
 The \code{terminalExecute} function was added in version 1.1.305 of RStudio.
+}
+\examples{
+\dontrun{
+termId <- rstudioapi::terminalExecute(
+    command = 'echo $HELLO && echo $WORLD',
+    workingDir = '/usr/local',
+    env = c('HELLO=WORLD', 'WORLD=EARTH'))
+}
 }

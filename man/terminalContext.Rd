@@ -9,7 +9,7 @@ terminalContext(id)
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-or \code{\link{terminalCreate}()}.'}
+\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 }
 \value{
 A \code{list} with elements:

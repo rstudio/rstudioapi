@@ -7,8 +7,8 @@
 terminalCreate(id = NULL, show = TRUE)
 }
 \arguments{
-\item{id}{The terminal id. When \code{NULL} or blank, the terminal id
-will be chosen by the system.}
+\item{id}{The desired terminal id. When \code{NULL} or blank,
+the terminal id will be chosen by the system.}
 
 \item{show}{If FALSE, terminal won't be brought to front}
 }
