@@ -12,6 +12,9 @@ Authors@R: c(
 Maintainer: JJ Allaire <jj@rstudio.com>
 License: MIT + file LICENSE
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
