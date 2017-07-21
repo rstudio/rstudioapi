@@ -4,17 +4,17 @@
 \alias{terminalCreate}
 \title{Create a Terminal}
 \usage{
-terminalCreate(id = NULL, show = TRUE)
+terminalCreate(caption = NULL, show = TRUE)
 }
 \arguments{
-\item{id}{The desired terminal id. When \code{NULL} or blank,
-the terminal id will be chosen by the system.}
-
 \item{show}{If FALSE, terminal won't be brought to front}
+
+\item{id}{The desired terminal caption. When \code{NULL} or blank,
+the terminal caption will be chosen by the system.}
 }
 \value{
 The terminal identifier as a character vector (\code{NULL} if
-  unable to create the terminal or the given terminal identifier is already
+  unable to create the terminal or the given terminal caption is already
   in use).
 }
 \description{

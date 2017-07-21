@@ -13,8 +13,7 @@ terminalActivate(id = NULL, show = TRUE)
 If NULL, the terminal tab will be selected but no specific terminal
 will be chosen.}
 
-\item{show}{If TRUE, bring the terminal to front in RStudio.
-terminal buffer.}
+\item{show}{If TRUE, bring the terminal to front in RStudio.}
 }
 \description{
 Ensure terminal is running and optionally bring to front in RStudio.

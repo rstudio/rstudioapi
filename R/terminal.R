@@ -46,12 +46,12 @@ terminalClear <- function(id) {
 #'
 #' Create a new Terminal.
 #'
-#' @param id The desired terminal id. When \code{NULL} or blank,
-#' the terminal id will be chosen by the system.
+#' @param id The desired terminal caption. When \code{NULL} or blank,
+#' the terminal caption will be chosen by the system.
 #' @param show If FALSE, terminal won't be brought to front
 #'
 #' @return The terminal identifier as a character vector (\code{NULL} if
-#'   unable to create the terminal or the given terminal identifier is already
+#'   unable to create the terminal or the given terminal caption is already
 #'   in use).
 #'
 #' @note The \code{terminalCreate} function was added in version 1.1.305 of RStudio.
@@ -62,8 +62,8 @@ terminalClear <- function(id) {
 #' }
 #'
 #' @export
-terminalCreate <- function(id = NULL, show = TRUE) {
-  callFun("terminalCreate", id, show)
+terminalCreate <- function(caption = NULL, show = TRUE) {
+  callFun("terminalCreate", caption, show)
 }
 
 
@@ -128,7 +128,7 @@ terminalList <- function() {
 #' @return A \code{list} with elements:
 #' \tabular{ll}{
 #' \code{handle} \tab the internal handle\cr
-#' \code{caption} \tab caption (terminal identifier)\cr
+#' \code{caption} \tab caption\cr
 #' \code{title} \tab title set by the shell\cr
 #' \code{working_dir} \tab working directory\cr
 #' \code{shell} \tab shell type\cr
@@ -162,7 +162,6 @@ terminalContext <- function(id) {
 #'   If NULL, the terminal tab will be selected but no specific terminal
 #'   will be chosen.
 #' @param show If TRUE, bring the terminal to front in RStudio.
-#' terminal buffer.
 #'
 #' @note The \code{terminalActivate} function was added in version 1.1.305 of RStudio.
 #'

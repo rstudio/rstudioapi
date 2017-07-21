@@ -15,7 +15,7 @@ terminalContext(id)
 A \code{list} with elements:
 \tabular{ll}{
 \code{handle} \tab the internal handle\cr
-\code{caption} \tab caption (terminal identifier)\cr
+\code{caption} \tab caption\cr
 \code{title} \tab title set by the shell\cr
 \code{working_dir} \tab working directory\cr
 \code{shell} \tab shell type\cr
