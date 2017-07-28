@@ -15,8 +15,27 @@ terminalRunning(id)
 a boolean
 }
 \description{
-Does a terminal have a process associated with it?
+Does a terminal have a process associated with it? If the R session is
+restarted after a terminal has been created, the terminal will not
+restart its shell until it is displayed either via the user
+interface, or via \code{\link{terminalActivate}()}.
 }
 \note{
 The \code{terminalRunning} function was added in version 1.1.305 of RStudio.
+}
+\examples{
+\dontrun{
+# termId has a handle to a previously created terminal
+# make sure it is still running before we send it a command
+if (!rstudioapi::terminalRunning(termId)) {
+   rstudioapi::terminalActivate(termId))
+
+   # wait for it to start
+   while (!rstudioapi::terminalRunning(termId)) {
+      Sys.sleep(0.1)
+   }
+
+   terminalSend(termId, "echo Hello\\n")
+}
+}
 }

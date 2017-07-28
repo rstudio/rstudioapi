@@ -19,7 +19,10 @@ The \code{terminalClear} function was added in version 1.1.305 of RStudio.
 }
 \examples{
 \dontrun{
-rstudioapi::terminalClear('Terminal 1')
+termId <- rstudioapi::terminalCreate()
+rstudioapi::terminalSend(termId, 'ls -l\\n')
+Sys.sleep(3)
+rstudioapi::terminalClear(termId)
 }
 
 }

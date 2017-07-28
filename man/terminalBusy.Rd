@@ -20,3 +20,16 @@ Are terminals reporting that they are busy?
 \note{
 The \code{terminalBusy} function was added in version 1.1.305 of RStudio.
 }
+\examples{
+\dontrun{
+# create a hidden terminal and run a lengthy command
+termId <- rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(termId, "sleep 5\\n")
+
+# wait until a busy terminal is finished
+while (rstudioapi::terminalBusy(termId)) {
+  Sys.sleep(0.1)
+}
+print("Terminal available")
+}
+}

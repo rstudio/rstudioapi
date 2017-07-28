@@ -29,8 +29,18 @@ The \code{terminalExecute} function was added in version 1.1.305 of RStudio.
 \examples{
 \dontrun{
 termId <- rstudioapi::terminalExecute(
-    command = 'echo $HELLO && echo $WORLD',
-    workingDir = '/usr/local',
-    env = c('HELLO=WORLD', 'WORLD=EARTH'))
+  command = 'echo $HELLO && echo $WORLD',
+  workingDir = '/usr/local',
+  env = c('HELLO=WORLD', 'WORLD=EARTH'),
+  show = FALSE)
+
+while (is.null(rstudioapi::terminalExitCode(termId))) {
+  Sys.sleep(0.1)
 }
+
+result <- terminalBuffer(termId)
+terminalKill(termId)
+print(result)
+}
+
 }

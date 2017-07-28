@@ -37,3 +37,11 @@ Returns information about RStudio terminal instances.
 \note{
 The \code{terminalContext} function was added in version 1.1.305 of RStudio.
 }
+\examples{
+\dontrun{
+termId <- rstudioapi::terminalCreate("example", show = FALSE)
+View(rstudioapi::terminalContext(termId))
+
+}
+
+}

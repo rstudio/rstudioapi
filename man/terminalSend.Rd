@@ -21,7 +21,8 @@ The \code{terminalSend} function was added in version 1.1.305 of RStudio.
 }
 \examples{
 \dontrun{
-rstudioapi::terminalSend(id='My Terminal', 'ls -l\\n')
+termId <- rstudioapi::terminalCreate()
+rstudioapi::terminalSend(termId, 'ls -l\\n')
 }
 
 }

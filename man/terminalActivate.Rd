@@ -23,7 +23,17 @@ The \code{terminalActivate} function was added in version 1.1.305 of RStudio.
 }
 \examples{
 \dontrun{
-rstudioapi::terminalActivate('Terminal 1', show=TRUE)
+# create a hidden terminal and run a lengthy command
+termId = rstudioapi::terminalCreate(show = FALSE)
+rstudioapi::terminalSend(termId, "sleep 5\\n")
+
+# wait until a busy terminal is finished
+while (rstudioapi::terminalBusy(termId)) {
+  Sys.sleep(0.1)
+}
+print("Terminal available")#'
+
+rstudioapi::terminalActivate(termId)
 }
 
 }

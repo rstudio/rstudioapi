@@ -12,7 +12,8 @@
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::terminalSend(id='My Terminal', 'ls -l\n')
+#' termId <- rstudioapi::terminalCreate()
+#' rstudioapi::terminalSend(termId, 'ls -l\n')
 #' }
 #'
 #' @export
@@ -33,7 +34,10 @@ terminalSend <- function(id, text) {
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::terminalClear('Terminal 1')
+#' termId <- rstudioapi::terminalCreate()
+#' rstudioapi::terminalSend(termId, 'ls -l\n')
+#' Sys.sleep(3)
+#' rstudioapi::terminalClear(termId)
 #' }
 #'
 #' @export
@@ -58,7 +62,7 @@ terminalClear <- function(id) {
 #'
 #' @examples
 #' \dontrun{
-#' terminalId <- rstudioapi::terminalCreate('My Terminal')
+#' termId <- rstudioapi::terminalCreate('My Terminal')
 #' }
 #'
 #' @export
@@ -79,6 +83,18 @@ terminalCreate <- function(caption = NULL, show = TRUE) {
 #'
 #' @note The \code{terminalBusy} function was added in version 1.1.305 of RStudio.
 #'
+#' @examples
+#' \dontrun{
+#' # create a hidden terminal and run a lengthy command
+#' termId <- rstudioapi::terminalCreate(show = FALSE)
+#' rstudioapi::terminalSend(termId, "sleep 5\n")
+#'
+#' # wait until a busy terminal is finished
+#' while (rstudioapi::terminalBusy(termId)) {
+#'   Sys.sleep(0.1)
+#' }
+#' print("Terminal available")
+#' }
 #' @export
 terminalBusy <- function(id) {
   callFun("terminalBusy", id)
@@ -87,7 +103,10 @@ terminalBusy <- function(id) {
 
 #' Is Terminal Running
 #'
-#' Does a terminal have a process associated with it?
+#' Does a terminal have a process associated with it? If the R session is
+#' restarted after a terminal has been created, the terminal will not
+#' restart its shell until it is displayed either via the user
+#' interface, or via \code{\link{terminalActivate}()}.
 #'
 #' @param id The terminal id. The \code{id} is obtained from
 #'   \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
@@ -97,6 +116,21 @@ terminalBusy <- function(id) {
 #'
 #' @note The \code{terminalRunning} function was added in version 1.1.305 of RStudio.
 #'
+#' @examples
+#' \dontrun{
+#' # termId has a handle to a previously created terminal
+#' # make sure it is still running before we send it a command
+#' if (!rstudioapi::terminalRunning(termId)) {
+#'    rstudioapi::terminalActivate(termId))
+#'
+#'    # wait for it to start
+#'    while (!rstudioapi::terminalRunning(termId)) {
+#'       Sys.sleep(0.1)
+#'    }
+#'
+#'    terminalSend(termId, "echo Hello\n")
+#' }
+#' }
 #' @export
 terminalRunning <- function(id) {
   callFun("terminalRunning", id)
@@ -146,6 +180,13 @@ terminalList <- function() {
 #'
 #' @note The \code{terminalContext} function was added in version 1.1.305 of RStudio.
 #'
+#' @examples
+#' \dontrun{
+#' termId <- rstudioapi::terminalCreate("example", show = FALSE)
+#' View(rstudioapi::terminalContext(termId))
+#'
+#' }
+#'
 #' @export
 terminalContext <- function(id) {
   callFun("terminalContext", id)
@@ -167,7 +208,17 @@ terminalContext <- function(id) {
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::terminalActivate('Terminal 1', show=TRUE)
+#' # create a hidden terminal and run a lengthy command
+#' termId = rstudioapi::terminalCreate(show = FALSE)
+#' rstudioapi::terminalSend(termId, "sleep 5\n")
+#'
+#' # wait until a busy terminal is finished
+#' while (rstudioapi::terminalBusy(termId)) {
+#'   Sys.sleep(0.1)
+#' }
+#' print("Terminal available")#'
+#'
+#' rstudioapi::terminalActivate(termId)
 #' }
 #'
 #' @export
@@ -239,10 +290,20 @@ terminalVisible <- function() {
 #' @examples
 #' \dontrun{
 #' termId <- rstudioapi::terminalExecute(
-#'     command = 'echo $HELLO && echo $WORLD',
-#'     workingDir = '/usr/local',
-#'     env = c('HELLO=WORLD', 'WORLD=EARTH'))
+#'   command = 'echo $HELLO && echo $WORLD',
+#'   workingDir = '/usr/local',
+#'   env = c('HELLO=WORLD', 'WORLD=EARTH'),
+#'   show = FALSE)
+#'
+#' while (is.null(rstudioapi::terminalExitCode(termId))) {
+#'   Sys.sleep(0.1)
 #' }
+#'
+#' result <- terminalBuffer(termId)
+#' terminalKill(termId)
+#' print(result)
+#' }
+#'
 #' @export
 terminalExecute <- function(command,
                             workingDir = NULL,

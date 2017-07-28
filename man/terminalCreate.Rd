@@ -25,7 +25,7 @@ The \code{terminalCreate} function was added in version 1.1.305 of RStudio.
 }
 \examples{
 \dontrun{
-terminalId <- rstudioapi::terminalCreate('My Terminal')
+termId <- rstudioapi::terminalCreate('My Terminal')
 }
 
 }
