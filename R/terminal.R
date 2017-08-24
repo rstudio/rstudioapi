@@ -50,9 +50,9 @@ terminalClear <- function(id) {
 #'
 #' Create a new Terminal.
 #'
-#' @param id The desired terminal caption. When \code{NULL} or blank,
+#' @param caption The desired terminal caption. When \code{NULL} or blank,
 #' the terminal caption will be chosen by the system.
-#' @param show If FALSE, terminal won't be brought to front
+#' @param show If \code{FALSE}, terminal won't be brought to front.
 #'
 #' @return The terminal identifier as a character vector (\code{NULL} if
 #'   unable to create the terminal or the given terminal caption is already

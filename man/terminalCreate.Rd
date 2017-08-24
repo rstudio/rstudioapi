@@ -7,10 +7,10 @@
 terminalCreate(caption = NULL, show = TRUE)
 }
 \arguments{
-\item{show}{If FALSE, terminal won't be brought to front}
-
-\item{id}{The desired terminal caption. When \code{NULL} or blank,
+\item{caption}{The desired terminal caption. When \code{NULL} or blank,
 the terminal caption will be chosen by the system.}
+
+\item{show}{If \code{FALSE}, terminal won't be brought to front.}
 }
 \value{
 The terminal identifier as a character vector (\code{NULL} if
