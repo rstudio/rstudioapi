@@ -19,4 +19,4 @@ The `rstudioapi` package provides an interface for interacting with the RStudio 
 
 - Interact with the R session associated with the current RStudio instance.
 
-Please see the other vignettes for more detailed information.
+Please see the other articles for more detailed information.

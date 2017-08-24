@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Show Question Dialog Box — showQuestion • rstudioapi</title>
+<title>Is Terminal Busy — terminalBusy • rstudioapi</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -96,52 +96,59 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Show Question Dialog Box</h1>
+    <h1>Is Terminal Busy</h1>
     </div>
 
     
-    <p>Shows a dialog box asking a question.</p>
+    <p>Are terminals reporting that they are busy?</p>
     
 
-    <pre class="usage"><span class='fu'>showQuestion</span>(<span class='no'>title</span>, <span class='no'>message</span>, <span class='kw'>ok</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>cancel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>terminalBusy</span>(<span class='no'>id</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>title</th>
-      <td><p>The title to display in the dialog box.</p></td>
-    </tr>
-    <tr>
-      <th>message</th>
-      <td><p>A character vector with the contents to display in
-the main dialog area.</p></td>
-    </tr>
-    <tr>
-      <th>ok</th>
-      <td><p>And optional character vector that overrides the caption for
-the OK button.</p></td>
-    </tr>
-    <tr>
-      <th>cancel</th>
-      <td><p>An optional character vector that overrides the caption for
-the Cancel button.</p></td>
+      <th>id</th>
+      <td><p>The terminal id. The <code>id</code> is obtained from
+<code><a href='terminalList.html'>terminalList</a>()</code>, <code><a href='terminalVisible.html'>terminalVisible</a>()</code>,
+<code><a href='terminalCreate.html'>terminalCreate</a>()</code>, or <code><a href='terminalExecute.html'>terminalExecute</a>()</code>.</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a boolean</p>
+    
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>showQuestion</code> function was added in version 1.1.67 of RStudio.</p>
+    <p>The <code>terminalBusy</code> function was added in version 1.1.305 of RStudio.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># create a hidden terminal and run a lengthy command</span>
+<span class='no'>termId</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/rstudioapi/topics/terminalCreate'>terminalCreate</a></span>(<span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/rstudioapi/topics/terminalSend'>terminalSend</a></span>(<span class='no'>termId</span>, <span class='st'>"sleep 5\n"</span>)
+
+<span class='co'># wait until a busy terminal is finished</span>
+<span class='kw'>while</span> (<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/rstudioapi/topics/terminalBusy'>terminalBusy</a></span>(<span class='no'>termId</span>)) {
+  <span class='fu'>Sys.sleep</span>(<span class='fl'>0.1</span>)
+}
+<span class='fu'>print</span>(<span class='st'>"Terminal available"</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#note">Note</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

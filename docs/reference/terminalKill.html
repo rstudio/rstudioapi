@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Authors • rstudioapi</title>
+<title>Kill Terminal — terminalKill • rstudioapi</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -20,9 +20,9 @@
 
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script>
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../jquery.sticky-kit.min.js"></script>
+<script src="../pkgdown.js"></script>
   
   
 <!-- mathjax -->
@@ -37,7 +37,7 @@
   </head>
 
   <body>
-    <div class="container template-authors">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -47,15 +47,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">rstudioapi</a>
+      <a class="navbar-brand" href="../index.html">rstudioapi</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -65,19 +65,19 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/projects.html">Interacting with Projects</a>
+      <a href="../articles/projects.html">Interacting with Projects</a>
     </li>
     <li>
-      <a href="articles/r-session.html">Interacting with the R Session</a>
+      <a href="../articles/r-session.html">Interacting with the R Session</a>
     </li>
     <li>
-      <a href="articles/document-manipulation.html">Manipulating Documents</a>
+      <a href="../articles/document-manipulation.html">Manipulating Documents</a>
     </li>
     <li>
-      <a href="articles/terminal.html">Interacting with RStudio Terminals</a>
+      <a href="../articles/terminal.html">Interacting with RStudio Terminals</a>
     </li>
     <li>
-      <a href="articles/dialogs.html">Requesting Information with Dialogs</a>
+      <a href="../articles/dialogs.html">Requesting Information with Dialogs</a>
     </li>
   </ul>
 </li>
@@ -94,34 +94,44 @@
       </header>
 
       <div class="row">
-  <div class="contents col-md-12">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Authors</h1>
+    <h1>Kill Terminal</h1>
     </div>
 
-    <ul class="list-unstyled">
-      <li>
-        <p><strong><a href='http://hadley.nz'>Hadley Wickham</a></strong>. Author.
-        </p>
-      </li>
-      <li>
-        <p><strong>JJ Allaire</strong>. Author, maintainer.
-        </p>
-      </li>
-      <li>
-        <p><strong>Kevin Ushey</strong>. Contributor.
-        </p>
-      </li>
-      <li>
-        <p><strong> RStudio</strong>. Copyright holder.
-        </p>
-      </li>
-    </ul>
+    
+    <p>Kill processes and close a terminal.</p>
+    
+
+    <pre class="usage"><span class='fu'>terminalKill</span>(<span class='no'>id</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>id</th>
+      <td><p>The terminal id. The <code>id</code> is obtained from
+<code><a href='terminalList.html'>terminalList</a>()</code>, <code><a href='terminalVisible.html'>terminalVisible</a>()</code>,
+<code><a href='terminalCreate.html'>terminalCreate</a>()</code>, or <code><a href='terminalExecute.html'>terminalExecute</a>()</code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The <code>terminalKill</code> function was added in version 1.1.305 of RStudio.</p>
+    
 
   </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#note">Note</a></li>
+          </ul>
 
+  </div>
 </div>
-
 
       <footer>
       <div class="copyright">

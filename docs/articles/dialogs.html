@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open Dialogs with rstudioapi • rstudioapi</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>File Dialogs • rstudioapi</title>
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container template-vignette">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -29,13 +29,34 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
+  <a href="../index.html">Home</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
 <li>
-  <a href="../articles/index.html">Articles</a>
-</li>
-<li>
-  <a href="../news/index.html">News</a>
+      <a href="../articles/projects.html">Interacting with Projects</a>
+    </li>
+    <li>
+      <a href="../articles/r-session.html">Interacting with the R Session</a>
+    </li>
+    <li>
+      <a href="../articles/document-manipulation.html">Manipulating Documents</a>
+    </li>
+    <li>
+      <a href="../articles/terminal.html">Interacting with RStudio Terminals</a>
+    </li>
+    <li>
+      <a href="../articles/dialogs.html">Requesting Information with Dialogs</a>
+    </li>
+  </ul>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -50,7 +71,7 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Open Dialogs with rstudioapi</h1>
+      <h1>File Dialogs</h1>
             
           </div>
 
@@ -60,26 +81,26 @@
 <p>Using the <code>rstudioapi</code> package, you can request input from the user with various dialogs.</p>
 <p>The <code><a href="../reference/file-dialogs.html">selectFile()</a></code> and <code><a href="../reference/file-dialogs.html">selectDirectory()</a></code> APIs allow you to request the name of an existing or non-existing path on the system.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># request the path to an existing .csv file on disk</span>
-path &lt;-<span class="st"> </span>rstudioapi<span class="op">::</span><span class="kw"><a href="../reference/file-dialogs.html">selectFile</a></span>(<span class="dt">caption =</span> <span class="st">"Select CSV File"</span>,
+path &lt;-<span class="st"> </span>rstudioapi<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/rstudioapi/topics/file-dialogs">selectFile</a></span>(<span class="dt">caption =</span> <span class="st">"Select CSV File"</span>,
                                <span class="dt">filter =</span> <span class="st">"CSV Files (*.csv)"</span>,
                                <span class="dt">existing =</span> <span class="ot">TRUE</span>)
 
 <span class="co"># now, you could read the data using e.g. 'readr::read_csv()'</span>
-data &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(path)
+data &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/readr/topics/read_delim">read_csv</a></span>(path)
 
 <span class="co"># request a file path (e.g. where you would like to save a new file)</span>
-target &lt;-<span class="st"> </span>rstudioapi<span class="op">::</span><span class="kw"><a href="../reference/file-dialogs.html">selectFile</a></span>(<span class="dt">caption =</span> <span class="st">"Save File"</span>,
+target &lt;-<span class="st"> </span>rstudioapi<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/rstudioapi/topics/file-dialogs">selectFile</a></span>(<span class="dt">caption =</span> <span class="st">"Save File"</span>,
                                  <span class="dt">label =</span> <span class="st">"Save"</span>,
                                  <span class="dt">existing =</span> <span class="ot">FALSE</span>)
 
 <span class="co"># save data to the path provided by the user</span>
 <span class="kw">saveRDS</span>(data, <span class="dt">file =</span> target)</code></pre></div>
-<p>Use <code>rstudioapi::askForPassword()</code> to request a password, or other credentials, from a user.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">token &lt;-<span class="st"> </span>rstudioapi<span class="op">::</span><span class="kw"><a href="../reference/askForPassword.html">askForPassword</a></span>(
+<p>Use <code><a href="http://www.rdocumentation.org/packages/rstudioapi/topics/askForPassword">rstudioapi::askForPassword()</a></code> to request a password, or other credentials, from a user.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">token &lt;-<span class="st"> </span>rstudioapi<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/rstudioapi/topics/askForPassword">askForPassword</a></span>(
   <span class="dt">prompt =</span> <span class="st">"Please provide your GitHub access token."</span>
 )</code></pre></div>
-<p>Use <code>rstudioapi::showDialog()</code> to display an informative dialog to the user. This dialog is used to report some kind of status or information to the user; it does not request any input.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rstudioapi<span class="op">::</span><span class="kw"><a href="../reference/showDialog.html">showDialog</a></span>(<span class="dt">title =</span> <span class="st">"Hello, world!"</span>,
+<p>Use <code><a href="http://www.rdocumentation.org/packages/rstudioapi/topics/showDialog">rstudioapi::showDialog()</a></code> to display an informative dialog to the user. This dialog is used to report some kind of status or information to the user; it does not request any input.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rstudioapi<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/rstudioapi/topics/showDialog">showDialog</a></span>(<span class="dt">title =</span> <span class="st">"Hello, world!"</span>,
                        <span class="dt">message =</span> <span class="st">"You're &lt;b&gt;awesome!&lt;/b&gt;"</span>,
                        <span class="dt">url =</span> <span class="st">"http://www.example.com"</span>)</code></pre></div>
 </div>

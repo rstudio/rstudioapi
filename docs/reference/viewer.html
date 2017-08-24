@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -39,7 +39,7 @@
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -52,13 +52,34 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">Home</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
-</li>
-<li>
-  <a href="../news/index.html">News</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/projects.html">Interacting with Projects</a>
+    </li>
+    <li>
+      <a href="../articles/r-session.html">Interacting with the R Session</a>
+    </li>
+    <li>
+      <a href="../articles/document-manipulation.html">Manipulating Documents</a>
+    </li>
+    <li>
+      <a href="../articles/terminal.html">Interacting with RStudio Terminals</a>
+    </li>
+    <li>
+      <a href="../articles/dialogs.html">Requesting Information with Dialogs</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
@@ -99,7 +120,7 @@
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>RStudio also sets the global <code>viewer</code> option to the <code>rstudioapi::viewer</code> function so that it can be invoked in a front-end independent manner.</p>
+    <p>RStudio also sets the global <code>viewer</code> option to the <code><a href='http://www.rdocumentation.org/packages/rstudioapi/topics/viewer'>rstudioapi::viewer</a></code> function so that it can be invoked in a front-end independent manner.</p>
 <p>Applications are displayed within the Viewer pane. The application URL must either be served from localhost or be a path to a file within the R session temporary directory. If the URL doesn't conform to these requirements it is displayed within a standard browser window.</p>
 <p>The <code>height</code> parameter specifies a desired height, however it's possible the Viewer pane will end up smaller if the request can't be fulfilled (RStudio ensures that the pane paired with the Viewer maintains a minimum height). A height of 400 pixels or lower is likely to succeed in a large proportion of configurations.</p>
 <p>A very large height (e.g. 2000 pixels) will allocate the maximum allowable space for the Viewer (while still preserving some view of the pane above or below it). The value <code>"maximize"</code> will force the Viewer to full height. Note that this value should only be specified in cases where maximum vertical space is essential, as it will result in one of the user's other panes being hidden.</p>
@@ -121,28 +142,29 @@ http://localhost:8100?viewer_pane=1
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+    <pre class="examples"># NOT RUN {
+# run an application inside the IDE
+rstudioapi::viewer("http://localhost:8100")
 
-  <span class='co'># run an application inside the IDE</span>
-  <span class='kw'>rstudioapi</span><span class='kw'>::</span><span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
+# run an application and request a height of 500 pixels
+rstudioapi::viewer("http://localhost:8100", height = 500)
 
-  <span class='co'># run an application and request a height of 500 pixels</span>
-  <span class='kw'>rstudioapi</span><span class='kw'>::</span><span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>500</span>)
+# probe for viewer option then fall back to browseURL
+viewer <- getOption("viewer")
+if (!is.null(viewer))
+   viewer("http://localhost:8100")
+else
+   utils::browseURL("http://localhost:8100")
 
-  <span class='co'># probe for viewer option then fall back to browseURL</span>
-  <span class='no'>viewer</span> <span class='kw'>&lt;-</span> <span class='fu'>getOption</span>(<span class='st'>"viewer"</span>)
-  <span class='kw'>if</span> (!<span class='fu'>is.null</span>(<span class='no'>viewer</span>))
-     <span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
-  <span class='kw'>else</span>
-     <span class='kw'>utils</span><span class='kw'>::</span><span class='fu'>browseURL</span>(<span class='st'>"http://localhost:8100"</span>)
-
-  <span class='co'># generate a temporary html file and display it</span>
-  <span class='no'>dir</span> <span class='kw'>&lt;-</span> <span class='fu'>tempfile</span>()
-  <span class='fu'>dir.create</span>(<span class='no'>dir</span>)
-  <span class='no'>htmlFile</span> <span class='kw'>&lt;-</span> <span class='fu'>file.path</span>(<span class='no'>dir</span>, <span class='st'>"index.html"</span>)
-  <span class='co'># (code to write some content to the file)</span>
-  <span class='kw'>rstudioapi</span><span class='kw'>::</span><span class='fu'>viewer</span>(<span class='no'>htmlFile</span>)
-})</div></pre>
+# generate a temporary html file and display it
+dir <- tempfile()
+dir.create(dir)
+htmlFile <- file.path(dir, "index.html")
+# (code to write some content to the file)
+rstudioapi::viewer(htmlFile)
+# }
+<div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

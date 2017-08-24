@@ -1,8 +1,8 @@
 ---
-title: "Open Dialogs with rstudioapi"
+title: "File Dialogs"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Open Dialogs with rstudioapi}
+  %\VignetteIndexEntry{File Dialogs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

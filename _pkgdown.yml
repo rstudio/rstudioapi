@@ -1,0 +1,112 @@
+url: https://rstudio.github.io/rstudioapi
+
+template:
+  params:
+    bootswatch: cerulean
+
+navbar:
+  type: inverse
+  left:
+
+  - text: Home
+    href: index.html
+
+  - text: Reference
+    href: reference/index.html
+
+  - text: Articles
+    menu:
+    - text: "Interacting with Projects"
+      href: articles/projects.html
+    - text: "Interacting with the R Session"
+      href: articles/r-session.html
+    - text: "Manipulating Documents"
+      href: articles/document-manipulation.html
+    - text: "Interacting with RStudio Terminals"
+      href: articles/terminal.html
+    - text: "Requesting Information with Dialogs"
+      href: articles/dialogs.html
+
+reference:
+
+  - title    : Terminal
+    desc     : Interact with an RStudio terminal.
+    contents :
+    - starts_with("terminal")
+
+  - title    : Documents
+    desc     : Interact with documents open in RStudio.
+    contents :
+    - document_position
+    - document_range
+    - primary_selection
+
+    - getActiveDocumentContext
+    - getSourceEditorContext
+    - getConsoleEditorContext
+
+    - insertText
+    - modifyRange
+    - setDocumentContents
+    - setCursorPosition
+    - setSelectionRanges
+
+    - documentSave
+    - documentSaveAll
+
+    - navigateToFile
+
+  - title    : R Session
+    desc     : Interact with the R session.
+    contents :
+    - restartSession
+    - sendToConsole
+
+  - title    : Dialogs
+    desc     : Present the user with a modal dialog.
+    contents :
+    - askForPassword
+    - selectFile
+    - selectDirectory
+
+    - showDialog
+    - showPrompt
+    - showQuestion
+    - updateDialog
+
+  - title    : RStudio Projects
+    desc     : Interact with RStudio projects.
+    contents :
+    - initializeProject
+    - openProject
+    - getActiveProject
+
+  - title    : Helper Functions
+    desc     : Other helper functions.
+    contents :
+    - callFun
+    - hasFun
+    - isAvailable
+
+    - getVersion
+    - versionInfo
+
+    - previewRd
+
+    - readPreference
+    - writePreference
+    - persistent-values
+
+    - savePlotAsImage
+
+    - sourceMarkers
+
+    - viewer
+
+    - getThemeInfo
+
+    - createProjectTemplate
+
+    - hasColorConsole
+
+

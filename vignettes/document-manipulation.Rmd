@@ -1,8 +1,8 @@
 ---
-title: "Document Manipulation with rstudioapi"
+title: "Document Manipulation"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Document Manipulation with rstudioapi}
+  %\VignetteIndexEntry{Document Manipulation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
