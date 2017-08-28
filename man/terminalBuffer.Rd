@@ -21,5 +21,5 @@ The terminal contents, one line per row.
 Returns contents of a terminal buffer.
 }
 \note{
-The \code{terminalBuffer} function was added in version 1.1.305 of RStudio.
+The \code{terminalBuffer} function was added in version 1.1.350 of RStudio.
 }

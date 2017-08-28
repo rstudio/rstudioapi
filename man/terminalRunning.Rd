@@ -21,7 +21,7 @@ restart its shell until it is displayed either via the user
 interface, or via \code{\link{terminalActivate}()}.
 }
 \note{
-The \code{terminalRunning} function was added in version 1.1.305 of RStudio.
+The \code{terminalRunning} function was added in version 1.1.350 of RStudio.
 }
 \examples{
 \dontrun{

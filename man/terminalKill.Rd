@@ -15,5 +15,5 @@ terminalKill(id)
 Kill processes and close a terminal.
 }
 \note{
-The \code{terminalKill} function was added in version 1.1.305 of RStudio.
+The \code{terminalKill} function was added in version 1.1.350 of RStudio.
 }

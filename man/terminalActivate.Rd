@@ -19,7 +19,7 @@ will be chosen.}
 Ensure terminal is running and optionally bring to front in RStudio.
 }
 \note{
-The \code{terminalActivate} function was added in version 1.1.305 of RStudio.
+The \code{terminalActivate} function was added in version 1.1.350 of RStudio.
 }
 \examples{
 \dontrun{

@@ -1,8 +1,8 @@
 ---
-title: "Terminal Interaction"
+title: "Interacting with Terminals"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Terminal Interaction}
+  %\VignetteIndexEntry{Interacting with Terminals}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -46,8 +46,6 @@ Several concepts are important to understand to make full use of these functions
 ### Terminal Identifier
 
 Each terminal session has a unique **terminal identifier**, a required argument for most of the functions. A terminal identifier is generated and returned when a terminal is created via `terminalCreate()` or `terminalExecute()`, and identifiers of existing terminals can be obtained via `terminalList()` or `terminalVisible()`.
-
-Note: In the current implementation, the terminal identifier is the same as the terminal caption. Thus if a terminal's caption is renamed using the RStudio user interface, the terminal identifier will change without the code knowing about it. This limitation will be fixed in a future release, and the identifier and the caption will no longer be the same; don't write code that assumes the identifier and caption are the same thing.
 
 ### Terminal Session
 
