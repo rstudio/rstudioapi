@@ -18,5 +18,5 @@ The exit code as an integer vector, or NULL if process still running.
 Get exit code of terminal process, or NULL if still running.
 }
 \note{
-The \code{terminalExitCode} function was added in version 1.1.305 of RStudio.
+The \code{terminalExitCode} function was added in version 1.1.350 of RStudio.
 }

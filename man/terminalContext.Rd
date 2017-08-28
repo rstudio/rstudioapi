@@ -35,7 +35,7 @@ A \code{list} with elements:
 Returns information about RStudio terminal instances.
 }
 \note{
-The \code{terminalContext} function was added in version 1.1.305 of RStudio.
+The \code{terminalContext} function was added in version 1.1.350 of RStudio.
 }
 \examples{
 \dontrun{

@@ -15,7 +15,7 @@ terminalClear(id)
 Clears the buffer for specified terminal.
 }
 \note{
-The \code{terminalClear} function was added in version 1.1.305 of RStudio.
+The \code{terminalClear} function was added in version 1.1.350 of RStudio.
 }
 \examples{
 \dontrun{

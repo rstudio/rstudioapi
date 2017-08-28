@@ -18,7 +18,7 @@ a boolean
 Are terminals reporting that they are busy?
 }
 \note{
-The \code{terminalBusy} function was added in version 1.1.305 of RStudio.
+The \code{terminalBusy} function was added in version 1.1.350 of RStudio.
 }
 \examples{
 \dontrun{
