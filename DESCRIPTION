@@ -11,6 +11,8 @@ Authors@R: c(
     )
 Maintainer: JJ Allaire <jj@rstudio.com>
 License: MIT + file LICENSE
+URL: https://github.com/rstudio/rstudioapi
+BugReports: https://github.com/rstudio/rstudioapi/issues
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 6.0.1.9000
 Suggests:
