@@ -2,11 +2,12 @@ Package: rstudioapi
 Title: Safely Access the RStudio API
 Description: Access the RStudio API (if available) and provide informative error
     messages when it's not.
-Version: 0.6.0.9000
+Version: 0.7
 Authors@R: c(
-    person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"),
     person("JJ", "Allaire", role = c("aut", "cre"), email = "jj@rstudio.com"),
-    person("Kevin", "Ushey", role = c("ctb"), email = "kevin@rstudio.com"),
+    person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"),
+    person("Kevin", "Ushey", role = c("aut"), email = "kevin@rstudio.com"),
+    person("Gary", "Ritchie", role = c("aut"), email = "gary@rstudio.com"),
     person(family = "RStudio", role = "cph")
     )
 Maintainer: JJ Allaire <jj@rstudio.com>
@@ -14,7 +15,7 @@ License: MIT + file LICENSE
 URL: https://github.com/rstudio/rstudioapi
 BugReports: https://github.com/rstudio/rstudioapi/issues
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.0.1
 Suggests:
     testthat,
     knitr,
