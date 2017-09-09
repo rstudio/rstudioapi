@@ -8,11 +8,11 @@
 \alias{selectDirectory}
 \title{Select a File / Folder}
 \usage{
-selectFile(caption = "Select File", label = "Select", path = NULL,
-  filter = "All Files (*)", existing = TRUE)
+selectFile(caption = "Select File", label = "Select",
+  path = getActiveProject(), filter = "All Files (*)", existing = TRUE)
 
 selectDirectory(caption = "Select Directory", label = "Select",
-  path = NULL)
+  path = getActiveProject())
 }
 \arguments{
 \item{caption}{The window title.}
@@ -20,7 +20,7 @@ selectDirectory(caption = "Select Directory", label = "Select",
 \item{label}{The label to use for the 'Accept' / 'OK' button.}
 
 \item{path}{The initial working directory, from which the file dialog
-should begin browsing. When \code{NULL}, defaults to the current RStudio
+should begin browsing. Defaults to the current RStudio
 project directory.}
 
 \item{filter}{A glob filter, to be used when attempting to open a file with a

@@ -148,7 +148,7 @@ restartSession <- function(command = "") {
 #' @param caption The window title.
 #' @param label The label to use for the 'Accept' / 'OK' button.
 #' @param path The initial working directory, from which the file dialog
-#'   should begin browsing. When \code{NULL}, defaults to the current RStudio
+#'   should begin browsing. Defaults to the current RStudio
 #'   project directory.
 #' @param filter A glob filter, to be used when attempting to open a file with a
 #'   particular extension. For example, to scope the dialog to \R files, one could use
@@ -166,7 +166,7 @@ NULL
 #' @export
 selectFile <- function(caption = "Select File",
                        label = "Select",
-                       path = NULL,
+                       path = getActiveProject(),
                        filter = "All Files (*)",
                        existing = TRUE)
 {
@@ -177,7 +177,7 @@ selectFile <- function(caption = "Select File",
 #' @export
 selectDirectory <- function(caption = "Select Directory",
                             label = "Select",
-                            path = NULL)
+                            path = getActiveProject())
 {
   callFun("selectDirectory", caption, label, path)
 }
