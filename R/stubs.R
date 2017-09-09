@@ -179,7 +179,7 @@ selectDirectory <- function(caption = "Select Directory",
                             label = "Select",
                             path = NULL)
 {
-  callFun("selectFile", caption, label, path)
+  callFun("selectDirectory", caption, label, path)
 }
 
 #' Open a Project in RStudio
