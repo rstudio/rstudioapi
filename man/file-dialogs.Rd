@@ -9,7 +9,7 @@
 \title{Select a File / Folder}
 \usage{
 selectFile(caption = "Select File", label = "Select", path = NULL,
-  filter = NULL, existing = TRUE)
+  filter = "All Files (*)", existing = TRUE)
 
 selectDirectory(caption = "Select Directory", label = "Select",
   path = NULL)
@@ -23,9 +23,9 @@ selectDirectory(caption = "Select Directory", label = "Select",
 should begin browsing. When \code{NULL}, defaults to the current RStudio
 project directory.}
 
-\item{filter}{A glob filter, to be used when attempting to open a file
-with a particular extension. For example, to scope the dialog to
-\R files, one could use \code{R Files (*.R)} here.}
+\item{filter}{A glob filter, to be used when attempting to open a file with a
+particular extension. For example, to scope the dialog to \R files, one could use
+\code{R Files (*.R)} here.}
 
 \item{existing}{Boolean; should the file dialog limit itself to existing
 files on the filesystem, or allow the user to select the path to a new file?}

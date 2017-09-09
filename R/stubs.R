@@ -150,9 +150,9 @@ restartSession <- function(command = "") {
 #' @param path The initial working directory, from which the file dialog
 #'   should begin browsing. When \code{NULL}, defaults to the current RStudio
 #'   project directory.
-#' @param filter A glob filter, to be used when attempting to open a file
-#'   with a particular extension. For example, to scope the dialog to
-#'   \R files, one could use \code{R Files (*.R)} here.
+#' @param filter A glob filter, to be used when attempting to open a file with a
+#'   particular extension. For example, to scope the dialog to \R files, one could use
+#'   \code{R Files (*.R)} here.
 #' @param existing Boolean; should the file dialog limit itself to existing
 #'   files on the filesystem, or allow the user to select the path to a new file?
 #'
@@ -167,7 +167,7 @@ NULL
 selectFile <- function(caption = "Select File",
                        label = "Select",
                        path = NULL,
-                       filter = NULL,
+                       filter = "All Files (*)",
                        existing = TRUE)
 {
   callFun("selectFile", caption, label, path, filter, existing)
