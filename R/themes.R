@@ -7,5 +7,23 @@
 #'
 #' @export
 getThemeInfo <- function() {
-  callFun("getThemeInfo")
+  defaults <- list(
+    editor = "TextMate",
+    global = "Modern",
+    dark   = FALSE
+  )
+
+  theme <- callFun("getThemeInfo")
+
+  for (key in names(theme)) {
+    if (is.null(theme[[key]]) || is.na(theme[[key]])) {
+      theme[[key]] <- defaults[[key]]
+    }
+  }
+
+  if (theme$editor == "Dracula") {
+    theme$dark = TRUE
+  }
+
+  theme
 }
