@@ -1,3 +1,7 @@
+# rstudioapi 0.8 (UNRELEASED)
+
+* `getThemeInfo()` supports returning default editor themes
+
 # rstudioapi 0.7
 
 * `askForPassword()` gains a default prompt (#41)
