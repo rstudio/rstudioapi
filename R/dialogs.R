@@ -61,7 +61,7 @@ updateDialog <- function(...) {
 #' @note The \code{showPrompt} function was added in version 1.1.67 of RStudio.
 #'
 #' @export
-showPrompt <- function(title, message, default = NULL) {
+showPrompt <- function(title, message, default = "") {
   callFun("showPrompt", title, message, default)
 }
 
