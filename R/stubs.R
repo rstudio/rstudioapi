@@ -35,6 +35,11 @@ askForPassword <- function(prompt = "Please enter your password") {
 #' @export
 getActiveProject <- function() {
   path <- callFun("getActiveProject")
+  
+  # path is NULL iff there is no open project
+  if (is.null(path)) return(path)
+  
+  # ... otherwise path is UTF-8 encoded
   Encoding(path) <- "UTF-8"
   path
 }
