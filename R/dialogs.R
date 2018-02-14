@@ -118,3 +118,23 @@ readPreference <- function(name, default) {
 writePreference <- function(name, value) {
   callFun("writePreference", name, value)
 }
+
+#' Show Prompt for Secret Dialog
+#'
+#' Shows a dialog box asking for a secret with support to remember such secret
+#' using the 'keyring' package.
+#'
+#' @param name The name of the secret.
+#'
+#' @param title The title to display in the dialog box.
+#'
+#' @param message A character vector with the contents to display in
+#'   the main dialog area.
+#'
+#' @note The \code{showQuestion} function was added in version 1.2.350 of RStudio.
+#'
+#' @export
+#' @export
+askForSecret <- function(name, title = name, message = paste(name, ":", sep = "")) {
+  callFun("askForSecret", name, title, message)
+}
