@@ -135,10 +135,15 @@ writePreference <- function(name, value) {
 #'
 #' @export
 #' @export
-askForSecret <- function(name, title = name, message = paste(name, ":", sep = "")) {
+askForSecret <- function(
+  name,
+  message = paste(name, ":", sep = ""),
+  title = "Secret") {
+
   if (hasFun("askForSecret")) {
     callFun("askForSecret", name, title, message)
   } else {
     askForPassword(message)
   }
+
 }
