@@ -4,7 +4,8 @@
 \alias{askForSecret}
 \title{Show Prompt for Secret Dialog}
 \usage{
-askForSecret(name, message = paste(name, ":", sep = ""), title = "Secret")
+askForSecret(name, message = paste(name, ":", sep = ""), title = paste(name,
+  "Secret"))
 }
 \arguments{
 \item{name}{The name of the secret.}
@@ -19,5 +20,5 @@ Shows a dialog box asking for a secret with support to remember such secret
 using the 'keyring' package.
 }
 \note{
-The \code{showQuestion} function was added in version 1.2.350 of RStudio.
+The \code{askForSecret} function was added in version 1.1.419 of RStudio.
 }

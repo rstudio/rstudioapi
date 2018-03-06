@@ -131,14 +131,14 @@ writePreference <- function(name, value) {
 #' @param message A character vector with the contents to display in
 #'   the main dialog area.
 #'
-#' @note The \code{showQuestion} function was added in version 1.2.350 of RStudio.
+#' @note The \code{askForSecret} function was added in version 1.1.419 of RStudio.
 #'
 #' @export
 #' @export
 askForSecret <- function(
   name,
   message = paste(name, ":", sep = ""),
-  title = "Secret") {
+  title = paste(name, "Secret")) {
 
   if (hasFun("askForSecret")) {
     callFun("askForSecret", name, title, message)
