@@ -126,14 +126,13 @@ writePreference <- function(name, value) {
 #'
 #' @param name The name of the secret.
 #'
-#' @param title The title to display in the dialog box.
-#'
 #' @param message A character vector with the contents to display in
 #'   the main dialog area.
 #'
+#' @param title The title to display in the dialog box.
+#'
 #' @note The \code{askForSecret} function was added in version 1.1.419 of RStudio.
 #'
-#' @export
 #' @export
 askForSecret <- function(
   name,
