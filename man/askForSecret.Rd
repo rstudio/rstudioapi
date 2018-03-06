@@ -4,15 +4,15 @@
 \alias{askForSecret}
 \title{Show Prompt for Secret Dialog}
 \usage{
-askForSecret(name, title = name, message = paste(name, ":", sep = ""))
+askForSecret(name, message = paste(name, ":", sep = ""), title = "Secret")
 }
 \arguments{
 \item{name}{The name of the secret.}
 
-\item{title}{The title to display in the dialog box.}
-
 \item{message}{A character vector with the contents to display in
 the main dialog area.}
+
+\item{title}{The title to display in the dialog box.}
 }
 \description{
 Shows a dialog box asking for a secret with support to remember such secret
