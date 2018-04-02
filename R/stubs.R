@@ -31,9 +31,17 @@ askForPassword <- function(prompt = "Please enter your password") {
   callFun("askForPassword", prompt)
 }
 
+#' Get Path to Active RStudio Project
 #' @export
 getActiveProject <- function() {
-  callFun("getActiveProject")
+  path <- callFun("getActiveProject")
+  
+  # path is NULL iff there is no open project
+  if (is.null(path)) return(path)
+  
+  # ... otherwise path is UTF-8 encoded
+  Encoding(path) <- "UTF-8"
+  path
 }
 
 #' Save Active RStudio Plot as an Image
