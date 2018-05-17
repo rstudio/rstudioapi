@@ -23,6 +23,11 @@
 #' @param ranges A list of one or more ranges, typically created
 #'   through \code{\link{document_range}()}.
 #'
+#' @param type The type of document to be created.
+#'
+#' @param execute Should the code be executed after the document
+#'   is created?
+#'
 #' @details
 #'
 #' \code{location} should be a (list of) \code{\link{document_position}} or
@@ -159,4 +164,23 @@ getSourceEditorContext <- function() {
 #' @export
 getConsoleEditorContext <- function() {
   getDocumentContext("getConsoleEditorContext")
+}
+
+#' Create a New Document
+#'
+#' Creates a new document in RStudio
+#'
+#' @note The \code{documentNew} function was introduced in RStudio 1.2.640
+#'
+#' @name rstudio-documents
+#' @export
+documentNew <- function(
+  text,
+  type = c("r", "rmarkdown", "sql"),
+  position = document_position(0,0),
+  execute = FALSE) {
+
+  type <- match.arg(as.character(type), choices = c("r", "rmarkdown", "sql"))
+
+  callFun("documentNew", type, text, position[1], position[2], execute)
 }

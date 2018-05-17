@@ -16,6 +16,8 @@
 \alias{documentSave}
 \alias{rstudio-documents}
 \alias{documentSaveAll}
+\alias{rstudio-documents}
+\alias{documentNew}
 \title{Interact with Documents open in RStudio}
 \usage{
 insertText(location, text, id = NULL)
@@ -31,6 +33,9 @@ setSelectionRanges(ranges, id = NULL)
 documentSave(id = NULL)
 
 documentSaveAll()
+
+documentNew(text, type = c("r", "rmarkdown", "sql"),
+  position = document_position(0, 0), execute = FALSE)
 }
 \arguments{
 \item{location}{An object specifying the positions, or ranges, wherein
@@ -53,9 +58,16 @@ that the operation is applied on the intended document.}
 
 \item{ranges}{A list of one or more ranges, typically created
 through \code{\link{document_range}()}.}
+
+\item{type}{The type of document to be created.}
+
+\item{execute}{Should the code be executed after the document
+is created?}
 }
 \description{
 Use these functions to interact with documents open in RStudio.
+
+Creates a new document in RStudio
 }
 \details{
 \code{location} should be a (list of) \code{\link{document_position}} or
@@ -104,4 +116,6 @@ added with version 0.99.1111 of RStudio.
 
 The \code{documentSave} and \code{documentSaveAll} functions were added
 with version 1.1.287 of RStudio.
+
+The \code{documentNew} function was introduced in RStudio 1.2.640
 }
