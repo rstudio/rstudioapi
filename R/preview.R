@@ -12,5 +12,5 @@
 #'
 #' @export
 previewSql <- function(conn, statement, ...) {
-  callFun("getThemeInfo")
+  callFun("previewSql", conn = conn, statement = statement, ...)
 }
