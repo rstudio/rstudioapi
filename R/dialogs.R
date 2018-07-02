@@ -8,7 +8,7 @@
 #'   the main dialog area. Contents can contain the following HTML tags:
 #'   "p", "em", "strong", "b" and "i".
 #'
-#' @param url And optional url to display under the \code{message}.
+#' @param url An optional url to display under the \code{message}.
 #'
 #' @details
 #'
@@ -19,7 +19,7 @@
 #' @note The \code{showDialog} function was added in version 1.1.67 of RStudio.
 #'
 #' @export
-showDialog <- function(title, message, url = NULL) {
+showDialog <- function(title, message, url = "") {
   callFun("showDialog", title, message, url)
 }
 

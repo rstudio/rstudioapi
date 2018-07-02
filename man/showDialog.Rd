@@ -4,7 +4,7 @@
 \alias{showDialog}
 \title{Show Dialog Box}
 \usage{
-showDialog(title, message, url = NULL)
+showDialog(title, message, url = "")
 }
 \arguments{
 \item{title}{The title to display in the dialog box.}
@@ -13,7 +13,7 @@ showDialog(title, message, url = NULL)
 the main dialog area. Contents can contain the following HTML tags:
 "p", "em", "strong", "b" and "i".}
 
-\item{url}{And optional url to display under the \code{message}.}
+\item{url}{An optional url to display under the \code{message}.}
 }
 \description{
 Shows a dialog box with a given title and contents.
