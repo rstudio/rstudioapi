@@ -30,6 +30,8 @@ getThemeInfo <- function() {
 #'                       require administrator privileges.\cr
 #'                       Default: \code{FALSE}.
 #'
+#' @note The \code{addTheme} function was introduced in RStudio 1.2.879.
+#'
 #' @export
 addTheme <- function(themePath,
                      apply = FALSE,
@@ -44,6 +46,8 @@ addTheme <- function(themePath,
 #' Applies the specified editor theme to RStudio.
 #'
 #' @param name    The unique name of the theme to apply.
+#'
+#' @note The \code{applyTheme} function was introduced in RStudio 1.2.879.
 #'
 #' @export
 applyTheme <- function(name)
@@ -76,6 +80,8 @@ applyTheme <- function(name)
 #'                         require administrator privileges. Only applies when \code{add} is \code{TRUE}. \cr
 #'                         Default: \code{FALSE}.
 #'
+#' @note The \code{convertTheme} function was introduced in RStudio 1.2.879.
+#'
 #' @export
 convertTheme <- function(themePath, add = TRUE, outputLocation = NULL, apply = FALSE, force = FALSE, globally = FALSE)
 {
@@ -86,8 +92,10 @@ convertTheme <- function(themePath, add = TRUE, outputLocation = NULL, apply = F
 #'
 #' Retrieves a list of the names of all the editor themes installed for RStudio.
 #'
+#' @note The \code{getThemes} function was introduced in RStudio 1.2.879.
+#'
 #' @export
 getThemes <- function()
 {
-  .Call("rs_getThemes")
+  callFun("getThemes")
 }

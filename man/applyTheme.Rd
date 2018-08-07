@@ -12,3 +12,6 @@ applyTheme(name)
 \description{
 Applies the specified editor theme to RStudio.
 }
+\note{
+The \code{applyTheme} function was introduced in RStudio 1.2.879.
+}

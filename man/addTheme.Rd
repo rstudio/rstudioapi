@@ -26,3 +26,6 @@ Default: \code{FALSE}.}
 \description{
 Adds a custom editor theme to RStudio and returns the name of the newly added theme.
 }
+\note{
+The \code{addTheme} function was introduced in RStudio 1.2.879.
+}

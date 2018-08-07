@@ -30,10 +30,13 @@ Default: \code{FALSE}.}
 
 \item{globally}{Whether to install this theme for the current user or all users. If set to
 \code{TRUE} this will attempt to install the theme for all users, which may
-require administrator privileges.\cr
+require administrator privileges. Only applies when \code{add} is \code{TRUE}. \cr
 Default: \code{FALSE}.}
 }
 \description{
 Converts a \code{tmTheme} to an \code{rstheme} and optionally adds and applies it to RStudio and returns the
 name of the theme.
+}
+\note{
+The \code{convertTheme} function was introduced in RStudio 1.2.879.
 }
