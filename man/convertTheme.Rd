@@ -4,14 +4,14 @@
 \alias{convertTheme}
 \title{Convert a tmTheme to an RStudio Theme}
 \usage{
-convertTheme(themePath, add = TRUE, outputLocation = NULL, apply = FALSE,
-  force = FALSE, globally = FALSE)
+convertTheme(themePath, add = TRUE, outputLocation = NULL,
+  apply = FALSE, force = FALSE, globally = FALSE)
 }
 \arguments{
 \item{themePath}{A full or relative path to the \code{tmTheme} file to be converted.}
 
 \item{add}{Whether to add the newly converted theme to RStudio. Setting this to true
-will have the same impact as running \code{\cr{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>) }}.\cr
+will have the same impact as running \code{{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>) }}.\cr
 Default: \code{TRUE}.}
 
 \item{outputLocation}{A full or relative path where a copy of the converted theme will be saved.
@@ -21,7 +21,7 @@ Default: \code{NULL}.}
 \item{apply}{Whether to immediately apply the newly added theme. This paramater cannot be set to
 \code{TRUE} if \code{add} is set to \code{FALSE}. Setting this and \code{add}
 to \code{TRUE} has the same impact as running
-\code{\cr{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
+\code{{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
 Default: \code{FALSE}.}
 
 \item{force}{Whether to force the operation and overwrite an existing file with the same

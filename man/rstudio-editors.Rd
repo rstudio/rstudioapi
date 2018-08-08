@@ -3,9 +3,7 @@
 \name{rstudio-editors}
 \alias{rstudio-editors}
 \alias{getActiveDocumentContext}
-\alias{rstudio-editors}
 \alias{getSourceEditorContext}
-\alias{rstudio-editors}
 \alias{getConsoleEditorContext}
 \title{Retrieve Information about an RStudio Editor}
 \usage{

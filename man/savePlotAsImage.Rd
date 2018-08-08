@@ -4,8 +4,8 @@
 \alias{savePlotAsImage}
 \title{Save Active RStudio Plot as an Image}
 \usage{
-savePlotAsImage(file, format = c("png", "jpeg", "bmp", "tiff", "emf", "svg",
-  "eps"), width, height)
+savePlotAsImage(file, format = c("png", "jpeg", "bmp", "tiff", "emf",
+  "svg", "eps"), width, height)
 }
 \arguments{
 \item{file}{Target filename}

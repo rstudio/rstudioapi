@@ -11,7 +11,7 @@ addTheme(themePath, apply = FALSE, force = FALSE, globally = FALSE)
 
 \item{apply}{Whether to immediately apply the newly added theme. Setting this to
 \code{TRUE} has the same impact as running
-\code{\cr{ rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
+\code{{ rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
 Default: \code{FALSE}.}
 
 \item{force}{Whether to force the operation and overwrite an existing file with the same

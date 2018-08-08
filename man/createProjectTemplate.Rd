@@ -5,8 +5,9 @@
 \title{Create a Project Template}
 \usage{
 createProjectTemplate(package = ".", binding, title,
-  subtitle = paste("Create a new", title), caption = paste("Create", title),
-  icon = NULL, open_files = NULL, overwrite = FALSE, edit = TRUE)
+  subtitle = paste("Create a new", title), caption = paste("Create",
+  title), icon = NULL, open_files = NULL, overwrite = FALSE,
+  edit = TRUE)
 }
 \arguments{
 \item{package}{The path to an \R package sources.}

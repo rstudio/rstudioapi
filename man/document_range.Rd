@@ -2,9 +2,7 @@
 % Please edit documentation in R/document-methods.R
 \name{document_range}
 \alias{document_range}
-\alias{document_range}
 \alias{is.document_range}
-\alias{document_range}
 \alias{as.document_range}
 \title{Create a Range}
 \usage{

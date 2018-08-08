@@ -3,7 +3,6 @@
 \name{document_position}
 \alias{document_position}
 \alias{is.document_position}
-\alias{document_position}
 \alias{as.document_position}
 \title{Create a Document Position}
 \usage{
@@ -24,3 +23,4 @@ as.document_position(x)
 Creates a \code{document_position}, which can be used to indicate e.g. the
 row + column location of the cursor in a document.
 }
+\concept{location}

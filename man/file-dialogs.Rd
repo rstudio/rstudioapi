@@ -2,14 +2,13 @@
 % Please edit documentation in R/stubs.R
 \name{file-dialogs}
 \alias{file-dialogs}
-\alias{file-dialogs}
 \alias{selectFile}
-\alias{file-dialogs}
 \alias{selectDirectory}
 \title{Select a File / Folder}
 \usage{
 selectFile(caption = "Select File", label = "Select",
-  path = getActiveProject(), filter = "All Files (*)", existing = TRUE)
+  path = getActiveProject(), filter = "All Files (*)",
+  existing = TRUE)
 
 selectDirectory(caption = "Select Directory", label = "Select",
   path = getActiveProject())

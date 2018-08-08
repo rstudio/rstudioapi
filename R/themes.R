@@ -20,7 +20,7 @@ getThemeInfo <- function() {
 #' @param themePath      A full or relative path to the \code{rstheme} file to be added.
 #' @param apply          Whether to immediately apply the newly added theme. Setting this to
 #'                       \code{TRUE} has the same impact as running
-#'                       \code{\cr{ rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
+#'                       \code{{ rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
 #'                       Default: \code{FALSE}.
 #' @param force          Whether to force the operation and overwrite an existing file with the same
 #'                       name.\cr
@@ -62,7 +62,7 @@ applyTheme <- function(name)
 #'
 #' @param themePath        A full or relative path to the \code{tmTheme} file to be converted.
 #' @param add              Whether to add the newly converted theme to RStudio. Setting this to true
-#'                         will have the same impact as running \code{\cr{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>) }}.\cr
+#'                         will have the same impact as running \code{{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>) }}.\cr
 #'                         Default: \code{TRUE}.
 #' @param outputLocation   A full or relative path where a copy of the converted theme will be saved.
 #'                         If this value is \code{NULL}, no copy will be saved.\cr
@@ -70,7 +70,7 @@ applyTheme <- function(name)
 #' @param apply            Whether to immediately apply the newly added theme. This paramater cannot be set to
 #'                         \code{TRUE} if \code{add} is set to \code{FALSE}. Setting this and \code{add}
 #'                         to \code{TRUE} has the same impact as running
-#'                         \code{\cr{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
+#'                         \code{{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
 #'                         Default: \code{FALSE}.
 #' @param force            Whether to force the operation and overwrite an existing file with the same
 #'                         name.\cr

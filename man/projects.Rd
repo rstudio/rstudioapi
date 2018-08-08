@@ -2,9 +2,7 @@
 % Please edit documentation in R/stubs.R
 \name{projects}
 \alias{projects}
-\alias{projects}
 \alias{openProject}
-\alias{projects}
 \alias{initializeProject}
 \title{Open a Project in RStudio}
 \usage{

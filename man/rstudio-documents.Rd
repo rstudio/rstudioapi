@@ -2,21 +2,13 @@
 % Please edit documentation in R/document-api.R
 \name{rstudio-documents}
 \alias{rstudio-documents}
-\alias{rstudio-documents}
 \alias{insertText}
-\alias{rstudio-documents}
 \alias{modifyRange}
-\alias{rstudio-documents}
 \alias{setDocumentContents}
-\alias{rstudio-documents}
 \alias{setCursorPosition}
-\alias{rstudio-documents}
 \alias{setSelectionRanges}
-\alias{rstudio-documents}
 \alias{documentSave}
-\alias{rstudio-documents}
 \alias{documentSaveAll}
-\alias{rstudio-documents}
 \alias{documentNew}
 \title{Interact with Documents open in RStudio}
 \usage{
