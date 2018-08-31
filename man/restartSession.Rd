@@ -15,5 +15,5 @@ Restart the RStudio \R session.
 }
 \note{
 The \code{restartSession} function was added in version 1.1.281
-  of RStudio.
+of RStudio.
 }

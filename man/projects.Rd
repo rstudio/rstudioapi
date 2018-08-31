@@ -30,5 +30,5 @@ save any open documents using \code{\link{documentSaveAll}()}.
 }
 \note{
 The \code{openProject} and \code{initializeProject} functions were
-  added in version 1.1.287 of RStudio.
+added in version 1.1.287 of RStudio.
 }

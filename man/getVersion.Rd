@@ -8,7 +8,7 @@ getVersion()
 }
 \value{
 A \code{\link{numeric_version}} which you can compare to a string
-  and get correct results.
+and get correct results.
 }
 \description{
 Return the current version of the RStudio API

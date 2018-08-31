@@ -14,7 +14,7 @@ Check if Console Supports ANSI Color Escapes
 }
 \note{
 The \code{hasColorConsole} function was added in version 1.1.216
- of RStudio.
+of RStudio.
 }
 \examples{
 \dontrun{

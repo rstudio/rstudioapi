@@ -12,16 +12,16 @@ findFun(name, version_needed = NULL, ...)
 \arguments{
 \item{name}{name of object to look for}
 
-\item{version_needed}{An optional version specification. If supplied, 
-ensures that RStudio is at least that version. This is useful if 
+\item{version_needed}{An optional version specification. If supplied,
+ensures that RStudio is at least that version. This is useful if
 function behavior has changed over time.}
 
-\item{...}{other arguments passed on to \code{\link[base]{exists}} and 
+\item{...}{other arguments passed on to \code{\link[base]{exists}} and
 \code{\link[base]{get}}}
 }
 \description{
-These are specialized versions of \code{\link[base]{get}} and 
-\code{\link[base]{exists}} that look in the rstudio package namespace. 
+These are specialized versions of \code{\link[base]{get}} and
+\code{\link[base]{exists}} that look in the rstudio package namespace.
 If RStudio is not running,  \code{hasFun} will return \code{FALSE}.
 }
 \examples{

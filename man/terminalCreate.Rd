@@ -22,8 +22,8 @@ available, the default shell will be used, instead.}
 }
 \value{
 The terminal identifier as a character vector (\code{NULL} if
-  unable to create the terminal or the given terminal caption is already
-  in use).
+unable to create the terminal or the given terminal caption is already
+in use).
 }
 \description{
 Create a new Terminal.
