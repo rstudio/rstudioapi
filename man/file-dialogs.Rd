@@ -40,5 +40,5 @@ RStudio will return an aliased path -- that is, prefixed with \code{~/}.
 }
 \note{
 The \code{selectFile} and \code{selectDirectory} functions were
-  added in version 1.1.287 of RStudio.
+added in version 1.1.287 of RStudio.
 }

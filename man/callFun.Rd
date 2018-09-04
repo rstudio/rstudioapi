@@ -12,8 +12,8 @@ callFun(fname, ...)
 \item{...}{Other arguments passed on to the function}
 }
 \description{
-This function will return an error if RStudio is not running, or the 
-function is not available. If you want to fall back to different 
+This function will return an error if RStudio is not running, or the
+function is not available. If you want to fall back to different
 behavior, use \code{\link{hasFun}}.
 }
 \examples{

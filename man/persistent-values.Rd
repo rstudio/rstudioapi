@@ -17,7 +17,7 @@ getPersistentValue(name)
 }
 \value{
 The stored value as a character vector (\code{NULL} if no value
-  of the specified name is available).
+of the specified name is available).
 }
 \description{
 Store persistent keys and values. Storage is per-project, if there is
@@ -25,5 +25,5 @@ no project currently active then a global store is used.
 }
 \note{
 The \code{setPersistentValue} and \code{getPersistentValue} functions
- were added in version 1.1.57 of RStudio.
+were added in version 1.1.57 of RStudio.
 }

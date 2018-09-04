@@ -18,7 +18,7 @@ terminalExecute(command, workingDir = NULL, env = character(),
 }
 \value{
 The terminal identifier as a character vector (\code{NULL} if
-  unable to create the terminal).
+unable to create the terminal).
 }
 \description{
 Execute a command, showing results in the terminal pane.
