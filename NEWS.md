@@ -1,5 +1,7 @@
 # rstudioapi 0.7
 
+* Added buildToolsCheck / buildToolsInstall functions
+
 * `askForPassword()` gains a default prompt (#41)
 
 * Add createProjectTemplate function
