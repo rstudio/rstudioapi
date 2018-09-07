@@ -4,27 +4,40 @@
 \alias{build-tools}
 \alias{buildToolsCheck}
 \alias{buildToolsInstall}
+\alias{buildToolsExec}
 \title{Build Tools}
 \usage{
 buildToolsCheck()
 
 buildToolsInstall(action)
+
+buildToolsExec(expr)
 }
 \arguments{
 \item{action}{The action (as a string) being taken that will require
 installation of build tools.}
+
+\item{expr}{An \R expression (unquoted) to be executed with build tools
+available and on the \code{PATH}.}
 }
 \description{
-Check and install build tools as required.
+Check, install, and use build tools as required.
 }
 \details{
 These functions are intended to be used together -- one should
 first check whether build tools are available, and when not,
 prompt for installation. For example:\preformatted{compile_model <- function(...) {
-  if (!rstudioapi::buildToolsCheck())
-    rstudioapi::buildToolsInstall("Model compilation")
 
-# proceed with compilation
+if (rstudioapi::isAvailable()) {
+
+if (!rstudioapi::buildToolsCheck())
+      rstudioapi::buildToolsInstall("Model compilation")
+
+rstudioapi::buildToolsExec({
+      # code requiring build tools here
+    })
+
+}
 }
 }
 
@@ -33,6 +46,6 @@ being performed that requires build tool installation. Setting it to \code{NULL}
 or the empty string will suppress that prompt.
 }
 \note{
-The \code{buildToolsCheck()} and \code{buildToolsInstall()} functions were added
-with version 1.2.945 of RStudio.
+The \code{buildToolsCheck()}, \code{buildToolsInstall()}, and \code{buildToolsExec()}
+functions were added with version 1.2.962 of RStudio.
 }
