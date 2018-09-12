@@ -1,6 +1,6 @@
 # rstudioapi 0.7
 
-* Added buildToolsCheck / buildToolsInstall functions
+* Added helper functions for installing + using build tools: `buildToolsCheck()`, `buildToolsInstall()`, `buildToolsExec()`
 
 * `askForPassword()` gains a default prompt (#41)
 

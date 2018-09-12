@@ -39,16 +39,19 @@
 NULL
 
 #' @name build-tools
+#' @export
 buildToolsCheck <- function() {
   callFun("buildToolsCheck")
 }
 
 #' @name build-tools
+#' @export
 buildToolsInstall <- function(action) {
   callFun("buildToolsInstall", action)
 }
 
 #' @name build-tools
+#' @export
 buildToolsExec <- function(expr) {
   callFun("buildToolsExec", expr)
 }
