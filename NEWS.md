@@ -1,14 +1,33 @@
+# rstudioapi 0.8
+
+* Added functions for installing + using build tools:
+  `buildToolsCheck()`, `buildToolsInstall()`, `buildToolsExec()`
+  
+* Added functions for installing + using themes: `addTheme()`, `applyTheme()`,
+  `convertTheme()`, `getThemes()`, `getThemeInfo()`.
+
+* Added `previewSql()`, for previewing output from executing a SQL query.
+
+* Added `askForSecret()`, for prompting the user to enter a password or otherwise priviledged information.
+
+* Fixed an issue where `getActiveProject()` failed for non-ASCII paths. (#86)
+
 # rstudioapi 0.7
 
-* Added helper functions for installing + using build tools: `buildToolsCheck()`, `buildToolsInstall()`, `buildToolsExec()`
+* Added methods for prompting the user for file paths: `selectFile()`,
+  `selectDirectory()`.
 
 * `askForPassword()` gains a default prompt (#41)
 
-* Add createProjectTemplate function
+* Add `createProjectTemplate()` function
 
-* Add setPersistentValue/getPersistentValue functions
+* Add `setPersistentValue()` / `getPersistentValue()` functions
 
-* Add methods for interacting with Terminal tab: 'terminalActivate', 'terminalClear', 'terminalCreate', 'terminalList', 'terminalBuffer', 'terminalContext', 'terminalVisible', 'terminalBusy', 'terminalRunning', 'terminalKill', 'terminalSend', 'terminalExecute', and 'terminalExitCode'.
+* Add methods for interacting with Terminal tab:
+  `terminalActivate()`, `terminalClear()`, `terminalCreate()`, `terminalList()`,
+  `terminalBuffer()`, `terminalContext()`, `terminalVisible()`, `terminalBusy()`,
+  `terminalRunning()`, `terminalKill()`, `terminalSend()`, `terminalExecute()`,
+  and `terminalExitCode()`.
 
 # rstudioapi 0.6
 
