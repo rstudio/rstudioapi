@@ -96,3 +96,15 @@ getThemes <- function()
 {
   callFun("getThemes")
 }
+
+#' Remove a custom theme from RStudio.
+#'
+#' @param name    The unique name of the theme to remove.
+#'
+#' @note The \code{removeTheme} function was introduced in RStudio 1.2.879.
+#'
+#' @export
+removeTheme <- function(name)
+{
+  callFun("removeTheme", name)
+}
