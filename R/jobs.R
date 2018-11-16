@@ -46,7 +46,7 @@ jobAdd <- function(name, status = "", progressUnits = 0L, actions = NULL, runnin
 #'
 #' Remove a job from RStudio's Jobs pane.
 #' 
-#' @param job The ID of the job to remove
+#' @param job The ID of the job to remove.
 #'
 #' @export
 jobRemove <- function(job) {
@@ -131,9 +131,10 @@ jobAddOutput <- function(job, output, error = FALSE) {
 #'
 #' Starts an R script as a background job.
 #' 
-#' @param path The path to the R script to be run
+#' @param path The path to the R script to be run.
 #' @param encoding The text encoding of the script, if known.
-#' @param workingDir The working directory in which to run the job.
+#' @param workingDir The working directory in which to run the job. When \code{NULL} (the default),
+#'   the parent directory of the R script is used.
 #' @param importEnv Whether to import the global environment into the job.
 #' @param exportEnv The name of the environment in which to export the R objects created by the
 #'   job. Use \code{""} (the default) to skip export, \code{"R_GlobalEnv"}` to export to the 
