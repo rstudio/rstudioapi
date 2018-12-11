@@ -48,8 +48,7 @@ addTheme <- function(themePath,
   # If the path appears to be a URL, download it.
   if (grepl("^https?:", themePath)) {
     # Give the downloaded filename the same name and extension as the original.
-    parts <- strsplit(themePath, "/", fixed = TRUE)[[1]]
-    path <- file.path(tempdir(), parts[length(parts)])
+    path <- file.path(tempdir(), basename(themePath))
     if (file.exists(path)) {
       # It's unlikely that the theme file will exist in the temp dir, but move it out
       # of the way if it does.
