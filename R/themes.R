@@ -14,7 +14,8 @@ getThemeInfo <- function() {
 #'
 #' Adds a custom editor theme to RStudio and returns the name of the newly added theme.
 #'
-#' @param themePath      A full or relative path to the \code{rstheme} file to be added.
+#' @param themePath      A full or relative path or URL to an \code{rstheme} or \code{tmtheme} to be
+#'                       added.
 #' @param apply          Whether to immediately apply the newly added theme. Setting this to
 #'                       \code{TRUE} has the same impact as running
 #'                       \code{{ rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
@@ -35,7 +36,36 @@ addTheme <- function(themePath,
                      force = FALSE,
                      globally = FALSE)
 {
-  callFun("addTheme", themePath, apply, force, globally)
+  path <- themePath
+
+  # Ensure path looks like something we can use
+  ext <- tolower(tools::file_ext(path))
+  if (!identical(ext, "rstheme") && !identical(ext, "tmtheme")) {
+    stop("Invalid path ", path, ". ",
+         "Please supply a path or URL to an .rstheme or .tmtheme file to add.")
+  }
+
+  # If the path appears to be a URL, download it.
+  if (grepl("^https?:", themePath)) {
+    # Give the downloaded filename the same name and extension as the original.
+    path <- file.path(tempdir(), basename(themePath))
+    if (file.exists(path)) {
+      # It's unlikely that the theme file will exist in the temp dir, but move it out
+      # of the way if it does.
+      unlink(path)
+    }
+
+    # Perform the download
+    download.file(themePath, path)
+  }
+
+  if (identical(ext, "tmtheme")) {
+    # needs conversion first
+    convertTheme(path, add = TRUE, apply = apply, force = force, globally = globally)
+  } else if (identical(ext, "rstheme")) {
+    # no conversion necessary
+    callFun("addTheme", path, apply, force, globally)
+  }
 }
 
 #' Apply an Editor Theme to RStudio

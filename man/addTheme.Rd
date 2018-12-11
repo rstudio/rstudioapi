@@ -7,7 +7,8 @@
 addTheme(themePath, apply = FALSE, force = FALSE, globally = FALSE)
 }
 \arguments{
-\item{themePath}{A full or relative path to the \code{rstheme} file to be added.}
+\item{themePath}{A full or relative path or URL to an \code{rstheme} or \code{tmtheme} to be
+added.}
 
 \item{apply}{Whether to immediately apply the newly added theme. Setting this to
 \code{TRUE} has the same impact as running
