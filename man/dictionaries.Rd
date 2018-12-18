@@ -27,5 +27,5 @@ for more information.
 }
 \note{
 The \code{dictionariesPath()} and \code{userDictionariesPath()} functions were
-interoduced with RStudio 1.2.1202.
+introduced with RStudio 1.2.1202.
 }

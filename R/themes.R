@@ -56,7 +56,7 @@ addTheme <- function(themePath,
     }
 
     # Perform the download
-    download.file(themePath, path)
+    utils::download.file(themePath, path)
   }
 
   if (identical(ext, "tmtheme")) {
