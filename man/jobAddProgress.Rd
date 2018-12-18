@@ -7,10 +7,10 @@
 jobAddProgress(job, units)
 }
 \arguments{
-\item{job}{The ID of the job to update progress for}
+\item{job}{The ID of the job to update progress for.}
 
-\item{units}{The integer number of new progress units completed}
+\item{units}{The integer number of new progress units completed.}
 }
 \description{
-Adds incremental progress units to a job
+Adds incremental progress units to a job.
 }

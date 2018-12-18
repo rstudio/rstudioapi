@@ -7,7 +7,7 @@
 jobRemove(job)
 }
 \arguments{
-\item{job}{The ID of the job to remove}
+\item{job}{The ID of the job to remove.}
 }
 \description{
 Remove a job from RStudio's Jobs pane.

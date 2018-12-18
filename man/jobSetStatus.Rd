@@ -7,10 +7,10 @@
 jobSetStatus(job, status)
 }
 \arguments{
-\item{job}{The ID of the job to update}
+\item{job}{The ID of the job to update.}
 
-\item{status}{Text describing job's new status}
+\item{status}{Text describing job's new status.}
 }
 \description{
-Update a job's informational status text
+Update a job's informational status text.
 }

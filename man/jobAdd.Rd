@@ -16,7 +16,7 @@ jobAdd(name, status = "", progressUnits = 0L, actions = NULL,
 if the job's progress is expressed in percentages. Use \code{0L} if the number of units of
 work is unknown.}
 
-\item{actions}{A list of actions that can be performed on the job (see Actions)}
+\item{actions}{A list of actions that can be performed on the job (see Actions).}
 
 \item{running}{Whether the job is currently running.}
 

@@ -8,11 +8,12 @@ jobRunScript(path, encoding = "unknown", workingDir = NULL,
   importEnv = FALSE, exportEnv = "")
 }
 \arguments{
-\item{path}{The path to the R script to be run}
+\item{path}{The path to the R script to be run.}
 
 \item{encoding}{The text encoding of the script, if known.}
 
-\item{workingDir}{The working directory in which to run the job.}
+\item{workingDir}{The working directory in which to run the job. When \code{NULL} (the default),
+the parent directory of the R script is used.}
 
 \item{importEnv}{Whether to import the global environment into the job.}
 

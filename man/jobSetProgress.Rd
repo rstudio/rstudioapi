@@ -7,10 +7,10 @@
 jobSetProgress(job, units)
 }
 \arguments{
-\item{job}{The ID of the job to set progress for}
+\item{job}{The ID of the job to set progress for.}
 
-\item{units}{The integer number of total units of work completed so far}
+\item{units}{The integer number of total units of work completed so far.}
 }
 \description{
-Updates the progress for a job
+Updates the progress for a job.
 }

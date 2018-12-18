@@ -15,7 +15,7 @@ License: MIT + file LICENSE
 URL: https://github.com/rstudio/rstudioapi
 BugReports: https://github.com/rstudio/rstudioapi/issues
 Roxygen: list(markdown = TRUE, wrap = FALSE)
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Suggests:
     testthat,
     knitr,
