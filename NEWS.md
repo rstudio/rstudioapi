@@ -1,3 +1,9 @@
+# rstudioapi 0.9
+
+* Added functions for displaying jobs in RStudio's Jobs pane: `jobAdd`, `jobRemove`, etc.
+
+* Added `translateLocalUrl()`, for translating localhost URLs to externally addressable ones on RStudio Server.
+
 # rstudioapi 0.8
 
 * Added functions for installing + using build tools:
@@ -8,7 +14,7 @@
 
 * Added `previewSql()`, for previewing output from executing a SQL query.
 
-* Added `askForSecret()`, for prompting the user to enter a password or otherwise priviledged information.
+* Added `askForSecret()`, for prompting the user to enter a password or otherwise privileged information.
 
 * Fixed an issue where `getActiveProject()` failed for non-ASCII paths. (#86)
 
