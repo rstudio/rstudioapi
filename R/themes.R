@@ -1,9 +1,18 @@
 #' Retrieve Themes
 #'
-#' Retrieves a list with themes information. Currently, \code{editor} as
-#' the theme used under the code editor, \code{global} as the global theme
-#' applied to the main user interface in RStudio and \code{dark} when
-#' the user interface is optimized for dark themes.
+#' Retrieves a list with information about the current color theme used by RStudio. 
+#'
+#' @details A list is returned with the following elements:
+#' \describe{
+#'   \item{editor}{The name of the current editor theme, such as \code{Textmate}.}
+#'   \item{global}{The name of the current global theme. One of \code{Modern}, \code{Classic}, or
+#'   \code{Sky}.}
+#'   \item{dark}{\code{TRUE} if the editor theme is dark, \code{FALSE} otherwise.}
+#'   \item{foreground}{The current editor theme's default text foreground color, formatted as a 
+#'   CSS-compatible color string, such as \code{rgb(1, 22, 39)}. Supported since RStudio 1.2.1214.}
+#'   \item{background}{The current editor theme's default text background color, formatted as a 
+#'   CSS-compatible color string. Supported since RStudio 1.2.1214.}
+#' }
 #'
 #' @export
 getThemeInfo <- function() {
