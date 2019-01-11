@@ -2,15 +2,15 @@ Package: rstudioapi
 Title: Safely Access the RStudio API
 Description: Access the RStudio API (if available) and provide informative error
     messages when it's not.
-Version: 0.8.0.9003
+Version: 0.9.0
 Authors@R: c(
-    person("JJ", "Allaire", role = c("aut", "cre"), email = "jj@rstudio.com"),
+    person("Kevin", "Ushey", role = c("aut", "cre"), email = "kevin@rstudio.com"),
+    person("JJ", "Allaire", role = c("aut"), email = "jj@rstudio.com"),
     person("Hadley", "Wickham", role = c("aut"), email = "hadley@rstudio.com"),
-    person("Kevin", "Ushey", role = c("aut"), email = "kevin@rstudio.com"),
     person("Gary", "Ritchie", role = c("aut"), email = "gary@rstudio.com"),
     person(family = "RStudio", role = "cph")
     )
-Maintainer: JJ Allaire <jj@rstudio.com>
+Maintainer: Kevin Ushey <kevin@rstudio.com>
 License: MIT + file LICENSE
 URL: https://github.com/rstudio/rstudioapi
 BugReports: https://github.com/rstudio/rstudioapi/issues

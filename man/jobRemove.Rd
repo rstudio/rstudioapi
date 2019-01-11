@@ -12,3 +12,10 @@ jobRemove(job)
 \description{
 Remove a job from RStudio's Jobs pane.
 }
+\seealso{
+Other jobs: \code{\link{jobAddOutput}},
+  \code{\link{jobAddProgress}}, \code{\link{jobAdd}},
+  \code{\link{jobRunScript}}, \code{\link{jobSetProgress}},
+  \code{\link{jobSetState}}, \code{\link{jobSetStatus}}
+}
+\concept{jobs}

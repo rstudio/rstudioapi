@@ -48,3 +48,10 @@ display, and clicking the link will invoke the \code{info} action.}
 }
 }
 
+\seealso{
+Other jobs: \code{\link{jobAddOutput}},
+  \code{\link{jobAddProgress}}, \code{\link{jobRemove}},
+  \code{\link{jobRunScript}}, \code{\link{jobSetProgress}},
+  \code{\link{jobSetState}}, \code{\link{jobSetStatus}}
+}
+\concept{jobs}

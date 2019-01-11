@@ -14,3 +14,10 @@ jobAddProgress(job, units)
 \description{
 Adds incremental progress units to a job.
 }
+\seealso{
+Other jobs: \code{\link{jobAddOutput}},
+  \code{\link{jobAdd}}, \code{\link{jobRemove}},
+  \code{\link{jobRunScript}}, \code{\link{jobSetProgress}},
+  \code{\link{jobSetState}}, \code{\link{jobSetStatus}}
+}
+\concept{jobs}
