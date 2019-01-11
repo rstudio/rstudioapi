@@ -1,113 +1,27 @@
-launcherGetInfo <- function() {
-  callFun("launcher.getInfo")
-}
 
-launcherAvailable <- function() {
-  callFun("launcher.jobsFeatureAvailable")
-}
+callLauncherFun <- function(fname, ...) {
+  verifyAvailable()
 
-launcherGetJobs <- function(statuses = NULL,
-                            fields = NULL,
-                            includeSessions = FALSE)
-{
-  callFun("launcher.getJobs",
-          statuses = statuses,
-          fields = fields,
-          includeSessions = includeSessions)
-}
+  if (hasFun(fname))
+    return(callFun(fname, ...))
 
-launcherGetJob <- function(jobId) {
-  callFun("launcher.getJob",
-          jobId = jobId)
-}
+  if (!exists("RStudio.Version", envir = globalenv()))
+    stop("RStudio is not available.", call. = FALSE)
 
-launcherNewContainer <- function(image,
-                                 runAsUserId = NULL,
-                                 runAsGroupId = NULL)
-{
-  callFun("launcher.new_Container",
-          image = image,
-          runAsUserId = runAsUserId,
-          runAsGroupId = runAsGroupId)
-}
+  RStudio.Version <- get("RStudio.Version", envir = globalenv())
+  version <- RStudio.Version()
 
-launcherNewHostMount <- function(path,
-                                 mountPath,
-                                 readOnly = TRUE)
-{
-  callFun("launcher.new_HostMount",
-          path = path,
-          mountPath = mountPath,
-          readOnly = readOnly)
-}
+  if (is.null(version$edition)) {
+    fmt <- "Launcher API '%s' is not available in the open-source edition of RStudio."
+    stop(sprintf(fmt, fname))
+  }
 
-launcherNewNfsMount <- function(host,
-                                path,
-                                mountPath,
-                                readOnly = TRUE)
-{
-  callFun("launcher.new_NfsMount",
-          host = host,
-          path = path,
-          mountPath = mountPath,
-          readOnly = readOnly)
-}
+  if (identical(version$mode, "desktop")) {
+    fmt <- "Launcher API '%s' is not yet available in the Desktop edition of RStudio."
+    stop(sprintf(fmt, fname))
+  }
 
-# TODO: Copy over not-yet-implemented parameters when ready.
-launcherSubmitJob <- function(args = NULL,
-                              cluster = "Local",
-                              command = NULL,
-                              container = NULL,
-                              environment = NULL,
-                              exe = NULL,
-                              exposedPorts = NULL,
-                              host = NULL,
-                              mounts = NULL,
-                              name,
-                              stderrFile = NULL,
-                              stdin = NULL,
-                              stdoutFile = NULL,
-                              tags = NULL,
-                              user = Sys.getenv("USER"),
-                              workingDirectory = NULL)
-{
-  callFun("launcher.submitJob",
-          args = args,
-          cluster = cluster,
-          command = command,
-          container = container,
-          environment = environment,
-          exe = exe,
-          exposedPorts = exposedPorts,
-          host = host,
-          mounts = mounts,
-          name = name,
-          stderrFile = stderrFile,
-          stdin = stdin,
-          stdoutFile = stdoutFile,
-          tags = tags,
-          user = user,
-          workingDirectory = workingDirectory)
-}
+  fmt <- "Launcher API '%s' is not available in your copy of RStudio."
+  stop(sprintf(fmt, fname))
 
-launcherControlJob <- function(jobId, operation) {
-  callFun("launcher.controlJob",
-          jobId = jobId,
-          operation = operation)
-}
-
-launcherStartStatusStream <- function(jobId = "*") {
-  callFun("launcher.startStatusStream",
-          jobId = jobId)
-}
-
-launcherStopStatusStream <- function(jobId = "*") {
-  callFun("launcher.stopStatusStream",
-          jobId = jobId)
-}
-
-launcherStreamOutput <- function(jobId, listening) {
-  callFun("launcher.streamOutput",
-          jobId = jobId,
-          listening = listening)
 }
