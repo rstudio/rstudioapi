@@ -1,4 +1,4 @@
-#' Retreive Launcher Information
+#' Retrieve Launcher Information
 #'
 #' Retrieve information about the launcher, as well as the different clusters
 #' that the launcher has been configured to use.
@@ -90,9 +90,9 @@ launcherConfig <- function(name, value = NULL)
 #' to [launcherSubmitJob()].
 #'
 #' @param image The container image to use.
-#' @param runAsUserId The user ID to run as within the container. Defaults
+#' @param runAsUserId The user id to run as within the container. Defaults
 #'   to the container-specified user.
-#' @param runAsGroupId The group ID to run as within the container. Defaults
+#' @param runAsGroupId The group id to run as within the container. Defaults
 #'   to the container-specified group.
 #'
 #' @family job submission
@@ -282,7 +282,7 @@ launcherSubmitJob <- function(name,
 #'
 #' Interact with a job.
 #'
-#' @param jobId The job ID.
+#' @param jobId The job id.
 #' @param operation The operation to execute.
 #'
 #' @export
@@ -298,7 +298,7 @@ launcherControlJob <- function(jobId,
 #'
 #' Start or stop streaming job status events.
 #'
-#' @param jobId The job ID. Use `"*"` to stream all job status changes.
+#' @param jobId The job id. Use `"*"` to stream all job status changes.
 #' @param listening Boolean; start or stop listening for job status changes.
 #'
 #' @export
@@ -315,7 +315,7 @@ launcherStatusStream <- function(jobId = "*", listening) {
 #'
 #' Start or stop streaming job output.
 #'
-#' @param jobId The job ID.
+#' @param jobId The job id.
 #' @param listening Boolean; start or stop listening for job output.
 #'
 #' @export
