@@ -21,7 +21,7 @@ callLauncherFun <- function(fname, ...) {
     stop(sprintf(fmt, fname))
   }
 
-  fmt <- "Launcher API '%s' is not available in your copy of RStudio."
+  fmt <- "Launcher API '%s' is not available in this version of RStudio."
   stop(sprintf(fmt, fname))
 
 }
