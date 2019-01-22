@@ -5,13 +5,13 @@
 \alias{launcherGetInfo}
 \alias{launcherAvailable}
 \alias{launcherGetJobs}
-\title{Retreive Launcher Information}
+\title{Retrieve Launcher Information}
 \usage{
 launcherGetInfo()
 
 launcherAvailable()
 
-launcherGetJobs(statuses = NULL, fields = NULL,
+launcherGetJobs(statuses = NULL, fields = NULL, tags = NULL,
   includeSessions = FALSE)
 }
 \arguments{
@@ -29,7 +29,9 @@ as RStudio R sessions?}
 Retrieve information about the launcher, as well as the different clusters
 that the launcher has been configured to use.
 
-Check if the RStudio launcher is currently available.
+Check if the RStudio launcher is available and configured to support
+'ad-hoc' jobs; that is, jobs normally launched by the user through
+the RStudio IDE's user interface.
 
 Retrieve information on launcher jobs.
 }

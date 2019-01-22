@@ -11,7 +11,9 @@ launcherGetInfo <- function() {
 
 #' Check if Launcher is Available
 #'
-#' Check if the RStudio launcher is currently available.
+#' Check if the RStudio launcher is available and configured to support
+#' 'ad-hoc' jobs; that is, jobs normally launched by the user through
+#' the RStudio IDE's user interface.
 #'
 #' @name launcher
 #' @export
@@ -37,11 +39,13 @@ launcherAvailable <- function() {
 #' @export
 launcherGetJobs <- function(statuses = NULL,
                             fields = NULL,
+                            tags = NULL,
                             includeSessions = FALSE)
 {
   callLauncherFun("launcher.getJobs",
                   statuses = statuses,
                   fields = fields,
+                  tags = tags,
                   includeSessions = includeSessions)
 }
 
@@ -128,11 +132,13 @@ launcherPlacementConstraint <- function(name,
 
 #' Define a Launcher Resource Limit
 #'
-#' Define a launcher resource limit, suitable for use with the
-#' `resourceLimits` argument to [launcherSubmitJob()].
+#' Define a launcher resource limit, suitable for use with the `resourceLimits`
+#' argument to [launcherSubmitJob()].
 #'
 #' @param type The resource limit type. Must be one of cpuCount, cpuFrequency,
-#'   cpuSet, cpuTime, memory, memorySwap.
+#'   cpuSet, cpuTime, memory, memorySwap. Different launcher plugs may support
+#'   different subsets of these resource limit types; please consult the plugin
+#'   documentation to learn which limits are supported.
 #' @param value The formatted value of the requested limit.
 #'
 #' @family job submission
@@ -283,7 +289,10 @@ launcherSubmitJob <- function(name,
 #' Interact with a job.
 #'
 #' @param jobId The job id.
-#' @param operation The operation to execute.
+#' @param operation The operation to execute. The operation should be one of
+#'   `c("Suspend", "Resume", "Stop", "Kill", "Cancel")`. Note that different
+#'   launcher plugins support different subsets of these operations -- consult
+#'   your launcher plugin documentation to see which operations are supported.
 #'
 #' @export
 launcherControlJob <- function(jobId,

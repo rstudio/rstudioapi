@@ -9,10 +9,10 @@ launcherContainer(image, runAsUserId = NULL, runAsGroupId = NULL)
 \arguments{
 \item{image}{The container image to use.}
 
-\item{runAsUserId}{The user ID to run as within the container. Defaults
+\item{runAsUserId}{The user id to run as within the container. Defaults
 to the container-specified user.}
 
-\item{runAsGroupId}{The group ID to run as within the container. Defaults
+\item{runAsGroupId}{The group id to run as within the container. Defaults
 to the container-specified group.}
 }
 \description{

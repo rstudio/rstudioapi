@@ -8,13 +8,15 @@ launcherResourceLimit(type, value)
 }
 \arguments{
 \item{type}{The resource limit type. Must be one of cpuCount, cpuFrequency,
-cpuSet, cpuTime, memory, memorySwap.}
+cpuSet, cpuTime, memory, memorySwap. Different launcher plugs may support
+different subsets of these resource limit types; please consult the plugin
+documentation to learn which limits are supported.}
 
 \item{value}{The formatted value of the requested limit.}
 }
 \description{
-Define a launcher resource limit, suitable for use with the
-\code{resourceLimits} argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
+Define a launcher resource limit, suitable for use with the \code{resourceLimits}
+argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
 Other job submission: \code{\link{launcherConfig}},

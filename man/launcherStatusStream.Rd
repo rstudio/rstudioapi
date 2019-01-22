@@ -7,7 +7,7 @@
 launcherStatusStream(jobId = "*", listening)
 }
 \arguments{
-\item{jobId}{The job ID. Use \code{"*"} to stream all job status changes.}
+\item{jobId}{The job id. Use \code{"*"} to stream all job status changes.}
 
 \item{listening}{Boolean; start or stop listening for job status changes.}
 }

@@ -7,7 +7,7 @@
 launcherStreamOutput(jobId, listening)
 }
 \arguments{
-\item{jobId}{The job ID.}
+\item{jobId}{The job id.}
 
 \item{listening}{Boolean; start or stop listening for job output.}
 }
