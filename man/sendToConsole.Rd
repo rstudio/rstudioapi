@@ -4,12 +4,17 @@
 \alias{sendToConsole}
 \title{Send Code to the R Console}
 \usage{
-sendToConsole(code, execute = TRUE)
+sendToConsole(code, execute = TRUE, echo = TRUE, focus = TRUE)
 }
 \arguments{
 \item{code}{Character vector containing code to be executed.}
 
-\item{execute}{\code{TRUE} to execute the code immediately.}
+\item{execute}{Boolean; execute the code immediately or just enter the text
+into the console?}
+
+\item{echo}{Boolean; echo the \R code in the console as it's executed?}
+
+\item{focus}{Boolean; focus the \R console after sending code?}
 }
 \description{
 Send code to the R console and optionally execute it.

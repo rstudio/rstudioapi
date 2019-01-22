@@ -35,10 +35,10 @@ askForPassword <- function(prompt = "Please enter your password") {
 #' @export
 getActiveProject <- function() {
   path <- callFun("getActiveProject")
-  
+
   # path is NULL iff there is no open project
   if (is.null(path)) return(path)
-  
+
   # ... otherwise path is UTF-8 encoded
   Encoding(path) <- "UTF-8"
   path
@@ -70,7 +70,10 @@ savePlotAsImage <- function(file,
 #' Send code to the R console and optionally execute it.
 #'
 #' @param code Character vector containing code to be executed.
-#' @param execute \code{TRUE} to execute the code immediately.
+#' @param execute Boolean; execute the code immediately or just enter the text
+#'   into the console?
+#' @param echo Boolean; echo the \R code in the console as it's executed?
+#' @param focus Boolean; focus the \R console after sending code?
 #'
 #' @note The \code{sendToConsole} function was added in version 0.99.787 of RStudio.
 #'
@@ -80,8 +83,12 @@ savePlotAsImage <- function(file,
 #' }
 #'
 #' @export
-sendToConsole <- function (code, execute = TRUE) {
-  callFun("sendToConsole", code, TRUE, execute, TRUE)
+sendToConsole <- function(code, execute = TRUE, echo = TRUE, focus = TRUE) {
+  callFun("sendToConsole",
+          code = code,
+          echo = echo,
+          execute = execute,
+          focus = focus)
 }
 
 #' Persistent Keys and Values

@@ -1,3 +1,7 @@
+# rstudioapi 0.10 [UNRELEASED]
+
+* Added the parameters `echo` and `focus` to `sendToConsole()`.
+
 # rstudioapi 0.9
 
 * Added functions for displaying jobs in RStudio's Jobs pane: `jobAdd()`, `jobRemove()`, etc.
