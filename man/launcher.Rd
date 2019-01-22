@@ -22,6 +22,9 @@ Canceled. When \code{NULL}, all jobs are returned.}
 \item{fields}{Return a subset of fields associated with each job object.
 When \code{NULL}, all fields associated with a particular job are returned.}
 
+\item{tags}{An optional set of tags. Only jobs that have been assigned one
+of these requested tags will be returned.}
+
 \item{includeSessions}{Boolean; include jobs which are also operating
 as RStudio R sessions?}
 }

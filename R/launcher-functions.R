@@ -35,6 +35,9 @@ launcherAvailable <- function() {
 #' @param includeSessions Boolean; include jobs which are also operating
 #'   as RStudio R sessions?
 #'
+#' @param tags An optional set of tags. Only jobs that have been assigned one
+#'   of these requested tags will be returned.
+#'
 #' @name launcher
 #' @export
 launcherGetJobs <- function(statuses = NULL,
