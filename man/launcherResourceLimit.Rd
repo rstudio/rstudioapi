@@ -8,7 +8,7 @@ launcherResourceLimit(type, value)
 }
 \arguments{
 \item{type}{The resource limit type. Must be one of cpuCount, cpuFrequency,
-cpuSet, cpuTime, memory, memorySwap. Different launcher plugs may support
+cpuSet, cpuTime, memory, memorySwap. Different launcher plugins may support
 different subsets of these resource limit types; please consult the plugin
 documentation to learn which limits are supported.}
 
