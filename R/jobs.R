@@ -155,6 +155,7 @@ jobAddOutput <- function(job, output, error = FALSE) {
 jobRunScript <- function(path, name = NULL, encoding = "unknown", workingDir = NULL,
                          importEnv = FALSE, exportEnv = "") {
     callFun("runScriptJob", path       = path,
+                            name       = name,
                             encoding   = encoding,
                             workingDir = workingDir,
                             importEnv  = importEnv,
