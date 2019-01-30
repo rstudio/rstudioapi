@@ -189,13 +189,12 @@ documentNew <- function(
 #'
 #' Closes a document currently open in RStudio.
 #'
-#' @param id The ID of the document to close.
 #' @param save Whether to commit unsaved changes to the document before closing it.
-#' 
+#'
 #' @note The \code{documentClose} function was introduced in RStudio 1.2.1255
 #'
-#' @details 
-#' 
+#' @details
+#'
 #' \code{documentClose} accepts an ID of an open document rather than a path.
 #' You can get the ID of an open document from the
 #' \code{getSourceEditorContext} function, among others.

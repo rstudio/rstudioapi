@@ -60,8 +60,6 @@ through \code{\link{document_range}()}.}
 is created?}
 
 \item{save}{Whether to commit unsaved changes to the document before closing it.}
-
-\item{id}{The ID of the document to close.}
 }
 \description{
 Use these functions to interact with documents open in RStudio.
