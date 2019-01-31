@@ -4,11 +4,14 @@
 \alias{jobRunScript}
 \title{Run R Script As Job}
 \usage{
-jobRunScript(path, encoding = "unknown", workingDir = NULL,
-  importEnv = FALSE, exportEnv = "")
+jobRunScript(path, name = NULL, encoding = "unknown",
+  workingDir = NULL, importEnv = FALSE, exportEnv = "")
 }
 \arguments{
 \item{path}{The path to the R script to be run.}
+
+\item{name}{A name for the background job. When \code{NULL} (the default), the filename of the
+script is used as the job name.}
 
 \item{encoding}{The text encoding of the script, if known.}
 

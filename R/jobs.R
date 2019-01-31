@@ -140,6 +140,8 @@ jobAddOutput <- function(job, output, error = FALSE) {
 #' Starts an R script as a background job.
 #'
 #' @param path The path to the R script to be run.
+#' @param name A name for the background job. When \code{NULL} (the default), the filename of the
+#'   script is used as the job name.
 #' @param encoding The text encoding of the script, if known.
 #' @param workingDir The working directory in which to run the job. When \code{NULL} (the default),
 #'   the parent directory of the R script is used.
@@ -150,9 +152,13 @@ jobAddOutput <- function(job, output, error = FALSE) {
 #'
 #' @family jobs
 #' @export
-jobRunScript <- function(path, encoding = "unknown", workingDir = NULL, importEnv = FALSE,
-                         exportEnv = "") {
+#'
+#'
+#'
+jobRunScript <- function(path, name = NULL, encoding = "unknown", workingDir = NULL,
+                         importEnv = FALSE, exportEnv = "") {
     callFun("runScriptJob", path       = path,
+                            name       = name,
                             encoding   = encoding,
                             workingDir = workingDir,
                             importEnv  = importEnv,

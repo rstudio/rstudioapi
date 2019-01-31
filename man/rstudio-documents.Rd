@@ -10,6 +10,7 @@
 \alias{documentSave}
 \alias{documentSaveAll}
 \alias{documentNew}
+\alias{documentClose}
 \title{Interact with Documents open in RStudio}
 \usage{
 insertText(location, text, id = NULL)
@@ -28,6 +29,8 @@ documentSaveAll()
 
 documentNew(text, type = c("r", "rmarkdown", "sql"),
   position = document_position(0, 0), execute = FALSE)
+
+documentClose(id = NULL, save = TRUE)
 }
 \arguments{
 \item{location}{An object specifying the positions, or ranges, wherein
@@ -55,11 +58,15 @@ through \code{\link{document_range}()}.}
 
 \item{execute}{Should the code be executed after the document
 is created?}
+
+\item{save}{Whether to commit unsaved changes to the document before closing it.}
 }
 \description{
 Use these functions to interact with documents open in RStudio.
 
 Creates a new document in RStudio
+
+Closes a document currently open in RStudio.
 }
 \details{
 \code{location} should be a (list of) \code{\link{document_position}} or
@@ -98,6 +105,15 @@ will replace the text previously existing in that range with new text. For
 clarity, prefer using \code{insertText} when working with
 \code{\link{document_position}}s, and \code{modifyRange} when working with
 \code{\link{document_range}}s.
+
+\code{documentClose} accepts an ID of an open document rather than a path.
+You can get the ID of an open document from the
+\code{getSourceEditorContext} function, among others.
+
+Closing is always done non-interactively; that is, no prompts are given to
+the user. If the user has made changes to the document but not saved them,
+then the \code{save} parameter governs the behavior: when \code{TRUE},
+unsaved changes are committed, and when \code{FALSE} they are discarded.
 }
 \note{
 The \code{insertText}, \code{modifyRange} and \code{setDocumentContents}
@@ -110,4 +126,6 @@ The \code{documentSave} and \code{documentSaveAll} functions were added
 with version 1.1.287 of RStudio.
 
 The \code{documentNew} function was introduced in RStudio 1.2.640
+
+The \code{documentClose} function was introduced in RStudio 1.2.1255
 }
