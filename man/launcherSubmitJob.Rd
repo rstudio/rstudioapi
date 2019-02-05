@@ -10,7 +10,7 @@ launcherSubmitJob(name, cluster = "Local", tags = NULL,
   workingDirectory = NULL, host = NULL, container = NULL,
   exposedPorts = NULL, mounts = NULL, placementConstraints = NULL,
   resourceLimits = NULL, queues = NULL, config = NULL,
-  user = Sys.getenv("USER"))
+  user = Sys.getenv("USER"), applyConfigSettings = TRUE)
 }
 \arguments{
 \item{name}{A descriptive name to assign to the job.}
@@ -64,6 +64,9 @@ applicable to batch systems like LSF.}
 \code{\link[=launcherConfig]{launcherConfig()}} for more information.}
 
 \item{user}{The user-name of the job owner.}
+
+\item{applyConfigSettings}{Apply server-configured mounts, exposedPorts, and
+environment, in addition to any specified in this call.}
 }
 \description{
 Submit a launcher job. See https://docs.rstudio.com/job-launcher/latest/index.html

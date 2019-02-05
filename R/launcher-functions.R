@@ -238,6 +238,9 @@ launcherNfsMount <- function(host,
 #'   [launcherConfig()] for more information.
 #' @param user The user-name of the job owner.
 #'
+#' @param applyConfigSettings Apply server-configured mounts, exposedPorts, and
+#'   environment, in addition to any specified in this call.
+#'
 #' @family job submission
 #' @export
 launcherSubmitJob <- function(name,
@@ -262,7 +265,9 @@ launcherSubmitJob <- function(name,
                               queues = NULL,
 
                               config = NULL,
-                              user = Sys.getenv("USER"))
+                              user = Sys.getenv("USER"),
+
+                              applyConfigSettings = TRUE)
 {
   callLauncherFun("launcher.submitJob",
                   args = args,
@@ -284,7 +289,8 @@ launcherSubmitJob <- function(name,
                   stdoutFile = stdoutFile,
                   tags = tags,
                   user = user,
-                  workingDirectory = workingDirectory)
+                  workingDirectory = workingDirectory,
+                  applyConfigSettings = applyConfigSettings)
 }
 
 #' Interact with (Control) a Job
