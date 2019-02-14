@@ -33,9 +33,11 @@ launched with this job.}
 
 \item{stdin}{Data to be written to stdin when the job process is launched.}
 
-\item{stdoutFile}{The file used for the job's generated standard output.}
+\item{stdoutFile}{The file used for the job's generated standard output. Not
+all launcher plugins support this parameter.}
 
-\item{stderrFile}{The file used for the job's generated standard error.}
+\item{stderrFile}{The file used for the job's generated standard error. Not
+all launcher plugins support this parameter.}
 
 \item{workingDirectory}{The working directory to be used by the command /
 executable associated with this job.}

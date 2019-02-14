@@ -215,8 +215,10 @@ launcherNfsMount <- function(host,
 #' @param environment A list of environment variables to be set for processes
 #'   launched with this job.
 #' @param stdin Data to be written to stdin when the job process is launched.
-#' @param stdoutFile The file used for the job's generated standard output.
-#' @param stderrFile The file used for the job's generated standard error.
+#' @param stdoutFile The file used for the job's generated standard output. Not
+#'   all launcher plugins support this parameter.
+#' @param stderrFile The file used for the job's generated standard error. Not
+#'   all launcher plugins support this parameter.
 #' @param workingDirectory The working directory to be used by the command /
 #'   executable associated with this job.
 #'
