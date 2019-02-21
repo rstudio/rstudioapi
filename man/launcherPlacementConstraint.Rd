@@ -22,6 +22,7 @@ Other job submission: \code{\link{launcherConfig}},
   \code{\link{launcherHostMount}},
   \code{\link{launcherNfsMount}},
   \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitJob}}
+  \code{\link{launcherSubmitJob}},
+  \code{\link{launcherSubmitR}}
 }
 \concept{job submission}
