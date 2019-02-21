@@ -295,52 +295,56 @@ launcherSubmitJob <- function(name,
                   applyConfigSettings = applyConfigSettings)
 }
 
+#' Execute an R Script as a Launcher Job
+#'
+#' Convenience function for running an R script as a launcher job using whichever
+#' R is found on the path in the launcher cluster.
+#'
+#' See [launcherSubmitJob()] for running jobs with full control over command,
+#' environment, and so forth.
+#'
+#' @param script Fully qualified path of R script. Must be a path that is
+#'   available in the job container (if using containerized job cluster such as Kubernetes).
+#' @param cluster The name of the cluster this job should be submitted to.
+#' @param container The container to be used for launched jobs.
+#'
+#' @family job submission
+#' @export
+launcherSubmitR <- function(script,
+                            cluster = "Local",
+                            container = NULL)
+{
+  # don't proactively check for existence of the script; possible the supplied
+  # path only resolves correctly in the job cluster
+  scriptPath <- path.expand(script)
+  scriptFile <- basename(scriptPath)
+  scriptArg <- paste("-f", scriptPath)
+  jobTag <- paste("rstudio-r-script-job", scriptFile, sep = ":")
+  callLauncherFun("launcher.submitJob",
+                  args = c("--slave", "--no-save", "--no-restore", scriptArg),
+                  cluster = cluster,
+                  command = "R",
+                  container = container,
+                  name = scriptFile,
+                  tags = c(jobTag),
+                  applyConfigSettings = TRUE)
+}
+
 #' Interact with (Control) a Job
 #'
 #' Interact with a job.
 #'
 #' @param jobId The job id.
 #' @param operation The operation to execute. The operation should be one of
-#'   `c("Suspend", "Resume", "Stop", "Kill", "Cancel")`. Note that different
+#'   `c("suspend", "resume", "stop", "kill", "cancel")`. Note that different
 #'   launcher plugins support different subsets of these operations -- consult
 #'   your launcher plugin documentation to see which operations are supported.
 #'
 #' @export
 launcherControlJob <- function(jobId,
-                               operation = c("Suspend", "Resume", "Stop", "Kill", "Cancel"))
+                               operation = c("suspend", "resume", "stop", "kill", "cancel"))
 {
   callLauncherFun("launcher.controlJob",
                   jobId = jobId,
                   operation = operation)
-}
-
-#' Stream Job Status-Change Events
-#'
-#' Start or stop streaming job status events.
-#'
-#' @param jobId The job id. Use `"*"` to stream all job status changes.
-#' @param listening Boolean; start or stop listening for job status changes.
-#'
-#' @export
-launcherStatusStream <- function(jobId = "*", listening) {
-  if (listening)
-    callLauncherFun("launcher.startStatusStream",
-                    jobId = jobId)
-  else
-    callLauncherFun("launcher.stopStatusStream",
-                    jobId = jobId)
-}
-
-#' Start / Stop Streaming Job Output
-#'
-#' Start or stop streaming job output.
-#'
-#' @param jobId The job id.
-#' @param listening Boolean; start or stop listening for job output.
-#'
-#' @export
-launcherStreamOutput <- function(jobId, listening) {
-  callLauncherFun("launcher.streamOutput",
-                  jobId = jobId,
-                  listening = listening)
 }
