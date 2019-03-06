@@ -20,7 +20,7 @@ using this method.
 
 The \code{quiet} command governs the behavior of the function when the
 command does not exist. By default, an error is shown if you attempt to
-invoke a non-existent command. You should set this to \code{FALSE} when invoking
+invoke a non-existent command. You should set this to \code{TRUE} when invoking
 a command that may not be available if you don't want your users to see an
 error.
 
