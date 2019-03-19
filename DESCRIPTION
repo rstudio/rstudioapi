@@ -2,7 +2,7 @@ Package: rstudioapi
 Title: Safely Access the RStudio API
 Description: Access the RStudio API (if available) and provide informative error
     messages when it's not.
-Version: 0.10
+Version: 0.10.0-9000
 Authors@R: c(
     person("Kevin", "Ushey", role = c("aut", "cre"), email = "kevin@rstudio.com"),
     person("JJ", "Allaire", role = c("aut"), email = "jj@rstudio.com"),
