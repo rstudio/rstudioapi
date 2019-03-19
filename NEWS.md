@@ -1,4 +1,4 @@
-# rstudioapi 0.10 [UNRELEASED]
+# rstudioapi 0.10
 
 * Added the parameters `echo` and `focus` to `sendToConsole()`.
 
