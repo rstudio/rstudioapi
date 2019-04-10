@@ -1,5 +1,9 @@
 # rstudioapi 0.11 [UNRELEASED]
 
+* Added `bugReport()`, a helper function for reporting RStudio bugs
+  on the GitHub issue tracker with an issue template pre-populated
+  with some helpful diagnostic information.
+
 # rstudioapi 0.10
 
 * Added the parameters `echo` and `focus` to `sendToConsole()`.

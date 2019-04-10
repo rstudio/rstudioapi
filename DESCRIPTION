@@ -19,7 +19,8 @@ RoxygenNote: 6.1.1
 Suggests:
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    clipr
 VignetteBuilder: knitr
 Encoding: UTF-8
 
