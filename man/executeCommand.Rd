@@ -25,6 +25,9 @@ a command that may not be available if you don't want your users to see an
 error.
 
 The command is run asynchronously, so no status is returned.
+
+See the RStudio Server Professional Administration Guide appendix for a list
+of supported command IDs.
 }
 \note{
 The \code{executeCommand} function was introduced in RStudio 1.2.1261.

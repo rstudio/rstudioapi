@@ -60,12 +60,16 @@ writePreference <- function(name, value) {
 #' @seealso \code{\link{writePreference}}, which can be used to store arbitrary
 #'   user (non-RStudio) preferences.
 #'
-#' @note The \code{writeRStudioPreference} function was added in version 1.3.400
+#'   \code{\link{readRStudioPreference}}, which reads internal RStudio IDE
+#'   preferences.
+#'
+#' @note The \code{writeRStudioPreference} function was added in version 1.3.387
 #'   of RStudio.
 #'
 #' @examples
 #' \dontrun{
-#' rstudioapi::sendToConsole(".Platform", execute = TRUE)
+#' # Hide RStudio's toolbar.
+#' rstudioapi::writeRStudioPreference("toolbar_visible", FALSE)
 #' }
 #'
 #' @export
@@ -79,16 +83,29 @@ writeRStudioPreference <- function(name, value) {
 #'
 #' @param name The name of the preference.
 #'
+#' @param default The default value of the preference, returned if the
+#'   preference is not found.
+#'
 #' @details RStudio IDE internal preferences include the values displayed in
 #'   RStudio's Global Options dialog as well as a number of additional settings.
 #'
 #' @seealso \code{\link{readPreference}}, which can be used to read arbitrary
 #'   user (non-RStudio) preferences set with \code{\link{writePreference}}.
 #'
-#' @note The \code{writeRStudioPreference} function was added in version 1.3.400
+#'   \code{link{writeRStudioPreference}}, which can be used to write internal
+#'   RStudio IDE preferences.
+#'
+#' @note The \code{readRStudioPreference} function was added in version 1.3.387
 #'   of RStudio.
 #'
+#' @examples
+#' \dontrun{
+#' # Get indentation settings
+#' spaces <- rstudioapi::readRStudioPreference("num_spaces_for_tab", FALSE)
+#' message("Using ", spaces, " per tab.")
+#' }
+#'
 #' @export
-writeRStudioPreference <- function(name, value) {
-  callFun("writeRStudioPreference", name, value)
+readRStudioPreference <- function(name, default) {
+  callFun("readRStudioPreference", name, default)
 }
