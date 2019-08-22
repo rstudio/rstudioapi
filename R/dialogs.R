@@ -87,38 +87,6 @@ showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
   callFun("showQuestion", title, message, ok, cancel)
 }
 
-#' Read Preference
-#'
-#' Reads a user interface preference, useful to remember preferences across
-#' different r sessions for the same user.
-#'
-#' @param name The name of the preference.
-#'
-#' @param default The default value to use when the preference is not available.
-#'
-#' @note The \code{readPreference} function was added in version 1.1.67 of RStudio.
-#'
-#' @export
-readPreference <- function(name, default) {
-  callFun("readPreference", name, default)
-}
-
-#' Write Preference
-#'
-#' Writes a user interface preference, useful to remember preferences across
-#' different r sessions for the same user.
-#'
-#' @param name The name of the preference.
-#'
-#' @param value The value of the preference.
-#'
-#' @note The \code{writePreference} function was added in version 1.1.67 of RStudio.
-#'
-#' @export
-writePreference <- function(name, value) {
-  callFun("writePreference", name, value)
-}
-
 #' Show Prompt for Secret Dialog
 #'
 #' Shows a dialog box asking for a secret with support to remember such secret
