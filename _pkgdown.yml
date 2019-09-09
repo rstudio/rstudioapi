@@ -65,7 +65,7 @@ reference:
   - title    : Dialogs
     desc     : Present the user with a modal dialog.
     contents :
-    - askForPassword
+    - starts_with("askFor")
     - selectFile
     - selectDirectory
 
@@ -81,6 +81,22 @@ reference:
     - openProject
     - getActiveProject
 
+  - title    : Themes
+    desc     : Work with RStudio editor themes.
+    contents :
+    - matches("Theme")
+
+  - title    : Jobs
+    desc     : Interact with the jobs pane.
+    contents :
+    - starts_with("job")
+
+  - title    : Launcher
+    desc     : Interact with the launcher pane.
+    contents :
+    - starts_with("launcher")
+
+
   - title    : Helper Functions
     desc     : Other helper functions.
     contents :
@@ -91,10 +107,9 @@ reference:
     - getVersion
     - versionInfo
 
-    - previewRd
+    - starts_with("preview")
 
-    - readPreference
-    - writePreference
+    - matches("Preference")
     - persistent-values
 
     - savePlotAsImage
@@ -103,10 +118,15 @@ reference:
 
     - viewer
 
-    - getThemeInfo
-
     - createProjectTemplate
 
     - hasColorConsole
+
+    - bugReport
+    - build-tools
+    - dictionaries
+    - executeCommand
+    - translateLocalUrl
+
 
 

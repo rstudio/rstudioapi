@@ -6,3 +6,4 @@
 ^tests/
 ^tools/
 ^README\.md$
+^README\.Rmd$
