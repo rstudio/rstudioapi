@@ -9,7 +9,12 @@
 #' rstudioapi::isAvailable()
 #' \dontrun{rstudioapi::verifyAvailable()}
 isAvailable <- function(version_needed = NULL) {
+
+  if (isChildProcess())
+    return(callRemote(sys.call(), parent.frame()))
+
   identical(.Platform$GUI, "RStudio") && version_ok(version_needed)
+  
 }
 
 version_ok <- function(version = NULL) {
@@ -60,8 +65,11 @@ getVersion <- function() {
 #'   rstudioapi::callFun("versionInfo")
 #' }
 callFun <- function(fname, ...) {
-  verifyAvailable()
   
+  if (isChildProcess())
+    return(callRemote(sys.call(), parent.frame()))
+  
+  verifyAvailable()
   if (usingTools())
     found <- exists(toolsName(fname), envir = toolsEnv(), mode = "function")
   else
