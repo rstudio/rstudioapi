@@ -8,7 +8,8 @@ callRemote <- function(call, frame) {
   # check for active request / response
   request  <- Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA)
   response <- Sys.getenv("RSTUDIOAPI_IPC_RESPONSE_FILE", unset = NA)
-  if (is.na(request) || is.na(response))
+  secret   <- Sys.getenv("RSTUDIOAPI_IPC_SHARED_SECRET", unset = NA)
+  if (is.na(request) || is.na(response) || is.na(secret))
     stop("internal error: callFunRemote() called without remote connection")
 
   attr(call, "srcref") <- NULL
@@ -22,8 +23,9 @@ callRemote <- function(call, frame) {
     call[[i]] <- eval(call[[i]], envir = frame)
 
   # write to tempfile and rename, to ensure atomicity
+  data <- list(secret = secret, call = call)
   tmp <- tempfile(tmpdir = dirname(request))
-  saveRDS(call, file = tmp)
+  saveRDS(data, file = tmp)
   file.rename(tmp, request)
 
   # loop until response is ready (poll)
