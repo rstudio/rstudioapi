@@ -1,0 +1,14 @@
+pandoc: '2.2'
+pkgdown: 1.4.0
+pkgdown_sha: ~
+articles:
+  dialogs: dialogs.html
+  document-manipulation: document-manipulation.html
+  introduction: introduction.html
+  projects: projects.html
+  r-session: r-session.html
+  terminal: terminal.html
+urls:
+  reference: https://rstudio.github.io/rstudioapi/reference
+  article: https://rstudio.github.io/rstudioapi/articles
+
