@@ -1,5 +1,10 @@
 # rstudioapi 0.11 [UNRELEASED]
 
+* It is now possible for `rstudioapi` to communicate with a parent RStudio
+  session, for R sessions launched as RStudio jobs. Use
+  `rstudioapi::isAvailable(child_ok = TRUE)` to assert that it's okay to check
+  that `rstudioapi` is available and is running within an RStudio job.
+
 * Added `bugReport()`, a helper function for reporting RStudio bugs
   on the GitHub issue tracker with an issue template pre-populated
   with some helpful diagnostic information.
