@@ -1,15 +1,27 @@
 #' Check if RStudio is running.
 #' 
-#' @return \code{isAvailable} a boolean; \code{verifyAvailable} an error message
-#'   if RStudio is not running
 #' @param version_needed An optional version specification. If supplied, 
 #'   ensures that RStudio is at least that version.
+#'   
+#' @param child_ok Boolean; check if the current R process is a child
+#'   process of the main RStudio session? This can be useful for e.g. RStudio
+#'   Jobs, where you'd like to communicate back with the main R session from
+#'   a child process through `rstudioapi`.
+#'
+#' @return \code{isAvailable} a boolean; \code{verifyAvailable} an error message
+#'   if RStudio is not running
+#'   
 #' @export
 #' @examples
 #' rstudioapi::isAvailable()
 #' \dontrun{rstudioapi::verifyAvailable()}
-isAvailable <- function(version_needed = NULL) {
+isAvailable <- function(version_needed = NULL, child_ok = FALSE) {
+
+  if (child_ok && isChildProcess())
+    return(callRemote(sys.call(), parent.frame()))
+
   identical(.Platform$GUI, "RStudio") && version_ok(version_needed)
+  
 }
 
 version_ok <- function(version = NULL) {
@@ -60,8 +72,11 @@ getVersion <- function() {
 #'   rstudioapi::callFun("versionInfo")
 #' }
 callFun <- function(fname, ...) {
-  verifyAvailable()
   
+  if (isChildProcess())
+    return(callRemote(sys.call(), parent.frame()))
+  
+  verifyAvailable()
   if (usingTools())
     found <- exists(toolsName(fname), envir = toolsEnv(), mode = "function")
   else
