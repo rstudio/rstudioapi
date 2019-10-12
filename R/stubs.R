@@ -185,7 +185,9 @@ selectFile <- function(caption = "Select File",
                        filter = "All Files (*)",
                        existing = TRUE)
 {
-  callFun("selectFile", caption, label, path, filter, existing)
+  out <- callFun("selectFile", caption, label, path, filter, existing)
+  Encoding(out) <- "UTF-8"
+  out
 }
 
 #' @name file-dialogs
