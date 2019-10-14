@@ -1,5 +1,8 @@
 # rstudioapi 0.11 [UNRELEASED]
 
+* Paths returned from `selectFile()` are now properly marked with
+  UTF-8 encoding.
+
 * It is now possible for `rstudioapi` to communicate with a parent RStudio
   session, for R sessions launched as RStudio jobs. Use
   `rstudioapi::isAvailable(child_ok = TRUE)` to assert that it's okay to check
