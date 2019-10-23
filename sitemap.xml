@@ -49,6 +49,9 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/getActiveProject.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/getRStudioPackageDependencies.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/getThemeInfo.html</loc>
   </url>
   <url>
