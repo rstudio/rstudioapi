@@ -4,8 +4,7 @@
 \alias{terminalExecute}
 \title{Execute Command}
 \usage{
-terminalExecute(command, workingDir = NULL, env = character(),
-  show = TRUE)
+terminalExecute(command, workingDir = NULL, env = character(), show = TRUE)
 }
 \arguments{
 \item{command}{System command to be invoked, as a character string.}

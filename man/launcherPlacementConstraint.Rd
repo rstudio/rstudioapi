@@ -17,12 +17,13 @@ Define a launcher placement constraint, suitable for use with the
 \code{placementConstraints} argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}},
-  \code{\link{launcherContainer}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherNfsMount}},
-  \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitJob}},
-  \code{\link{launcherSubmitR}}
+Other job submission: 
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherNfsMount}()},
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitJob}()},
+\code{\link{launcherSubmitR}()}
 }
 \concept{job submission}

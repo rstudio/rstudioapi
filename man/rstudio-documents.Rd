@@ -27,8 +27,12 @@ documentSave(id = NULL)
 
 documentSaveAll()
 
-documentNew(text, type = c("r", "rmarkdown", "sql"),
-  position = document_position(0, 0), execute = FALSE)
+documentNew(
+  text,
+  type = c("r", "rmarkdown", "sql"),
+  position = document_position(0, 0),
+  execute = FALSE
+)
 
 documentClose(id = NULL, save = TRUE)
 }

@@ -4,8 +4,14 @@
 \alias{convertTheme}
 \title{Convert a tmTheme to an RStudio Theme}
 \usage{
-convertTheme(themePath, add = TRUE, outputLocation = NULL,
-  apply = FALSE, force = FALSE, globally = FALSE)
+convertTheme(
+  themePath,
+  add = TRUE,
+  outputLocation = NULL,
+  apply = FALSE,
+  force = FALSE,
+  globally = FALSE
+)
 }
 \arguments{
 \item{themePath}{A full or relative path to the \code{tmTheme} file to be converted.}

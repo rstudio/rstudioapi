@@ -26,20 +26,20 @@ Check, install, and use build tools as required.
 \details{
 These functions are intended to be used together -- one should
 first check whether build tools are available, and when not,
-prompt for installation. For example:\preformatted{compile_model <- function(...) {
+prompt for installation. For example:\if{html}{\out{<div class="R">}}\preformatted{compile_model <- function(...) \{
 
-if (rstudioapi::isAvailable()) {
+  if (rstudioapi::isAvailable()) \{
 
-if (!rstudioapi::buildToolsCheck())
+    if (!rstudioapi::buildToolsCheck())
       rstudioapi::buildToolsInstall("Model compilation")
 
-rstudioapi::buildToolsExec({
+    rstudioapi::buildToolsExec(\{
       # code requiring build tools here
-    })
+    \})
 
-}
-}
-}
+  \}
+\}
+}\if{html}{\out{</div>}}
 
 The \code{action} parameter is used to communicate (with a prompt) the operation
 being performed that requires build tool installation. Setting it to \code{NULL}

@@ -11,8 +11,12 @@ launcherGetInfo()
 
 launcherAvailable()
 
-launcherGetJobs(statuses = NULL, fields = NULL, tags = NULL,
-  includeSessions = FALSE)
+launcherGetJobs(
+  statuses = NULL,
+  fields = NULL,
+  tags = NULL,
+  includeSessions = FALSE
+)
 }
 \arguments{
 \item{statuses}{Return only jobs whose status matches one of \code{statuses}.

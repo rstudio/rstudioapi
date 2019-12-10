@@ -4,8 +4,14 @@
 \alias{jobRunScript}
 \title{Run R Script As Job}
 \usage{
-jobRunScript(path, name = NULL, encoding = "unknown",
-  workingDir = NULL, importEnv = FALSE, exportEnv = "")
+jobRunScript(
+  path,
+  name = NULL,
+  encoding = "unknown",
+  workingDir = NULL,
+  importEnv = FALSE,
+  exportEnv = ""
+)
 }
 \arguments{
 \item{path}{The path to the R script to be run.}
@@ -28,9 +34,13 @@ global environment, or the name of an environment object to create an object wit
 Starts an R script as a background job.
 }
 \seealso{
-Other jobs: \code{\link{jobAddOutput}},
-  \code{\link{jobAddProgress}}, \code{\link{jobAdd}},
-  \code{\link{jobRemove}}, \code{\link{jobSetProgress}},
-  \code{\link{jobSetState}}, \code{\link{jobSetStatus}}
+Other jobs: 
+\code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()},
+\code{\link{jobAdd}()},
+\code{\link{jobRemove}()},
+\code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()},
+\code{\link{jobSetStatus}()}
 }
 \concept{jobs}

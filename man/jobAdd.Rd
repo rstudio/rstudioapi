@@ -4,8 +4,15 @@
 \alias{jobAdd}
 \title{Add a Job}
 \usage{
-jobAdd(name, status = "", progressUnits = 0L, actions = NULL,
-  running = FALSE, autoRemove = TRUE, show = TRUE)
+jobAdd(
+  name,
+  status = "",
+  progressUnits = 0L,
+  actions = NULL,
+  running = FALSE,
+  autoRemove = TRUE,
+  show = TRUE
+)
 }
 \arguments{
 \item{name}{The job's name.}
@@ -49,9 +56,13 @@ display, and clicking the link will invoke the \code{info} action.}
 }
 
 \seealso{
-Other jobs: \code{\link{jobAddOutput}},
-  \code{\link{jobAddProgress}}, \code{\link{jobRemove}},
-  \code{\link{jobRunScript}}, \code{\link{jobSetProgress}},
-  \code{\link{jobSetState}}, \code{\link{jobSetStatus}}
+Other jobs: 
+\code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()},
+\code{\link{jobRemove}()},
+\code{\link{jobRunScript}()},
+\code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()},
+\code{\link{jobSetStatus}()}
 }
 \concept{jobs}

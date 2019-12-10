@@ -4,8 +4,10 @@
 \alias{jobSetState}
 \title{Set Job State}
 \usage{
-jobSetState(job, state = c("idle", "running", "succeeded", "cancelled",
-  "failed"))
+jobSetState(
+  job,
+  state = c("idle", "running", "succeeded", "cancelled", "failed")
+)
 }
 \arguments{
 \item{job}{The ID of the job on which to change state.}
@@ -29,9 +31,13 @@ The following states are supported:
 }
 
 \seealso{
-Other jobs: \code{\link{jobAddOutput}},
-  \code{\link{jobAddProgress}}, \code{\link{jobAdd}},
-  \code{\link{jobRemove}}, \code{\link{jobRunScript}},
-  \code{\link{jobSetProgress}}, \code{\link{jobSetStatus}}
+Other jobs: 
+\code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()},
+\code{\link{jobAdd}()},
+\code{\link{jobRemove}()},
+\code{\link{jobRunScript}()},
+\code{\link{jobSetProgress}()},
+\code{\link{jobSetStatus}()}
 }
 \concept{jobs}

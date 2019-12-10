@@ -35,7 +35,7 @@ if (!rstudioapi::terminalRunning(termId)) {
       Sys.sleep(0.1)
    }
 
-   terminalSend(termId, "echo Hello\\n")
+   terminalSend(termId, "echo Hello\n")
 }
 }
 }

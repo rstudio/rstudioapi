@@ -23,12 +23,13 @@ See \code{\link[=launcherSubmitJob]{launcherSubmitJob()}} for running jobs with 
 environment, and so forth.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}},
-  \code{\link{launcherContainer}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherNfsMount}},
-  \code{\link{launcherPlacementConstraint}},
-  \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitJob}}
+Other job submission: 
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherNfsMount}()},
+\code{\link{launcherPlacementConstraint}()},
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitJob}()}
 }
 \concept{job submission}

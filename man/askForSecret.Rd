@@ -4,8 +4,11 @@
 \alias{askForSecret}
 \title{Show Prompt for Secret Dialog}
 \usage{
-askForSecret(name, message = paste(name, ":", sep = ""),
-  title = paste(name, "Secret"))
+askForSecret(
+  name,
+  message = paste(name, ":", sep = ""),
+  title = paste(name, "Secret")
+)
 }
 \arguments{
 \item{name}{The name of the secret.}

@@ -17,9 +17,13 @@ jobAddOutput(job, output, error = FALSE)
 Adds text output to a job.
 }
 \seealso{
-Other jobs: \code{\link{jobAddProgress}},
-  \code{\link{jobAdd}}, \code{\link{jobRemove}},
-  \code{\link{jobRunScript}}, \code{\link{jobSetProgress}},
-  \code{\link{jobSetState}}, \code{\link{jobSetStatus}}
+Other jobs: 
+\code{\link{jobAddProgress}()},
+\code{\link{jobAdd}()},
+\code{\link{jobRemove}()},
+\code{\link{jobRunScript}()},
+\code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()},
+\code{\link{jobSetStatus}()}
 }
 \concept{jobs}

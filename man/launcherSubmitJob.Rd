@@ -4,13 +4,29 @@
 \alias{launcherSubmitJob}
 \title{Submit a Launcher Job}
 \usage{
-launcherSubmitJob(name, cluster = "Local", tags = NULL,
-  command = NULL, exe = NULL, args = NULL, environment = NULL,
-  stdin = NULL, stdoutFile = NULL, stderrFile = NULL,
-  workingDirectory = NULL, host = NULL, container = NULL,
-  exposedPorts = NULL, mounts = NULL, placementConstraints = NULL,
-  resourceLimits = NULL, queues = NULL, config = NULL,
-  user = Sys.getenv("USER"), applyConfigSettings = TRUE)
+launcherSubmitJob(
+  name,
+  cluster = "Local",
+  tags = NULL,
+  command = NULL,
+  exe = NULL,
+  args = NULL,
+  environment = NULL,
+  stdin = NULL,
+  stdoutFile = NULL,
+  stderrFile = NULL,
+  workingDirectory = NULL,
+  host = NULL,
+  container = NULL,
+  exposedPorts = NULL,
+  mounts = NULL,
+  placementConstraints = NULL,
+  resourceLimits = NULL,
+  queues = NULL,
+  config = NULL,
+  user = Sys.getenv("USER"),
+  applyConfigSettings = TRUE
+)
 }
 \arguments{
 \item{name}{A descriptive name to assign to the job.}
@@ -75,12 +91,13 @@ Submit a launcher job. See https://docs.rstudio.com/job-launcher/latest/index.ht
 for more information.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}},
-  \code{\link{launcherContainer}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherNfsMount}},
-  \code{\link{launcherPlacementConstraint}},
-  \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitR}}
+Other job submission: 
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherNfsMount}()},
+\code{\link{launcherPlacementConstraint}()},
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitR}()}
 }
 \concept{job submission}

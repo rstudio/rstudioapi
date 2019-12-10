@@ -16,12 +16,13 @@ Define a launcher configuration, suitable for use with the \code{config} argumen
 to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: \code{\link{launcherContainer}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherNfsMount}},
-  \code{\link{launcherPlacementConstraint}},
-  \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitJob}},
-  \code{\link{launcherSubmitR}}
+Other job submission: 
+\code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherNfsMount}()},
+\code{\link{launcherPlacementConstraint}()},
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitJob}()},
+\code{\link{launcherSubmitR}()}
 }
 \concept{job submission}

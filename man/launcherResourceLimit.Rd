@@ -19,12 +19,13 @@ Define a launcher resource limit, suitable for use with the \code{resourceLimits
 argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}},
-  \code{\link{launcherContainer}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherNfsMount}},
-  \code{\link{launcherPlacementConstraint}},
-  \code{\link{launcherSubmitJob}},
-  \code{\link{launcherSubmitR}}
+Other job submission: 
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherNfsMount}()},
+\code{\link{launcherPlacementConstraint}()},
+\code{\link{launcherSubmitJob}()},
+\code{\link{launcherSubmitR}()}
 }
 \concept{job submission}

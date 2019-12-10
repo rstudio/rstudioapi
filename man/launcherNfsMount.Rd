@@ -21,12 +21,13 @@ to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can be used to mo
 networked filesystem into a newly generated container.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}},
-  \code{\link{launcherContainer}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherPlacementConstraint}},
-  \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitJob}},
-  \code{\link{launcherSubmitR}}
+Other job submission: 
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherPlacementConstraint}()},
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitJob}()},
+\code{\link{launcherSubmitR}()}
 }
 \concept{job submission}

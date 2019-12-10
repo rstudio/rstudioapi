@@ -6,12 +6,19 @@
 \alias{selectDirectory}
 \title{Select a File / Folder}
 \usage{
-selectFile(caption = "Select File", label = "Select",
-  path = getActiveProject(), filter = "All Files (*)",
-  existing = TRUE)
+selectFile(
+  caption = "Select File",
+  label = "Select",
+  path = getActiveProject(),
+  filter = "All Files (*)",
+  existing = TRUE
+)
 
-selectDirectory(caption = "Select Directory", label = "Select",
-  path = getActiveProject())
+selectDirectory(
+  caption = "Select Directory",
+  label = "Select",
+  path = getActiveProject()
+)
 }
 \arguments{
 \item{caption}{The window title.}

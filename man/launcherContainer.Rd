@@ -20,12 +20,13 @@ Define a launcher container, suitable for use with the \code{container} argument
 to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}},
-  \code{\link{launcherHostMount}},
-  \code{\link{launcherNfsMount}},
-  \code{\link{launcherPlacementConstraint}},
-  \code{\link{launcherResourceLimit}},
-  \code{\link{launcherSubmitJob}},
-  \code{\link{launcherSubmitR}}
+Other job submission: 
+\code{\link{launcherConfig}()},
+\code{\link{launcherHostMount}()},
+\code{\link{launcherNfsMount}()},
+\code{\link{launcherPlacementConstraint}()},
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitJob}()},
+\code{\link{launcherSubmitR}()}
 }
 \concept{job submission}

@@ -4,8 +4,10 @@
 \alias{launcherControlJob}
 \title{Interact with (Control) a Job}
 \usage{
-launcherControlJob(jobId, operation = c("suspend", "resume", "stop",
-  "kill", "cancel"))
+launcherControlJob(
+  jobId,
+  operation = c("suspend", "resume", "stop", "kill", "cancel")
+)
 }
 \arguments{
 \item{jobId}{The job id.}
