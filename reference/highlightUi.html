@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Set Job State — jobSetState • rstudioapi</title>
+<title>Highlight UI Elements within the RStudio IDE — highlightUi • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,10 @@
 
 
 
-<meta property="og:title" content="Set Job State — jobSetState" />
-<meta property="og:description" content="Changes the state of a job." />
+<meta property="og:title" content="Highlight UI Elements within the RStudio IDE — highlightUi" />
+<meta property="og:description" content="This function can be used to highlight UI elements within the RStudio IDE.
+UI elements can be selected using query selectors; most commonly, one should
+choose to highlight elements based on their IDs when available." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -134,65 +136,60 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Set Job State</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/jobs.R'><code>R/jobs.R</code></a></small>
-    <div class="hidden name"><code>jobSetState.Rd</code></div>
+    <h1>Highlight UI Elements within the RStudio IDE</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/highlight.R'><code>R/highlight.R</code></a></small>
+    <div class="hidden name"><code>highlightUi.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Changes the state of a job.</p>
+    <p>This function can be used to highlight UI elements within the RStudio IDE.
+UI elements can be selected using query selectors; most commonly, one should
+choose to highlight elements based on their IDs when available.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jobSetState</span>(
-  <span class='no'>job</span>,
-  <span class='kw'>state</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"idle"</span>, <span class='st'>"running"</span>, <span class='st'>"succeeded"</span>, <span class='st'>"cancelled"</span>, <span class='st'>"failed"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>highlightUi</span>(<span class='no'>queries</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>job</th>
-      <td><p>The ID of the job on which to change state.</p></td>
-    </tr>
-    <tr>
-      <th>state</th>
-      <td><p>The new job state.</p></td>
+      <th>queries</th>
+      <td><p>A list of "query" objects. Each query should be a list with
+entries <code>"query"</code> and <code>"parent"</code>. See <strong>Queries</strong> for more details.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="states"><a class="anchor" href="#states"></a>States</h2>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The tool at:</p><pre>Help -&gt; Diagnostics -&gt; Show DOM Elements
+</pre>
+
+<p>can be useful for identifying the classes and IDs assigned to the different
+elements within RStudio.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The <code>executeCommand</code> function was introduced in RStudio 1.3.658.</p>
+    <h2 class="hasAnchor" id="queries"><a class="anchor" href="#queries"></a>Queries</h2>
 
     
 
 
-<p>The following states are supported:</p><dl class='dl-horizontal'>
-<dt>idle</dt><dd><p>The job is waiting to run.</p></dd>
-<dt>running</dt><dd><p>The job is actively running.</p></dd>
-<dt>succeeded</dt><dd><p>The job has finished successfully.</p></dd>
-<dt>cancelled</dt><dd><p>The job was cancelled.</p></dd>
-<dt>failed</dt><dd><p>The job finished but did not succeed.</p></dd>
+<p>Elements are selected using the same queries as through the web
+<code>querySelectorAll()</code> API. See <a href='https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll'>https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll</a>
+for more details.</p>
+<p>For example, to highlight the Save icon within the Source pane, one might
+use:</p><pre>
+</pre>
 
-</dl>
-
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other jobs: 
-<code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
-<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>,
-<code><a href='jobAdd.html'>jobAdd</a>()</code>,
-<code><a href='jobRemove.html'>jobRemove</a>()</code>,
-<code><a href='jobRunScript.html'>jobRunScript</a>()</code>,
-<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
-<code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#states">States</a></li>
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#note">Note</a></li>
+      <li><a href="#queries">Queries</a></li>
     </ul>
 
   </div>

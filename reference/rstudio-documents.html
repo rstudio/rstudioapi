@@ -161,8 +161,12 @@ Closes a document currently open in RStudio." />
 
 <span class='fu'>documentSaveAll</span>()
 
-<span class='fu'>documentNew</span>(<span class='no'>text</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"r"</span>, <span class='st'>"rmarkdown"</span>, <span class='st'>"sql"</span>),
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='document_position.html'>document_position</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>), <span class='kw'>execute</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>documentNew</span>(
+  <span class='no'>text</span>,
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"r"</span>, <span class='st'>"rmarkdown"</span>, <span class='st'>"sql"</span>),
+  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='document_position.html'>document_position</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>),
+  <span class='kw'>execute</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)
 
 <span class='fu'>documentClose</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 

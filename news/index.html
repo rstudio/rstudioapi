@@ -142,6 +142,9 @@
 <a href="#rstudioapi-0-11-unreleased" class="anchor"></a>rstudioapi 0.11 [UNRELEASED]<small> Unreleased </small>
 </h1>
 <ul>
+<li>
+<code>rstudioapi</code> gains the function <code><a href="../reference/highlightUi.html">highlightUi()</a></code>, used to highlight UI</li>
+<li><p>elements in newer versions of RStudio.</p></li>
 <li><p>Paths returned from <code><a href="../reference/file-dialogs.html">selectFile()</a></code> are now properly marked with UTF-8 encoding.</p></li>
 <li><p>It is now possible for <code>rstudioapi</code> to communicate with a parent RStudio session, for R sessions launched as RStudio jobs. Use <code><a href="../reference/isAvailable.html">rstudioapi::isAvailable(child_ok = TRUE)</a></code> to assert that it’s okay to check that <code>rstudioapi</code> is available and is running within an RStudio job.</p></li>
 <li><p>Added <code><a href="../reference/bugReport.html">bugReport()</a></code>, a helper function for reporting RStudio bugs on the GitHub issue tracker with an issue template pre-populated with some helpful diagnostic information.</p></li>

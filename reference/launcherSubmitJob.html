@@ -145,13 +145,29 @@ for more information." />
 for more information.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>launcherSubmitJob</span>(<span class='no'>name</span>, <span class='kw'>cluster</span> <span class='kw'>=</span> <span class='st'>"Local"</span>, <span class='kw'>tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>command</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>exe</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>environment</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>stdin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stdoutFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stderrFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>workingDirectory</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>host</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>container</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>exposedPorts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mounts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>placementConstraints</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>resourceLimits</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>queues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>config</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>user</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"USER"</span>), <span class='kw'>applyConfigSettings</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>launcherSubmitJob</span>(
+  <span class='no'>name</span>,
+  <span class='kw'>cluster</span> <span class='kw'>=</span> <span class='st'>"Local"</span>,
+  <span class='kw'>tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>command</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>exe</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>environment</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>stdin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>stdoutFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>stderrFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>workingDirectory</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>host</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>container</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>exposedPorts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>mounts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>placementConstraints</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>resourceLimits</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>queues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>config</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>user</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"USER"</span>),
+  <span class='kw'>applyConfigSettings</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -259,13 +275,14 @@ environment, in addition to any specified in this call.</p></td>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other job submission: <code><a href='launcherConfig.html'>launcherConfig</a></code>,
-  <code><a href='launcherContainer.html'>launcherContainer</a></code>,
-  <code><a href='launcherHostMount.html'>launcherHostMount</a></code>,
-  <code><a href='launcherNfsMount.html'>launcherNfsMount</a></code>,
-  <code><a href='launcherPlacementConstraint.html'>launcherPlacementConstraint</a></code>,
-  <code><a href='launcherResourceLimit.html'>launcherResourceLimit</a></code>,
-  <code><a href='launcherSubmitR.html'>launcherSubmitR</a></code></p></div>
+    <div class='dont-index'><p>Other job submission: 
+<code><a href='launcherConfig.html'>launcherConfig</a>()</code>,
+<code><a href='launcherContainer.html'>launcherContainer</a>()</code>,
+<code><a href='launcherHostMount.html'>launcherHostMount</a>()</code>,
+<code><a href='launcherNfsMount.html'>launcherNfsMount</a>()</code>,
+<code><a href='launcherPlacementConstraint.html'>launcherPlacementConstraint</a>()</code>,
+<code><a href='launcherResourceLimit.html'>launcherResourceLimit</a>()</code>,
+<code><a href='launcherSubmitR.html'>launcherSubmitR</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

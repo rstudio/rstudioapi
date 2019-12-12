@@ -143,8 +143,15 @@
     <p>Inform RStudio's Jobs pane that a job has been added.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jobAdd</span>(<span class='no'>name</span>, <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>progressUnits</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>actions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>running</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>autoRemove</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>jobAdd</span>(
+  <span class='no'>name</span>,
+  <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>progressUnits</span> <span class='kw'>=</span> <span class='fl'>0L</span>,
+  <span class='kw'>actions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>running</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>autoRemove</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -204,10 +211,14 @@ display, and clicking the link will invoke the <code>info</code> action.</p></dd
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other jobs: <code><a href='jobAddOutput.html'>jobAddOutput</a></code>,
-  <code><a href='jobAddProgress.html'>jobAddProgress</a></code>, <code><a href='jobRemove.html'>jobRemove</a></code>,
-  <code><a href='jobRunScript.html'>jobRunScript</a></code>, <code><a href='jobSetProgress.html'>jobSetProgress</a></code>,
-  <code><a href='jobSetState.html'>jobSetState</a></code>, <code><a href='jobSetStatus.html'>jobSetStatus</a></code></p></div>
+    <div class='dont-index'><p>Other jobs: 
+<code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
+<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>,
+<code><a href='jobRemove.html'>jobRemove</a>()</code>,
+<code><a href='jobRunScript.html'>jobRunScript</a>()</code>,
+<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
+<code><a href='jobSetState.html'>jobSetState</a>()</code>,
+<code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
