@@ -1,4 +1,8 @@
 
+`%||%` <- function(x, y) {
+  if (is.null(x)) y else x
+}
+
 renderTemplate <- function(template, data) {
 
   rendered <- template

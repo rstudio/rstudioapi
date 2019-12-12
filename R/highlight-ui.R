@@ -24,7 +24,22 @@
 #' use:
 #' 
 #' ```
+#' rstudioapi::highlightUi("#rstudio_tb_savesourcedoc")
+#' ```
 #' 
+#' In some cases, multiple UI elements need to be highlighted -- e.g. if
+#' you want to highlight both a menu button, and a menu item within the
+#' menu displayed after the button is pressed. We'll use the Environment Pane's
+#' Import Dataset button as an example. To highlight the `From Text (readr)`
+#' command, you might use:
+#' 
+#' ```
+#' rstudioapi::highlightUi(
+#'   list(
+#'     list(query = "#rstudio_mb_import_dataset", parent = 0L),
+#'     list(query = "#rstudio_label_from_text_readr_command", parent = 1L)
+#'    )
+#' )
 #' ```
 #' 
 #' @note The \code{executeCommand} function was introduced in RStudio 1.3.658.
@@ -34,5 +49,20 @@
 #'
 #' @export
 highlightUi <- function(queries) {
-  callFun("highlight")
+  
+  queries <- lapply(queries, function(data) {
+    
+    if (is.character(data))
+      data <- list(query = data, parent = 0L)
+    
+    if (is.null(data$query))
+      stop("missing 'query' in highlight request")
+    
+    data$highlight <- as.integer(data$highlight %||% 0)
+    data
+    
+  })
+  
+  invisible(callFun("highlight", queries))
+  
 }

@@ -1,5 +1,8 @@
 # rstudioapi 0.11 [UNRELEASED]
 
+* `rstudioapi` gains the function `highlightUi()`, used to highlight UI
+* elements in newer versions of RStudio.
+
 * Paths returned from `selectFile()` are now properly marked with
   UTF-8 encoding.
 
