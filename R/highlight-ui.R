@@ -63,6 +63,6 @@ highlightUi <- function(queries) {
     
   })
   
-  invisible(callFun("highlight", queries))
+  invisible(callFun("highlightUi", queries))
   
 }
