@@ -1,7 +1,11 @@
+
 # rstudioapi 0.11 [UNRELEASED]
 
+* `rstudioapi::launcherResourceLimit()` now properly delegates the type
+  and memory arguments. (#164)
+
 * `rstudioapi` gains the function `highlightUi()`, used to highlight UI
-* elements in newer versions of RStudio.
+  elements in newer versions of RStudio.
 
 * Paths returned from `selectFile()` are now properly marked with
   UTF-8 encoding.

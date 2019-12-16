@@ -147,7 +147,9 @@ launcherPlacementConstraint <- function(name,
 #' @family job submission
 #' @export
 launcherResourceLimit <- function(type, value) {
-  callLauncherFun("launcher.newResourceLimit")
+  callLauncherFun("launcher.newResourceLimit",
+                  type = type,
+                  value = value)
 }
 
 #' Define a Launcher Host Mount
