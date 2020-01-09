@@ -1,4 +1,4 @@
 
-tutorialLaunchBrowser <- function(url, id) {
-  callFun("tutorialLaunchBrowser", url, id)
+tutorialLaunchBrowser <- function(url) {
+  callFun("tutorialLaunchBrowser", url)
 }
