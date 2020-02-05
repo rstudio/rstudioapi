@@ -184,6 +184,9 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/sourceMarkers.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/systemUsername.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/terminalActivate.html</loc>
   </url>
   <url>
@@ -227,6 +230,9 @@
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/updateDialog.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/userIdentity.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/versionInfo.html</loc>
