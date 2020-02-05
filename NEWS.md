@@ -6,7 +6,7 @@
 
 * `rstudioapi` gains the function `highlightUi()`, used to highlight UI
   elements in newer versions of RStudio.
-
+  
 * Paths returned from `selectFile()` are now properly marked with
   UTF-8 encoding.
 
@@ -18,6 +18,9 @@
 * Added `bugReport()`, a helper function for reporting RStudio bugs
   on the GitHub issue tracker with an issue template pre-populated
   with some helpful diagnostic information.
+
+* Added `userIdentity` and `systemUsername`, used to retrieve information about
+  the current user.
 
 # rstudioapi 0.10
 
