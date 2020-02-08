@@ -1,4 +1,6 @@
 
+# rstudioapi 0.12 (UNRELEASED)
+
 # rstudioapi 0.11
 
 * `rstudioapi::launcherResourceLimit()` now properly delegates the type
