@@ -1,5 +1,5 @@
 
-# rstudioapi 0.11 [UNRELEASED]
+# rstudioapi 0.11
 
 * `rstudioapi::launcherResourceLimit()` now properly delegates the type
   and memory arguments. (#164)

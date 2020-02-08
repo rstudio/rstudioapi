@@ -3,7 +3,9 @@
 ^\.travis\.yml$
 ^_pkgdown\.yml$
 ^docs/
+^pkgdown/
 ^tests/
 ^tools/
 ^README\.md$
 ^README\.Rmd$
+^tags$
