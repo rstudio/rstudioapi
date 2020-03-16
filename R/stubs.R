@@ -186,7 +186,8 @@ selectFile <- function(caption = "Select File",
                        existing = TRUE)
 {
   out <- callFun("selectFile", caption, label, path, filter, existing)
-  Encoding(out) <- "UTF-8"
+  if (is.character(out))
+    Encoding(out) <- "UTF-8"
   out
 }
 
