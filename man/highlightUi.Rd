@@ -23,7 +23,7 @@ can be useful for identifying the classes and IDs assigned to the different
 elements within RStudio.
 }
 \note{
-The \code{executeCommand} function was introduced in RStudio 1.3.658.
+The \code{highlightUi} function was introduced in RStudio 1.3.658.
 }
 \section{Queries}{
 
@@ -49,3 +49,24 @@ command, you might use:\preformatted{rstudioapi::highlightUi(
 }
 }
 
+\examples{
+\dontrun{rstudioapi::highlightUi("#rstudio_workbench_panel_git")}
+
+# clear current highlights
+\dontrun{rstudioapi::highlightUi("")}
+
+# highlight within an RMD
+\dontrun{rstudioapi::highlightUi(".rstudio_chunk_setup .rstudio_run_chunk")}
+
+# Optionally provide a callback adjacent to 
+# the queries that will be executed when the 
+# highlighted element is clicked on.
+\dontrun{rstudioapi::highlightUi(
+  list(
+    list(
+      query="#rstudio_workbench_panel_git", 
+      callback="rstudioapi::highlightUi('')"
+    )
+  )
+)}
+}
