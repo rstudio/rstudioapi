@@ -42,12 +42,31 @@
 #' )
 #' ```
 #' 
-#' @note The \code{executeCommand} function was introduced in RStudio 1.3.658.
+#' @note The \code{highlightUi} function was introduced in RStudio 1.3.658.
 #' 
 #' @param queries A list of "query" objects. Each query should be a list with
 #'   entries `"query"` and `"parent"`. See **Queries** for more details.
-#'
 #' @export
+#' @examples
+#' \dontrun{rstudioapi::highlightUi("#rstudio_workbench_panel_git")}
+#' 
+#' # clear current highlights
+#' \dontrun{rstudioapi::highlightUi("")}
+#' 
+#' # highlight within an RMD
+#' \dontrun{rstudioapi::highlightUi(".rstudio_chunk_setup .rstudio_run_chunk")}
+#' 
+#' # Optionally provide a callback adjacent to 
+#' # the queries that will be executed when the 
+#' # highlighted element is clicked on.
+#' \dontrun{rstudioapi::highlightUi(
+#'   list(
+#'     list(
+#'       query="#rstudio_workbench_panel_git", 
+#'       callback="rstudioapi::highlightUi('')"
+#'     )
+#'   )
+#' )}
 highlightUi <- function(queries) {
   
   queries <- lapply(queries, function(data) {
