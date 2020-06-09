@@ -1,5 +1,5 @@
 pandoc: '2.2'
-pkgdown: 1.4.1
+pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   dialogs: dialogs.html
@@ -8,6 +8,7 @@ articles:
   projects: projects.html
   r-session: r-session.html
   terminal: terminal.html
+last_built: 2020-06-09T01:30Z
 urls:
   reference: https://rstudio.github.io/rstudioapi/reference
   article: https://rstudio.github.io/rstudioapi/articles

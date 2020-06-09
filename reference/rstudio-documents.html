@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -46,8 +50,7 @@
 <meta property="og:description" content="Use these functions to interact with documents open in RStudio.
 Creates a new document in RStudio
 Closes a document currently open in RStudio." />
-<meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.png" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
 
@@ -65,7 +68,7 @@ Closes a document currently open in RStudio." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@ Closes a document currently open in RStudio." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
       </span>
     </div>
 
@@ -118,7 +121,7 @@ Closes a document currently open in RStudio." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/rstudio/rstudioapi">
+  <a href="https://github.com/rstudio/rstudioapi/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -227,26 +230,24 @@ such objects.</p>
 <p>To operate on the current selection in a document, call <code>insertText()</code>
 with only a text argument, e.g.</p>
 <pre>
-    insertText("# Hello\n")
-    insertText(text = "# Hello\n")
-</pre>
+    <span class='fu'>insertText</span>(<span class='st'>"# Hello\n"</span>)
+    <span class='fu'>insertText</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"# Hello\n"</span>)</pre>
 
 <p>Otherwise, specify a (list of) positions or ranges, as in:</p>
 <pre>
-    # insert text at the start of the document
-    insertText(c(1, 1), "# Hello\n")
+    <span class='co'># insert text at the start of the document</span>
+    <span class='fu'>insertText</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>), <span class='st'>"# Hello\n"</span>)
 
-    # insert text at the end of the document
-    insertText(Inf, "# Hello\n")
+    <span class='co'># insert text at the end of the document</span>
+    <span class='fu'>insertText</span>(<span class='fl'>Inf</span>, <span class='st'>"# Hello\n"</span>)
 
-    # comment out the first 5 rows
-    pos &lt;- Map(c, 1:5, 1)
-    insertText(pos, "# ")
+    <span class='co'># comment out the first 5 rows</span>
+    <span class='no'>pos</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>1</span>)
+    <span class='fu'>insertText</span>(<span class='no'>pos</span>, <span class='st'>"# "</span>)
 
-    # uncomment the first 5 rows, undoing the previous action
-    rng &lt;- Map(c, Map(c, 1:5, 1), Map(c, 1:5, 3))
-    modifyRange(rng, "")
-</pre>
+    <span class='co'># uncomment the first 5 rows, undoing the previous action</span>
+    <span class='no'>rng</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>3</span>))
+    <span class='fu'>modifyRange</span>(<span class='no'>rng</span>, <span class='st'>""</span>)</pre>
 
 <p><code>modifyRange</code> is a synonym for <code>insertText</code>, but makes its intent
 clearer when working with ranges, as performing text insertion with a range
@@ -273,14 +274,10 @@ with version 1.1.287 of RStudio.</p>
 <p>The <code>documentClose</code> function was introduced in RStudio 1.2.1255</p>
 
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#note">Note</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -291,7 +288,7 @@ with version 1.1.287 of RStudio.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
