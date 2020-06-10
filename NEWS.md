@@ -1,6 +1,9 @@
 
 # rstudioapi 0.12 (UNRELEASED)
 
+* Fixed an issue where remote `rstudioapi` calls would erroneously use
+  a previous response in some cases.
+
 # rstudioapi 0.11
 
 * `rstudioapi::launcherResourceLimit()` now properly delegates the type

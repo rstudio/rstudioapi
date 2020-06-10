@@ -6,12 +6,16 @@ isChildProcess <- function() {
 callRemote <- function(call, frame) {
 
   # check for active request / response
-  request  <- Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA)
-  response <- Sys.getenv("RSTUDIOAPI_IPC_RESPONSE_FILE", unset = NA)
+  requestFile  <- Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA)
+  responseFile <- Sys.getenv("RSTUDIOAPI_IPC_RESPONSE_FILE", unset = NA)
   secret   <- Sys.getenv("RSTUDIOAPI_IPC_SHARED_SECRET", unset = NA)
-  if (is.na(request) || is.na(response) || is.na(secret))
+  if (is.na(requestFile) || is.na(responseFile) || is.na(secret))
     stop("internal error: callFunRemote() called without remote connection")
+  
+  # clean up on exit
+  on.exit(unlink(c(requestFile, responseFile)), add = TRUE)
 
+  # remove srcrefs (un-needed for serialization here)
   attr(call, "srcref") <- NULL
 
   # ensure rstudioapi functions get appropriate prefix
@@ -24,9 +28,9 @@ callRemote <- function(call, frame) {
 
   # write to tempfile and rename, to ensure atomicity
   data <- list(secret = secret, call = call)
-  tmp <- tempfile(tmpdir = dirname(request))
+  tmp <- tempfile(tmpdir = dirname(requestFile))
   saveRDS(data, file = tmp)
-  file.rename(tmp, request)
+  file.rename(tmp, requestFile)
 
   # loop until response is ready (poll)
   # in theory we'd just do a blocking read but there isn't really a good
@@ -35,7 +39,7 @@ callRemote <- function(call, frame) {
   repeat {
 
     # check for response
-    if (file.exists(response))
+    if (file.exists(responseFile))
       break
 
     # check for lack of response
@@ -49,7 +53,7 @@ callRemote <- function(call, frame) {
   }
 
   # read response
-  response <- readRDS(response)
+  response <- readRDS(responseFile)
   if (inherits(response, "error"))
     stop(response)
 
