@@ -4,6 +4,8 @@
 * Fixed an issue where remote `rstudioapi` calls would erroneously use
   a previous response in some cases.
 
+* Added `registerChunkExecCallback` and `unregisterChunkExecCallback`, used to execute a callback after a chunk is ran.
+
 # rstudioapi 0.11
 
 * `rstudioapi::launcherResourceLimit()` now properly delegates the type
