@@ -22,8 +22,8 @@ sourceMarkers <- function(name, markers, basePath = NULL,
 }
 
 #' @export
-navigateToFile <- function(file = character(0), line = -1L, column = -1L) {
-  callFun("navigateToFile", file, as.integer(line), as.integer(column))
+navigateToFile <- function(file = character(0), line = -1L, column = -1L, moveCursor = TRUE) {
+  callFun("navigateToFile", file, as.integer(line), as.integer(column), as.logical(moveCursor))
 }
 
 #' @export
