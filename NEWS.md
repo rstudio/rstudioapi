@@ -3,6 +3,9 @@
 
 * Fixed an issue where remote `rstudioapi` calls would erroneously use
   a previous response in some cases.
+  
+* Allow `navigateToFile` to accept an empty file. This file will default to the file
+  currently in view in the active column.
 
 # rstudioapi 0.11
 
