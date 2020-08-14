@@ -8,7 +8,7 @@ articles:
   projects: projects.html
   r-session: r-session.html
   terminal: terminal.html
-last_built: 2020-07-31T12:10Z
+last_built: 2020-08-14T07:10Z
 urls:
   reference: https://rstudio.github.io/rstudioapi/reference
   article: https://rstudio.github.io/rstudioapi/articles

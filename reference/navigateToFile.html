@@ -153,7 +153,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>file</th>
-      <td><p>Path to the file to open)</p></td>
+      <td><p>Optional; Path to the file to open)</p></td>
     </tr>
     <tr>
       <th>line</th>
@@ -171,8 +171,9 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The <code>navigateToFile</code> opens a file in RStudio. If the file is already open, its tab or window is activated.</p>
-<p>Once the file is open, the cursor is moved to the specified location.  If the <code>line</code>
-and <code>column</code> arguments are both equal to <code>-1L</code> (the default), then
+<p>Once the file is open, the cursor is moved to the specified location. If the <code>file</code>
+argument is empty (the default), then the file is the file currently in view if one exists.
+If the <code>line</code> and <code>column</code> arguments are both equal to <code>-1L</code> (the default), then
 the cursor position in the document that is opened will be preserved.</p>
 <p>Note that if your intent is to navigate to a particular function within a file, you can also cause RStudio to navigate there by invoking <code><a href='https://rdrr.io/r/utils/View.html'>View</a></code> on the function, which has the advantage of falling back on deparsing if the file is not available.</p>
 
