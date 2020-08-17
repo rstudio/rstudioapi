@@ -10,7 +10,7 @@ callRemote <- function(call, frame) {
   responseFile <- Sys.getenv("RSTUDIOAPI_IPC_RESPONSE_FILE", unset = NA)
   secret   <- Sys.getenv("RSTUDIOAPI_IPC_SHARED_SECRET", unset = NA)
   if (is.na(requestFile) || is.na(responseFile) || is.na(secret))
-    stop("internal error: callFunRemote() called without remote connection")
+    stop("internal error: callRemote() called without remote connection")
   
   # clean up on exit
   on.exit(unlink(c(requestFile, responseFile)), add = TRUE)
