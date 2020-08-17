@@ -85,7 +85,14 @@ callFun <- function(fname, ...) {
     stop("Function ", fname, " not found in RStudio", call. = FALSE)
   
   f <- findFun(fname, mode = "function")
-  f(...)
+  
+  args <- list(...)
+  if (!"..." %in% names(formals(f)))
+  {
+     while (length(args) > length(formals(f)))
+       args <- args[-length(args)]
+  }
+  do.call(f, args)
 }
 
 #' Exists/get for RStudio functions
