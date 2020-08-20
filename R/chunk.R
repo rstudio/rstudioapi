@@ -12,6 +12,10 @@ registerChunkCallback <- function(chunkName, chunkCode, result, callbacks)
 {
   callFun("registerChunkCallback", chunkName, chunkCode, result, callbacks)
 }
+registerChunkCallback <- function(callbackFunction)
+{
+  callFun("registerChunkCallback", callbackFunction)
+}
 
 #' Unregister Chunk Callback
 #'
