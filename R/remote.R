@@ -23,8 +23,16 @@ callRemote <- function(call, frame) {
     call[[1L]] <- call("::", as.name("rstudioapi"), call[[1L]])
 
   # ensure arguments are evaluated before sending request
-  for (i in seq_along(call)[-1L])
-    call[[i]] <- eval(call[[i]], envir = frame)
+  call <- as.list(call)
+  for (i in seq_along(call)[-1L]) {
+    res <- eval(call[[i]], frame)
+    if (is.null(res)) {
+      call[i] <- list(NULL)
+    } else {
+      call[[i]] <- res
+    }
+  }
+  call <- as.call(call)
 
   # write to tempfile and rename, to ensure atomicity
   data <- list(secret = secret, call = call)
