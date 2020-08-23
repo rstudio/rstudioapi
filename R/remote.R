@@ -19,20 +19,17 @@ callRemote <- function(call, frame) {
   attr(call, "srcref") <- NULL
 
   # ensure rstudioapi functions get appropriate prefix
-  if (is.name(call[[1L]]))
-    call[[1L]] <- call("::", as.name("rstudioapi"), call[[1L]])
-
-  # ensure arguments are evaluated before sending request
-  call <- as.list(call)
-  for (i in seq_along(call)[-1L]) {
-    res <- eval(call[[i]], frame)
-    if (is.null(res)) {
-      call[i] <- list(NULL)
-    } else {
-      call[[i]] <- res
-    }
+  if (is.name(call[[1L]])) {
+    call_fun <- call("::", as.name("rstudioapi"), call[[1L]])
+  } else {
+    call_fun <- call[[1L]]
   }
-  call <- as.call(call)
+  
+  # ensure arguments are evaluated before sending request
+  call[[1L]] <- as.name("list")
+  args <- eval(call, envir = frame)
+  
+  call <- as.call(c(call_fun, args))
 
   # write to tempfile and rename, to ensure atomicity
   data <- list(secret = secret, call = call)
