@@ -2,19 +2,13 @@
 #'
 #' Registers a callback function to be executed after a specified chunk
 #'
-#' @param chunkName A className of an existing chunk.
-#' @param chunkCode The code within the specified chunk that when ran will trigger this callback.
-#'   Leave this empty to only execute the callback when the full chunk is ran.
-#' @param result An object representing what the user sees. ?????
-#' @param callback A list of callbacks to execute after the specified code.
+#' @param callback A callback function that returns a list of html output to be
+#' displayed after a chunk is executed.
+#' @return A handler that can be used to unregister the chunk.
 #' @export
-registerChunkCallback <- function(chunkName, chunkCode, result, callbacks)
+registerChunkCallback <- function(callback)
 {
-  callFun("registerChunkCallback", chunkName, chunkCode, result, callbacks)
-}
-registerChunkCallback <- function(callbackFunction)
-{
-  callFun("registerChunkCallback", callbackFunction)
+  callFun("registerChunkCallback", callback)
 }
 
 #' Unregister Chunk Callback
