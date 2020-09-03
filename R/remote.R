@@ -26,7 +26,7 @@ callRemote <- function(call, frame) {
   }
   
   # ensure arguments are evaluated before sending request
-  call[[1L]] <- as.name("list")
+  call[[1L]] <- quote(base::list)
   args <- eval(call, envir = frame)
   
   call <- as.call(c(call_fun, args))
