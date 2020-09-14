@@ -19,7 +19,7 @@ registerChunkCallback <- function(callback)
 #' @param id A handle, as returned via a previous call to [registerChunkCallback].
 #' @seealso \code{\link{registerChunkCallback}}
 #' @export
-unregisterChunkCallback <- function(id)
+unregisterChunkCallback <- function(id = NULL)
 {
   callFun("unregisterChunkCallback", id)
 }
