@@ -150,28 +150,28 @@ Closes a document currently open in RStudio." />
 <p>Closes a document currently open in RStudio.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>insertText</span>(<span class='no'>location</span>, <span class='no'>text</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>insertText</span>(<span class='kw'>location</span>, <span class='kw'>text</span>, id = <span class='kw'>NULL</span>)
 
-<span class='fu'>modifyRange</span>(<span class='no'>location</span>, <span class='no'>text</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>modifyRange</span>(<span class='kw'>location</span>, <span class='kw'>text</span>, id = <span class='kw'>NULL</span>)
 
-<span class='fu'>setDocumentContents</span>(<span class='no'>text</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>setDocumentContents</span>(<span class='kw'>text</span>, id = <span class='kw'>NULL</span>)
 
-<span class='fu'>setCursorPosition</span>(<span class='no'>position</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>setCursorPosition</span>(<span class='kw'>position</span>, id = <span class='kw'>NULL</span>)
 
-<span class='fu'>setSelectionRanges</span>(<span class='no'>ranges</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>setSelectionRanges</span>(<span class='kw'>ranges</span>, id = <span class='kw'>NULL</span>)
 
-<span class='fu'>documentSave</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>documentSave</span>(id = <span class='kw'>NULL</span>)
 
 <span class='fu'>documentSaveAll</span>()
 
 <span class='fu'>documentNew</span>(
-  <span class='no'>text</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"r"</span>, <span class='st'>"rmarkdown"</span>, <span class='st'>"sql"</span>),
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='document_position.html'>document_position</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>),
-  <span class='kw'>execute</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  <span class='kw'>text</span>,
+  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"r"</span>, <span class='st'>"rmarkdown"</span>, <span class='st'>"sql"</span>),
+  position = <span class='fu'><a href='document_position.html'>document_position</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>),
+  execute = <span class='fl'>FALSE</span>
 )
 
-<span class='fu'>documentClose</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>documentClose</span>(id = <span class='kw'>NULL</span>, save = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -231,7 +231,8 @@ such objects.</p>
 with only a text argument, e.g.</p>
 <pre>
     <span class='fu'>insertText</span>(<span class='st'>"# Hello\n"</span>)
-    <span class='fu'>insertText</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"# Hello\n"</span>)</pre>
+    <span class='fu'>insertText</span>(text = <span class='st'>"# Hello\n"</span>)
+</pre>
 
 <p>Otherwise, specify a (list of) positions or ranges, as in:</p>
 <pre>
@@ -242,12 +243,13 @@ with only a text argument, e.g.</p>
     <span class='fu'>insertText</span>(<span class='fl'>Inf</span>, <span class='st'>"# Hello\n"</span>)
 
     <span class='co'># comment out the first 5 rows</span>
-    <span class='no'>pos</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>1</span>)
-    <span class='fu'>insertText</span>(<span class='no'>pos</span>, <span class='st'>"# "</span>)
+    <span class='kw'>pos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span>)
+    <span class='fu'>insertText</span>(<span class='kw'>pos</span>, <span class='st'>"# "</span>)
 
     <span class='co'># uncomment the first 5 rows, undoing the previous action</span>
-    <span class='no'>rng</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='no'>c</span>, <span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>3</span>))
-    <span class='fu'>modifyRange</span>(<span class='no'>rng</span>, <span class='st'>""</span>)</pre>
+    <span class='kw'>rng</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>3</span>))
+    <span class='fu'>modifyRange</span>(<span class='kw'>rng</span>, <span class='st'>""</span>)
+</pre>
 
 <p><code>modifyRange</code> is a synonym for <code>insertText</code>, but makes its intent
 clearer when working with ranges, as performing text insertion with a range
@@ -288,7 +290,7 @@ with version 1.1.287 of RStudio.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

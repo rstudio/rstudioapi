@@ -146,7 +146,7 @@
     <p>Execute a command, showing results in the terminal pane.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>terminalExecute</span>(<span class='no'>command</span>, <span class='kw'>workingDir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(), <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>terminalExecute</span>(<span class='kw'>command</span>, workingDir = <span class='kw'>NULL</span>, env = <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(), show = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -178,21 +178,23 @@ unable to create the terminal).</p>
     <p>The <code>terminalExecute</code> function was added in version 1.1.350 of RStudio.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>termId</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'>terminalExecute</span>(
-  <span class='kw'>command</span> <span class='kw'>=</span> <span class='st'>'echo $HELLO &amp;&amp; echo $WORLD'</span>,
-  <span class='kw'>workingDir</span> <span class='kw'>=</span> <span class='st'>'/usr/local'</span>,
-  <span class='kw'>env</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'HELLO=WORLD'</span>, <span class='st'>'WORLD=EARTH'</span>),
-  <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>termId</span> <span class='op'>&lt;-</span> <span class='kw'>rstudioapi</span>::<span class='fu'>terminalExecute</span>(
+  command = <span class='st'>'echo $HELLO &amp;&amp; echo $WORLD'</span>,
+  workingDir = <span class='st'>'/usr/local'</span>,
+  env = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'HELLO=WORLD'</span>, <span class='st'>'WORLD=EARTH'</span>),
+  show = <span class='fl'>FALSE</span>)
 
-<span class='kw'>while</span> (<span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='terminalExitCode.html'>terminalExitCode</a></span>(<span class='no'>termId</span>))) {
+<span class='co'>while</span> (<span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw'>rstudioapi</span>::<span class='fu'><a href='terminalExitCode.html'>terminalExitCode</a></span>(<span class='kw'>termId</span>))) {
   <span class='fu'><a href='https://rdrr.io/r/base/Sys.sleep.html'>Sys.sleep</a></span>(<span class='fl'>0.1</span>)
 }
 
-<span class='no'>result</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='terminalBuffer.html'>terminalBuffer</a></span>(<span class='no'>termId</span>)
-<span class='fu'><a href='terminalKill.html'>terminalKill</a></span>(<span class='no'>termId</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>result</span>)
-}</div></pre>
+<span class='kw'>result</span> <span class='op'>&lt;-</span> <span class='fu'><a href='terminalBuffer.html'>terminalBuffer</a></span>(<span class='kw'>termId</span>)
+<span class='fu'><a href='terminalKill.html'>terminalKill</a></span>(<span class='kw'>termId</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>result</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -208,7 +210,7 @@ unable to create the terminal).</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

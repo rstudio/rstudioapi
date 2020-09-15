@@ -150,7 +150,7 @@ function is not available. If you want to fall back to different
 behavior, use <code><a href='hasFun.html'>hasFun</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>callFun</span>(<span class='no'>fname</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>callFun</span>(<span class='kw'>fname</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,9 +167,10 @@ behavior, use <code><a href='hasFun.html'>hasFun</a></code>.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='isAvailable.html'>isAvailable</a></span>()) {
-  <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'>callFun</span>(<span class='st'>"versionInfo"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='kw'>rstudioapi</span>::<span class='fu'><a href='isAvailable.html'>isAvailable</a></span>()) {
+  <span class='kw'>rstudioapi</span>::<span class='fu'>callFun</span>(<span class='st'>"versionInfo"</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -185,7 +186,7 @@ behavior, use <code><a href='hasFun.html'>hasFun</a></code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

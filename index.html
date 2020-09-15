@@ -106,44 +106,50 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of <code>rstudioapi</code> from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"rstudioapi"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"rstudioapi"</span>)
+</pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu">install_github</span>(<span class="st">"rstudio/rstudioapi"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu">install_github</span>(<span class="st">"rstudio/rstudioapi"</span>)
+</pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>The <code>rstudioapi</code> package is designed to never be attached to your search path. Always prefix function calls with <code>rstudioapi::</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="r">
+<div class="sourceCode" id="cb3"><pre class="downlit">
+
 <span class="co"># Returns T/F</span>
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/isAvailable.html">isAvailable</a></span>()
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/isAvailable.html">isAvailable</a></span>()
 <span class="co"># Returns error if not available</span>
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/isAvailable.html">verifyAvailable</a></span>()
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/isAvailable.html">verifyAvailable</a></span>()
 
 <span class="co"># Optional argument allows you to specify version requirement</span>
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/isAvailable.html">isAvailable</a></span>(<span class="st">"0.99"</span>)
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/isAvailable.html">verifyAvailable</a></span>(<span class="st">"0.99"</span>)
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/isAvailable.html">isAvailable</a></span>(<span class="st">"0.99"</span>)
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/isAvailable.html">verifyAvailable</a></span>(<span class="st">"0.99"</span>)
 
 <span class="co"># Call an rstudio function</span>
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/callFun.html">callFun</a></span>(<span class="st">"viewer"</span>, <span class="st">"http://localhost:8080"</span>)
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/callFun.html">callFun</a></span>(<span class="st">"viewer"</span>, <span class="st">"http://localhost:8080"</span>)
 
 <span class="co"># This will raise an error if rstudio is not running, or the function</span>
 <span class="co"># is not found. To run a different function if it's not available,</span>
 <span class="co"># use exists</span>
-<span class="kw">if</span> (<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/hasFun.html">hasFun</a></span>(<span class="st">"viewer"</span>)) {
-  <span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/callFun.html">callFun</a></span>(<span class="st">"viewer"</span>, <span class="st">"http://localhost:8080"</span>)
-} <span class="kw">else</span> {
+<span class="co">if</span> (<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/hasFun.html">hasFun</a></span>(<span class="st">"viewer"</span>)) {
+  <span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/callFun.html">callFun</a></span>(<span class="st">"viewer"</span>, <span class="st">"http://localhost:8080"</span>)
+} <span class="co">else</span> {
   <span class="fu"><a href="https://rdrr.io/r/utils/browseURL.html">browseURL</a></span>(<span class="st">"http://localhost:8080"</span>)
 }
 
 <span class="co"># You can use find to get the function. Throws an error if the function</span>
 <span class="co"># does not exist.</span>
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/hasFun.html">findFun</a></span>(<span class="st">"viewer"</span>)
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/hasFun.html">findFun</a></span>(<span class="st">"viewer"</span>)
 
 <span class="co"># You can also check version in exists and find</span>
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/hasFun.html">findFun</a></span>(<span class="st">"viewer"</span>, <span class="fl">0.99</span>)
-<span class="kw pkg">rstudioapi</span><span class="kw ns">::</span><span class="fu"><a href="reference/hasFun.html">hasFun</a></span>(<span class="st">"viewer"</span>, <span class="fl">0.99</span>)</pre></div>
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/hasFun.html">findFun</a></span>(<span class="st">"viewer"</span>, <span class="fl">0.99</span>)
+<span class="kw">rstudioapi</span>::<span class="fu"><a href="reference/hasFun.html">hasFun</a></span>(<span class="st">"viewer"</span>, <span class="fl">0.99</span>)
+</pre></div>
 </div>
 </div>
   </div>
@@ -196,7 +202,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

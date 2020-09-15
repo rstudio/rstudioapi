@@ -146,7 +146,7 @@
     <p>Returns information about RStudio terminal instances.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>terminalContext</span>(<span class='no'>id</span>)</pre>
+    <pre class="usage"><span class='fu'>terminalContext</span>(<span class='kw'>id</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,11 +185,13 @@
     <p>The <code>terminalContext</code> function was added in version 1.1.350 of RStudio.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>termId</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='terminalCreate.html'>terminalCreate</a></span>(<span class='st'>"example"</span>, <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'>terminalContext</span>(<span class='no'>termId</span>))
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>termId</span> <span class='op'>&lt;-</span> <span class='kw'>rstudioapi</span>::<span class='fu'><a href='terminalCreate.html'>terminalCreate</a></span>(<span class='st'>"example"</span>, show = <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='kw'>rstudioapi</span>::<span class='fu'>terminalContext</span>(<span class='kw'>termId</span>))
 
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -205,7 +207,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Set Job State — jobSetState • rstudioapi</title>
+<title>Register and Unregister a Chunk Callback — chunk-callbacks • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Set Job State — jobSetState" />
-<meta property="og:description" content="Changes the state of a job." />
+<meta property="og:title" content="Register and Unregister a Chunk Callback — chunk-callbacks" />
+<meta property="og:description" content="Register a callback function to be executed after a chunk within an R
+Markdown document is run." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -137,57 +138,50 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Set Job State</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/jobs.R'><code>R/jobs.R</code></a></small>
-    <div class="hidden name"><code>jobSetState.Rd</code></div>
+    <h1>Register and Unregister a Chunk Callback</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/chunk.R'><code>R/chunk.R</code></a></small>
+    <div class="hidden name"><code>chunk-callbacks.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Changes the state of a job.</p>
+    <p>Register a callback function to be executed after a chunk within an R
+Markdown document is run.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jobSetState</span>(
-  <span class='kw'>job</span>,
-  state = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"idle"</span>, <span class='st'>"running"</span>, <span class='st'>"succeeded"</span>, <span class='st'>"cancelled"</span>, <span class='st'>"failed"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>registerChunkCallback</span>(<span class='kw'>callback</span>)
+
+<span class='fu'>unregisterChunkCallback</span>(id = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>job</th>
-      <td><p>The ID of the job on which to change state.</p></td>
+      <th>callback</th>
+      <td><p>A callback function. See <strong>Chunk Callbacks</strong> for more details.</p></td>
     </tr>
     <tr>
-      <th>state</th>
-      <td><p>The new job state.</p></td>
+      <th>id</th>
+      <td><p>A unique identifier.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="states"><a class="anchor" href="#states"></a>States</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>For <code>registerChunkCallback()</code>, a unique identifier. That identifier
+can be passed to <code>unreigsterChunkCallback()</code> to de-register a
+previously-registered callback.</p>
+    <h2 class="hasAnchor" id="chunk-callbacks"><a class="anchor" href="#chunk-callbacks"></a>Chunk Callbacks</h2>
 
     
 
 
-<p>The following states are supported:</p><dl>
-<dt>idle</dt><dd><p>The job is waiting to run.</p></dd>
-<dt>running</dt><dd><p>The job is actively running.</p></dd>
-<dt>succeeded</dt><dd><p>The job has finished successfully.</p></dd>
-<dt>cancelled</dt><dd><p>The job was cancelled.</p></dd>
-<dt>failed</dt><dd><p>The job finished but did not succeed.</p></dd>
+<p>The <code>callback</code> argument should be a function accepting two parameters:</p><ul>
+<li><p><code>chunkName</code>: The chunk label,</p></li>
+<li><p><code>chunkCode</code>: The code within the chunk.</p></li>
+</ul>
 
-</dl>
-
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other jobs: 
-<code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
-<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>,
-<code><a href='jobAdd.html'>jobAdd</a>()</code>,
-<code><a href='jobRemove.html'>jobRemove</a>()</code>,
-<code><a href='jobRunScript.html'>jobRunScript</a>()</code>,
-<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
-<code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
+<p>The function should return an <span style="R">R</span> list of HTML outputs, to be displayed after
+that chunk has been executed.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

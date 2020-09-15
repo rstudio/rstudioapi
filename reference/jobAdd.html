@@ -147,13 +147,13 @@
     </div>
 
     <pre class="usage"><span class='fu'>jobAdd</span>(
-  <span class='no'>name</span>,
-  <span class='kw'>status</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>progressUnits</span> <span class='kw'>=</span> <span class='fl'>0L</span>,
-  <span class='kw'>actions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>running</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>autoRemove</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>show</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+  <span class='kw'>name</span>,
+  status = <span class='st'>""</span>,
+  progressUnits = <span class='fl'>0L</span>,
+  actions = <span class='kw'>NULL</span>,
+  running = <span class='fl'>FALSE</span>,
+  autoRemove = <span class='fl'>TRUE</span>,
+  show = <span class='fl'>TRUE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -202,7 +202,7 @@ further updates of the job's status.</p>
 <p>The <code>actions</code> parameter is a named list of functions that the user can invoke on the job;
 for example: <code>actions = list(stop = function(id) { ... })</code>. The function will be passed a
 parameter named <code>id</code> with the job ID that invoked it.</p>
-<p>There are two special action names:</p><dl'>
+<p>There are two special action names:</p><dl>
 <dt>stop</dt><dd><p>If there is an action named <code>stop</code>, then the job will
 have a Stop button in in the Jobs pane, and pressing that button will invoke
 the <code>stop</code> action.</p></dd>
@@ -238,7 +238,7 @@ display, and clicking the link will invoke the <code>info</code> action.</p></dd
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

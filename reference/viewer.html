@@ -146,7 +146,7 @@
     <p>View local web content within RStudio. Content can be served from static files in the R session temporary directory or can be a Shiny, Rook, OpenCPU, or any other type of localhost web application.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>viewer</span>(<span class='no'>url</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>viewer</span>(<span class='kw'>url</span>, height = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -187,28 +187,30 @@ http://localhost:8100?viewer_pane=1
 <p>To provide a good user experience it's strongly recommended that callers take advantage of this to automatically scale their content to the current size of the Viewer pane. For example, re-rendering a JavaScript plot with new dimensions when the size of the pane changes.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 
 <span class='co'># run an application inside the IDE</span>
-<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
+<span class='kw'>rstudioapi</span>::<span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
 
 <span class='co'># run an application and request a height of 500 pixels</span>
-<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>500</span>)
+<span class='kw'>rstudioapi</span>::<span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>, height = <span class='fl'>500</span>)
 
 <span class='co'># probe for viewer option then fall back to browseURL</span>
-<span class='no'>viewer</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"viewer"</span>)
-<span class='kw'>if</span> (!<span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>viewer</span>))
+<span class='kw'>viewer</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"viewer"</span>)
+<span class='co'>if</span> (<span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw'>viewer</span>))
    <span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
-<span class='kw'>else</span>
-   <span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/browseURL.html'>browseURL</a></span>(<span class='st'>"http://localhost:8100"</span>)
+<span class='co'>else</span>
+   <span class='kw'>utils</span>::<span class='fu'><a href='https://rdrr.io/r/utils/browseURL.html'>browseURL</a></span>(<span class='st'>"http://localhost:8100"</span>)
 
 <span class='co'># generate a temporary html file and display it</span>
-<span class='no'>dir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span>(<span class='no'>dir</span>)
-<span class='no'>htmlFile</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>dir</span>, <span class='st'>"index.html"</span>)
+<span class='kw'>dir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
+<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span>(<span class='kw'>dir</span>)
+<span class='kw'>htmlFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='kw'>dir</span>, <span class='st'>"index.html"</span>)
 <span class='co'># (code to write some content to the file)</span>
-<span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'>viewer</span>(<span class='no'>htmlFile</span>)
-}</div></pre>
+<span class='kw'>rstudioapi</span>::<span class='fu'>viewer</span>(<span class='kw'>htmlFile</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -224,7 +226,7 @@ http://localhost:8100?viewer_pane=1
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
