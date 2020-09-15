@@ -1,25 +1,37 @@
-#' Register Chunk Callback
+#' Register and Unregister a Chunk Callback
 #'
-#' Registers a callback function to be executed after a chunk within an R Markdown document is run.
+#' Register a callback function to be executed after a chunk within an R
+#' Markdown document is run.
 #'
-#' @param callback A callback function that returns a list of html output to be
-#' displayed after a chunk is executed. The callback will be passed two parameters; `chunkName` (referring to the chunk label) and `chunkCode` (the code within the chunk).
-#' @return A handle that can be used to unregister the chunk.
-#' @seealso \code{\link{registerChunkCallback}}
+#' @section Chunk Callbacks:
+#' 
+#' The `callback` argument should be a function accepting two parameters:
+#' 
+#' - `chunkName`: The chunk label,
+#' - `chunkCode`: The code within the chunk.
+#' 
+#' The function should return an \R list of HTML outputs, to be displayed after
+#' that chunk has been executed.
+#' 
+#' @param id A unique identifier.
+#' 
+#' @param callback A callback function. See **Chunk Callbacks** for more details.
+#'
+#' @return For `registerChunkCallback()`, a unique identifier. That identifier
+#'   can be passed to `unreigsterChunkCallback()` to de-register a
+#'   previously-registered callback.
+#'
+#' @name chunk-callbacks
+NULL
+
+#' @name chunk-callbacks
 #' @export
-registerChunkCallback <- function(callback)
-{
+registerChunkCallback <- function(callback) {
   callFun("registerChunkCallback", callback)
 }
 
-#' Unregister Chunk Callback
-#'
-#' Unregister a chunk callback previously registered via `registerChunkCallback()`.
-#'
-#' @param id A handle, as returned via a previous call to [registerChunkCallback].
-#' @seealso \code{\link{registerChunkCallback}}
+#' @name chunk-callbacks
 #' @export
-unregisterChunkCallback <- function(id = NULL)
-{
+unregisterChunkCallback <- function(id = NULL) {
   callFun("unregisterChunkCallback", id)
 }
