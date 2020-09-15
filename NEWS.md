@@ -7,6 +7,8 @@
 * Allow `navigateToFile` to accept an empty file. This file will default to the file
   currently in view in the active column.
 
+* Added `registerChunkExecCallback` and `unregisterChunkExecCallback`, used to execute a callback after a chunk is ran.
+
 # rstudioapi 0.11
 
 * `rstudioapi::launcherResourceLimit()` now properly delegates the type
