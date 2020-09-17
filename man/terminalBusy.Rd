@@ -17,6 +17,11 @@ a boolean
 \description{
 Are terminals reporting that they are busy?
 }
+\details{
+This feature is only supported on RStudio Desktop for Mac and Linux,
+and RStudio Server. It always returns \code{FALSE} on RStudio Desktop for
+Microsoft Windows.
+}
 \note{
 The \code{terminalBusy} function was added in version 1.1.350 of RStudio.
 }
