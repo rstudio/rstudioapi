@@ -2,20 +2,16 @@
 #'
 #' Use these functions to interact with documents open in RStudio.
 #'
-#' @param location An object specifying the positions, or ranges, wherein
-#'   text should be inserted. See \bold{Details} for more information.
+#' @param location An object specifying the positions, or ranges, wherein text
+#'   should be inserted. See \bold{Details} for more information.
 #'
-#' @param text A character vector, indicating what text should be
-#'   inserted at each aforementioned range. This should either
-#'   be length one (in which case, this text is applied to each
-#'   range specified); otherwise, it should be the same length
-#'   as the \code{ranges} list.
+#' @param text A character vector, indicating what text should be inserted at
+#'   each aforementioned range. This should either be length one (in which case,
+#'   this text is applied to each range specified); otherwise, it should be the
+#'   same length as the \code{ranges} list.
 #'
-#' @param id The document id. When \code{NULL} or blank,
-#'   the mutation will apply to the currently open, or last
-#'   focused, RStudio document. Use the \code{id} returned
-#'   from \code{\link{getActiveDocumentContext}()} to ensure
-#'   that the operation is applied on the intended document.
+#' @param id The document id. When \code{NULL} or blank, the requested operation
+#'   will apply to the currently open, or last focused, RStudio document.
 #'
 #' @param position The cursor position, typically created through
 #'   \code{\link{document_position}()}.
@@ -27,6 +23,10 @@
 #'
 #' @param execute Should the code be executed after the document
 #'   is created?
+#'   
+#' @param allowConsole Allow the pseudo-id `#console` to be returned, if the \R
+#'   console is currently focused? Set this to `FALSE` if you'd always like to
+#'   target the currently-active or last-active editor in the Source pane.
 #'
 #' @details
 #'
@@ -76,6 +76,9 @@
 #'
 #' The \code{documentSave} and \code{documentSaveAll} functions were added
 #' with version 1.1.287 of RStudio.
+#' 
+#' The \code{documentId} and \code{documentPath} functions were added with
+#' version 1.4.843 of RStudio.
 #'
 #' @name rstudio-documents
 NULL
@@ -112,6 +115,18 @@ setCursorPosition <- function(position, id = NULL) {
 #' @export
 setSelectionRanges <- function(ranges, id = NULL) {
   callFun("setSelectionRanges", ranges, id)
+}
+
+#' @name rstudio-documents
+#' @export
+documentId <- function(allowConsole = TRUE) {
+  callFun("documentId", allowConsole = allowConsole)
+}
+
+#' @name rstudio-documents
+#' @export
+documentPath <- function(id = NULL) {
+  callFun("documentPath", id = id)
 }
 
 #' @name rstudio-documents
@@ -168,20 +183,19 @@ getConsoleEditorContext <- function() {
 
 #' Create a New Document
 #'
-#' Creates a new document in RStudio
+#' Creates a new document in RStudio.
 #'
-#' @note The \code{documentNew} function was introduced in RStudio 1.2.640
+#' @note The \code{documentNew} function was introduced in RStudio 1.2.640.
 #'
 #' @name rstudio-documents
 #' @export
 documentNew <- function(
   text,
   type = c("r", "rmarkdown", "sql"),
-  position = document_position(0,0),
-  execute = FALSE) {
-
-  type <- match.arg(as.character(type), choices = c("r", "rmarkdown", "sql"))
-
+  position = document_position(0, 0),
+  execute = FALSE)
+{
+  type <- match.arg(type)
   callFun("documentNew", type, text, position[1], position[2], execute)
 }
 
@@ -196,8 +210,8 @@ documentNew <- function(
 #' @details
 #'
 #' \code{documentClose} accepts an ID of an open document rather than a path.
-#' You can get the ID of an open document from the
-#' \code{getSourceEditorContext} function, among others.
+#' You can retrieve the ID of the active document using the \code{documentId()}
+#' function.
 #'
 #' Closing is always done non-interactively; that is, no prompts are given to
 #' the user. If the user has made changes to the document but not saved them,
