@@ -25,6 +25,8 @@ Most of the pre-existing `rstudioapi` functions used for interacting with a docu
 
 If you are an [RStudio Addin](https://rstudio.github.io/rstudioaddins/) author, then you may want to ensure your addins are visual-mode-aware, so that they can function regardless of whether the user has enabled visual mode. To that end, we've introduced a small set of functions, which are more narrow in scope but can function in both source and visual mode:
 
+- `rstudioapi::documentId()`: Retrieve the ID associated with the document currently open and being edited in the RStudio IDE.
+- `rstudioapi::documentPath()`: Retrieve the path on disk for a file currently open in the RStudio IDE.
 - `rstudioapi::selectionGet()`: Get the contents of the user's selection.
 - `rstudioapi::selectionSet()`: Set the contents of the user's selection.
 
@@ -34,8 +36,9 @@ Using this, you can build addins that modify the user's selected text. For examp
 
 ```{r eval=FALSE}
 reformat <- function() {
-  selection <- rstudioapi::selectionGet()
+  id <- rstudioapi::documentId(allowConsole = TRUE)
+  selection <- rstudioapi::selectionGet(id = id)
   formatted <- styler::style_text(text = selection$value)
-  rstudioapi::selectionSet(value = formatted)
+  rstudioapi::selectionSet(value = formatted, id = id)
 }
 ```

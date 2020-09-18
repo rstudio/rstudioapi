@@ -7,6 +7,8 @@
 \alias{setDocumentContents}
 \alias{setCursorPosition}
 \alias{setSelectionRanges}
+\alias{documentId}
+\alias{documentPath}
 \alias{documentSave}
 \alias{documentSaveAll}
 \alias{documentNew}
@@ -23,6 +25,10 @@ setCursorPosition(position, id = NULL)
 
 setSelectionRanges(ranges, id = NULL)
 
+documentId(allowConsole = TRUE)
+
+documentPath(id = NULL)
+
 documentSave(id = NULL)
 
 documentSaveAll()
@@ -37,26 +43,26 @@ documentNew(
 documentClose(id = NULL, save = TRUE)
 }
 \arguments{
-\item{location}{An object specifying the positions, or ranges, wherein
-text should be inserted. See \bold{Details} for more information.}
+\item{location}{An object specifying the positions, or ranges, wherein text
+should be inserted. See \bold{Details} for more information.}
 
-\item{text}{A character vector, indicating what text should be
-inserted at each aforementioned range. This should either
-be length one (in which case, this text is applied to each
-range specified); otherwise, it should be the same length
-as the \code{ranges} list.}
+\item{text}{A character vector, indicating what text should be inserted at
+each aforementioned range. This should either be length one (in which case,
+this text is applied to each range specified); otherwise, it should be the
+same length as the \code{ranges} list.}
 
-\item{id}{The document id. When \code{NULL} or blank,
-the mutation will apply to the currently open, or last
-focused, RStudio document. Use the \code{id} returned
-from \code{\link{getActiveDocumentContext}()} to ensure
-that the operation is applied on the intended document.}
+\item{id}{The document id. When \code{NULL} or blank, the requested operation
+will apply to the currently open, or last focused, RStudio document.}
 
 \item{position}{The cursor position, typically created through
 \code{\link{document_position}()}.}
 
 \item{ranges}{A list of one or more ranges, typically created
 through \code{\link{document_range}()}.}
+
+\item{allowConsole}{Allow the pseudo-id \verb{#console} to be returned, if the \R
+console is currently focused? Set this to \code{FALSE} if you'd always like to
+target the currently-active or last-active editor in the Source pane.}
 
 \item{type}{The type of document to be created.}
 
@@ -68,7 +74,7 @@ is created?}
 \description{
 Use these functions to interact with documents open in RStudio.
 
-Creates a new document in RStudio
+Creates a new document in RStudio.
 
 Closes a document currently open in RStudio.
 }
@@ -111,8 +117,8 @@ clarity, prefer using \code{insertText} when working with
 \code{\link{document_range}}s.
 
 \code{documentClose} accepts an ID of an open document rather than a path.
-You can get the ID of an open document from the
-\code{getSourceEditorContext} function, among others.
+You can retrieve the ID of the active document using the \code{documentId()}
+function.
 
 Closing is always done non-interactively; that is, no prompts are given to
 the user. If the user has made changes to the document but not saved them,
@@ -129,7 +135,10 @@ added with version 0.99.1111 of RStudio.
 The \code{documentSave} and \code{documentSaveAll} functions were added
 with version 1.1.287 of RStudio.
 
-The \code{documentNew} function was introduced in RStudio 1.2.640
+The \code{documentId} and \code{documentPath} functions were added with
+version 1.4.843 of RStudio.
+
+The \code{documentNew} function was introduced in RStudio 1.2.640.
 
 The \code{documentClose} function was introduced in RStudio 1.2.1255
 }
