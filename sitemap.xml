@@ -172,6 +172,9 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/savePlotAsImage.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/selections.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/sendToConsole.html</loc>
   </url>
   <url>
@@ -266,5 +269,8 @@
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/articles/terminal.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/visual-mode.html</loc>
   </url>
 </urlset>

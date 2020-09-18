@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • rstudioapi</title>
+<title>Manipulate User Selections in the RStudio IDE — selections • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,9 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Manipulate User Selections in the RStudio IDE — selections" />
+<meta property="og:description" content="These functions allow users of the rstudioapi package to read and write
+the user's current selection within the RStudio IDE." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -66,7 +68,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -136,30 +138,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Manipulate User Selections in the RStudio IDE</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/selections.R'><code>R/selections.R</code></a></small>
+    <div class="hidden name"><code>selections.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="dialogs.html">File Dialogs</a></dt>
-        <dd></dt>
-        <dt><a href="document-manipulation.html">Document Manipulation</a></dt>
-        <dd></dt>
-        <dt><a href="introduction.html">Introduction to rstudioapi</a></dt>
-        <dd></dt>
-        <dt><a href="projects.html">Interacting with RStudio Projects</a></dt>
-        <dd></dt>
-        <dt><a href="r-session.html">Interacting with the R Session</a></dt>
-        <dd></dt>
-        <dt><a href="terminal.html">Interacting with Terminals</a></dt>
-        <dd></dt>
-        <dt><a href="visual-mode.html">Interfacing with RStudio in Visual Mode</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p>These functions allow users of the <code>rstudioapi</code> package to read and write
+the user's current selection within the RStudio IDE.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>selectionGet</span>(id = <span class='kw'>NULL</span>)
+
+<span class='fu'>selectionSet</span>(value = <span class='kw'>NULL</span>, id = <span class='kw'>NULL</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>id</th>
+      <td><p>The document ID. When <code>NULL</code> (the default), the active, or
+most-recently edited, document will be used.</p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>The text contents to set for the selection.</p></td>
+    </tr>
+    </table>
+
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

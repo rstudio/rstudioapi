@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Interact with Documents open in RStudio — rstudio-documents" />
 <meta property="og:description" content="Use these functions to interact with documents open in RStudio.
-Creates a new document in RStudio
+Creates a new document in RStudio.
 Closes a document currently open in RStudio." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
@@ -146,7 +146,7 @@ Closes a document currently open in RStudio." />
 
     <div class="ref-description">
     <p>Use these functions to interact with documents open in RStudio.</p>
-<p>Creates a new document in RStudio</p>
+<p>Creates a new document in RStudio.</p>
 <p>Closes a document currently open in RStudio.</p>
     </div>
 
@@ -159,6 +159,10 @@ Closes a document currently open in RStudio." />
 <span class='fu'>setCursorPosition</span>(<span class='kw'>position</span>, id = <span class='kw'>NULL</span>)
 
 <span class='fu'>setSelectionRanges</span>(<span class='kw'>ranges</span>, id = <span class='kw'>NULL</span>)
+
+<span class='fu'>documentId</span>(allowConsole = <span class='fl'>TRUE</span>)
+
+<span class='fu'>documentPath</span>(id = <span class='kw'>NULL</span>)
 
 <span class='fu'>documentSave</span>(id = <span class='kw'>NULL</span>)
 
@@ -178,24 +182,20 @@ Closes a document currently open in RStudio." />
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>location</th>
-      <td><p>An object specifying the positions, or ranges, wherein
-text should be inserted. See <b>Details</b> for more information.</p></td>
+      <td><p>An object specifying the positions, or ranges, wherein text
+should be inserted. See <b>Details</b> for more information.</p></td>
     </tr>
     <tr>
       <th>text</th>
-      <td><p>A character vector, indicating what text should be
-inserted at each aforementioned range. This should either
-be length one (in which case, this text is applied to each
-range specified); otherwise, it should be the same length
-as the <code>ranges</code> list.</p></td>
+      <td><p>A character vector, indicating what text should be inserted at
+each aforementioned range. This should either be length one (in which case,
+this text is applied to each range specified); otherwise, it should be the
+same length as the <code>ranges</code> list.</p></td>
     </tr>
     <tr>
       <th>id</th>
-      <td><p>The document id. When <code>NULL</code> or blank,
-the mutation will apply to the currently open, or last
-focused, RStudio document. Use the <code>id</code> returned
-from <code><a href='rstudio-editors.html'>getActiveDocumentContext</a>()</code> to ensure
-that the operation is applied on the intended document.</p></td>
+      <td><p>The document id. When <code>NULL</code> or blank, the requested operation
+will apply to the currently open, or last focused, RStudio document.</p></td>
     </tr>
     <tr>
       <th>position</th>
@@ -206,6 +206,12 @@ that the operation is applied on the intended document.</p></td>
       <th>ranges</th>
       <td><p>A list of one or more ranges, typically created
 through <code><a href='document_range.html'>document_range</a>()</code>.</p></td>
+    </tr>
+    <tr>
+      <th>allowConsole</th>
+      <td><p>Allow the pseudo-id <code>#console</code> to be returned, if the <span style="R">R</span>
+console is currently focused? Set this to <code>FALSE</code> if you'd always like to
+target the currently-active or last-active editor in the Source pane.</p></td>
     </tr>
     <tr>
       <th>type</th>
@@ -258,8 +264,8 @@ clarity, prefer using <code>insertText</code> when working with
 <code><a href='document_position.html'>document_position</a></code>s, and <code>modifyRange</code> when working with
 <code><a href='document_range.html'>document_range</a></code>s.</p>
 <p><code>documentClose</code> accepts an ID of an open document rather than a path.
-You can get the ID of an open document from the
-<code>getSourceEditorContext</code> function, among others.</p>
+You can retrieve the ID of the active document using the <code>documentId()</code>
+function.</p>
 <p>Closing is always done non-interactively; that is, no prompts are given to
 the user. If the user has made changes to the document but not saved them,
 then the <code>save</code> parameter governs the behavior: when <code>TRUE</code>,
@@ -272,7 +278,9 @@ functions were added with version 0.99.796 of RStudio.</p>
 added with version 0.99.1111 of RStudio.</p>
 <p>The <code>documentSave</code> and <code>documentSaveAll</code> functions were added
 with version 1.1.287 of RStudio.</p>
-<p>The <code>documentNew</code> function was introduced in RStudio 1.2.640</p>
+<p>The <code>documentId</code> and <code>documentPath</code> functions were added with
+version 1.4.843 of RStudio.</p>
+<p>The <code>documentNew</code> function was introduced in RStudio 1.2.640.</p>
 <p>The <code>documentClose</code> function was introduced in RStudio 1.2.1255</p>
 
   </div>
