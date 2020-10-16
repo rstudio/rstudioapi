@@ -49,6 +49,9 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/file-dialogs.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/filesPaneNavigate.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/getActiveProject.html</loc>
   </url>
   <url>
