@@ -123,6 +123,12 @@ launcherContainer <- function(image,
                               runAsUserId = NULL,
                               runAsGroupId = NULL)
 {
+  if (is.numeric(runAsUserId))
+    runAsUserId <- as.integer(runAsUserId)
+  
+  if (is.null(runAsGroupId))
+    runAsGroupId <- as.integer(runAsGroupId)
+  
   callLauncherFun("launcher.newContainer",
                   image = image,
                   runAsUserId = runAsUserId,
