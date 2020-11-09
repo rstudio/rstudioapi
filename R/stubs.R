@@ -32,34 +32,47 @@ askForPassword <- function(prompt = "Please enter your password") {
 }
 
 #' Get Path to Active RStudio Project
+#' 
+#' Get the path to the active RStudio project (if any).
+#'
+#' @note The \code{getActiveProject} function was added in version 0.99.854 of
+#'   RStudio.
+#'
+#' @return The path to the current project, or `NULL` if no project is
+#'   currently open.
+#'
 #' @export
 getActiveProject <- function() {
+  
   path <- callFun("getActiveProject")
 
   # path is NULL iff there is no open project
-  if (is.null(path)) return(path)
+  if (is.null(path))
+    return(path)
 
   # ... otherwise path is UTF-8 encoded
   Encoding(path) <- "UTF-8"
   path
+  
 }
 
 #' Save Active RStudio Plot as an Image
 #'
-#' Save the currnently active RStudio as an image file.
+#' Save the plot currently displayed in the Plots pane as an image.
 #'
-#' @param file Target filename
-#' @param format Image format ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps")
-#' @param height Image height in pixels
-#' @param width Image width in pixels
+#' @param file The target file path.
+#' @param format The Image format. Must be one of ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps").
+#' @param height The image height, in pixels.
+#' @param width The image width, in pixels.
 #'
-#' @note The \code{savePlotAsImage} function was introduced in RStudio 1.1.57
+#' @note The \code{savePlotAsImage} function was introduced in RStudio 1.1.57.
 #'
 #' @export
 savePlotAsImage <- function(file,
                             format = c("png", "jpeg", "bmp", "tiff", "emf", "svg", "eps"),
                             width,
-                            height) {
+                            height)
+{
   format <- match.arg(format)
   callFun("savePlotAsImage", file, format, width, height)
 }
