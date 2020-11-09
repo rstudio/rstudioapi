@@ -9,15 +9,16 @@ readPreference(name, default)
 \arguments{
 \item{name}{The name of the preference.}
 
-\item{default}{The default value to use when the preference is not available.}
+\item{default}{The default value to use when the preference is not
+available.}
 }
 \description{
 Reads a user preference, useful to remember preferences across different R
 sessions for the same user.
 }
 \details{
-User preferences can have arbitrary names and values. You must write
-the preference with \code{\link{writePreference}} before it can be read
+User preferences can have arbitrary names and values. You must write the
+preference with \code{\link{writePreference}} before it can be read
 (otherwise its default value will be returned).
 }
 \note{

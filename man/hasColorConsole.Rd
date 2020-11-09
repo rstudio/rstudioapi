@@ -2,25 +2,28 @@
 % Please edit documentation in R/stubs.R
 \name{hasColorConsole}
 \alias{hasColorConsole}
-\title{Check if Console Supports ANSI Color Escapes}
+\title{Check if console supports ANSI color escapes.}
 \usage{
 hasColorConsole()
 }
 \value{
-a boolean
+\code{TRUE} if ANSI color escapes are supported; \code{FALSE} otherwise.
 }
 \description{
-Check if Console Supports ANSI Color Escapes
+Check if the RStudio console supports ANSI color escapes.
 }
 \note{
-The \code{hasColorConsole} function was added in version 1.1.216
-of RStudio.
+The \code{hasColorConsole} function was added in version 1.1.216 of
+RStudio.
 }
 \examples{
+
 \dontrun{
 if (rstudioapi::hasColorConsole()) {
   message("RStudio console supports ANSI color sequences.")
 }
+
 }
+
 
 }

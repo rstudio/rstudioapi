@@ -11,8 +11,8 @@ terminalBuffer(id, stripAnsi = TRUE)
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
 \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 
-\item{stripAnsi}{If FALSE, don't strip out Ansi escape sequences before returning
-terminal buffer.}
+\item{stripAnsi}{If FALSE, don't strip out Ansi escape sequences before
+returning terminal buffer.}
 }
 \value{
 The terminal contents, one line per row.
@@ -21,5 +21,6 @@ The terminal contents, one line per row.
 Returns contents of a terminal buffer.
 }
 \note{
-The \code{terminalBuffer} function was added in version 1.1.350 of RStudio.
+The \code{terminalBuffer} function was added in version 1.1.350 of
+RStudio.
 }

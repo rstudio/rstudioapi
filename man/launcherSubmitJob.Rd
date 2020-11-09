@@ -66,14 +66,17 @@ job submission.}
 \item{exposedPorts}{The ports that are exposed by services running on a
 container. Only applicable to systems that support containers.}
 
-\item{mounts}{A list of mount points. See \code{\link[=launcherHostMount]{launcherHostMount()}} and
+\item{mounts}{A list of mount points. See
+\code{\link[=launcherHostMount]{launcherHostMount()}} and
 \code{\link[=launcherNfsMount]{launcherNfsMount()}} for more information.}
 
 \item{placementConstraints}{A list of placement constraints. See
-\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}} for more information.}
-
-\item{resourceLimits}{A list of resource limits. See \code{\link[=launcherResourceLimit]{launcherResourceLimit()}}
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}}
 for more information.}
+
+\item{resourceLimits}{A list of resource limits. See
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}} for more
+information.}
 
 \item{queues}{A list of available submission queues for the cluster. Only
 applicable to batch systems like LSF.}
@@ -87,17 +90,14 @@ applicable to batch systems like LSF.}
 environment, in addition to any specified in this call.}
 }
 \description{
-Submit a launcher job. See https://docs.rstudio.com/job-launcher/latest/index.html
-for more information.
+Submit a launcher job. See
+https://docs.rstudio.com/job-launcher/latest/index.html for more
+information.
 }
 \seealso{
-Other job submission: 
-\code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()},
-\code{\link{launcherHostMount}()},
+Other job submission: \code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
 \code{\link{launcherNfsMount}()},
 \code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitR}()}
+\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitR}()}
 }
-\concept{job submission}

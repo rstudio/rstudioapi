@@ -1,20 +1,23 @@
 #' Check if RStudio is running.
 #' 
-#' @param version_needed An optional version specification. If supplied, 
-#'   ensures that RStudio is at least that version.
-#'   
-#' @param child_ok Boolean; check if the current R process is a child
-#'   process of the main RStudio session? This can be useful for e.g. RStudio
-#'   Jobs, where you'd like to communicate back with the main R session from
-#'   a child process through `rstudioapi`.
-#'
-#' @return \code{isAvailable} a boolean; \code{verifyAvailable} an error message
-#'   if RStudio is not running
-#'   
-#' @export
+#' Check if RStudio is running.
+#' 
+#' 
+#' @aliases isAvailable verifyAvailable
+#' @param version_needed An optional version specification. If supplied,
+#' ensures that RStudio is at least that version.
+#' @param child_ok Boolean; check if the current R process is a child process
+#' of the main RStudio session? This can be useful for e.g. RStudio Jobs, where
+#' you'd like to communicate back with the main R session from a child process
+#' through \code{rstudioapi}.
+#' @return \code{isAvailable} a boolean; \code{verifyAvailable} an error
+#' message if RStudio is not running
 #' @examples
+#' 
 #' rstudioapi::isAvailable()
 #' \dontrun{rstudioapi::verifyAvailable()}
+#' 
+#' @export isAvailable
 isAvailable <- function(version_needed = NULL, child_ok = FALSE) {
 
   if (child_ok && isChildProcess())
@@ -41,36 +44,48 @@ verifyAvailable <- function(version_needed = NULL) {
   invisible(TRUE)  
 }
 
+
+
 #' Return the current version of the RStudio API
 #' 
+#' Return the current version of the RStudio API
+#' 
+#' 
 #' @return A \code{\link{numeric_version}} which you can compare to a string
-#'   and get correct results.
-#' @export
+#' and get correct results.
 #' @examples
+#' 
 #' \dontrun{
 #' if (rstudioapi::getVersion() < "0.98.100") {
 #'   message("Your version of RStudio is quite old")
 #' }
 #' }
+#' 
+#' @export getVersion
 getVersion <- function() {
   verifyAvailable()
   callFun("versionInfo")$version
 }
 
 
+
+
 #' Call an RStudio API function
 #' 
-#' This function will return an error if RStudio is not running, or the 
-#' function is not available. If you want to fall back to different 
-#' behavior, use \code{\link{hasFun}}.
+#' This function will return an error if RStudio is not running, or the
+#' function is not available. If you want to fall back to different behavior,
+#' use \code{\link{hasFun}}.
 #' 
-#' @param fname name of the RStudio function to call. 
+#' 
+#' @param fname name of the RStudio function to call.
 #' @param ... Other arguments passed on to the function
-#' @export
 #' @examples
+#' 
 #' if (rstudioapi::isAvailable()) {
 #'   rstudioapi::callFun("versionInfo")
 #' }
+#' 
+#' @export callFun
 callFun <- function(fname, ...) {
   
   if (isChildProcess())
@@ -95,21 +110,27 @@ callFun <- function(fname, ...) {
   do.call(f, args)
 }
 
+
+
 #' Exists/get for RStudio functions
 #' 
-#' These are specialized versions of \code{\link[base]{get}} and 
-#' \code{\link[base]{exists}} that look in the rstudio package namespace. 
-#' If RStudio is not running,  \code{hasFun} will return \code{FALSE}.
+#' These are specialized versions of \code{\link[base]{get}} and
+#' \code{\link[base]{exists}} that look in the rstudio package namespace. If
+#' RStudio is not running, \code{hasFun} will return \code{FALSE}.
 #' 
+#' 
+#' @aliases hasFun findFun
 #' @param name name of object to look for
-#' @param ... other arguments passed on to \code{\link[base]{exists}} and 
-#'   \code{\link[base]{get}}
-#' @param version_needed An optional version specification. If supplied, 
-#'   ensures that RStudio is at least that version. This is useful if 
-#'   function behavior has changed over time.
-#' @export
+#' @param version_needed An optional version specification. If supplied,
+#' ensures that RStudio is at least that version. This is useful if function
+#' behavior has changed over time.
+#' @param ... other arguments passed on to \code{\link[base]{exists}} and
+#' \code{\link[base]{get}}
 #' @examples
+#' 
 #' rstudioapi::hasFun("viewer")
+#' 
+#' @export hasFun
 hasFun <- function(name, version_needed = NULL, ...) {
   if (!isAvailable(version_needed)) return(FALSE)
   if (usingTools())

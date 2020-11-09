@@ -13,11 +13,13 @@ callFun(fname, ...)
 }
 \description{
 This function will return an error if RStudio is not running, or the
-function is not available. If you want to fall back to different
-behavior, use \code{\link{hasFun}}.
+function is not available. If you want to fall back to different behavior,
+use \code{\link{hasFun}}.
 }
 \examples{
+
 if (rstudioapi::isAvailable()) {
   rstudioapi::callFun("versionInfo")
 }
+
 }

@@ -9,9 +9,9 @@ showDialog(title, message, url = "")
 \arguments{
 \item{title}{The title to display in the dialog box.}
 
-\item{message}{A character vector with the contents to display in
-the main dialog area. Contents can contain the following HTML tags:
-"p", "em", "strong", "b" and "i".}
+\item{message}{A character vector with the contents to display in the main
+dialog area. Contents can contain the following HTML tags: "p", "em",
+"strong", "b" and "i".}
 
 \item{url}{An optional url to display under the \code{message}.}
 }
@@ -19,9 +19,8 @@ the main dialog area. Contents can contain the following HTML tags:
 Shows a dialog box with a given title and contents.
 }
 \details{
-\preformatted{
-    showDialog("A dialog", "Showing <b>bold</b> text in the message.")
-}
+\preformatted{ showDialog("A dialog", "Showing <b>bold</b> text in the
+message.") }
 }
 \note{
 The \code{showDialog} function was added in version 1.1.67 of RStudio.

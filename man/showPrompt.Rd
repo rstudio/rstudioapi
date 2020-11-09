@@ -9,11 +9,11 @@ showPrompt(title, message, default = NULL)
 \arguments{
 \item{title}{The title to display in the dialog box.}
 
-\item{message}{A character vector with the contents to display in
-the main dialog area.}
+\item{message}{A character vector with the contents to display in the main
+dialog area.}
 
-\item{default}{An optional character vector that fills the prompt field
-with a default value.}
+\item{default}{An optional character vector that fills the prompt field with
+a default value.}
 }
 \description{
 Shows a dialog box with a prompt field.

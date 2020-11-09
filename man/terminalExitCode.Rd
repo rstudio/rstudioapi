@@ -12,11 +12,13 @@ terminalExitCode(id)
 ,\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 }
 \value{
-The exit code as an integer vector, or NULL if process still running.
+The exit code as an integer vector, or NULL if process still
+running.
 }
 \description{
 Get exit code of terminal process, or NULL if still running.
 }
 \note{
-The \code{terminalExitCode} function was added in version 1.1.350 of RStudio.
+The \code{terminalExitCode} function was added in version 1.1.350 of
+RStudio.
 }

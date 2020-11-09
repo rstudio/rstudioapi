@@ -9,24 +9,20 @@ launcherContainer(image, runAsUserId = NULL, runAsGroupId = NULL)
 \arguments{
 \item{image}{The container image to use.}
 
-\item{runAsUserId}{The user id to run as within the container. Defaults
-to the container-specified user.}
+\item{runAsUserId}{The user id to run as within the container. Defaults to
+the container-specified user.}
 
-\item{runAsGroupId}{The group id to run as within the container. Defaults
-to the container-specified group.}
+\item{runAsGroupId}{The group id to run as within the container. Defaults to
+the container-specified group.}
 }
 \description{
-Define a launcher container, suitable for use with the \code{container} argument
-to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
+Define a launcher container, suitable for use with the \code{container}
+argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: 
-\code{\link{launcherConfig}()},
-\code{\link{launcherHostMount}()},
-\code{\link{launcherNfsMount}()},
+Other job submission: \code{\link{launcherConfig}()},
+\code{\link{launcherHostMount}()}, \code{\link{launcherNfsMount}()},
 \code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitJob}()},
+\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
 \code{\link{launcherSubmitR}()}
 }
-\concept{job submission}

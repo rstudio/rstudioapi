@@ -9,14 +9,14 @@ previewSql(conn, statement, ...)
 \arguments{
 \item{conn}{The 'DBI' connection to be used to execute this statement.}
 
-\item{statement}{The SQL statement to execute. Either a path to a
-file containing a SQL statement or the SQL statement itself.}
+\item{statement}{The SQL statement to execute. Either a path to a file
+containing a SQL statement or the SQL statement itself.}
 
 \item{...}{Additional arguments to be used in \code{dbGetQuery()}.}
 }
 \description{
-Makes use of 'DBI' and \code{dbGetQuery()} to preview a SQL statement
-for a given 'DBI' connection.
+Makes use of 'DBI' and \code{dbGetQuery()} to preview a SQL statement for a
+given 'DBI' connection.
 }
 \note{
 The \code{previewSql} function was introduced in RStudio 1.2.600

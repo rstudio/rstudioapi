@@ -15,21 +15,23 @@ writeRStudioPreference(name, value)
 Writes an internal RStudio IDE preference for the current user.
 }
 \details{
-RStudio IDE internal preferences include the values displayed in
-RStudio's Global Options dialog as well as a number of additional settings.
-Set them carefully; inappropriate values can cause unexpected behavior. See
-the RStudio Server Professional Administration Guide appendix for your
-version of RStudio for a full list of preference names and values.
+RStudio IDE internal preferences include the values displayed in RStudio's
+Global Options dialog as well as a number of additional settings. Set them
+carefully; inappropriate values can cause unexpected behavior. See the
+RStudio Server Professional Administration Guide appendix for your version
+of RStudio for a full list of preference names and values.
 }
 \note{
-The \code{writeRStudioPreference} function was added in version 1.3.387
-of RStudio.
+The \code{writeRStudioPreference} function was added in version
+1.3.387 of RStudio.
 }
 \examples{
+
 \dontrun{
 # Hide RStudio's toolbar.
 rstudioapi::writeRStudioPreference("toolbar_visible", FALSE)
 }
+
 
 }
 \seealso{

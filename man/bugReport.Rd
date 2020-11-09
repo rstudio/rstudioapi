@@ -7,7 +7,7 @@
 bugReport()
 }
 \description{
-A utility function to assist with the filing of an RStudio bug report.
-This function will pre-populate a template with information useful in
+A utility function to assist with the filing of an RStudio bug report. This
+function will pre-populate a template with information useful in
 understanding your reported bug.
 }

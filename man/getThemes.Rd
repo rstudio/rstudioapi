@@ -7,7 +7,8 @@
 getThemes()
 }
 \description{
-Retrieves a list of the names of all the editor themes installed for RStudio.
+Retrieves a list of the names of all the editor themes installed for
+RStudio.
 }
 \note{
 The \code{getThemes} function was introduced in RStudio 1.2.879.

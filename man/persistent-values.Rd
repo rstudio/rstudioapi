@@ -4,24 +4,24 @@
 \alias{persistent-values}
 \alias{setPersistentValue}
 \alias{getPersistentValue}
-\title{Persistent Keys and Values}
+\title{Persistent keys and values}
 \usage{
 setPersistentValue(name, value)
 
 getPersistentValue(name)
 }
 \arguments{
-\item{name}{Key name}
+\item{name}{The key name.}
 
-\item{value}{Key value}
+\item{value}{The key value.}
 }
 \value{
 The stored value as a character vector (\code{NULL} if no value
 of the specified name is available).
 }
 \description{
-Store persistent keys and values. Storage is per-project, if there is
-no project currently active then a global store is used.
+Store persistent keys and values. Storage is per-project; if there is
+no project currently active, then a global store is used.
 }
 \note{
 The \code{setPersistentValue} and \code{getPersistentValue} functions

@@ -14,34 +14,37 @@ convertTheme(
 )
 }
 \arguments{
-\item{themePath}{A full or relative path to the \code{tmTheme} file to be converted.}
+\item{themePath}{A full or relative path to the \code{tmTheme} file to be
+converted.}
 
-\item{add}{Whether to add the newly converted theme to RStudio. Setting this to true
-will have the same impact as running \code{{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>) }}.\cr
+\item{add}{Whether to add the newly converted theme to RStudio. Setting this
+to true will have the same impact as running \code{{
+rstudioapi::convertTheme(<themePath>, outputLocation =
+<convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>) }}.\cr
 Default: \code{TRUE}.}
 
-\item{outputLocation}{A full or relative path where a copy of the converted theme will be saved.
-If this value is \code{NULL}, no copy will be saved.\cr
+\item{outputLocation}{A full or relative path where a copy of the converted
+theme will be saved. If this value is \code{NULL}, no copy will be saved.\cr
 Default: \code{NULL}.}
 
-\item{apply}{Whether to immediately apply the newly added theme. This paramater cannot be set to
-\code{TRUE} if \code{add} is set to \code{FALSE}. Setting this and \code{add}
-to \code{TRUE} has the same impact as running
-\code{{ rstudioapi::convertTheme(<themePath>, outputLocation = <convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
-Default: \code{FALSE}.}
+\item{apply}{Whether to immediately apply the newly added theme. This
+paramater cannot be set to \code{TRUE} if \code{add} is set to \code{FALSE}.
+Setting this and \code{add} to \code{TRUE} has the same impact as running
+\code{{ rstudioapi::convertTheme(<themePath>, outputLocation =
+<convertedThemePath>); rstudioapi::addTheme(<convertedThemePath>);
+rstudioapi::applyTheme(<themeName>) }}.\cr Default: \code{FALSE}.}
 
-\item{force}{Whether to force the operation and overwrite an existing file with the same
-name.\cr
-Default: \code{FALSE}.}
+\item{force}{Whether to force the operation and overwrite an existing file
+with the same name.\cr Default: \code{FALSE}.}
 
-\item{globally}{Whether to install this theme for the current user or all users. If set to
-\code{TRUE} this will attempt to install the theme for all users, which may
-require administrator privileges. Only applies when \code{add} is \code{TRUE}. \cr
-Default: \code{FALSE}.}
+\item{globally}{Whether to install this theme for the current user or all
+users. If set to \code{TRUE} this will attempt to install the theme for all
+users, which may require administrator privileges. Only applies when
+\code{add} is \code{TRUE}. \cr Default: \code{FALSE}.}
 }
 \description{
-Converts a \code{tmTheme} to an \code{rstheme} and optionally adds and applies it to RStudio and returns the
-name of the theme.
+Converts a \code{tmTheme} to an \code{rstheme} and optionally adds and
+applies it to RStudio and returns the name of the theme.
 }
 \note{
 The \code{convertTheme} function was introduced in RStudio 1.2.879.

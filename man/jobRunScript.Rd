@@ -16,31 +16,27 @@ jobRunScript(
 \arguments{
 \item{path}{The path to the R script to be run.}
 
-\item{name}{A name for the background job. When \code{NULL} (the default), the filename of the
-script is used as the job name.}
+\item{name}{A name for the background job. When \code{NULL} (the default),
+the filename of the script is used as the job name.}
 
 \item{encoding}{The text encoding of the script, if known.}
 
-\item{workingDir}{The working directory in which to run the job. When \code{NULL} (the default),
-the parent directory of the R script is used.}
+\item{workingDir}{The working directory in which to run the job. When
+\code{NULL} (the default), the parent directory of the R script is used.}
 
 \item{importEnv}{Whether to import the global environment into the job.}
 
-\item{exportEnv}{The name of the environment in which to export the R objects created by the
-job. Use \code{""} (the default) to skip export, \code{"R_GlobalEnv"}` to export to the
-global environment, or the name of an environment object to create an object with that name.}
+\item{exportEnv}{The name of the environment in which to export the R
+objects created by the job. Use \code{""} (the default) to skip export,
+\code{"R_GlobalEnv"}` to export to the global environment, or the name of an
+environment object to create an object with that name.}
 }
 \description{
 Starts an R script as a background job.
 }
 \seealso{
-Other jobs: 
-\code{\link{jobAddOutput}()},
-\code{\link{jobAddProgress}()},
-\code{\link{jobAdd}()},
-\code{\link{jobRemove}()},
-\code{\link{jobSetProgress}()},
-\code{\link{jobSetState}()},
-\code{\link{jobSetStatus}()}
+Other jobs: \code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
+\code{\link{jobRemove}()}, \code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
 }
-\concept{jobs}

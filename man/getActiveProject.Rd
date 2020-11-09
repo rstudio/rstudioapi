@@ -2,7 +2,7 @@
 % Please edit documentation in R/stubs.R
 \name{getActiveProject}
 \alias{getActiveProject}
-\title{Get Path to Active RStudio Project}
+\title{Retrieve path to active RStudio project}
 \usage{
 getActiveProject()
 }
@@ -11,7 +11,8 @@ The path to the current project, or \code{NULL} if no project is
 currently open.
 }
 \description{
-Get the path to the active RStudio project (if any).
+Get the path to the active RStudio project (if any). If the path contains
+non-ASCII characters, it will be UTF-8 encoded.
 }
 \note{
 The \code{getActiveProject} function was added in version 0.99.854 of

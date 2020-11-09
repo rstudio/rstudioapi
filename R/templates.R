@@ -1,26 +1,31 @@
 #' Create a Project Template
-#'
+#' 
 #' Create a project template. See
 #' \url{https://rstudio.github.io/rstudio-extensions/rstudio_project_templates.html}
 #' for more information.
-#'
-#' @param package The path to an \R package sources.
-#' @param binding The \R skeleton function to associate with this project
-#'   template. This is the name of the function that will be used to initialize
-#'   the project.
-#' @param title The title to be shown within the \strong{New Project...} wizard.
-#' @param subtitle (optional) The subtitle to be shown within the \strong{New Project...} wizard.
-#' @param caption (optional) The caption to be shown on the landing page for this template.
-#' @param icon (optional) The path to an icon, on disk, to be used in the dialog. Must be an
-#'   \code{.png} of size less than 64KB.
-#' @param open_files (optional) Files that should be opened by RStudio when the project is
-#'   generated. Shell-style globs can be used to indicate when multiple files
-#'   matching some pattern should be opened -- for example,  OpenFiles: R/*.R
-#'   would indicate that RStudio should open all .R files within the R folder of
-#'   the generated project.
-#' @param overwrite Boolean; overwrite a pre-existing template file if one exists?
+#' 
+#' 
+#' @param package The path to an package sources.
+#' @param binding The skeleton function to associate with this project
+#' template. This is the name of the function that will be used to initialize
+#' the project.
+#' @param title The title to be shown within the \strong{New Project...}
+#' wizard.
+#' @param subtitle (optional) The subtitle to be shown within the \strong{New
+#' Project...} wizard.
+#' @param caption (optional) The caption to be shown on the landing page for
+#' this template.
+#' @param icon (optional) The path to an icon, on disk, to be used in the
+#' dialog. Must be an \code{.png} of size less than 64KB.
+#' @param open_files (optional) Files that should be opened by RStudio when the
+#' project is generated. Shell-style globs can be used to indicate when
+#' multiple files matching some pattern should be opened -- for example,
+#' OpenFiles: R/*.R would indicate that RStudio should open all .R files within
+#' the R folder of the generated project.
+#' @param overwrite Boolean; overwrite a pre-existing template file if one
+#' exists?
 #' @param edit Boolean; open the file for editting after creation?
-#' @export
+#' @export createProjectTemplate
 createProjectTemplate <- function(package = ".",
                                   binding,
                                   title,

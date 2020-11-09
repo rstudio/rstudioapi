@@ -16,20 +16,19 @@ as.document_range(x)
 \item{start}{A \code{\link{document_position}} indicating the start of the
 range.}
 
-\item{end}{A \code{\link{document_position}} indicating the end of the range.}
+\item{end}{A \code{\link{document_position}} indicating the end of the
+range.}
 
 \item{x}{An object coercable to \code{document_range}.}
 }
 \value{
-An \R \code{list} with class \code{document_range} and fields:
+An \code{list} with class \code{document_range} and fields:
 
-\tabular{ll}{
-\code{start:}\tab The start position.\cr
-\code{end:}\tab The end position.\cr
-}
+\tabular{ll}{ \code{start:}\tab The start position.\cr \code{end:}\tab The
+end position.\cr }
 }
 \description{
-A \code{document_range} is a pair of \code{\link{document_position}} objects,
-with each position indicating the \code{start} and \code{end} of the range,
-respectively.
+A \code{document_range} is a pair of \code{\link{document_position}}
+objects, with each position indicating the \code{start} and \code{end} of
+the range, respectively.
 }

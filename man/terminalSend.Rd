@@ -17,12 +17,15 @@ terminalSend(id, text)
 Send text to an existing terminal.
 }
 \note{
-The \code{terminalSend} function was added in version 1.1.350 of RStudio.
+The \code{terminalSend} function was added in version 1.1.350 of
+RStudio.
 }
 \examples{
+
 \dontrun{
 termId <- rstudioapi::terminalCreate()
 rstudioapi::terminalSend(termId, 'ls -l\n')
 }
+
 
 }

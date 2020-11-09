@@ -9,9 +9,8 @@ terminalActivate(id = NULL, show = TRUE)
 \arguments{
 \item{id}{The terminal id. The \code{id} is obtained from
 \code{\link{terminalList}()}, \code{\link{terminalVisible}()},
-\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.
-If NULL, the terminal tab will be selected but no specific terminal
-will be chosen.}
+\code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}. If NULL,
+the terminal tab will be selected but no specific terminal will be chosen.}
 
 \item{show}{If TRUE, bring the terminal to front in RStudio.}
 }
@@ -19,9 +18,11 @@ will be chosen.}
 Ensure terminal is running and optionally bring to front in RStudio.
 }
 \note{
-The \code{terminalActivate} function was added in version 1.1.350 of RStudio.
+The \code{terminalActivate} function was added in version 1.1.350 of
+RStudio.
 }
 \examples{
+
 \dontrun{
 # create a hidden terminal and run a lengthy command
 termId = rstudioapi::terminalCreate(show = FALSE)
@@ -35,5 +36,6 @@ print("Terminal available")#'
 
 rstudioapi::terminalActivate(termId)
 }
+
 
 }

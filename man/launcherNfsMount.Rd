@@ -16,18 +16,15 @@ launcherNfsMount(host, path, mountPath, readOnly = TRUE)
 \item{readOnly}{Boolean; should the path be mounted read-only?}
 }
 \description{
-Define a launcher NFS mount, suitable for use with the \code{mounts} argument
-to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can be used to mount a path from a
-networked filesystem into a newly generated container.
+Define a launcher NFS mount, suitable for use with the \code{mounts}
+argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can
+be used to mount a path from a networked filesystem into a newly generated
+container.
 }
 \seealso{
-Other job submission: 
-\code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()},
-\code{\link{launcherHostMount}()},
+Other job submission: \code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
 \code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitJob}()},
+\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
 \code{\link{launcherSubmitR}()}
 }
-\concept{job submission}

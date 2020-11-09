@@ -16,19 +16,21 @@ preference is not found.}
 Reads an internal RStudio IDE preference for the current user.
 }
 \details{
-RStudio IDE internal preferences include the values displayed in
-RStudio's Global Options dialog as well as a number of additional settings.
+RStudio IDE internal preferences include the values displayed in RStudio's
+Global Options dialog as well as a number of additional settings.
 }
 \note{
 The \code{readRStudioPreference} function was added in version 1.3.387
 of RStudio.
 }
 \examples{
+
 \dontrun{
 # Get indentation settings
 spaces <- rstudioapi::readRStudioPreference("num_spaces_for_tab", FALSE)
 message("Using ", spaces, " per tab.")
 }
+
 
 }
 \seealso{

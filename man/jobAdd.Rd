@@ -19,15 +19,17 @@ jobAdd(
 
 \item{status}{The initial status text for the job; optional.}
 
-\item{progressUnits}{The integer number of units of work in the job; for example, \code{100L}
-if the job's progress is expressed in percentages. Use \code{0L} if the number of units of
-work is unknown.}
+\item{progressUnits}{The integer number of units of work in the job; for
+example, \code{100L} if the job's progress is expressed in percentages. Use
+\code{0L} if the number of units of work is unknown.}
 
-\item{actions}{A list of actions that can be performed on the job (see Actions).}
+\item{actions}{A list of actions that can be performed on the job (see
+Actions).}
 
 \item{running}{Whether the job is currently running.}
 
-\item{autoRemove}{Whether to remove the job from the Jobs pane when it's complete.}
+\item{autoRemove}{Whether to remove the job from the Jobs pane when it's
+complete.}
 
 \item{show}{Whether to show the job in the Jobs pane.}
 }
@@ -40,29 +42,23 @@ Inform RStudio's Jobs pane that a job has been added.
 }
 \section{Actions}{
 
-The \code{actions} parameter is a named list of functions that the user can invoke on the job;
-for example: \code{actions = list(stop = function(id) { ... })}. The function will be passed a
-parameter named \code{id} with the job ID that invoked it.
 
-There are two special action names:
-\describe{
-\item{stop}{If there is an action named \code{stop}, then the job will
-have a Stop button in in the Jobs pane, and pressing that button will invoke
-the \code{stop} action.}
-\item{info}{If there is an action named \code{info}, then the job will
-have an informational link in the Jobs pane rather than an output
-display, and clicking the link will invoke the \code{info} action.}
-}
+The \code{actions} parameter is a named list of functions that the user can
+invoke on the job; for example: \code{actions = list(stop = function(id) {
+... })}. The function will be passed a parameter named \code{id} with the
+job ID that invoked it.
+
+There are two special action names: \describe{ \item{stop}{If there is an
+action named \code{stop}, then the job will have a Stop button in in the
+Jobs pane, and pressing that button will invoke the \code{stop} action.}
+\item{info}{If there is an action named \code{info}, then the job will have
+an informational link in the Jobs pane rather than an output display, and
+clicking the link will invoke the \code{info} action.} }
 }
 
 \seealso{
-Other jobs: 
-\code{\link{jobAddOutput}()},
-\code{\link{jobAddProgress}()},
-\code{\link{jobRemove}()},
-\code{\link{jobRunScript}()},
-\code{\link{jobSetProgress}()},
-\code{\link{jobSetState}()},
-\code{\link{jobSetStatus}()}
+Other jobs: \code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()}, \code{\link{jobRemove}()},
+\code{\link{jobRunScript}()}, \code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
 }
-\concept{jobs}

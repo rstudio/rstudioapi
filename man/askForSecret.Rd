@@ -13,8 +13,8 @@ askForSecret(
 \arguments{
 \item{name}{The name of the secret.}
 
-\item{message}{A character vector with the contents to display in
-the main dialog area.}
+\item{message}{A character vector with the contents to display in the main
+dialog area.}
 
 \item{title}{The title to display in the dialog box.}
 }
@@ -23,5 +23,6 @@ Shows a dialog box asking for a secret with support to remember such secret
 using the 'keyring' package.
 }
 \note{
-The \code{askForSecret} function was added in version 1.1.419 of RStudio.
+The \code{askForSecret} function was added in version 1.1.419 of
+RStudio.
 }

@@ -14,9 +14,11 @@ and get correct results.
 Return the current version of the RStudio API
 }
 \examples{
+
 \dontrun{
 if (rstudioapi::getVersion() < "0.98.100") {
   message("Your version of RStudio is quite old")
 }
 }
+
 }

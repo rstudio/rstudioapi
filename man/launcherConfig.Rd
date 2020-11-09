@@ -9,20 +9,17 @@ launcherConfig(name, value = NULL)
 \arguments{
 \item{name}{The name of the launcher configuration.}
 
-\item{value}{The configuration value. Must either be an integer, float, or string.}
+\item{value}{The configuration value. Must either be an integer, float, or
+string.}
 }
 \description{
-Define a launcher configuration, suitable for use with the \code{config} argument
-to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
+Define a launcher configuration, suitable for use with the \code{config}
+argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: 
-\code{\link{launcherContainer}()},
-\code{\link{launcherHostMount}()},
-\code{\link{launcherNfsMount}()},
+Other job submission: \code{\link{launcherContainer}()},
+\code{\link{launcherHostMount}()}, \code{\link{launcherNfsMount}()},
 \code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitJob}()},
+\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
 \code{\link{launcherSubmitR}()}
 }
-\concept{job submission}

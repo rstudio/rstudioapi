@@ -16,16 +16,18 @@ terminalExecute(command, workingDir = NULL, env = character(), show = TRUE)
 \item{show}{If FALSE, terminal won't be brought to front}
 }
 \value{
-The terminal identifier as a character vector (\code{NULL} if
-unable to create the terminal).
+The terminal identifier as a character vector (\code{NULL} if unable
+to create the terminal).
 }
 \description{
 Execute a command, showing results in the terminal pane.
 }
 \note{
-The \code{terminalExecute} function was added in version 1.1.350 of RStudio.
+The \code{terminalExecute} function was added in version 1.1.350 of
+RStudio.
 }
 \examples{
+
 \dontrun{
 termId <- rstudioapi::terminalExecute(
   command = 'echo $HELLO && echo $WORLD',
@@ -41,5 +43,6 @@ result <- terminalBuffer(termId)
 terminalKill(termId)
 print(result)
 }
+
 
 }

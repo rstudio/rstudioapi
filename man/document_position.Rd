@@ -23,4 +23,3 @@ as.document_position(x)
 Creates a \code{document_position}, which can be used to indicate e.g. the
 row + column location of the cursor in a document.
 }
-\concept{location}

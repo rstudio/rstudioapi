@@ -7,34 +7,35 @@
 terminalCreate(caption = NULL, show = TRUE, shellType = NULL)
 }
 \arguments{
-\item{caption}{The desired terminal caption. When \code{NULL} or blank,
-the terminal caption will be chosen by the system.}
+\item{caption}{The desired terminal caption. When \code{NULL} or blank, the
+terminal caption will be chosen by the system.}
 
 \item{show}{If \code{FALSE}, terminal won't be brought to front.}
 
 \item{shellType}{Shell type for the terminal: NULL or "default" to use the
-shell selected in Global Options. For Microsoft Windows, alternatives
-are "win-cmd" for 64-bit Command Prompt, "win-ps" for 64-bit PowerShell,
+shell selected in Global Options. For Microsoft Windows, alternatives are
+"win-cmd" for 64-bit Command Prompt, "win-ps" for 64-bit PowerShell,
 "win-git-bash" for Git Bash, or "win-wsl-bash" for Bash on Windows Subsystem
 for Linux. On Linux, Mac, and RStudio Server "custom" will use the custom
 terminal defined in Global Options. If the requested shell type is not
 available, the default shell will be used, instead.}
 }
 \value{
-The terminal identifier as a character vector (\code{NULL} if
-unable to create the terminal or the given terminal caption is already
-in use).
+The terminal identifier as a character vector (\code{NULL} if unable
+to create the terminal or the given terminal caption is already in use).
 }
 \description{
 Create a new Terminal.
 }
 \note{
-The \code{terminalCreate} function was added in version 1.1.350 of RStudio
-and the ability to specify shellType was added in version 1.2.696.
+The \code{terminalCreate} function was added in version 1.1.350 of
+RStudio and the ability to specify shellType was added in version 1.2.696.
 }
 \examples{
+
 \dontrun{
 termId <- rstudioapi::terminalCreate('My Terminal')
 }
+
 
 }

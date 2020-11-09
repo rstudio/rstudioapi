@@ -4,7 +4,7 @@
 \alias{projects}
 \alias{openProject}
 \alias{initializeProject}
-\title{Open a Project in RStudio}
+\title{Open a project in RStudio}
 \usage{
 openProject(path = NULL, newSession = FALSE)
 
@@ -26,7 +26,7 @@ Initialize and open RStudio projects.
 Calling \code{openProject()} without arguments effectively re-opens the
 currently open project in RStudio. When switching projects, users will
 be prompted to save any unsaved files; alternatively, you can explicitly
-save any open documents using \code{\link{documentSaveAll}()}.
+save any open documents using \code{\link[=documentSaveAll]{documentSaveAll()}}.
 }
 \note{
 The \code{openProject} and \code{initializeProject} functions were

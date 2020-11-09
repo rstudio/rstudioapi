@@ -13,5 +13,6 @@ The terminal identifiers as a character vector.
 Return a character vector containing all the current terminal identifiers.
 }
 \note{
-The \code{terminalList} function was added in version 1.1.350 of RStudio.
+The \code{terminalList} function was added in version 1.1.350 of
+RStudio.
 }

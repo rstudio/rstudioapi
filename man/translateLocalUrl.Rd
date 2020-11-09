@@ -26,6 +26,6 @@ translated in order to be externally accessible from a browser. This method
 performs the required translation, and returns the translated URL, which
 RStudio Server uses to proxy HTTP requests.
 
-Returns an unmodified URL on RStudio Desktop, and when the URL does not refer
-to a local address.
+Returns an unmodified URL on RStudio Desktop, and when the URL does not
+refer to a local address.
 }

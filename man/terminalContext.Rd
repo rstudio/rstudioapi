@@ -12,36 +12,32 @@ terminalContext(id)
 \code{\link{terminalCreate}()}, or \code{\link{terminalExecute}()}.}
 }
 \value{
-A \code{list} with elements:
-\tabular{ll}{
-\code{handle} \tab the internal handle\cr
-\code{caption} \tab caption\cr
-\code{title} \tab title set by the shell\cr
-\code{working_dir} \tab working directory\cr
-\code{shell} \tab shell type\cr
-\code{running} \tab is terminal process executing\cr
-\code{busy} \tab is terminal running a program\cr
-\code{exit_code} \tab process exit code or NULL\cr
-\code{connection} \tab websockets or rpc\cr
-\code{sequence} \tab creation sequence\cr
-\code{lines} \tab lines of text in terminal buffer\cr
-\code{cols} \tab columns in terminal\cr
-\code{rows} \tab rows in terminal\cr
-\code{pid} \tab process id of terminal shell\cr
-\code{full_screen} \tab full screen program running\cr
+A \code{list} with elements: \tabular{ll}{ \code{handle} \tab the
+internal handle\cr \code{caption} \tab caption\cr \code{title} \tab title
+set by the shell\cr \code{working_dir} \tab working directory\cr
+\code{shell} \tab shell type\cr \code{running} \tab is terminal process
+executing\cr \code{busy} \tab is terminal running a program\cr
+\code{exit_code} \tab process exit code or NULL\cr \code{connection} \tab
+websockets or rpc\cr \code{sequence} \tab creation sequence\cr \code{lines}
+\tab lines of text in terminal buffer\cr \code{cols} \tab columns in
+terminal\cr \code{rows} \tab rows in terminal\cr \code{pid} \tab process id
+of terminal shell\cr \code{full_screen} \tab full screen program running\cr
 }
 }
 \description{
 Returns information about RStudio terminal instances.
 }
 \note{
-The \code{terminalContext} function was added in version 1.1.350 of RStudio.
+The \code{terminalContext} function was added in version 1.1.350 of
+RStudio.
 }
 \examples{
+
 \dontrun{
 termId <- rstudioapi::terminalCreate("example", show = FALSE)
 View(rstudioapi::terminalContext(termId))
 
 }
+
 
 }

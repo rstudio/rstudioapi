@@ -12,10 +12,8 @@ primary_selection(x, ...)
 \item{...}{Optional arguments (currently ignored).}
 }
 \description{
-By default, functions returning a document context will
-return a list of selections, including both the 'primary'
-selection and also 'other' selections (e.g. to handle the
-case where a user might have multiple cursors active).
-Use \code{primary_selection()} to extract the primary
-selection.
+By default, functions returning a document context will return a list of
+selections, including both the 'primary' selection and also 'other'
+selections (e.g. to handle the case where a user might have multiple cursors
+active). Use \code{primary_selection()} to extract the primary selection.
 }

@@ -7,25 +7,24 @@
 addTheme(themePath, apply = FALSE, force = FALSE, globally = FALSE)
 }
 \arguments{
-\item{themePath}{A full or relative path or URL to an \code{rstheme} or \code{tmtheme} to be
-added.}
+\item{themePath}{A full or relative path or URL to an \code{rstheme} or
+\code{tmtheme} to be added.}
 
-\item{apply}{Whether to immediately apply the newly added theme. Setting this to
-\code{TRUE} has the same impact as running
-\code{{ rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>) }}.\cr
-Default: \code{FALSE}.}
+\item{apply}{Whether to immediately apply the newly added theme. Setting
+this to \code{TRUE} has the same impact as running \code{{
+rstudioapi::addTheme(<themePath>); rstudioapi::applyTheme(<themeName>)
+}}.\cr Default: \code{FALSE}.}
 
-\item{force}{Whether to force the operation and overwrite an existing file with the same
-name.\cr
-Default: \code{FALSE}.}
+\item{force}{Whether to force the operation and overwrite an existing file
+with the same name.\cr Default: \code{FALSE}.}
 
-\item{globally}{Whether to install this theme for the current user or all users. If set to
-\code{TRUE} this will attempt to install the theme for all users, which may
-require administrator privileges.\cr
-Default: \code{FALSE}.}
+\item{globally}{Whether to install this theme for the current user or all
+users. If set to \code{TRUE} this will attempt to install the theme for all
+users, which may require administrator privileges.\cr Default: \code{FALSE}.}
 }
 \description{
-Adds a custom editor theme to RStudio and returns the name of the newly added theme.
+Adds a custom editor theme to RStudio and returns the name of the newly
+added theme.
 }
 \note{
 The \code{addTheme} function was introduced in RStudio 1.2.879.

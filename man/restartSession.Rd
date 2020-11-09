@@ -7,13 +7,12 @@
 restartSession(command = "")
 }
 \arguments{
-\item{command}{An \R command (as a string) to be run
-after restarting \R.}
+\item{command}{A command (as a string) to be run after restarting.}
 }
 \description{
-Restart the RStudio \R session.
+Restart the RStudio session.
 }
 \note{
-The \code{restartSession} function was added in version 1.1.281
-of RStudio.
+The \code{restartSession} function was added in version 1.1.281 of
+RStudio.
 }

@@ -9,11 +9,11 @@ showQuestion(title, message, ok = NULL, cancel = NULL)
 \arguments{
 \item{title}{The title to display in the dialog box.}
 
-\item{message}{A character vector with the contents to display in
-the main dialog area.}
+\item{message}{A character vector with the contents to display in the main
+dialog area.}
 
-\item{ok}{And optional character vector that overrides the caption for
-the OK button.}
+\item{ok}{And optional character vector that overrides the caption for the
+OK button.}
 
 \item{cancel}{An optional character vector that overrides the caption for
 the Cancel button.}
@@ -22,5 +22,6 @@ the Cancel button.}
 Shows a dialog box asking a question.
 }
 \note{
-The \code{showQuestion} function was added in version 1.1.67 of RStudio.
+The \code{showQuestion} function was added in version 1.1.67 of
+RStudio.
 }

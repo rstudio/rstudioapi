@@ -1,16 +1,14 @@
 #' Create a Document Position
-#'
+#' 
 #' Creates a \code{document_position}, which can be used to indicate e.g. the
 #' row + column location of the cursor in a document.
-#'
-#' @param x An object coercable to \code{document_position}.
+#' 
+#' 
+#' @aliases document_position is.document_position as.document_position
 #' @param row The row (using 1-based indexing).
 #' @param column The column (using 1-based indexing).
-#'
-#' @name document_position
-#'
-#' @export
-#' @family location
+#' @param x An object coercable to \code{document_position}.
+#' @export document_position
 document_position <- function(row, column) {
   structure(c(row = as.numeric(row), column = as.numeric(column)),
             class = "document_position")
@@ -52,27 +50,26 @@ print.document_position <- function(x, ...) {
   cat("Document Position: ", format(x), "\n", sep = "")
 }
 
+
+
 #' Create a Range
-#'
-#' A \code{document_range} is a pair of \code{\link{document_position}} objects,
-#' with each position indicating the \code{start} and \code{end} of the range,
-#' respectively.
-#'
-#' @param x An object coercable to \code{document_range}.
+#' 
+#' A \code{document_range} is a pair of \code{\link{document_position}}
+#' objects, with each position indicating the \code{start} and \code{end} of
+#' the range, respectively.
+#' 
+#' 
+#' @aliases document_range is.document_range as.document_range
 #' @param start A \code{\link{document_position}} indicating the start of the
-#'   range.
-#' @param end A \code{\link{document_position}} indicating the end of the range.
-#'
-#' @return An \R \code{list} with class \code{document_range} and fields:
-#'
-#' \tabular{ll}{
-#' \code{start:}\tab The start position.\cr
-#' \code{end:}\tab The end position.\cr
-#' }
-#'
-#' @name document_range
-#'
-#' @export
+#' range.
+#' @param end A \code{\link{document_position}} indicating the end of the
+#' range.
+#' @param x An object coercable to \code{document_range}.
+#' @return An \code{list} with class \code{document_range} and fields:
+#' 
+#' \tabular{ll}{ \code{start:}\tab The start position.\cr \code{end:}\tab The
+#' end position.\cr }
+#' @export document_range
 document_range <- function(start, end = NULL) {
 
   # Allow users to write e.g. 'document_range(c(1, 2, 3, 4))';
@@ -183,19 +180,19 @@ print.document_context <- function(x, ...) {
   print(x$selection)
 }
 
+
+
 #' Extract the Primary Selection
-#'
-#' By default, functions returning a document context will
-#' return a list of selections, including both the 'primary'
-#' selection and also 'other' selections (e.g. to handle the
-#' case where a user might have multiple cursors active).
-#' Use \code{primary_selection()} to extract the primary
-#' selection.
-#'
+#' 
+#' By default, functions returning a document context will return a list of
+#' selections, including both the 'primary' selection and also 'other'
+#' selections (e.g. to handle the case where a user might have multiple cursors
+#' active). Use \code{primary_selection()} to extract the primary selection.
+#' 
+#' 
 #' @param x A document context, or a selection.
 #' @param ... Optional arguments (currently ignored).
-#'
-#' @export
+#' @export primary_selection
 primary_selection <- function(x, ...) {
   UseMethod("primary_selection")
 }

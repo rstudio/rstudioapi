@@ -17,28 +17,32 @@ createProjectTemplate(
 )
 }
 \arguments{
-\item{package}{The path to an \R package sources.}
+\item{package}{The path to an package sources.}
 
-\item{binding}{The \R skeleton function to associate with this project
+\item{binding}{The skeleton function to associate with this project
 template. This is the name of the function that will be used to initialize
 the project.}
 
-\item{title}{The title to be shown within the \strong{New Project...} wizard.}
+\item{title}{The title to be shown within the \strong{New Project...}
+wizard.}
 
-\item{subtitle}{(optional) The subtitle to be shown within the \strong{New Project...} wizard.}
+\item{subtitle}{(optional) The subtitle to be shown within the \strong{New
+Project...} wizard.}
 
-\item{caption}{(optional) The caption to be shown on the landing page for this template.}
+\item{caption}{(optional) The caption to be shown on the landing page for
+this template.}
 
-\item{icon}{(optional) The path to an icon, on disk, to be used in the dialog. Must be an
-\code{.png} of size less than 64KB.}
+\item{icon}{(optional) The path to an icon, on disk, to be used in the
+dialog. Must be an \code{.png} of size less than 64KB.}
 
-\item{open_files}{(optional) Files that should be opened by RStudio when the project is
-generated. Shell-style globs can be used to indicate when multiple files
-matching some pattern should be opened -- for example,  OpenFiles: R/*.R
-would indicate that RStudio should open all .R files within the R folder of
-the generated project.}
+\item{open_files}{(optional) Files that should be opened by RStudio when the
+project is generated. Shell-style globs can be used to indicate when
+multiple files matching some pattern should be opened -- for example,
+OpenFiles: R/*.R would indicate that RStudio should open all .R files within
+the R folder of the generated project.}
 
-\item{overwrite}{Boolean; overwrite a pre-existing template file if one exists?}
+\item{overwrite}{Boolean; overwrite a pre-existing template file if one
+exists?}
 
 \item{edit}{Boolean; open the file for editting after creation?}
 }

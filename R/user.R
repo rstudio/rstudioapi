@@ -1,18 +1,22 @@
 #' Get User Identity
-#'
+#' 
 #' Returns the identity (displayed name) of the current user.
-#'
-#' @export
+#' 
+#' 
+#' @export userIdentity
 userIdentity <- function()
 {
   callFun("userIdentity")
 }
 
+
+
 #' Get System Username
-#'
+#' 
 #' Returns the system username of the current user.
-#'
-#' @export
+#' 
+#' 
+#' @export systemUsername
 systemUsername <- function()
 {
   callFun("systemUsername")

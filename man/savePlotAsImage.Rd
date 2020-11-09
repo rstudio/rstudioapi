@@ -2,7 +2,7 @@
 % Please edit documentation in R/stubs.R
 \name{savePlotAsImage}
 \alias{savePlotAsImage}
-\title{Save Active RStudio Plot as an Image}
+\title{Save active RStudio plot image}
 \usage{
 savePlotAsImage(
   file,
@@ -14,7 +14,8 @@ savePlotAsImage(
 \arguments{
 \item{file}{The target file path.}
 
-\item{format}{The Image format. Must be one of ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps").}
+\item{format}{The Image format.
+Must be one of ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps").}
 
 \item{width}{The image width, in pixels.}
 

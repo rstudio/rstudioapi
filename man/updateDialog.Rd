@@ -13,14 +13,12 @@ updateDialog(...)
 Updates specific properties from the current dialog box.
 }
 \details{
-Currently, the only dialog with support for this action is the
-New Connection dialog in which the code preview can be
-updated through this API.
+Currently, the only dialog with support for this action is the New
+Connection dialog in which the code preview can be updated through this API.
 
-\preformatted{
-    updateDialog(code = "con <- NULL")
-}
+\preformatted{ updateDialog(code = "con <- NULL") }
 }
 \note{
-The \code{updateDialog} function was added in version 1.1.67 of RStudio.
+The \code{updateDialog} function was added in version 1.1.67 of
+RStudio.
 }

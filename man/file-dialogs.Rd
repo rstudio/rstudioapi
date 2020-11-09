@@ -4,7 +4,7 @@
 \alias{file-dialogs}
 \alias{selectFile}
 \alias{selectDirectory}
-\title{Select a File / Folder}
+\title{Select a file / folder}
 \usage{
 selectFile(
   caption = "Select File",
@@ -37,9 +37,8 @@ particular extension. For example, to scope the dialog to \R files, one could us
 files on the filesystem, or allow the user to select the path to a new file?}
 }
 \description{
-Prompt the user for the path to a file or folder, using the system
-file dialogs with RStudio Desktop, and RStudio's own web dialogs
-with RStudio Server.
+Prompt the user for the path to a file or folder, using the system file
+dialogs with RStudio Desktop, and RStudio's own dialogs with RStudio Server.
 }
 \details{
 When the selected file resolves within the user's home directory,
