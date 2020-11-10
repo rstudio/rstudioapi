@@ -2,7 +2,7 @@
 % Please edit documentation in R/dialogs.R
 \name{askForSecret}
 \alias{askForSecret}
-\title{Show Prompt for Secret Dialog}
+\title{Prompt user for secret}
 \usage{
 askForSecret(
   name,
@@ -19,8 +19,8 @@ dialog area.}
 \item{title}{The title to display in the dialog box.}
 }
 \description{
-Shows a dialog box asking for a secret with support to remember such secret
-using the 'keyring' package.
+Request a secret from the user. If the \code{keyring} package is installed, it
+will be used to cache requested secrets.
 }
 \note{
 The \code{askForSecret} function was added in version 1.1.419 of

@@ -181,10 +181,6 @@ getConsoleEditorContext <- function() {
   getDocumentContext("getConsoleEditorContext")
 }
 
-#' Create a New Document
-#'
-#' Creates a new document in RStudio.
-#'
 #' @note The \code{documentNew} function was introduced in RStudio 1.2.640.
 #'
 #' @name rstudio-documents
@@ -199,10 +195,6 @@ documentNew <- function(
   callFun("documentNew", type, text, position[1], position[2], execute)
 }
 
-#' Close a Document
-#'
-#' Closes a document currently open in RStudio.
-#'
 #' @param save Whether to commit unsaved changes to the document before closing it.
 #'
 #' @note The \code{documentClose} function was introduced in RStudio 1.2.1255

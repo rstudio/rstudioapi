@@ -3,24 +3,24 @@
 \name{isAvailable}
 \alias{isAvailable}
 \alias{verifyAvailable}
-\title{Check if RStudio is running.}
+\title{Check if RStudio is running}
 \usage{
 isAvailable(version_needed = NULL, child_ok = FALSE)
 
 verifyAvailable(version_needed = NULL)
 }
 \arguments{
-\item{version_needed}{An optional version specification. If supplied,
-ensures that RStudio is at least that version.}
+\item{version_needed}{An optional version specification. If supplied, ensures
+that RStudio is at least that version.}
 
-\item{child_ok}{Boolean; check if the current R process is a child process
-of the main RStudio session? This can be useful for e.g. RStudio Jobs, where
+\item{child_ok}{Boolean; check if the current R process is a child process of
+the main RStudio session? This can be useful for e.g. RStudio Jobs, where
 you'd like to communicate back with the main R session from a child process
 through \code{rstudioapi}.}
 }
 \value{
-\code{isAvailable} a boolean; \code{verifyAvailable} an error
-message if RStudio is not running
+\code{isAvailable} a boolean; \code{verifyAvailable} an error message
+if RStudio is not running
 }
 \description{
 Check if RStudio is running.

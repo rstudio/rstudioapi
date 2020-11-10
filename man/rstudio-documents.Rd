@@ -73,10 +73,6 @@ is created?}
 }
 \description{
 Use these functions to interact with documents open in RStudio.
-
-Creates a new document in RStudio.
-
-Closes a document currently open in RStudio.
 }
 \details{
 \code{location} should be a (list of) \code{\link{document_position}} or

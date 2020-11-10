@@ -76,19 +76,23 @@ showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
 
 
 
-#' Show Prompt for Secret Dialog
-#' 
-#' Shows a dialog box asking for a secret with support to remember such secret
-#' using the 'keyring' package.
+#' Prompt user for secret
+#'
+#' Request a secret from the user. If the `keyring` package is installed, it
+#' will be used to cache requested secrets.
 #' 
 #' 
 #' @param name The name of the secret.
+#' 
 #' @param message A character vector with the contents to display in the main
-#' dialog area.
+#'   dialog area.
+#'   
 #' @param title The title to display in the dialog box.
+#' 
 #' @note The \code{askForSecret} function was added in version 1.1.419 of
-#' RStudio.
-#' @export askForSecret
+#'   RStudio.
+#' 
+#' @export
 askForSecret <- function(
   name,
   message = paste(name, ":", sep = ""),
