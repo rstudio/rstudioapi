@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rstudioapi <a href='https:/rstudio.github.io/rstudioapi'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# rstudioapi <a href='https://rstudio.github.io/rstudioapi/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/rstudioapi)](https://CRAN.R-project
 <!-- badges: end -->
 
 The `rstudioapi` package is designed to make it easy to conditionally
-access the [RStudio](http://www.rstudio.com/) API from CRAN packages,
+access the [RStudio](https://rstudio.com/) API from CRAN packages,
 avoiding any potential problems with `R CMD check`. This package
 contains a handful of useful wrapper functions to access the API. To see
 the functions that are currently available in the API, run `help(package
