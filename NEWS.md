@@ -1,6 +1,8 @@
 
 # rstudioapi 0.13 (UNRELEASED)
 
+* Fixed an issue where `rstudioapi::insertText()` would fail. (#208)
+
 # rstudioapi 0.12
 
 * Fixed an issue where remote `rstudioapi` calls would erroneously use

@@ -85,8 +85,45 @@ NULL
 
 #' @name rstudio-documents
 #' @export
-insertText <- function(location, text, id = NULL) {
-  callFun("insertText", location, text, id)
+insertText <- function(location = NULL,
+                       text = NULL,
+                       id = NULL)
+{
+  # unfortunate gymnastics needed for older versions of RStudio
+  if (getVersion() < "1.4")
+  {
+    if (is.null(location) && is.null(text))
+    {
+      callFun("insertText",
+              id = id)
+    }
+    else if (is.null(location))
+    {
+      callFun("insertText",
+              text = text,
+              id = id)
+    }
+    else if (is.null(text))
+    {
+      callFun("insertText",
+              location = location,
+              id = id)
+    }
+    else
+    {
+      callFun("insertText",
+              location = location,
+              text = text,
+              id = id)
+    }
+  }
+  else
+  {
+    callFun("insertText",
+            location = location,
+            text = text,
+            id = id)
+  }
 }
 
 #' @name rstudio-documents

@@ -15,9 +15,9 @@
 \alias{documentClose}
 \title{Interact with Documents open in RStudio}
 \usage{
-insertText(location, text, id = NULL)
+insertText(location = NULL, text = NULL, id = NULL)
 
-modifyRange(location, text, id = NULL)
+modifyRange(location = NULL, text = NULL, id = NULL)
 
 setDocumentContents(text, id = NULL)
 
