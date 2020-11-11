@@ -9,7 +9,7 @@ viewer(url, height = NULL)
 \arguments{
 \item{url}{Application URL. This can be either a localhost URL or a path to a
 file within the R session temporary directory (i.e. a path returned by
-\code{\link[base:tempfile]{tempfile}}).}
+\code{\link[=tempfile]{tempfile()}}).}
 
 \item{height}{Desired height. Specifies a desired height for the Viewer pane
 (the default is \code{NULL} which makes no change to the height of the
@@ -19,10 +19,8 @@ for a discussion of constraints imposed on the height.}
 }
 \description{
 View local web content within RStudio. Content can be served from static
-files in the R session temporary directory or can be a
-\link[shiny:shiny-package]{Shiny}, \link[Rook:Rook-package]{Rook},
-\link[opencpu:opencpu]{OpenCPU}, or any other type of localhost web
-application.
+files in the R session temporary directory, or via a web application running
+on localhost.
 }
 \details{
 RStudio also sets the global \code{viewer} option to the
