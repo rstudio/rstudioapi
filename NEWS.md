@@ -1,4 +1,6 @@
 
+# rstudioapi 0.13 (UNRELEASED)
+
 # rstudioapi 0.12
 
 * Fixed an issue where remote `rstudioapi` calls would erroneously use
