@@ -1,5 +1,5 @@
 
-# rstudioapi 0.12 (UNRELEASED)
+# rstudioapi 0.12
 
 * Fixed an issue where remote `rstudioapi` calls would erroneously use
   a previous response in some cases.
