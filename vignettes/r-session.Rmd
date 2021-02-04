@@ -11,6 +11,38 @@ vignette: >
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+
+## Detecting RStudio
+
+R code may need to determine whether it's being run within an RStudio session, versus a plain R session or something similar.
+
+```{r eval=FALSE}
+# check that RStudio is available via rstudioapi -- note that this must
+# be checked prior to calling any other rstudioapi APIs!
+if (rstudioapi::isAvailable()) {
+
+  # determine more information via 
+  info <- rstudioapi::versionInfo()
+  
+  # check for desktop mode
+  info$mode == "desktop"
+  
+  # check for server mode
+  info$mode == "server"
+  
+  # check the version of RStudio in use
+  info$version >= "1.4"
+  
+}
+
+# check whether RStudio is running without relying on rstudioapi
+.Platform$GUI == "RStudio"  # NOTE: may be unreliable in .Rprofile
+commandArgs()[[1]] == "RStudio"
+```
+
+A note: the `RSTUDIO` environment variable will be set both within the main RStudio session, but also within child processes launched by RStudio. If you need to specifically detect if your code is running within the main RStudio session, we recommend using an alternate mechanism.
+
+
 ## Session Interaction
 
 The `rstudioapi` package allows you to interact with the running R session in a couple useful ways: you can send code to the R console, or restart the R session.
@@ -22,6 +54,7 @@ rstudioapi::restartSession(command = "print('Welcome back!')")
 # send some code to the console and execute it immediately
 rstudioapi::sendToConsole("1 + 1", execute = TRUE)
 ```
+
 
 ## Running at Startup
 
