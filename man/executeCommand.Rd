@@ -32,3 +32,7 @@ of supported command IDs.
 \note{
 The \code{executeCommand} function was introduced in RStudio 1.2.1261.
 }
+\seealso{
+\code{\link{registerCommandCallback}} to be notified of command
+executions.
+}

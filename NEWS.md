@@ -1,6 +1,10 @@
 
 # rstudioapi 0.14 (UNRELEASED)
 
+* Added `registerCommandCallback`, `registerCommandStreamCallback`, and
+  `unregisterCommandCallback`, used to execute a callback after an IDE command
+  is executed.
+  
 # rstudioapi 0.13
 
 * Fixed an issue where `rstudioapi::insertText()` would fail. (#208)
