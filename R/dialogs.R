@@ -98,7 +98,7 @@ askForSecret <- function(
   message = paste(name, ":", sep = ""),
   title = paste(name, "Secret")) {
 
-  if (hasFun("askForSecret")) {
+  if (hasFun("askForSecret") || isChildProcess()) {
     callFun("askForSecret", name, title, message)
   } else {
     askForPassword(message)

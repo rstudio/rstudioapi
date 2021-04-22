@@ -1,6 +1,9 @@
 
 # rstudioapi 0.14 (UNRELEASED)
 
+* Fixed an issue where `rstudioapi::askForSecret()` would erroneously fall back
+  to using `rstudioapi::askForPassword()` during Knit.
+
 * Added `registerCommandCallback`, `registerCommandStreamCallback`, and
   `unregisterCommandCallback`, used to execute a callback after an IDE command
   is executed.
@@ -17,7 +20,8 @@
 * Allow `navigateToFile` to accept an empty file. This file will default to the file
   currently in view in the active column.
 
-* Added `registerChunkExecCallback` and `unregisterChunkExecCallback`, used to execute a callback after a chunk is ran.
+* Added `registerChunkExecCallback` and `unregisterChunkExecCallback`, used to
+  execute a callback after a chunk is ran.
 
 # rstudioapi 0.11
 

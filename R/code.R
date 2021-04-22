@@ -135,11 +135,15 @@ callFun <- function(fname, ...) {
 #' 
 #' @export hasFun
 hasFun <- function(name, version_needed = NULL, ...) {
-  if (!isAvailable(version_needed)) return(FALSE)
+  
+  if (!isAvailable(version_needed))
+    return(FALSE)
+  
   if (usingTools())
-    exists(toolsName(name), toolsEnv(), ...)
-  else
-    exists(name, envir = asNamespace("rstudio"), ...)
+    return(exists(toolsName(name), toolsEnv(), ...))
+  
+  exists(name, envir = asNamespace("rstudio"), ...)
+  
 }
 
 #' @export
