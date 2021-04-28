@@ -89,6 +89,10 @@ showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
 #'   
 #' @param title The title to display in the dialog box.
 #' 
+#' @param key An optional key. When provided, RStudio will check to see if
+#'   an environment variable of the name `RSTUDIOAPI_SECRET_<KEY>` is defined;
+#'   if so, that environment variable will be used to supply the secret.
+#' 
 #' @note The \code{askForSecret} function was added in version 1.1.419 of
 #'   RStudio.
 #' 
@@ -96,7 +100,27 @@ showQuestion <- function(title, message, ok = NULL, cancel = NULL) {
 askForSecret <- function(
   name,
   message = paste(name, ":", sep = ""),
-  title = paste(name, "Secret")) {
+  title = paste(name, "Secret"),
+  key = NULL) {
+  
+  if (!is.null(key)) {
+    
+    # build full name of environment variable
+    name <- paste("RSTUDIOAPI_SECRET", toupper(key), sep = "_")
+    
+    # check for a definition
+    value <- Sys.getenv(name, unset = NA)
+    if (!is.na(value))
+      return(value)
+    
+    # for non-interactive sessions, give a warning; otherwise,
+    # fall through an attempt to ask for a password
+    if (!interactive() && !isChildProcess()) {
+      fmt <- "The environment variable '%s' is required by this application, but is unset."
+      msg <- sprintf(fmt, name)
+      warning(msg)
+    }
+  }
 
   if (hasFun("askForSecret") || isChildProcess()) {
     callFun("askForSecret", name, title, message)
