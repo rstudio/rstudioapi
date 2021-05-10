@@ -1,13 +1,13 @@
 
-# returns the secret associated with a key 'key', or NULL
+# returns the secret associated with a getenv 'getenv', or NULL
 # if no secret is available
-retrieveSecret <- function(key, label) {
+retrieveSecret <- function(getenv, label) {
   
-  if (is.null(key))
+  if (is.null(getenv))
     return(NULL)
   
   # build full name of environment variable
-  name <- paste("RSTUDIOAPI_SECRET", toupper(key), sep = "_")
+  name <- paste("RSTUDIOAPI_SECRET", getenv, sep = "_")
   
   # check for a definition
   value <- Sys.getenv(name, unset = NA)
@@ -17,8 +17,8 @@ retrieveSecret <- function(key, label) {
   # for non-interactive sessions, give a warning; otherwise,
   # fall through an attempt to ask for a password
   if (!interactive() && !isChildProcess()) {
-    fmt <- "The %s associated with key '%s' is not set or could not be retrieved."
-    msg <- sprintf(fmt, label, key)
+    fmt <- "The %s associated with getenv '%s' is not set or could not be retrieved."
+    msg <- sprintf(fmt, label, getenv)
     warning(msg)
   }
   
@@ -34,8 +34,8 @@ retrieveSecret <- function(key, label) {
 #' 
 #' @param prompt The prompt to be shown to the user.
 #'
-#' @param key An optional key. When provided, RStudio will check to see if
-#'   an environment variable of the name `RSTUDIOAPI_SECRET_<KEY>` is defined;
+#' @param getenv An optional getenv. When provided, RStudio will check to see if
+#'   an environment variable of the name `RSTUDIOAPI_SECRET_<getenv>` is defined;
 #'   if so, that environment variable will be used to supply the password.
 #'   If the variable is unset, then (in interactive sessions) the user will
 #'   be prompted for a password; otherwise, a warning will be shown.
@@ -51,9 +51,9 @@ retrieveSecret <- function(key, label) {
 #' 
 #' @export askForPassword
 askForPassword <- function(prompt = "Please enter your password",
-                           key = NULL)
+                           getenv = NULL)
 {
-  password <- retrieveSecret(key, "password")
+  password <- retrieveSecret(getenv, "password")
   if (!is.null(password))
     return(password)
   
@@ -62,7 +62,7 @@ askForPassword <- function(prompt = "Please enter your password",
 
 #' Prompt user for secret
 #'
-#' Request a secret from the user. If the `keyring` package is installed, it
+#' Request a secret from the user. If the `getenvring` package is installed, it
 #' will be used to cache requested secrets.
 #' 
 #' @param name The name of the secret.
@@ -72,8 +72,8 @@ askForPassword <- function(prompt = "Please enter your password",
 #'   
 #' @param title The title to display in the dialog box.
 #' 
-#' @param key An optional key. When provided, RStudio will check to see if
-#'   an environment variable of the name `RSTUDIOAPI_SECRET_<KEY>` is defined;
+#' @param getenv An optional getenv. When provided, RStudio will check to see if
+#'   an environment variable of the name `RSTUDIOAPI_SECRET_<getenv>` is defined;
 #'   if so, that environment variable will be used to supply the secret.
 #'   If the variable is unset, then (in interactive sessions) the user will
 #'   be prompted for a password; otherwise, a warning will be shown.
@@ -86,9 +86,9 @@ askForSecret <- function(
   name,
   message = paste(name, ":", sep = ""),
   title = paste(name, "Secret"),
-  key = NULL) {
+  getenv = NULL) {
   
-  secret <- retrieveSecret(key, "secret")
+  secret <- retrieveSecret(getenv, "secret")
   if (!is.null(secret))
     return(secret)
   
