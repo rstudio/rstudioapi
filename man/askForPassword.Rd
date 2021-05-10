@@ -4,13 +4,13 @@
 \alias{askForPassword}
 \title{Ask the user for a password interactively}
 \usage{
-askForPassword(prompt = "Please enter your password", key = NULL)
+askForPassword(prompt = "Please enter your password", getenv = NULL)
 }
 \arguments{
 \item{prompt}{The prompt to be shown to the user.}
 
-\item{key}{An optional key. When provided, RStudio will check to see if
-an environment variable of the name \verb{RSTUDIOAPI_SECRET_<KEY>} is defined;
+\item{getenv}{An optional getenv. When provided, RStudio will check to see if
+an environment variable of the name \verb{RSTUDIOAPI_SECRET_<getenv>} is defined;
 if so, that environment variable will be used to supply the password.
 If the variable is unset, then (in interactive sessions) the user will
 be prompted for a password; otherwise, a warning will be shown.}

@@ -17,7 +17,7 @@ retrieveSecret <- function(getenv, label) {
   # for non-interactive sessions, give a warning; otherwise,
   # fall through an attempt to ask for a password
   if (!interactive() && !isChildProcess()) {
-    fmt <- "The %s associated with getenv '%s' is not set or could not be retrieved."
+    fmt <- "The %s associated with 'RSTUDIOAPI_SECRET_%s' is not set or could not be retrieved."
     msg <- sprintf(fmt, label, getenv)
     warning(msg)
   }

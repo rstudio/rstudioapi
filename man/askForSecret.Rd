@@ -8,7 +8,7 @@ askForSecret(
   name,
   message = paste(name, ":", sep = ""),
   title = paste(name, "Secret"),
-  key = NULL
+  getenv = NULL
 )
 }
 \arguments{
@@ -19,14 +19,14 @@ dialog area.}
 
 \item{title}{The title to display in the dialog box.}
 
-\item{key}{An optional key. When provided, RStudio will check to see if
-an environment variable of the name \verb{RSTUDIOAPI_SECRET_<KEY>} is defined;
+\item{getenv}{An optional getenv. When provided, RStudio will check to see if
+an environment variable of the name \verb{RSTUDIOAPI_SECRET_<getenv>} is defined;
 if so, that environment variable will be used to supply the secret.
 If the variable is unset, then (in interactive sessions) the user will
 be prompted for a password; otherwise, a warning will be shown.}
 }
 \description{
-Request a secret from the user. If the \code{keyring} package is installed, it
+Request a secret from the user. If the \code{getenvring} package is installed, it
 will be used to cache requested secrets.
 }
 \note{
