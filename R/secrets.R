@@ -103,7 +103,7 @@ askForSecret <- function(name,
 {
   # resolve 'message' argument
   if (is.null(message)) {
-    fmt <- "Please enter a secret to associate with key '%s':"
+    fmt <- "Please enter a secret to associate with name '%s':"
     message <- sprintf(fmt, name)
   }
   
