@@ -12,7 +12,8 @@ Authors@R: c(
     )
 Maintainer: Kevin Ushey <kevin@rstudio.com>
 License: MIT + file LICENSE
-URL: https://github.com/rstudio/rstudioapi
+URL: https://rstudio.github.io/rstudioapi/,
+    https://github.com/rstudio/rstudioapi
 BugReports: https://github.com/rstudio/rstudioapi/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
