@@ -47,9 +47,9 @@
 
 
 <meta property="og:title" content="Create a Range — document_range" />
-<meta property="og:description" content="A document_range is a pair of document_position objects,
-with each position indicating the start and end of the range,
-respectively." />
+<meta property="og:description" content="A document_range is a pair of document_position
+objects, with each position indicating the start and end of
+the range, respectively." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -82,7 +82,7 @@ respectively." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -122,7 +122,7 @@ respectively." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -145,16 +145,16 @@ respectively." />
     </div>
 
     <div class="ref-description">
-    <p>A <code>document_range</code> is a pair of <code><a href='document_position.html'>document_position</a></code> objects,
-with each position indicating the <code>start</code> and <code>end</code> of the range,
-respectively.</p>
+    <p>A <code>document_range</code> is a pair of <code><a href='document_position.html'>document_position</a></code>
+objects, with each position indicating the <code>start</code> and <code>end</code> of
+the range, respectively.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>document_range</span>(<span class='kw'>start</span>, end = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>document_range</span><span class='op'>(</span><span class='va'>start</span>, end <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>is.document_range</span>(<span class='kw'>x</span>)
+<span class='fu'>is.document_range</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>as.document_range</span>(<span class='kw'>x</span>)</pre>
+<span class='fu'>as.document_range</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,7 +166,8 @@ range.</p></td>
     </tr>
     <tr>
       <th>end</th>
-      <td><p>A <code><a href='document_position.html'>document_position</a></code> indicating the end of the range.</p></td>
+      <td><p>A <code><a href='document_position.html'>document_position</a></code> indicating the end of the
+range.</p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -176,10 +177,11 @@ range.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An <span style="R">R</span> <code>list</code> with class <code>document_range</code> and fields:</p>
+    <p>An <code>list</code> with class <code>document_range</code> and fields:</p>
 <table class='table'>
 <tr><td><code>start:</code></td><td>The start position.</td></tr>
-<tr><td><code>end:</code></td><td>The end position.</td></tr>
+<tr><td><code>end:</code></td><td>The
+end position.</td></tr>
 </table>
 
 

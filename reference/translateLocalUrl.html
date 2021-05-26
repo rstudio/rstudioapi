@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,7 +146,7 @@
     <p>Translates a local URL into an externally accessible URL on RStudio Server.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>translateLocalUrl</span>(<span class='kw'>url</span>, absolute = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>translateLocalUrl</span><span class='op'>(</span><span class='va'>url</span>, absolute <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,8 +173,8 @@ as <code>http://localhost:1234/</code> and <code>http://127.0.0.1:5678/</code>) 
 translated in order to be externally accessible from a browser. This method
 performs the required translation, and returns the translated URL, which
 RStudio Server uses to proxy HTTP requests.</p>
-<p>Returns an unmodified URL on RStudio Desktop, and when the URL does not refer
-to a local address.</p>
+<p>Returns an unmodified URL on RStudio Desktop, and when the URL does not
+refer to a local address.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

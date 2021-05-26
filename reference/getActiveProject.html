@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Path to Active RStudio Project — getActiveProject • rstudioapi</title>
+<title>Retrieve path to active RStudio project — getActiveProject • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Path to Active RStudio Project — getActiveProject" />
-<meta property="og:description" content="Returns the path to the currently active RStudio project." />
+<meta property="og:title" content="Retrieve path to active RStudio project — getActiveProject" />
+<meta property="og:description" content="Get the path to the active RStudio project (if any). If the path contains
+non-ASCII characters, it will be UTF-8 encoded." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +121,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,30 +138,28 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Path to Active RStudio Project</h1>
-    
+    <h1>Retrieve path to active RStudio project</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>getActiveProject.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns the path to the currently active RStudio project.</p>
+    <p>Get the path to the active RStudio project (if any). If the path contains
+non-ASCII characters, it will be UTF-8 encoded.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getActiveProject</span>()</pre>
+    <pre class="usage"><span class='fu'>getActiveProject</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>The <code>getActiveProject</code> function was added in version 0.99.854 of RStudio.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a single element character vector with the path of the currently active RStudio project. Returns <code>NULL</code> if no project is active.</p>
+    <p>The path to the current project, or <code>NULL</code> if no project is
+currently open.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>rstudioapi</span>::<span class='fu'>getActiveProject</span>()
-}
-</div></pre>
+    <p>The <code>getActiveProject</code> function was added in version 0.99.854 of
+RStudio.</p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

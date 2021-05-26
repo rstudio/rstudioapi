@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,7 +146,7 @@
     <p>Returns information about RStudio terminal instances.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>terminalContext</span>(<span class='kw'>id</span>)</pre>
+    <pre class="usage"><span class='fu'>terminalContext</span><span class='op'>(</span><span class='va'>id</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,34 +162,42 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code>list</code> with elements:</p><table class='table'>
-<tr><td><code>handle</code></td><td>the internal handle</td></tr>
+<tr><td><code>handle</code></td><td>the
+internal handle</td></tr>
 <tr><td><code>caption</code></td><td>caption</td></tr>
-<tr><td><code>title</code></td><td>title set by the shell</td></tr>
+<tr><td><code>title</code></td><td>title
+set by the shell</td></tr>
 <tr><td><code>working_dir</code></td><td>working directory</td></tr>
 <tr><td><code>shell</code></td><td>shell type</td></tr>
-<tr><td><code>running</code></td><td>is terminal process executing</td></tr>
+<tr><td><code>running</code></td><td>is terminal process
+executing</td></tr>
 <tr><td><code>busy</code></td><td>is terminal running a program</td></tr>
 <tr><td><code>exit_code</code></td><td>process exit code or NULL</td></tr>
 <tr><td><code>connection</code></td><td>websockets or rpc</td></tr>
 <tr><td><code>sequence</code></td><td>creation sequence</td></tr>
 <tr><td><code>lines</code></td><td>lines of text in terminal buffer</td></tr>
-<tr><td><code>cols</code></td><td>columns in terminal</td></tr>
+<tr><td><code>cols</code></td><td>columns in
+terminal</td></tr>
 <tr><td><code>rows</code></td><td>rows in terminal</td></tr>
-<tr><td><code>pid</code></td><td>process id of terminal shell</td></tr>
+<tr><td><code>pid</code></td><td>process id
+of terminal shell</td></tr>
 <tr><td><code>full_screen</code></td><td>full screen program running</td></tr>
 </table>
 
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>terminalContext</code> function was added in version 1.1.350 of RStudio.</p>
+    <p>The <code>terminalContext</code> function was added in version 1.1.350 of
+RStudio.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>termId</span> <span class='op'>&lt;-</span> <span class='kw'>rstudioapi</span>::<span class='fu'><a href='terminalCreate.html'>terminalCreate</a></span>(<span class='st'>"example"</span>, show = <span class='fl'>FALSE</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='kw'>rstudioapi</span>::<span class='fu'>terminalContext</span>(<span class='kw'>termId</span>))
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>termId</span> <span class='op'>&lt;-</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'><a href='terminalCreate.html'>terminalCreate</a></span><span class='op'>(</span><span class='st'>"example"</span>, show <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>terminalContext</span><span class='op'>(</span><span class='va'>termId</span><span class='op'>)</span><span class='op'>)</span>
 
-}
+<span class='op'>}</span>
+
 
 </div></pre>
   </div>

@@ -160,6 +160,12 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/readRStudioPreference.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/registerCommandCallback.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/registerCommandStreamCallback.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/removeTheme.html</loc>
   </url>
   <url>
@@ -236,6 +242,9 @@
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/translateLocalUrl.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/unregisterCommandCallback.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/updateDialog.html</loc>

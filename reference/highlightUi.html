@@ -82,7 +82,7 @@ choose to highlight elements based on their IDs when available." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -122,7 +122,7 @@ choose to highlight elements based on their IDs when available." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -150,7 +150,7 @@ UI elements can be selected using query selectors; most commonly, one should
 choose to highlight elements based on their IDs when available.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>highlightUi</span>(<span class='kw'>queries</span>)</pre>
+    <pre class="usage"><span class='fu'>highlightUi</span><span class='op'>(</span><span class='va'>queries</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,14 +158,14 @@ choose to highlight elements based on their IDs when available.</p>
     <tr>
       <th>queries</th>
       <td><p>A list of "query" objects. Each query should be a list with
-entries <code>"query"</code> and <code>"parent"</code>. See <strong>Queries</strong> for more details.</p></td>
+entries <code>"query"</code> and <code>"parent"</code>. See <strong>Queries</strong> for more
+details.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The tool at:</p><pre>Help -&gt; Diagnostics -&gt; Show DOM Elements
-</pre>
+    <p>The tool at:</p><pre>Help -&gt; Diagnostics -&gt; Show DOM Elements </pre>
 
 <p>can be useful for identifying the classes and IDs assigned to the different
 elements within RStudio.</p>
@@ -178,45 +178,43 @@ elements within RStudio.</p>
 
 
 <p>Elements are selected using the same queries as through the web
-<code>querySelectorAll()</code> API. See <a href='https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll'>https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll</a>
+<code>querySelectorAll()</code> API. See
+<a href='https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll'>https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll</a>
 for more details.</p>
 <p>For example, to highlight the Save icon within the Source pane, one might
-use:</p><pre><span class='kw'>rstudioapi</span>::<span class='fu'>highlightUi</span>(<span class='st'>"#rstudio_tb_savesourcedoc"</span>)
-</pre>
+use:</p><pre><span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>highlightUi</span><span class='op'>(</span><span class='st'>"#rstudio_tb_savesourcedoc"</span><span class='op'>)</span> </pre>
 
-<p>In some cases, multiple UI elements need to be highlighted -- e.g. if
-you want to highlight both a menu button, and a menu item within the
-menu displayed after the button is pressed. We'll use the Environment Pane's
-Import Dataset button as an example. To highlight the <code>From Text (readr)</code>
-command, you might use:</p><pre><span class='kw'>rstudioapi</span>::<span class='fu'>highlightUi</span>(
-  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(query = <span class='st'>"#rstudio_mb_import_dataset"</span>, parent = <span class='fl'>0L</span>),
-    <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(query = <span class='st'>"#rstudio_label_from_text_readr_command"</span>, parent = <span class='fl'>1L</span>)
-   )
-)
-</pre>
+<p>In some cases, multiple UI elements need to be highlighted -- e.g. if you
+want to highlight both a menu button, and a menu item within the menu
+displayed after the button is pressed. We'll use the Environment Pane's
+Import Dataset button as an example. To highlight the <code>From Text
+(readr)</code> command, you might use:</p><pre><span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>highlightUi</span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>query <span class='op'>=</span> <span class='st'>"#rstudio_mb_import_dataset"</span>, parent <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>query <span class='op'>=</span>
+<span class='st'>"#rstudio_label_from_text_readr_command"</span>, parent <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>)</span> </pre>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>rstudioapi</span>::<span class='fu'>highlightUi</span>(<span class='st'>"#rstudio_workbench_panel_git"</span>)
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>highlightUi</span><span class='op'>(</span><span class='st'>"#rstudio_workbench_panel_git"</span><span class='op'>)</span>
 
 <span class='co'># clear current highlights</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>rstudioapi</span>::<span class='fu'>highlightUi</span>(<span class='st'>""</span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>highlightUi</span><span class='op'>(</span><span class='st'>""</span><span class='op'>)</span>
 
 <span class='co'># highlight within an RMD</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>rstudioapi</span>::<span class='fu'>highlightUi</span>(<span class='st'>".rstudio_chunk_setup .rstudio_run_chunk"</span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>highlightUi</span><span class='op'>(</span><span class='st'>".rstudio_chunk_setup .rstudio_run_chunk"</span><span class='op'>)</span>
 
 <span class='co'># Optionally provide a callback adjacent to </span>
 <span class='co'># the queries that will be executed when the </span>
 <span class='co'># highlighted element is clicked on.</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>rstudioapi</span>::<span class='fu'>highlightUi</span>(
-  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-      query=<span class='st'>"#rstudio_workbench_panel_git"</span>, 
-      callback=<span class='st'>"rstudioapi::highlightUi('')"</span>
-    )
-  )
-)
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>highlightUi</span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+      query<span class='op'>=</span><span class='st'>"#rstudio_workbench_panel_git"</span>, 
+      callback<span class='op'>=</span><span class='st'>"rstudioapi::highlightUi('')"</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>)</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="projects_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Interacting with RStudio Projects</h1>
@@ -106,16 +106,15 @@
     
     
 <p>Users can create and open RStudio projects using the <code>rstudioapi</code> package.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># open a project in another directory</span>
-<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/projects.html">openProject</a></span>(<span class="st">"~/projects/t-sne-gene-expression-2017"</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># open a project in another directory</span>
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/projects.html">openProject</a></span><span class="op">(</span><span class="st">"~/projects/t-sne-gene-expression-2017"</span><span class="op">)</span>
 
 <span class="co"># re-open the current project</span>
-<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/projects.html">openProject</a></span>()
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/projects.html">openProject</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># initialize an RStudio project (without opening it)</span>
-<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/projects.html">initializeProject</a></span>(<span class="st">"~/scratch/testbed"</span>)
-</pre></div>
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/projects.html">initializeProject</a></span><span class="op">(</span><span class="st">"~/scratch/testbed"</span><span class="op">)</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

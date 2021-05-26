@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,7 +146,7 @@
     <p>Executes an arbitrary RStudio command.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>executeCommand</span>(<span class='kw'>commandId</span>, quiet = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>executeCommand</span><span class='op'>(</span><span class='va'>commandId</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,15 +167,19 @@
 using this method.</p>
 <p>The <code>quiet</code> command governs the behavior of the function when the
 command does not exist. By default, an error is shown if you attempt to
-invoke a non-existent command. You should set this to <code>TRUE</code> when invoking
-a command that may not be available if you don't want your users to see an
-error.</p>
+invoke a non-existent command. You should set this to <code>TRUE</code> when
+invoking a command that may not be available if you don't want your users to
+see an error.</p>
 <p>The command is run asynchronously, so no status is returned.</p>
 <p>See the RStudio Server Professional Administration Guide appendix for a list
 of supported command IDs.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>The <code>executeCommand</code> function was introduced in RStudio 1.2.1261.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='registerCommandCallback.html'>registerCommandCallback</a></code> to be notified of command
+executions.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

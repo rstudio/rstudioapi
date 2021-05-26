@@ -47,7 +47,9 @@
 
 
 <meta property="og:title" content="View local web content within RStudio — viewer" />
-<meta property="og:description" content="View local web content within RStudio. Content can be served from static files in the R session temporary directory or can be a Shiny, Rook, OpenCPU, or any other type of localhost web application." />
+<meta property="og:description" content="View local web content within RStudio. Content can be served from static
+files in the R session temporary directory, or via a web application running
+on localhost." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +122,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -138,77 +140,107 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>View local web content within RStudio</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>viewer.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>View local web content within RStudio. Content can be served from static files in the R session temporary directory or can be a Shiny, Rook, OpenCPU, or any other type of localhost web application.</p>
+    <p>View local web content within RStudio. Content can be served from static
+files in the R session temporary directory, or via a web application running
+on localhost.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>viewer</span>(<span class='kw'>url</span>, height = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>viewer</span><span class='op'>(</span><span class='va'>url</span>, height <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>url</th>
-      <td><p>Application URL. This can be either a localhost URL or a path to a file within the R session temporary directory (i.e. a path returned by <code><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></code>).</p></td>
+      <td><p>Application URL. This can be either a localhost URL or a path to a
+file within the R session temporary directory (i.e. a path returned by
+<code><a href='https://rdrr.io/r/base/tempfile.html'>tempfile()</a></code>).</p></td>
     </tr>
     <tr>
       <th>height</th>
-      <td><p>Desired height. Specifies a desired height for the Viewer pane (the default is <code>NULL</code> which makes no change to the height of the pane). This value can be numeric or the string <code>"maximize"</code> in which case the Viewer will expand to fill all vertical space. See details below for a discussion of constraints imposed on the height.</p></td>
+      <td><p>Desired height. Specifies a desired height for the Viewer pane
+(the default is <code>NULL</code> which makes no change to the height of the
+pane). This value can be numeric or the string <code>"maximize"</code> in which
+case the Viewer will expand to fill all vertical space. See details below
+for a discussion of constraints imposed on the height.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>RStudio also sets the global <code>viewer</code> option to the <code>rstudioapi::viewer</code> function so that it can be invoked in a front-end independent manner.</p>
-<p>Applications are displayed within the Viewer pane. The application URL must either be served from localhost or be a path to a file within the R session temporary directory. If the URL doesn't conform to these requirements it is displayed within a standard browser window.</p>
-<p>The <code>height</code> parameter specifies a desired height, however it's possible the Viewer pane will end up smaller if the request can't be fulfilled (RStudio ensures that the pane paired with the Viewer maintains a minimum height). A height of 400 pixels or lower is likely to succeed in a large proportion of configurations.</p>
-<p>A very large height (e.g. 2000 pixels) will allocate the maximum allowable space for the Viewer (while still preserving some view of the pane above or below it). The value <code>"maximize"</code> will force the Viewer to full height. Note that this value should only be specified in cases where maximum vertical space is essential, as it will result in one of the user's other panes being hidden.</p>
+    <p>RStudio also sets the global <code>viewer</code> option to the
+<code>rstudioapi::viewer</code> function so that it can be invoked in a front-end
+independent manner.</p>
+<p>Applications are displayed within the Viewer pane. The application URL must
+either be served from localhost or be a path to a file within the R session
+temporary directory. If the URL doesn't conform to these requirements it is
+displayed within a standard browser window.</p>
+<p>The <code>height</code> parameter specifies a desired height, however it's
+possible the Viewer pane will end up smaller if the request can't be
+fulfilled (RStudio ensures that the pane paired with the Viewer maintains a
+minimum height). A height of 400 pixels or lower is likely to succeed in a
+large proportion of configurations.</p>
+<p>A very large height (e.g. 2000 pixels) will allocate the maximum allowable
+space for the Viewer (while still preserving some view of the pane above or
+below it). The value <code>"maximize"</code> will force the Viewer to full height.
+Note that this value should only be specified in cases where maximum
+vertical space is essential, as it will result in one of the user's other
+panes being hidden.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>viewer</code> function was added in version 0.98.423 of RStudio. The ability to specify <code>maximize</code> for the <code>height</code> parameter was introduced in version 0.99.1001 of RStudio.</p>
+    <p>The <code>viewer</code> function was added in version 0.98.423 of RStudio.
+The ability to specify <code>maximize</code> for the <code>height</code> parameter was
+introduced in version 0.99.1001 of RStudio.</p>
     <h2 class="hasAnchor" id="viewer-detection"><a class="anchor" href="#viewer-detection"></a>Viewer Detection</h2>
 
     
 
-<p>When a page is displayed within the Viewer it's possible that the user will choose to pop it out into a standalone browser window. When rendering inside a standard browser you may want to make different choices about how content is laid out or scaled. Web pages can detect that they are running inside the Viewer pane by looking for the <code>viewer_pane</code> query parameter, which is automatically injected into URLs when they are shown in the Viewer. For example, the following URL:</p>
-<pre>
-http://localhost:8100
-</pre>
+
+<p>When a page is displayed within the Viewer it's possible that the user will
+choose to pop it out into a standalone browser window. When rendering inside
+a standard browser you may want to make different choices about how content
+is laid out or scaled. Web pages can detect that they are running inside the
+Viewer pane by looking for the <code>viewer_pane</code> query parameter, which is
+automatically injected into URLs when they are shown in the Viewer. For
+example, the following URL:</p>
+<pre> http://localhost:8100 </pre>
 
 <p>When rendered in the Viewer pane is transformed to:</p>
-<pre>
-http://localhost:8100?viewer_pane=1
-</pre>
+<pre> http://localhost:8100?viewer_pane=1 </pre>
 
-<p>To provide a good user experience it's strongly recommended that callers take advantage of this to automatically scale their content to the current size of the Viewer pane. For example, re-rendering a JavaScript plot with new dimensions when the size of the pane changes.</p>
+<p>To provide a good user experience it's strongly recommended that callers
+take advantage of this to automatically scale their content to the current
+size of the Viewer pane. For example, re-rendering a JavaScript plot with
+new dimensions when the size of the pane changes.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 
 <span class='co'># run an application inside the IDE</span>
-<span class='kw'>rstudioapi</span>::<span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
+<span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>viewer</span><span class='op'>(</span><span class='st'>"http://localhost:8100"</span><span class='op'>)</span>
 
 <span class='co'># run an application and request a height of 500 pixels</span>
-<span class='kw'>rstudioapi</span>::<span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>, height = <span class='fl'>500</span>)
+<span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>viewer</span><span class='op'>(</span><span class='st'>"http://localhost:8100"</span>, height <span class='op'>=</span> <span class='fl'>500</span><span class='op'>)</span>
 
-<span class='co'># probe for viewer option then fall back to browseURL</span>
-<span class='kw'>viewer</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"viewer"</span>)
-<span class='co'>if</span> (<span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw'>viewer</span>))
-   <span class='fu'>viewer</span>(<span class='st'>"http://localhost:8100"</span>)
-<span class='co'>else</span>
-   <span class='kw'>utils</span>::<span class='fu'><a href='https://rdrr.io/r/utils/browseURL.html'>browseURL</a></span>(<span class='st'>"http://localhost:8100"</span>)
+<span class='co'># use 'viewer' option if set, or `utils::browseURL()` if unset</span>
+<span class='va'>viewer</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"viewer"</span>, default <span class='op'>=</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/r/utils/browseURL.html'>browseURL</a></span><span class='op'>)</span>
+<span class='fu'>viewer</span><span class='op'>(</span><span class='st'>"http://localhost:8100"</span><span class='op'>)</span>
 
 <span class='co'># generate a temporary html file and display it</span>
-<span class='kw'>dir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>()
-<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span>(<span class='kw'>dir</span>)
-<span class='kw'>htmlFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='kw'>dir</span>, <span class='st'>"index.html"</span>)
+<span class='va'>dir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>dir</span><span class='op'>)</span>
+<span class='va'>htmlFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>dir</span>, <span class='st'>"index.html"</span><span class='op'>)</span>
 <span class='co'># (code to write some content to the file)</span>
-<span class='kw'>rstudioapi</span>::<span class='fu'>viewer</span>(<span class='kw'>htmlFile</span>)
-}
+<span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>viewer</span><span class='op'>(</span><span class='va'>htmlFile</span><span class='op'>)</span>
+
+<span class='op'>}</span>
+
 
 </div></pre>
   </div>

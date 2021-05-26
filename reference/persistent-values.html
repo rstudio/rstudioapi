@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Persistent Keys and Values — persistent-values • rstudioapi</title>
+<title>Persistent keys and values — persistent-values • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,9 @@
 
 
 
-<meta property="og:title" content="Persistent Keys and Values — persistent-values" />
-<meta property="og:description" content="Store persistent keys and values. Storage is per-project, if there is
-no project currently active then a global store is used." />
+<meta property="og:title" content="Persistent keys and values — persistent-values" />
+<meta property="og:description" content="Store persistent keys and values. Storage is per-project; if there is
+no project currently active, then a global store is used." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -81,7 +81,7 @@ no project currently active then a global store is used." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@ no project currently active then a global store is used." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -138,30 +138,30 @@ no project currently active then a global store is used." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Persistent Keys and Values</h1>
+    <h1>Persistent keys and values</h1>
     <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>persistent-values.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Store persistent keys and values. Storage is per-project, if there is
-no project currently active then a global store is used.</p>
+    <p>Store persistent keys and values. Storage is per-project; if there is
+no project currently active, then a global store is used.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>setPersistentValue</span>(<span class='kw'>name</span>, <span class='kw'>value</span>)
+    <pre class="usage"><span class='fu'>setPersistentValue</span><span class='op'>(</span><span class='va'>name</span>, <span class='va'>value</span><span class='op'>)</span>
 
-<span class='fu'>getPersistentValue</span>(<span class='kw'>name</span>)</pre>
+<span class='fu'>getPersistentValue</span><span class='op'>(</span><span class='va'>name</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>name</th>
-      <td><p>Key name</p></td>
+      <td><p>The key name.</p></td>
     </tr>
     <tr>
       <th>value</th>
-      <td><p>Key value</p></td>
+      <td><p>The key value.</p></td>
     </tr>
     </table>
 

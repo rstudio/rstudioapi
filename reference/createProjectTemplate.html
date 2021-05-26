@@ -82,7 +82,7 @@ for more information." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -122,7 +122,7 @@ for more information." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -150,59 +150,63 @@ for more information." />
 for more information.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>createProjectTemplate</span>(
-  package = <span class='st'>"."</span>,
-  <span class='kw'>binding</span>,
-  <span class='kw'>title</span>,
-  subtitle = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Create a new"</span>, <span class='kw'>title</span>),
-  caption = <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Create"</span>, <span class='kw'>title</span>),
-  icon = <span class='kw'>NULL</span>,
-  open_files = <span class='kw'>NULL</span>,
-  overwrite = <span class='fl'>FALSE</span>,
-  edit = <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>createProjectTemplate</span><span class='op'>(</span>
+  package <span class='op'>=</span> <span class='st'>"."</span>,
+  <span class='va'>binding</span>,
+  <span class='va'>title</span>,
+  subtitle <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Create a new"</span>, <span class='va'>title</span><span class='op'>)</span>,
+  caption <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Create"</span>, <span class='va'>title</span><span class='op'>)</span>,
+  icon <span class='op'>=</span> <span class='cn'>NULL</span>,
+  open_files <span class='op'>=</span> <span class='cn'>NULL</span>,
+  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  edit <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>package</th>
-      <td><p>The path to an <span style="R">R</span> package sources.</p></td>
+      <td><p>The path to an package sources.</p></td>
     </tr>
     <tr>
       <th>binding</th>
-      <td><p>The <span style="R">R</span> skeleton function to associate with this project
+      <td><p>The skeleton function to associate with this project
 template. This is the name of the function that will be used to initialize
 the project.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>The title to be shown within the <strong>New Project...</strong> wizard.</p></td>
+      <td><p>The title to be shown within the <strong>New Project...</strong>
+wizard.</p></td>
     </tr>
     <tr>
       <th>subtitle</th>
-      <td><p>(optional) The subtitle to be shown within the <strong>New Project...</strong> wizard.</p></td>
+      <td><p>(optional) The subtitle to be shown within the <strong>New
+Project...</strong> wizard.</p></td>
     </tr>
     <tr>
       <th>caption</th>
-      <td><p>(optional) The caption to be shown on the landing page for this template.</p></td>
+      <td><p>(optional) The caption to be shown on the landing page for
+this template.</p></td>
     </tr>
     <tr>
       <th>icon</th>
-      <td><p>(optional) The path to an icon, on disk, to be used in the dialog. Must be an
-<code>.png</code> of size less than 64KB.</p></td>
+      <td><p>(optional) The path to an icon, on disk, to be used in the
+dialog. Must be an <code>.png</code> of size less than 64KB.</p></td>
     </tr>
     <tr>
       <th>open_files</th>
-      <td><p>(optional) Files that should be opened by RStudio when the project is
-generated. Shell-style globs can be used to indicate when multiple files
-matching some pattern should be opened -- for example,  OpenFiles: R/*.R
-would indicate that RStudio should open all .R files within the R folder of
-the generated project.</p></td>
+      <td><p>(optional) Files that should be opened by RStudio when the
+project is generated. Shell-style globs can be used to indicate when
+multiple files matching some pattern should be opened -- for example,
+OpenFiles: R/*.R would indicate that RStudio should open all .R files within
+the R folder of the generated project.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>Boolean; overwrite a pre-existing template file if one exists?</p></td>
+      <td><p>Boolean; overwrite a pre-existing template file if one
+exists?</p></td>
     </tr>
     <tr>
       <th>edit</th>

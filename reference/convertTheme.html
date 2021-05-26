@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Convert a tmTheme to an RStudio Theme — convertTheme" />
-<meta property="og:description" content="Converts a tmTheme to an rstheme and optionally adds and applies it to RStudio and returns the
-name of the theme." />
+<meta property="og:description" content="Converts a tmTheme to an rstheme and optionally adds and
+applies it to RStudio and returns the name of the theme." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -81,7 +81,7 @@ name of the theme." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@ name of the theme." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -144,58 +144,61 @@ name of the theme." />
     </div>
 
     <div class="ref-description">
-    <p>Converts a <code>tmTheme</code> to an <code>rstheme</code> and optionally adds and applies it to RStudio and returns the
-name of the theme.</p>
+    <p>Converts a <code>tmTheme</code> to an <code>rstheme</code> and optionally adds and
+applies it to RStudio and returns the name of the theme.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convertTheme</span>(
-  <span class='kw'>themePath</span>,
-  add = <span class='fl'>TRUE</span>,
-  outputLocation = <span class='kw'>NULL</span>,
-  apply = <span class='fl'>FALSE</span>,
-  force = <span class='fl'>FALSE</span>,
-  globally = <span class='fl'>FALSE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>convertTheme</span><span class='op'>(</span>
+  <span class='va'>themePath</span>,
+  add <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  outputLocation <span class='op'>=</span> <span class='cn'>NULL</span>,
+  apply <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  force <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  globally <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>themePath</th>
-      <td><p>A full or relative path to the <code>tmTheme</code> file to be converted.</p></td>
+      <td><p>A full or relative path to the <code>tmTheme</code> file to be
+converted.</p></td>
     </tr>
     <tr>
       <th>add</th>
-      <td><p>Whether to add the newly converted theme to RStudio. Setting this to true
-will have the same impact as running <code>{ rstudioapi::convertTheme(&lt;themePath&gt;, outputLocation = &lt;convertedThemePath&gt;); rstudioapi::addTheme(&lt;convertedThemePath&gt;) }</code>.<br />
+      <td><p>Whether to add the newly converted theme to RStudio. Setting this
+to true will have the same impact as running <code>{
+rstudioapi::convertTheme(&lt;themePath&gt;, outputLocation =
+&lt;convertedThemePath&gt;); rstudioapi::addTheme(&lt;convertedThemePath&gt;) }</code>.<br />
 Default: <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>outputLocation</th>
-      <td><p>A full or relative path where a copy of the converted theme will be saved.
-If this value is <code>NULL</code>, no copy will be saved.<br />
+      <td><p>A full or relative path where a copy of the converted
+theme will be saved. If this value is <code>NULL</code>, no copy will be saved.<br />
 Default: <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>apply</th>
-      <td><p>Whether to immediately apply the newly added theme. This paramater cannot be set to
-<code>TRUE</code> if <code>add</code> is set to <code>FALSE</code>. Setting this and <code>add</code>
-to <code>TRUE</code> has the same impact as running
-<code>{ rstudioapi::convertTheme(&lt;themePath&gt;, outputLocation = &lt;convertedThemePath&gt;); rstudioapi::addTheme(&lt;convertedThemePath&gt;); rstudioapi::applyTheme(&lt;themeName&gt;) }</code>.<br />
-Default: <code>FALSE</code>.</p></td>
+      <td><p>Whether to immediately apply the newly added theme. This
+paramater cannot be set to <code>TRUE</code> if <code>add</code> is set to <code>FALSE</code>.
+Setting this and <code>add</code> to <code>TRUE</code> has the same impact as running
+<code>{ rstudioapi::convertTheme(&lt;themePath&gt;, outputLocation =
+&lt;convertedThemePath&gt;); rstudioapi::addTheme(&lt;convertedThemePath&gt;);
+rstudioapi::applyTheme(&lt;themeName&gt;) }</code>.<br /> Default: <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>force</th>
-      <td><p>Whether to force the operation and overwrite an existing file with the same
-name.<br />
-Default: <code>FALSE</code>.</p></td>
+      <td><p>Whether to force the operation and overwrite an existing file
+with the same name.<br /> Default: <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>globally</th>
-      <td><p>Whether to install this theme for the current user or all users. If set to
-<code>TRUE</code> this will attempt to install the theme for all users, which may
-require administrator privileges. Only applies when <code>add</code> is <code>TRUE</code>. <br />
-Default: <code>FALSE</code>.</p></td>
+      <td><p>Whether to install this theme for the current user or all
+users. If set to <code>TRUE</code> this will attempt to install the theme for all
+users, which may require administrator privileges. Only applies when
+<code>add</code> is <code>TRUE</code>. <br /> Default: <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

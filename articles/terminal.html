@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="terminal_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Interacting with Terminals</h1>
@@ -114,24 +114,23 @@
 <div id="terminalexecute-scenario" class="section level2">
 <h2 class="hasAnchor">
 <a href="#terminalexecute-scenario" class="anchor"></a>TerminalExecute Scenario</h2>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># Start a command with results displayed in a terminal buffer</span>
-<span class="kw">termId</span> <span class="op">&lt;-</span> <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalExecute.html">terminalExecute</a></span>(<span class="st">"ping rstudio.com"</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Start a command with results displayed in a terminal buffer</span>
+<span class="va">termId</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalExecute.html">terminalExecute</a></span><span class="op">(</span><span class="st">"ping rstudio.com"</span><span class="op">)</span>
 
 <span class="co"># If viewing the result in the terminal buffer is sufficient,</span>
 <span class="co"># then no need to do anything else. The command will continue</span>
 <span class="co"># running and displaying its results without blocking the R session.</span>
 
 <span class="co"># To obtain the results programmatically, wait for it to finish.</span>
-<span class="co">while</span> (<span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span>(<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalExitCode.html">terminalExitCode</a></span>(<span class="kw">termId</span>))) {
-  <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span>(<span class="fl">0.1</span>)
-}
+<span class="kw">while</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalExitCode.html">terminalExitCode</a></span><span class="op">(</span><span class="va">termId</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span>
+<span class="op">}</span>
 
-<span class="kw">result</span> <span class="op">&lt;-</span> <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalBuffer.html">terminalBuffer</a></span>(<span class="kw">termId</span>)
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalBuffer.html">terminalBuffer</a></span><span class="op">(</span><span class="va">termId</span><span class="op">)</span>
 
 <span class="co"># Delete the buffer and close the session in the IDE</span>
-<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalKill.html">terminalKill</a></span>(<span class="kw">termId</span>)
-</pre></div>
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalKill.html">terminalKill</a></span><span class="op">(</span><span class="va">termId</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="interative-terminal-scenario" class="section level2">
 <h2 class="hasAnchor">
@@ -148,7 +147,7 @@
 <p>A <strong>terminal session</strong> is an instance of a terminal that can be displayed in the RStudio terminal tab. A terminal session consists of:</p>
 <ul>
 <li>a unique terminal identifier</li>
-<li>a unique caption shown in the RStudio terminal dropdown (e.g. “Terminal 1”)</li>
+<li>a unique caption shown in the RStudio terminal dropdown (e.g. “Terminal 1”)</li>
 <li>a shell process (e.g. bash) running as a child process of the R session</li>
 <li>zero or more processes running as children of the shell (e.g. commands)</li>
 <li>an xterm-compatible terminal emulator in the terminal tab</li>
@@ -167,27 +166,26 @@
 <p><strong>No shell process or child processes</strong>: This happens if the associated R session has been closed (or suspended in the case of an inactive RStudio Server session).</p>
 <p>The <code><a href="../reference/terminalRunning.html">terminalRunning()</a></code> function returns <code>TRUE</code> if a terminal is in this state.</p>
 <p>If a terminal is not running, it can be started via interacting with it in the RStudio IDE, or via <code><a href="../reference/terminalActivate.html">terminalActivate()</a></code>.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co"># start an interactive terminal using the shell selected in </span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># start an interactive terminal using the shell selected in </span>
 <span class="co"># RStudio global options</span>
-<span class="kw">myTerm</span> <span class="op">&lt;-</span> <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalCreate.html">terminalCreate</a></span>()
+<span class="va">myTerm</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalCreate.html">terminalCreate</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># ....</span>
 <span class="co"># sometime later</span>
 <span class="co"># ....</span>
-<span class="co">if</span> (<span class="op">!</span><span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalRunning.html">terminalRunning</a></span>(<span class="kw">myTerm</span>)) {
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalRunning.html">terminalRunning</a></span><span class="op">(</span><span class="va">myTerm</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># start the terminal shell back up, but don't bring to front</span>
-  <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalActivate.html">terminalActivate</a></span>(<span class="kw">myTerm</span>, show = <span class="fl">FALSE</span>)
+  <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalActivate.html">terminalActivate</a></span><span class="op">(</span><span class="va">myTerm</span>, show <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
   
   <span class="co"># wait for it to start</span>
-  <span class="co">while</span> (<span class="op">!</span><span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalRunning.html">terminalRunning</a></span>(<span class="kw">myTerm</span>)) {
-    <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span>(<span class="fl">0.1</span>)
-  }
+  <span class="kw">while</span> <span class="op">(</span><span class="op">!</span><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalRunning.html">terminalRunning</a></span><span class="op">(</span><span class="va">myTerm</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span>
+  <span class="op">}</span>
  
   <span class="co"># send a new command </span>
-  <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/terminalSend.html">terminalSend</a></span>(<span class="kw">myTerm</span>, <span class="st">"echo Hello\n"</span>) 
-}
-</pre></div>
+  <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/terminalSend.html">terminalSend</a></span><span class="op">(</span><span class="va">myTerm</span>, <span class="st">"echo Hello\n"</span><span class="op">)</span> 
+<span class="op">}</span></code></pre></div>
 <p><strong>Running but not loaded in the IDE</strong>: On RStudio Server, the web browser can be closed but the R session and any associated terminal sessions keep running. If the web browser is reconnected, each terminal will be redisplayed in the IDE when it is selected. The <code>rstudioapi</code> functions may be used on a terminal in this state; for example, the buffer may still be fetched with <code><a href="../reference/terminalBuffer.html">terminalBuffer()</a></code> even if the terminal isn’t loaded in the IDE (so long as the R session is still alive).</p>
 <p><strong>Terminated but still visible</strong>: Normally the terminal emulator for a given terminal session will close when the shell exits. If the option <strong>Close Terminal When Shell Exits</strong> is turned off, then the terminal buffer will remain loaded in the RStudio IDE until closed by the user or <code><a href="../reference/terminalKill.html">terminalKill()</a></code>. Terminals started with <code><a href="../reference/terminalExecute.html">terminalExecute()</a></code> will always remain loaded when they finish running. To test a terminal for this state, <code><a href="../reference/terminalExitCode.html">terminalExitCode()</a></code> will return a non-NULL value.</p>
 </div>

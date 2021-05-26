@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RStudio Version Information — versionInfo • rstudioapi</title>
+<title>RStudio version information — versionInfo • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="RStudio Version Information — versionInfo" />
-<meta property="og:description" content="Provides information about the currently running version of RStudio, including it's specific version number and whether it is running in desktop or server mode." />
+<meta property="og:title" content="RStudio version information — versionInfo" />
+<meta property="og:description" content="Query information about the currently running instance of RStudio." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,54 +137,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>RStudio Version Information</h1>
-    
+    <h1>RStudio version information</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>versionInfo.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Provides information about the currently running version of RStudio, including it's specific version number and whether it is running in desktop or server mode.</p>
+    <p>Query information about the currently running instance of RStudio.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>versionInfo</span>()</pre>
+    <pre class="usage"><span class='fu'>versionInfo</span><span class='op'>(</span><span class='op'>)</span></pre>
+
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An <span style="R">R</span> list with the following elements:</p>
+<table class='table'>
+<tr><td><code>version</code></td><td>The version of RStudio.</td></tr>
+<tr><td><code>mode</code></td><td><code>"desktop"</code> for RStudio Desktop, or <code>"server"</code> for RStudio Server.</td></tr>
+<tr><td><code>citation</code></td><td>Information on how RStudio can be cited in academic publications.</td></tr>
+</table>
 
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>versionInfo</code> function was added in version 0.97.124 of RStudio.</p>
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    
-
-<p>Returns a list with the following elements:</p>
-<table class='table'>
-<tr><td><code>version</code></td><td>A package version object that can be used in comparisons. This is the same value which would be returned from <code><a href='https://rdrr.io/r/utils/packageDescription.html'>packageVersion("rstudio")</a></code></td></tr>
-<tr><td><code>mode</code></td><td>Current program mode (either "desktop" or "server")</td></tr>
-<tr><td><code>citation</code></td><td>An object inheriting from class <code>bibentry</code></td></tr>
-</table>
-
-
-
-
+    <p>The <code>versionInfo</code> function was added in version 0.97.124 of
+RStudio.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://github.com/rstudio/rstudioapi'>rstudioapi</a></span>)
-<span class='kw'>ver</span> <span class='op'>&lt;-</span> <span class='fu'>versionInfo</span>()
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>info</span> <span class='op'>&lt;-</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>versionInfo</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='co'># Test specific version constraint</span>
-<span class='co'>if</span> (<span class='kw'>ver</span><span class='op'>$</span><span class='kw'>version</span> <span class='op'>&gt;=</span> <span class='st'>"0.97"</span>) {
-   <span class='co'># do some 0.97 dependent stuff</span>
-}
+<span class='co'># check what version of RStudio is in use</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>info</span><span class='op'>$</span><span class='va'>version</span> <span class='op'>&gt;=</span> <span class='st'>"1.4"</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># code specific to versions of RStudio 1.4 and newer</span>
+<span class='op'>}</span>
 
-<span class='co'># Check current mode</span>
-<span class='kw'>desktopMode</span> <span class='op'>&lt;-</span> <span class='kw'>ver</span><span class='op'>$</span><span class='kw'>mode</span> <span class='op'>==</span> <span class='st'>"desktop"</span>
-<span class='kw'>serverMode</span> <span class='op'>&lt;-</span> <span class='kw'>ver</span><span class='op'>$</span><span class='kw'>mode</span> <span class='op'>==</span> <span class='st'>"server"</span>
+<span class='co'># check whether RStudio Desktop or RStudio Server is being used</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='va'>info</span><span class='op'>$</span><span class='va'>mode</span> <span class='op'>==</span> <span class='st'>"desktop"</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='co'># code specific to RStudio Desktop</span>
+<span class='op'>}</span>
 
 <span class='co'># Get the citation</span>
-<span class='kw'>ver</span><span class='op'>$</span><span class='kw'>citation</span>
+<span class='va'>info</span><span class='op'>$</span><span class='va'>citation</span>
 
-}
+<span class='op'>}</span>
 
 </div></pre>
   </div>

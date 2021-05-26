@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Define a Launcher Container — launcherContainer" />
-<meta property="og:description" content="Define a launcher container, suitable for use with the container argument
-to launcherSubmitJob()." />
+<meta property="og:description" content="Define a launcher container, suitable for use with the container
+argument to launcherSubmitJob()." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -81,7 +81,7 @@ to launcherSubmitJob()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@ to launcherSubmitJob()." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -144,11 +144,11 @@ to launcherSubmitJob()." />
     </div>
 
     <div class="ref-description">
-    <p>Define a launcher container, suitable for use with the <code>container</code> argument
-to <code><a href='launcherSubmitJob.html'>launcherSubmitJob()</a></code>.</p>
+    <p>Define a launcher container, suitable for use with the <code>container</code>
+argument to <code><a href='launcherSubmitJob.html'>launcherSubmitJob()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>launcherContainer</span>(<span class='kw'>image</span>, runAsUserId = <span class='kw'>NULL</span>, runAsGroupId = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>launcherContainer</span><span class='op'>(</span><span class='va'>image</span>, runAsUserId <span class='op'>=</span> <span class='cn'>NULL</span>, runAsGroupId <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,25 +159,22 @@ to <code><a href='launcherSubmitJob.html'>launcherSubmitJob()</a></code>.</p>
     </tr>
     <tr>
       <th>runAsUserId</th>
-      <td><p>The user id to run as within the container. Defaults
-to the container-specified user.</p></td>
+      <td><p>The user id to run as within the container. Defaults to
+the container-specified user.</p></td>
     </tr>
     <tr>
       <th>runAsGroupId</th>
-      <td><p>The group id to run as within the container. Defaults
-to the container-specified group.</p></td>
+      <td><p>The group id to run as within the container. Defaults to
+the container-specified group.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other job submission: 
-<code><a href='launcherConfig.html'>launcherConfig</a>()</code>,
-<code><a href='launcherHostMount.html'>launcherHostMount</a>()</code>,
-<code><a href='launcherNfsMount.html'>launcherNfsMount</a>()</code>,
+    <div class='dont-index'><p>Other job submission: <code><a href='launcherConfig.html'>launcherConfig</a>()</code>,
+<code><a href='launcherHostMount.html'>launcherHostMount</a>()</code>, <code><a href='launcherNfsMount.html'>launcherNfsMount</a>()</code>,
 <code><a href='launcherPlacementConstraint.html'>launcherPlacementConstraint</a>()</code>,
-<code><a href='launcherResourceLimit.html'>launcherResourceLimit</a>()</code>,
-<code><a href='launcherSubmitJob.html'>launcherSubmitJob</a>()</code>,
+<code><a href='launcherResourceLimit.html'>launcherResourceLimit</a>()</code>, <code><a href='launcherSubmitJob.html'>launcherSubmitJob</a>()</code>,
 <code><a href='launcherSubmitR.html'>launcherSubmitR</a>()</code></p></div>
 
   </div>

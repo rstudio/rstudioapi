@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,7 +146,7 @@
     <p>Returns contents of a terminal buffer.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>terminalBuffer</span>(<span class='kw'>id</span>, stripAnsi = <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>terminalBuffer</span><span class='op'>(</span><span class='va'>id</span>, stripAnsi <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,8 +159,8 @@
     </tr>
     <tr>
       <th>stripAnsi</th>
-      <td><p>If FALSE, don't strip out Ansi escape sequences before returning
-terminal buffer.</p></td>
+      <td><p>If FALSE, don't strip out Ansi escape sequences before
+returning terminal buffer.</p></td>
     </tr>
     </table>
 
@@ -169,7 +169,8 @@ terminal buffer.</p></td>
     <p>The terminal contents, one line per row.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>terminalBuffer</code> function was added in version 1.1.350 of RStudio.</p>
+    <p>The <code>terminalBuffer</code> function was added in version 1.1.350 of
+RStudio.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

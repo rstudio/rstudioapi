@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,10 +146,10 @@
     <p>Changes the state of a job.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jobSetState</span>(
-  <span class='kw'>job</span>,
-  state = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"idle"</span>, <span class='st'>"running"</span>, <span class='st'>"succeeded"</span>, <span class='st'>"cancelled"</span>, <span class='st'>"failed"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>jobSetState</span><span class='op'>(</span>
+  <span class='va'>job</span>,
+  state <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"idle"</span>, <span class='st'>"running"</span>, <span class='st'>"succeeded"</span>, <span class='st'>"cancelled"</span>, <span class='st'>"failed"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,24 +170,18 @@
 
 
 <p>The following states are supported:</p><dl>
-<dt>idle</dt><dd><p>The job is waiting to run.</p></dd>
-<dt>running</dt><dd><p>The job is actively running.</p></dd>
-<dt>succeeded</dt><dd><p>The job has finished successfully.</p></dd>
-<dt>cancelled</dt><dd><p>The job was cancelled.</p></dd>
-<dt>failed</dt><dd><p>The job finished but did not succeed.</p></dd>
-
+<dt>idle</dt><dd><p>The job is
+waiting to run.</p></dd> <dt>running</dt><dd><p>The job is actively running.</p></dd>
+<dt>succeeded</dt><dd><p>The job has finished successfully.</p></dd> <dt>cancelled</dt><dd><p>The
+job was cancelled.</p></dd> <dt>failed</dt><dd><p>The job finished but did not succeed.</p></dd> 
 </dl>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other jobs: 
-<code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
-<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>,
-<code><a href='jobAdd.html'>jobAdd</a>()</code>,
-<code><a href='jobRemove.html'>jobRemove</a>()</code>,
-<code><a href='jobRunScript.html'>jobRunScript</a>()</code>,
-<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
-<code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
+    <div class='dont-index'><p>Other jobs: <code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
+<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>, <code><a href='jobAdd.html'>jobAdd</a>()</code>,
+<code><a href='jobRemove.html'>jobRemove</a>()</code>, <code><a href='jobRunScript.html'>jobRunScript</a>()</code>,
+<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>, <code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

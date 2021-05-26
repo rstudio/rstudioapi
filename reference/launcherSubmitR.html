@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Execute an R Script as a Launcher Job — launcherSubmitR" />
-<meta property="og:description" content="Convenience function for running an R script as a launcher job using whichever
-R is found on the path in the launcher cluster." />
+<meta property="og:description" content="Convenience function for running an R script as a launcher job using
+whichever R is found on the path in the launcher cluster." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -81,7 +81,7 @@ R is found on the path in the launcher cluster." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@ R is found on the path in the launcher cluster." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -144,11 +144,11 @@ R is found on the path in the launcher cluster." />
     </div>
 
     <div class="ref-description">
-    <p>Convenience function for running an R script as a launcher job using whichever
-R is found on the path in the launcher cluster.</p>
+    <p>Convenience function for running an R script as a launcher job using
+whichever R is found on the path in the launcher cluster.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>launcherSubmitR</span>(<span class='kw'>script</span>, cluster = <span class='st'>"Local"</span>, container = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>launcherSubmitR</span><span class='op'>(</span><span class='va'>script</span>, cluster <span class='op'>=</span> <span class='st'>"Local"</span>, container <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,7 +156,8 @@ R is found on the path in the launcher cluster.</p>
     <tr>
       <th>script</th>
       <td><p>Fully qualified path of R script. Must be a path that is
-available in the job container (if using containerized job cluster such as Kubernetes).</p></td>
+available in the job container (if using containerized job cluster such as
+Kubernetes).</p></td>
     </tr>
     <tr>
       <th>cluster</th>
@@ -170,18 +171,15 @@ available in the job container (if using containerized job cluster such as Kuber
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>See <code><a href='launcherSubmitJob.html'>launcherSubmitJob()</a></code> for running jobs with full control over command,
-environment, and so forth.</p>
+    <p>See <code><a href='launcherSubmitJob.html'>launcherSubmitJob()</a></code> for running jobs
+with full control over command, environment, and so forth.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other job submission: 
-<code><a href='launcherConfig.html'>launcherConfig</a>()</code>,
-<code><a href='launcherContainer.html'>launcherContainer</a>()</code>,
-<code><a href='launcherHostMount.html'>launcherHostMount</a>()</code>,
+    <div class='dont-index'><p>Other job submission: <code><a href='launcherConfig.html'>launcherConfig</a>()</code>,
+<code><a href='launcherContainer.html'>launcherContainer</a>()</code>, <code><a href='launcherHostMount.html'>launcherHostMount</a>()</code>,
 <code><a href='launcherNfsMount.html'>launcherNfsMount</a>()</code>,
 <code><a href='launcherPlacementConstraint.html'>launcherPlacementConstraint</a>()</code>,
-<code><a href='launcherResourceLimit.html'>launcherResourceLimit</a>()</code>,
-<code><a href='launcherSubmitJob.html'>launcherSubmitJob</a>()</code></p></div>
+<code><a href='launcherResourceLimit.html'>launcherResourceLimit</a>()</code>, <code><a href='launcherSubmitJob.html'>launcherSubmitJob</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="visual-mode_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Interfacing with RStudio in Visual Mode</h1>
@@ -105,11 +105,10 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/rstudio/rstudioapi">rstudioapi</a></span>)
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/rstudioapi/">rstudioapi</a></span><span class="op">)</span></code></pre></div>
 <p>RStudio v1.4 includes a new <a href="https://rstudio.github.io/visual-markdown-editing/#/">visual editing mode</a>, which provides a <a href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM</a>-style editing interface for R Markdown documents. This vignette describes how <code>rstudioapi</code> can be used to interface with the RStudio visual mode editor.</p>
-<p>Most of the pre-existing <code>rstudioapi</code> functions used for interacting with a document (e.g. <code><a href="../reference/rstudio-editors.html">rstudioapi::getSourceEditorContext()</a></code>) consume and / or produce objects which describe the position of the current selection in terms of row + column offsets into the document. Unfortunately, this abstraction does not neatly map into visual editing mode, as there is no notion of a “global” cursor position – rather, a cursor might be placed into a particular cell, and could have an offset somewhere into that cell.</p>
+<p>Most of the pre-existing <code>rstudioapi</code> functions used for interacting with a document (e.g. <code><a href="../reference/rstudio-editors.html">rstudioapi::getSourceEditorContext()</a></code>) consume and / or produce objects which describe the position of the current selection in terms of row + column offsets into the document. Unfortunately, this abstraction does not neatly map into visual editing mode, as there is no notion of a “global” cursor position – rather, a cursor might be placed into a particular cell, and could have an offset somewhere into that cell.</p>
 <p>If you are an <a href="https://rstudio.github.io/rstudioaddins/">RStudio Addin</a> author, then you may want to ensure your addins are visual-mode-aware, so that they can function regardless of whether the user has enabled visual mode. To that end, we’ve introduced a small set of functions, which are more narrow in scope but can function in both source and visual mode:</p>
 <ul>
 <li>
@@ -123,14 +122,13 @@
 </ul>
 <p>In addition, the <code><a href="../reference/rstudio-documents.html">rstudioapi::insertText()</a></code> function will function in both source and visual mode, as long as only the <code>text</code> argument is supplied.</p>
 <p>Using this, you can build addins that modify the user’s selected text. For example, a function that uses <code>rstudioapi</code> to reformat the user’s current selection might look like this:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="kw">reformat</span> <span class="op">&lt;-</span> <span class="fu">function</span>() {
-  <span class="kw">id</span> <span class="op">&lt;-</span> <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/rstudio-documents.html">documentId</a></span>(allowConsole = <span class="fl">TRUE</span>)
-  <span class="kw">selection</span> <span class="op">&lt;-</span> <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/selections.html">selectionGet</a></span>(id = <span class="kw">id</span>)
-  <span class="kw">formatted</span> <span class="op">&lt;-</span> <span class="kw">styler</span>::<span class="fu">style_text</span>(text = <span class="kw">selection</span><span class="op">$</span><span class="kw">value</span>)
-  <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/selections.html">selectionSet</a></span>(value = <span class="kw">formatted</span>, id = <span class="kw">id</span>)
-}
-</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">reformat</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">id</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/rstudio-documents.html">documentId</a></span><span class="op">(</span>allowConsole <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="va">selection</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/selections.html">selectionGet</a></span><span class="op">(</span>id <span class="op">=</span> <span class="va">id</span><span class="op">)</span>
+  <span class="va">formatted</span> <span class="op">&lt;-</span> <span class="fu">styler</span><span class="fu">::</span><span class="fu">style_text</span><span class="op">(</span>text <span class="op">=</span> <span class="va">selection</span><span class="op">$</span><span class="va">value</span><span class="op">)</span>
+  <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/selections.html">selectionSet</a></span><span class="op">(</span>value <span class="op">=</span> <span class="va">formatted</span>, id <span class="op">=</span> <span class="va">id</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -119,7 +119,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,9 +140,26 @@
       <small>Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="rstudioapi-0-12-unreleased" class="section level1">
+    <div id="rstudioapi-014-unreleased" class="section level1">
+<h1 class="page-header" data-toc-text="0.14">
+<a href="#rstudioapi-014-unreleased" class="anchor"></a>rstudioapi 0.14 (UNRELEASED)<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>Fixed an issue where <code><a href="../reference/askForSecret.html">rstudioapi::askForSecret()</a></code> would erroneously fall back to using <code><a href="../reference/askForPassword.html">rstudioapi::askForPassword()</a></code> during Knit.</p></li>
+<li><p>Added <code>registerCommandCallback</code>, <code>registerCommandStreamCallback</code>, and <code>unregisterCommandCallback</code>, used to execute a callback after an IDE command is executed.</p></li>
+</ul>
+</div>
+    <div id="rstudioapi-013" class="section level1">
+<h1 class="page-header" data-toc-text="0.13">
+<a href="#rstudioapi-013" class="anchor"></a>rstudioapi 0.13<small> 2020-11-12 </small>
+</h1>
+<ul>
+<li>Fixed an issue where <code><a href="../reference/rstudio-documents.html">rstudioapi::insertText()</a></code> would fail. (<a href='https://github.com/rstudio/rstudioapi/issues/208'>#208</a>)</li>
+</ul>
+</div>
+    <div id="rstudioapi-012" class="section level1">
 <h1 class="page-header" data-toc-text="0.12">
-<a href="#rstudioapi-0-12-unreleased" class="anchor"></a>rstudioapi 0.12 (UNRELEASED)<small> Unreleased </small>
+<a href="#rstudioapi-012" class="anchor"></a>rstudioapi 0.12<small> 2020-11-10 </small>
 </h1>
 <ul>
 <li><p>Fixed an issue where remote <code>rstudioapi</code> calls would erroneously use a previous response in some cases.</p></li>
@@ -150,9 +167,9 @@
 <li><p>Added <code>registerChunkExecCallback</code> and <code>unregisterChunkExecCallback</code>, used to execute a callback after a chunk is ran.</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-11" class="section level1">
+    <div id="rstudioapi-011" class="section level1">
 <h1 class="page-header" data-toc-text="0.11">
-<a href="#rstudioapi-0-11" class="anchor"></a>rstudioapi 0.11<small> 2020-02-07 </small>
+<a href="#rstudioapi-011" class="anchor"></a>rstudioapi 0.11<small> 2020-02-07 </small>
 </h1>
 <ul>
 <li><p><code><a href="../reference/launcherResourceLimit.html">rstudioapi::launcherResourceLimit()</a></code> now properly delegates the type and memory arguments. (<a href='https://github.com/rstudio/rstudioapi/issues/164'>#164</a>)</p></li>
@@ -163,26 +180,26 @@
 <li><p>Added <code>userIdentity</code> and <code>systemUsername</code>, used to retrieve information about the current user.</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-10" class="section level1">
+    <div id="rstudioapi-010" class="section level1">
 <h1 class="page-header" data-toc-text="0.10">
-<a href="#rstudioapi-0-10" class="anchor"></a>rstudioapi 0.10<small> 2019-03-19 </small>
+<a href="#rstudioapi-010" class="anchor"></a>rstudioapi 0.10<small> 2019-03-19 </small>
 </h1>
 <ul>
 <li>Added the parameters <code>echo</code> and <code>focus</code> to <code><a href="../reference/sendToConsole.html">sendToConsole()</a></code>.</li>
 </ul>
 </div>
-    <div id="rstudioapi-0-9" class="section level1">
+    <div id="rstudioapi-09" class="section level1">
 <h1 class="page-header" data-toc-text="0.9">
-<a href="#rstudioapi-0-9" class="anchor"></a>rstudioapi 0.9<small> Unreleased </small>
+<a href="#rstudioapi-09" class="anchor"></a>rstudioapi 0.9<small> Unreleased </small>
 </h1>
 <ul>
 <li><p>Added functions for displaying jobs in RStudio’s Jobs pane: <code><a href="../reference/jobAdd.html">jobAdd()</a></code>, <code><a href="../reference/jobRemove.html">jobRemove()</a></code>, etc.</p></li>
 <li><p>Added <code><a href="../reference/translateLocalUrl.html">translateLocalUrl()</a></code>, for translating localhost URLs to externally addressable ones on RStudio Server.</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-8" class="section level1">
+    <div id="rstudioapi-08" class="section level1">
 <h1 class="page-header" data-toc-text="0.8">
-<a href="#rstudioapi-0-8" class="anchor"></a>rstudioapi 0.8<small> 2018-10-02 </small>
+<a href="#rstudioapi-08" class="anchor"></a>rstudioapi 0.8<small> 2018-10-02 </small>
 </h1>
 <ul>
 <li><p>Added functions for installing + using build tools: <code><a href="../reference/build-tools.html">buildToolsCheck()</a></code>, <code><a href="../reference/build-tools.html">buildToolsInstall()</a></code>, <code><a href="../reference/build-tools.html">buildToolsExec()</a></code></p></li>
@@ -192,9 +209,9 @@
 <li><p>Fixed an issue where <code><a href="../reference/getActiveProject.html">getActiveProject()</a></code> failed for non-ASCII paths. (<a href='https://github.com/rstudio/rstudioapi/issues/86'>#86</a>)</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-7" class="section level1">
+    <div id="rstudioapi-07" class="section level1">
 <h1 class="page-header" data-toc-text="0.7">
-<a href="#rstudioapi-0-7" class="anchor"></a>rstudioapi 0.7<small> 2017-09-07 </small>
+<a href="#rstudioapi-07" class="anchor"></a>rstudioapi 0.7<small> 2017-09-07 </small>
 </h1>
 <ul>
 <li><p>Added methods for prompting the user for file paths: <code><a href="../reference/file-dialogs.html">selectFile()</a></code>, <code><a href="../reference/file-dialogs.html">selectDirectory()</a></code>.</p></li>
@@ -204,52 +221,52 @@
 <li><p>Add methods for interacting with Terminal tab: <code><a href="../reference/terminalActivate.html">terminalActivate()</a></code>, <code><a href="../reference/terminalClear.html">terminalClear()</a></code>, <code><a href="../reference/terminalCreate.html">terminalCreate()</a></code>, <code><a href="../reference/terminalList.html">terminalList()</a></code>, <code><a href="../reference/terminalBuffer.html">terminalBuffer()</a></code>, <code><a href="../reference/terminalContext.html">terminalContext()</a></code>, <code><a href="../reference/terminalVisible.html">terminalVisible()</a></code>, <code><a href="../reference/terminalBusy.html">terminalBusy()</a></code>, <code><a href="../reference/terminalRunning.html">terminalRunning()</a></code>, <code><a href="../reference/terminalKill.html">terminalKill()</a></code>, <code><a href="../reference/terminalSend.html">terminalSend()</a></code>, <code><a href="../reference/terminalExecute.html">terminalExecute()</a></code>, and <code><a href="../reference/terminalExitCode.html">terminalExitCode()</a></code>.</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-6" class="section level1">
+    <div id="rstudioapi-06" class="section level1">
 <h1 class="page-header" data-toc-text="0.6">
-<a href="#rstudioapi-0-6" class="anchor"></a>rstudioapi 0.6<small> 2016-06-27 </small>
+<a href="#rstudioapi-06" class="anchor"></a>rstudioapi 0.6<small> 2016-06-27 </small>
 </h1>
 <ul>
 <li><p>Add sendToConsole function</p></li>
 <li><p>Add APIs for setting cursor position in document</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-5" class="section level1">
+    <div id="rstudioapi-05" class="section level1">
 <h1 class="page-header" data-toc-text="0.5">
-<a href="#rstudioapi-0-5" class="anchor"></a>rstudioapi 0.5<small> 2016-01-24 </small>
+<a href="#rstudioapi-05" class="anchor"></a>rstudioapi 0.5<small> 2016-01-24 </small>
 </h1>
 <ul>
 <li><p>Add askForPassword function</p></li>
 <li><p>Add getActiveProject function</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-4" class="section level1">
+    <div id="rstudioapi-04" class="section level1">
 <h1 class="page-header" data-toc-text="0.4">
-<a href="#rstudioapi-0-4" class="anchor"></a>rstudioapi 0.4<small> Unreleased </small>
+<a href="#rstudioapi-04" class="anchor"></a>rstudioapi 0.4<small> Unreleased </small>
 </h1>
 <ul>
 <li>Add API methods for interacting with a document open in RStudio: ‘insertText()’, ‘modifyRange()’ and ‘getActiveDocumentContext()’.</li>
 </ul>
 </div>
-    <div id="rstudioapi-0-3" class="section level1">
+    <div id="rstudioapi-03" class="section level1">
 <h1 class="page-header" data-toc-text="0.3">
-<a href="#rstudioapi-0-3" class="anchor"></a>rstudioapi 0.3<small> Unreleased </small>
+<a href="#rstudioapi-03" class="anchor"></a>rstudioapi 0.3<small> Unreleased </small>
 </h1>
 <ul>
 <li>Add stub and documentation for sourceMarker function</li>
 </ul>
 </div>
-    <div id="rstudioapi-0-2" class="section level1">
+    <div id="rstudioapi-02" class="section level1">
 <h1 class="page-header" data-toc-text="0.2">
-<a href="#rstudioapi-0-2" class="anchor"></a>rstudioapi 0.2<small> 2014-12-31 </small>
+<a href="#rstudioapi-02" class="anchor"></a>rstudioapi 0.2<small> 2014-12-31 </small>
 </h1>
 <ul>
 <li><p>Compatibility with calling conventions for RStudio v0.99</p></li>
 <li><p>Stubs and documentation for versionInfo, previewRd, and viewer functions</p></li>
 </ul>
 </div>
-    <div id="rstudioapi-0-1" class="section level1">
+    <div id="rstudioapi-01" class="section level1">
 <h1 class="page-header" data-toc-text="0.1">
-<a href="#rstudioapi-0-1" class="anchor"></a>rstudioapi 0.1<small> 2014-03-27 </small>
+<a href="#rstudioapi-01" class="anchor"></a>rstudioapi 0.1<small> 2014-03-27 </small>
 </h1>
 <p>Initial release to CRAN</p>
 </div>

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,14 +146,14 @@
     <p>Starts an R script as a background job.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jobRunScript</span>(
-  <span class='kw'>path</span>,
-  name = <span class='kw'>NULL</span>,
-  encoding = <span class='st'>"unknown"</span>,
-  workingDir = <span class='kw'>NULL</span>,
-  importEnv = <span class='fl'>FALSE</span>,
-  exportEnv = <span class='st'>""</span>
-)</pre>
+    <pre class="usage"><span class='fu'>jobRunScript</span><span class='op'>(</span>
+  <span class='va'>path</span>,
+  name <span class='op'>=</span> <span class='cn'>NULL</span>,
+  encoding <span class='op'>=</span> <span class='st'>"unknown"</span>,
+  workingDir <span class='op'>=</span> <span class='cn'>NULL</span>,
+  importEnv <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  exportEnv <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,8 +164,8 @@
     </tr>
     <tr>
       <th>name</th>
-      <td><p>A name for the background job. When <code>NULL</code> (the default), the filename of the
-script is used as the job name.</p></td>
+      <td><p>A name for the background job. When <code>NULL</code> (the default),
+the filename of the script is used as the job name.</p></td>
     </tr>
     <tr>
       <th>encoding</th>
@@ -173,8 +173,8 @@ script is used as the job name.</p></td>
     </tr>
     <tr>
       <th>workingDir</th>
-      <td><p>The working directory in which to run the job. When <code>NULL</code> (the default),
-the parent directory of the R script is used.</p></td>
+      <td><p>The working directory in which to run the job. When
+<code>NULL</code> (the default), the parent directory of the R script is used.</p></td>
     </tr>
     <tr>
       <th>importEnv</th>
@@ -182,22 +182,19 @@ the parent directory of the R script is used.</p></td>
     </tr>
     <tr>
       <th>exportEnv</th>
-      <td><p>The name of the environment in which to export the R objects created by the
-job. Use <code>""</code> (the default) to skip export, <code>"R_GlobalEnv"</code>` to export to the
-global environment, or the name of an environment object to create an object with that name.</p></td>
+      <td><p>The name of the environment in which to export the R
+objects created by the job. Use <code>""</code> (the default) to skip export,
+<code>"R_GlobalEnv"</code>` to export to the global environment, or the name of an
+environment object to create an object with that name.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other jobs: 
-<code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
-<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>,
-<code><a href='jobAdd.html'>jobAdd</a>()</code>,
-<code><a href='jobRemove.html'>jobRemove</a>()</code>,
-<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
-<code><a href='jobSetState.html'>jobSetState</a>()</code>,
-<code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
+    <div class='dont-index'><p>Other jobs: <code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
+<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>, <code><a href='jobAdd.html'>jobAdd</a>()</code>,
+<code><a href='jobRemove.html'>jobRemove</a>()</code>, <code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
+<code><a href='jobSetState.html'>jobSetState</a>()</code>, <code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

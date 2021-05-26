@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,15 +146,15 @@
     <p>Create a new Terminal.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>terminalCreate</span>(caption = <span class='kw'>NULL</span>, show = <span class='fl'>TRUE</span>, shellType = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>terminalCreate</span><span class='op'>(</span>caption <span class='op'>=</span> <span class='cn'>NULL</span>, show <span class='op'>=</span> <span class='cn'>TRUE</span>, shellType <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>caption</th>
-      <td><p>The desired terminal caption. When <code>NULL</code> or blank,
-the terminal caption will be chosen by the system.</p></td>
+      <td><p>The desired terminal caption. When <code>NULL</code> or blank, the
+terminal caption will be chosen by the system.</p></td>
     </tr>
     <tr>
       <th>show</th>
@@ -163,8 +163,8 @@ the terminal caption will be chosen by the system.</p></td>
     <tr>
       <th>shellType</th>
       <td><p>Shell type for the terminal: NULL or "default" to use the
-shell selected in Global Options. For Microsoft Windows, alternatives
-are "win-cmd" for 64-bit Command Prompt, "win-ps" for 64-bit PowerShell,
+shell selected in Global Options. For Microsoft Windows, alternatives are
+"win-cmd" for 64-bit Command Prompt, "win-ps" for 64-bit PowerShell,
 "win-git-bash" for Git Bash, or "win-wsl-bash" for Bash on Windows Subsystem
 for Linux. On Linux, Mac, and RStudio Server "custom" will use the custom
 terminal defined in Global Options. If the requested shell type is not
@@ -174,18 +174,19 @@ available, the default shell will be used, instead.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The terminal identifier as a character vector (<code>NULL</code> if
-unable to create the terminal or the given terminal caption is already
-in use).</p>
+    <p>The terminal identifier as a character vector (<code>NULL</code> if unable
+to create the terminal or the given terminal caption is already in use).</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>terminalCreate</code> function was added in version 1.1.350 of RStudio
-and the ability to specify shellType was added in version 1.2.696.</p>
+    <p>The <code>terminalCreate</code> function was added in version 1.1.350 of
+RStudio and the ability to specify shellType was added in version 1.2.696.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>termId</span> <span class='op'>&lt;-</span> <span class='kw'>rstudioapi</span>::<span class='fu'>terminalCreate</span>(<span class='st'>'My Terminal'</span>)
-}
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>termId</span> <span class='op'>&lt;-</span> <span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>terminalCreate</span><span class='op'>(</span><span class='st'>'My Terminal'</span><span class='op'>)</span>
+<span class='op'>}</span>
+
 
 </div></pre>
   </div>

@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Retrieve Themes — getThemeInfo" />
-<meta property="og:description" content="Retrieves a list with information about the current color theme used by RStudio." />
+<meta property="og:description" content="Retrieves a list with information about the current color theme used by
+RStudio." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +121,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -143,24 +144,26 @@
     </div>
 
     <div class="ref-description">
-    <p>Retrieves a list with information about the current color theme used by RStudio.</p>
+    <p>Retrieves a list with information about the current color theme used by
+RStudio.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getThemeInfo</span>()</pre>
+    <pre class="usage"><span class='fu'>getThemeInfo</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>A list is returned with the following elements:</p><dl>
-<dt>editor</dt><dd><p>The name of the current editor theme, such as <code>Textmate</code>.</p></dd>
-<dt>global</dt><dd><p>The name of the current global theme. One of <code>Modern</code>, <code>Classic</code>, or
-<code>Sky</code>.</p></dd>
-<dt>dark</dt><dd><p><code>TRUE</code> if the editor theme is dark, <code>FALSE</code> otherwise.</p></dd>
-<dt>foreground</dt><dd><p>The current editor theme's default text foreground color, formatted as a
-CSS-compatible color string, such as <code><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb(1, 22, 39)</a></code>. Supported since RStudio 1.2.1214.</p></dd>
-<dt>background</dt><dd><p>The current editor theme's default text background color, formatted as a
-CSS-compatible color string. Supported since RStudio 1.2.1214.</p></dd>
-
+<dt>editor</dt><dd><p>The
+name of the current editor theme, such as <code>Textmate</code>.</p></dd>
+<dt>global</dt><dd><p>The name of the current global theme. One of <code>Modern</code>,
+<code>Classic</code>, or <code>Sky</code>.</p></dd> <dt>dark</dt><dd><p><code>TRUE</code> if the editor theme
+is dark, <code>FALSE</code> otherwise.</p></dd> <dt>foreground</dt><dd><p>The current editor
+theme's default text foreground color, formatted as a CSS-compatible color
+string, such as <code><a href='https://rdrr.io/r/grDevices/rgb.html'>rgb(1, 22, 39)</a></code>. Supported since RStudio 1.2.1214.</p></dd>
+<dt>background</dt><dd><p>The current editor theme's default text background color,
+formatted as a CSS-compatible color string. Supported since RStudio
+1.2.1214.</p></dd> 
 </dl>
 
 

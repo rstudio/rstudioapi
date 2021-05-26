@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Save Active RStudio Plot as an Image — savePlotAsImage • rstudioapi</title>
+<title>Save active RStudio plot image — savePlotAsImage • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Save Active RStudio Plot as an Image — savePlotAsImage" />
-<meta property="og:description" content="Save the currnently active RStudio as an image file." />
+<meta property="og:title" content="Save active RStudio plot image — savePlotAsImage" />
+<meta property="og:description" content="Save the plot currently displayed in the Plots pane as an image." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,46 +137,47 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Save Active RStudio Plot as an Image</h1>
+    <h1>Save active RStudio plot image</h1>
     <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>savePlotAsImage.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Save the currnently active RStudio as an image file.</p>
+    <p>Save the plot currently displayed in the Plots pane as an image.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>savePlotAsImage</span>(
-  <span class='kw'>file</span>,
-  format = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"png"</span>, <span class='st'>"jpeg"</span>, <span class='st'>"bmp"</span>, <span class='st'>"tiff"</span>, <span class='st'>"emf"</span>, <span class='st'>"svg"</span>, <span class='st'>"eps"</span>),
-  <span class='kw'>width</span>,
-  <span class='kw'>height</span>
-)</pre>
+    <pre class="usage"><span class='fu'>savePlotAsImage</span><span class='op'>(</span>
+  <span class='va'>file</span>,
+  format <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"png"</span>, <span class='st'>"jpeg"</span>, <span class='st'>"bmp"</span>, <span class='st'>"tiff"</span>, <span class='st'>"emf"</span>, <span class='st'>"svg"</span>, <span class='st'>"eps"</span><span class='op'>)</span>,
+  <span class='va'>width</span>,
+  <span class='va'>height</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>file</th>
-      <td><p>Target filename</p></td>
+      <td><p>The target file path.</p></td>
     </tr>
     <tr>
       <th>format</th>
-      <td><p>Image format ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps")</p></td>
+      <td><p>The Image format.
+Must be one of ("png", "jpeg", "bmp", "tiff", "emf", "svg", or "eps").</p></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>Image width in pixels</p></td>
+      <td><p>The image width, in pixels.</p></td>
     </tr>
     <tr>
       <th>height</th>
-      <td><p>Image height in pixels</p></td>
+      <td><p>The image height, in pixels.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>savePlotAsImage</code> function was introduced in RStudio 1.1.57</p>
+    <p>The <code>savePlotAsImage</code> function was introduced in RStudio 1.1.57.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

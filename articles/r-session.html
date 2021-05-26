@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +92,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="r-session_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Interacting with the R Session</h1>
@@ -105,29 +105,55 @@
 
     
     
+<div id="detecting-rstudio" class="section level2">
+<h2 class="hasAnchor">
+<a href="#detecting-rstudio" class="anchor"></a>Detecting RStudio</h2>
+<p>R code may need to determine whether it’s being run within an RStudio session, versus a plain R session or something similar.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># check that RStudio is available via rstudioapi -- note that this must</span>
+<span class="co"># be checked prior to calling any other rstudioapi APIs!</span>
+<span class="kw">if</span> <span class="op">(</span><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/isAvailable.html">isAvailable</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+
+  <span class="co"># determine more information via </span>
+  <span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/versionInfo.html">versionInfo</a></span><span class="op">(</span><span class="op">)</span>
+  
+  <span class="co"># check for desktop mode</span>
+  <span class="va">info</span><span class="op">$</span><span class="va">mode</span> <span class="op">==</span> <span class="st">"desktop"</span>
+  
+  <span class="co"># check for server mode</span>
+  <span class="va">info</span><span class="op">$</span><span class="va">mode</span> <span class="op">==</span> <span class="st">"server"</span>
+  
+  <span class="co"># check the version of RStudio in use</span>
+  <span class="va">info</span><span class="op">$</span><span class="va">version</span> <span class="op">&gt;=</span> <span class="st">"1.4"</span>
+  
+<span class="op">}</span>
+
+<span class="co"># check whether RStudio is running without relying on rstudioapi</span>
+<span class="va">.Platform</span><span class="op">$</span><span class="va">GUI</span> <span class="op">==</span> <span class="st">"RStudio"</span>  <span class="co"># NOTE: may be unreliable in .Rprofile</span>
+<span class="fu"><a href="https://rdrr.io/r/base/commandArgs.html">commandArgs</a></span><span class="op">(</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">"RStudio"</span></code></pre></div>
+<p>A note: the <code>RSTUDIO</code> environment variable will be set both within the main RStudio session, but also within child processes launched by RStudio. If you need to specifically detect if your code is running within the main RStudio session, we recommend using an alternate mechanism.</p>
+</div>
 <div id="session-interaction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#session-interaction" class="anchor"></a>Session Interaction</h2>
 <p>The <code>rstudioapi</code> package allows you to interact with the running R session in a couple useful ways: you can send code to the R console, or restart the R session.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># restart R, then run some code after</span>
-<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/restartSession.html">restartSession</a></span>(command = <span class="st">"print('Welcome back!')"</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># restart R, then run some code after</span>
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/restartSession.html">restartSession</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">"print('Welcome back!')"</span><span class="op">)</span>
 
 <span class="co"># send some code to the console and execute it immediately</span>
-<span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/sendToConsole.html">sendToConsole</a></span>(<span class="st">"1 + 1"</span>, execute = <span class="fl">TRUE</span>)
-</pre></div>
+<span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/sendToConsole.html">sendToConsole</a></span><span class="op">(</span><span class="st">"1 + 1"</span>, execute <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="running-at-startup" class="section level2">
 <h2 class="hasAnchor">
 <a href="#running-at-startup" class="anchor"></a>Running at Startup</h2>
 <p>Typically, code that you want to run at the start of an R session is placed into an <code>.Rprofile</code> file (see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html">Initialization at the Start of a Session</a> for details). However, RStudio’s API hooks are not available until RStudio has fully started up, so most <code>rstudioapi</code> methods will not work inside <code>.Rprofile</code>.</p>
 <p>If you want to invoke <code>rstudioapi</code> methods on session startup, use the <code>rstudio.sessionInit</code> hook. For example, to print the RStudio version to the R console when the session begins:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/userhooks.html">setHook</a></span>(<span class="st">"rstudio.sessionInit"</span>, <span class="fu">function</span>(<span class="kw">newSession</span>) {
-  <span class="co">if</span> (<span class="kw">newSession</span>)
-    <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">"Welcome to RStudio "</span>, <span class="kw">rstudioapi</span>::<span class="fu"><a href="../reference/getVersion.html">getVersion</a></span>())
-}, action = <span class="st">"append"</span>)
-</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/userhooks.html">setHook</a></span><span class="op">(</span><span class="st">"rstudio.sessionInit"</span>, <span class="kw">function</span><span class="op">(</span><span class="va">newSession</span><span class="op">)</span> <span class="op">{</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">newSession</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="st">"Welcome to RStudio "</span>, <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/getVersion.html">getVersion</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>, action <span class="op">=</span> <span class="st">"append"</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
 

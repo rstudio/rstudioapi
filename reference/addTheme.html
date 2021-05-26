@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Add a Custom Editor Theme — addTheme" />
-<meta property="og:description" content="Adds a custom editor theme to RStudio and returns the name of the newly added theme." />
+<meta property="og:description" content="Adds a custom editor theme to RStudio and returns the name of the newly
+added theme." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +121,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -143,38 +144,37 @@
     </div>
 
     <div class="ref-description">
-    <p>Adds a custom editor theme to RStudio and returns the name of the newly added theme.</p>
+    <p>Adds a custom editor theme to RStudio and returns the name of the newly
+added theme.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>addTheme</span>(<span class='kw'>themePath</span>, apply = <span class='fl'>FALSE</span>, force = <span class='fl'>FALSE</span>, globally = <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>addTheme</span><span class='op'>(</span><span class='va'>themePath</span>, apply <span class='op'>=</span> <span class='cn'>FALSE</span>, force <span class='op'>=</span> <span class='cn'>FALSE</span>, globally <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>themePath</th>
-      <td><p>A full or relative path or URL to an <code>rstheme</code> or <code>tmtheme</code> to be
-added.</p></td>
+      <td><p>A full or relative path or URL to an <code>rstheme</code> or
+<code>tmtheme</code> to be added.</p></td>
     </tr>
     <tr>
       <th>apply</th>
-      <td><p>Whether to immediately apply the newly added theme. Setting this to
-<code>TRUE</code> has the same impact as running
-<code>{ rstudioapi::addTheme(&lt;themePath&gt;); rstudioapi::applyTheme(&lt;themeName&gt;) }</code>.<br />
-Default: <code>FALSE</code>.</p></td>
+      <td><p>Whether to immediately apply the newly added theme. Setting
+this to <code>TRUE</code> has the same impact as running <code>{
+rstudioapi::addTheme(&lt;themePath&gt;); rstudioapi::applyTheme(&lt;themeName&gt;)
+}</code>.<br /> Default: <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>force</th>
-      <td><p>Whether to force the operation and overwrite an existing file with the same
-name.<br />
-Default: <code>FALSE</code>.</p></td>
+      <td><p>Whether to force the operation and overwrite an existing file
+with the same name.<br /> Default: <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>globally</th>
-      <td><p>Whether to install this theme for the current user or all users. If set to
-<code>TRUE</code> this will attempt to install the theme for all users, which may
-require administrator privileges.<br />
-Default: <code>FALSE</code>.</p></td>
+      <td><p>Whether to install this theme for the current user or all
+users. If set to <code>TRUE</code> this will attempt to install the theme for all
+users, which may require administrator privileges.<br /> Default: <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

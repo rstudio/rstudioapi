@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Navigate to File — navigateToFile • rstudioapi</title>
+<title>Navigate to file — navigateToFile • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Navigate to File — navigateToFile" />
+<meta property="og:title" content="Navigate to file — navigateToFile" />
 <meta property="og:description" content="Open a file in RStudio, optionally at a specified location." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,8 +137,8 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Navigate to File</h1>
-    
+    <h1>Navigate to file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>navigateToFile.Rd</code></div>
     </div>
 
@@ -146,40 +146,56 @@
     <p>Open a file in RStudio, optionally at a specified location.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>navigateToFile</span>(<span class='kw'>file</span>, line = <span class='op'>-</span><span class='fl'>1L</span>, column = <span class='op'>-</span><span class='fl'>1L</span>, moveCursor = <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>navigateToFile</span><span class='op'>(</span>
+  file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  line <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1L</span>,
+  column <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1L</span>,
+  moveCursor <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>file</th>
-      <td><p>Optional; Path to the file to open)</p></td>
+      <td><p>The file to be opened.</p></td>
     </tr>
     <tr>
       <th>line</th>
-      <td><p>Optional; integer specifying the line number on which to place the cursor</p></td>
+      <td><p>The line number where the cursor should be placed. When <code>-1L</code>
+(the default), the cursor will not be moved.</p></td>
     </tr>
     <tr>
       <th>column</th>
-      <td><p>Optional; integer specifying the column number on which to place the cursor</p></td>
+      <td><p>The column number where the cursour should be placed. When
+<code>-1L</code> (the default), the cursor will not be moved.</p></td>
     </tr>
     <tr>
       <th>moveCursor</th>
-      <td><p>Optional; boolean specifying whether the cursor should move to the specified position</p></td>
+      <td><p>Boolean; should the cursor be moved to the requested
+(<code>line</code>, <code>column</code>) position? Set this to <code>FALSE</code> to preserve the existing
+cursor position in the document.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>The <code>navigateToFile</code> function was added in version 0.99.719 of RStudio.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The <code>navigateToFile</code> opens a file in RStudio. If the file is already open, its tab or window is activated.</p>
-<p>Once the file is open, the cursor is moved to the specified location. If the <code>file</code>
-argument is empty (the default), then the file is the file currently in view if one exists.
-If the <code>line</code> and <code>column</code> arguments are both equal to <code>-1L</code> (the default), then
-the cursor position in the document that is opened will be preserved. Alternatively, <code>moveCursor</code> can be set to FALSE to preserve the cursor position.</p>
-<p>Note that if your intent is to navigate to a particular function within a file, you can also cause RStudio to navigate there by invoking <code><a href='https://rdrr.io/r/utils/View.html'>View</a></code> on the function, which has the advantage of falling back on deparsing if the file is not available.</p>
+    <p>The <code>navigateToFile</code> opens a file in RStudio. If the file is already
+open, its tab or window is activated.</p>
+<p>Once the file is open, the cursor is moved to the specified location. If the
+<code>file</code> argument is empty (the default), then the file is the file
+currently in view if one exists. If the <code>line</code> and <code>column</code>
+arguments are both equal to <code>-1L</code> (the default), then the cursor
+position in the document that is opened will be preserved. Alternatively,
+<code>moveCursor</code> can be set to <code>FALSE</code> to preserve the cursor position.</p>
+<p>Note that if your intent is to navigate to a particular function within a
+file, you can also cause RStudio to navigate there by invoking
+<code><a href='https://rdrr.io/r/utils/View.html'>View</a></code> on the function, which has the advantage of
+falling back on deparsing if the file is not available.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The <code>navigateToFile</code> function was added in version 0.99.719 of
+RStudio.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

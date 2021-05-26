@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Open a Project in RStudio — projects • rstudioapi</title>
+<title>Open a project in RStudio — projects • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Open a Project in RStudio — projects" />
+<meta property="og:title" content="Open a project in RStudio — projects" />
 <meta property="og:description" content="Initialize and open RStudio projects." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Open a Project in RStudio</h1>
+    <h1>Open a project in RStudio</h1>
     <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>projects.Rd</code></div>
     </div>
@@ -146,9 +146,9 @@
     <p>Initialize and open RStudio projects.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>openProject</span>(path = <span class='kw'>NULL</span>, newSession = <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>openProject</span><span class='op'>(</span>path <span class='op'>=</span> <span class='cn'>NULL</span>, newSession <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>initializeProject</span>(path = <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>())</pre>
+<span class='fu'>initializeProject</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,7 +172,7 @@ Server Pro.</p></td>
     <p>Calling <code>openProject()</code> without arguments effectively re-opens the
 currently open project in RStudio. When switching projects, users will
 be prompted to save any unsaved files; alternatively, you can explicitly
-save any open documents using <code><a href='rstudio-documents.html'>documentSaveAll</a>()</code>.</p>
+save any open documents using <code><a href='rstudio-documents.html'>documentSaveAll()</a></code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>The <code>openProject</code> and <code>initializeProject</code> functions were

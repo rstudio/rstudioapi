@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,15 +146,15 @@
     <p>Inform RStudio's Jobs pane that a job has been added.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jobAdd</span>(
-  <span class='kw'>name</span>,
-  status = <span class='st'>""</span>,
-  progressUnits = <span class='fl'>0L</span>,
-  actions = <span class='kw'>NULL</span>,
-  running = <span class='fl'>FALSE</span>,
-  autoRemove = <span class='fl'>TRUE</span>,
-  show = <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>jobAdd</span><span class='op'>(</span>
+  <span class='va'>name</span>,
+  status <span class='op'>=</span> <span class='st'>""</span>,
+  progressUnits <span class='op'>=</span> <span class='fl'>0L</span>,
+  actions <span class='op'>=</span> <span class='cn'>NULL</span>,
+  running <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  autoRemove <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  show <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,13 +169,14 @@
     </tr>
     <tr>
       <th>progressUnits</th>
-      <td><p>The integer number of units of work in the job; for example, <code>100L</code>
-if the job's progress is expressed in percentages. Use <code>0L</code> if the number of units of
-work is unknown.</p></td>
+      <td><p>The integer number of units of work in the job; for
+example, <code>100L</code> if the job's progress is expressed in percentages. Use
+<code>0L</code> if the number of units of work is unknown.</p></td>
     </tr>
     <tr>
       <th>actions</th>
-      <td><p>A list of actions that can be performed on the job (see Actions).</p></td>
+      <td><p>A list of actions that can be performed on the job (see
+Actions).</p></td>
     </tr>
     <tr>
       <th>running</th>
@@ -183,7 +184,8 @@ work is unknown.</p></td>
     </tr>
     <tr>
       <th>autoRemove</th>
-      <td><p>Whether to remove the job from the Jobs pane when it's complete.</p></td>
+      <td><p>Whether to remove the job from the Jobs pane when it's
+complete.</p></td>
     </tr>
     <tr>
       <th>show</th>
@@ -199,29 +201,26 @@ further updates of the job's status.</p>
 
     
 
-<p>The <code>actions</code> parameter is a named list of functions that the user can invoke on the job;
-for example: <code>actions = list(stop = function(id) { ... })</code>. The function will be passed a
-parameter named <code>id</code> with the job ID that invoked it.</p>
-<p>There are two special action names:</p><dl>
-<dt>stop</dt><dd><p>If there is an action named <code>stop</code>, then the job will
-have a Stop button in in the Jobs pane, and pressing that button will invoke
-the <code>stop</code> action.</p></dd>
-<dt>info</dt><dd><p>If there is an action named <code>info</code>, then the job will
-have an informational link in the Jobs pane rather than an output
-display, and clicking the link will invoke the <code>info</code> action.</p></dd>
 
+<p>The <code>actions</code> parameter is a named list of functions that the user can
+invoke on the job; for example: <code>actions = list(stop = function(id) {
+... })</code>. The function will be passed a parameter named <code>id</code> with the
+job ID that invoked it.</p>
+<p>There are two special action names:</p><dl>
+<dt>stop</dt><dd><p>If there is an
+action named <code>stop</code>, then the job will have a Stop button in in the
+Jobs pane, and pressing that button will invoke the <code>stop</code> action.</p></dd>
+<dt>info</dt><dd><p>If there is an action named <code>info</code>, then the job will have
+an informational link in the Jobs pane rather than an output display, and
+clicking the link will invoke the <code>info</code> action.</p></dd> 
 </dl>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other jobs: 
-<code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
-<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>,
-<code><a href='jobRemove.html'>jobRemove</a>()</code>,
-<code><a href='jobRunScript.html'>jobRunScript</a>()</code>,
-<code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
-<code><a href='jobSetState.html'>jobSetState</a>()</code>,
-<code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
+    <div class='dont-index'><p>Other jobs: <code><a href='jobAddOutput.html'>jobAddOutput</a>()</code>,
+<code><a href='jobAddProgress.html'>jobAddProgress</a>()</code>, <code><a href='jobRemove.html'>jobRemove</a>()</code>,
+<code><a href='jobRunScript.html'>jobRunScript</a>()</code>, <code><a href='jobSetProgress.html'>jobSetProgress</a>()</code>,
+<code><a href='jobSetState.html'>jobSetState</a>()</code>, <code><a href='jobSetStatus.html'>jobSetStatus</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

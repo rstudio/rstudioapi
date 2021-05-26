@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Display Source Markers — sourceMarkers • rstudioapi</title>
+<title>Display source markers — sourceMarkers • rstudioapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Display Source Markers — sourceMarkers" />
-<meta property="og:description" content="Display user navigable source markers in a pane within RStudio" />
+<meta property="og:title" content="Display source markers — sourceMarkers" />
+<meta property="og:description" content="Display user navigable source markers in a pane within RStudio." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,57 +137,69 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Display Source Markers</h1>
-    
+    <h1>Display source markers</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/rstudioapi/blob/master/R/stubs.R'><code>R/stubs.R</code></a></small>
     <div class="hidden name"><code>sourceMarkers.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Display user navigable source markers in a pane within RStudio</p>
+    <p>Display user navigable source markers in a pane within RStudio.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sourceMarkers</span>(<span class='kw'>name</span>, <span class='kw'>markers</span>, basePath = <span class='kw'>NULL</span>,
-              autoSelect = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"first"</span>, <span class='st'>"error"</span>))</pre>
+    <pre class="usage"><span class='fu'>sourceMarkers</span><span class='op'>(</span>
+  <span class='va'>name</span>,
+  <span class='va'>markers</span>,
+  basePath <span class='op'>=</span> <span class='cn'>NULL</span>,
+  autoSelect <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"first"</span>, <span class='st'>"error"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>name</th>
-      <td><p>Name of marker set (will replace any markers of the same name previously shown)</p></td>
+      <td><p>The name of marker set. If there is a market set with this name
+already being shown, those markers will be replaced.</p></td>
     </tr>
     <tr>
       <th>markers</th>
-      <td><p>List or data frame containing source markers (see below for details on how to specify markers)</p></td>
+      <td><p>An <span style="R">R</span> list, or data.frame, of source markers. See <strong>details</strong>
+for more details on the expected format.</p></td>
     </tr>
     <tr>
       <th>basePath</th>
-      <td><p>Optional. If all source files are within a base path then specifying that path here will result in file names being displayed as relative paths. Note that in this case markers still need to specify source file names as full paths.</p></td>
+      <td><p>Optional. If all source files are within a base path, then
+specifying that path here will result in file names being displayed as
+relative paths. Note that in this case markers still need to specify source
+file names as full paths.</p></td>
     </tr>
     <tr>
       <th>autoSelect</th>
-      <td><p>Optional. Automatically select and drive focus to either the first marker or the first marker that is an error.</p></td>
+      <td><p>Auto-select a marker after displaying the marker set?</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>The <code>sourceMarkers</code> function was added in version 0.99.225 of RStudio.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    
-
-<p>The <code>markers</code> argument can contains either a list of marker lists or a data frame with the appropriate marker columns. The fields in a marker are as follows (all are required):</p>
+    <p>The <code>markers</code> argument can contains either a list of marker lists or a
+data frame with the appropriate marker columns. The fields in a marker are
+as follows (all are required):</p>
 <table class='table'>
-<tr><td><code>type</code></td><td>Marker type ("error", "warning", "info", "style", or "usage")</td></tr>
-<tr><td><code>file</code></td><td>Path to source file</td></tr>
-<tr><td><code>line</code></td><td>Line number witin source file</td></tr>
-<tr><td><code>column</code></td><td>Column number within line</td></tr>
-<tr><td><code>message</code></td><td>Short descriptive message</td></tr>
+<tr><td><code>type</code></td><td>The marker type ("error", "warning", "info", "style", or "usage").</td></tr>
+<tr><td><code>file</code></td><td>The path to the associated source file.</td></tr>
+<tr><td><code>line</code></td><td>The line number for the associated marker.</td></tr>
+<tr><td><code>column</code></td><td>The column number for the associated marker.</td></tr>
+<tr><td><code>message</code></td><td>A message associated with the marker at this location.</td></tr>
 </table>
 
 
-<p>Note that if the <code>message</code> field is of class "html" (i.e. <code>inherits(message, "html") == TRUE</code>) then it's contents will be treated as HTML.</p>
+<p>Note that if the <code>message</code> field is of class "html" (i.e.
+<code>inherits(message, "html") == TRUE</code>) then its contents will be treated
+as HTML.</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The <code>sourceMarkers</code> function was added in version 0.99.225 of
+RStudio.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

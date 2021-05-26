@@ -47,9 +47,7 @@
 
 
 <meta property="og:title" content="Interact with Documents open in RStudio — rstudio-documents" />
-<meta property="og:description" content="Use these functions to interact with documents open in RStudio.
-Creates a new document in RStudio.
-Closes a document currently open in RStudio." />
+<meta property="og:description" content="Use these functions to interact with documents open in RStudio." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -82,7 +80,7 @@ Closes a document currently open in RStudio." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -122,7 +120,7 @@ Closes a document currently open in RStudio." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,36 +144,34 @@ Closes a document currently open in RStudio." />
 
     <div class="ref-description">
     <p>Use these functions to interact with documents open in RStudio.</p>
-<p>Creates a new document in RStudio.</p>
-<p>Closes a document currently open in RStudio.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>insertText</span>(<span class='kw'>location</span>, <span class='kw'>text</span>, id = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>insertText</span><span class='op'>(</span>location <span class='op'>=</span> <span class='cn'>NULL</span>, text <span class='op'>=</span> <span class='cn'>NULL</span>, id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>modifyRange</span>(<span class='kw'>location</span>, <span class='kw'>text</span>, id = <span class='kw'>NULL</span>)
+<span class='fu'>modifyRange</span><span class='op'>(</span>location <span class='op'>=</span> <span class='cn'>NULL</span>, text <span class='op'>=</span> <span class='cn'>NULL</span>, id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>setDocumentContents</span>(<span class='kw'>text</span>, id = <span class='kw'>NULL</span>)
+<span class='fu'>setDocumentContents</span><span class='op'>(</span><span class='va'>text</span>, id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>setCursorPosition</span>(<span class='kw'>position</span>, id = <span class='kw'>NULL</span>)
+<span class='fu'>setCursorPosition</span><span class='op'>(</span><span class='va'>position</span>, id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>setSelectionRanges</span>(<span class='kw'>ranges</span>, id = <span class='kw'>NULL</span>)
+<span class='fu'>setSelectionRanges</span><span class='op'>(</span><span class='va'>ranges</span>, id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>documentId</span>(allowConsole = <span class='fl'>TRUE</span>)
+<span class='fu'>documentId</span><span class='op'>(</span>allowConsole <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>documentPath</span>(id = <span class='kw'>NULL</span>)
+<span class='fu'>documentPath</span><span class='op'>(</span>id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>documentSave</span>(id = <span class='kw'>NULL</span>)
+<span class='fu'>documentSave</span><span class='op'>(</span>id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>documentSaveAll</span>()
+<span class='fu'>documentSaveAll</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>documentNew</span>(
-  <span class='kw'>text</span>,
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"r"</span>, <span class='st'>"rmarkdown"</span>, <span class='st'>"sql"</span>),
-  position = <span class='fu'><a href='document_position.html'>document_position</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>),
-  execute = <span class='fl'>FALSE</span>
-)
+<span class='fu'>documentNew</span><span class='op'>(</span>
+  <span class='va'>text</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"r"</span>, <span class='st'>"rmarkdown"</span>, <span class='st'>"sql"</span><span class='op'>)</span>,
+  position <span class='op'>=</span> <span class='fu'><a href='document_position.html'>document_position</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>,
+  execute <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
 
-<span class='fu'>documentClose</span>(id = <span class='kw'>NULL</span>, save = <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>documentClose</span><span class='op'>(</span>id <span class='op'>=</span> <span class='cn'>NULL</span>, save <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -236,25 +232,25 @@ such objects.</p>
 <p>To operate on the current selection in a document, call <code>insertText()</code>
 with only a text argument, e.g.</p>
 <pre>
-    <span class='fu'>insertText</span>(<span class='st'>"# Hello\n"</span>)
-    <span class='fu'>insertText</span>(text = <span class='st'>"# Hello\n"</span>)
+    <span class='fu'>insertText</span><span class='op'>(</span><span class='st'>"# Hello\n"</span><span class='op'>)</span>
+    <span class='fu'>insertText</span><span class='op'>(</span>text <span class='op'>=</span> <span class='st'>"# Hello\n"</span><span class='op'>)</span>
 </pre>
 
 <p>Otherwise, specify a (list of) positions or ranges, as in:</p>
 <pre>
     <span class='co'># insert text at the start of the document</span>
-    <span class='fu'>insertText</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>), <span class='st'>"# Hello\n"</span>)
+    <span class='fu'>insertText</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='st'>"# Hello\n"</span><span class='op'>)</span>
 
     <span class='co'># insert text at the end of the document</span>
-    <span class='fu'>insertText</span>(<span class='fl'>Inf</span>, <span class='st'>"# Hello\n"</span>)
+    <span class='fu'>insertText</span><span class='op'>(</span><span class='cn'>Inf</span>, <span class='st'>"# Hello\n"</span><span class='op'>)</span>
 
     <span class='co'># comment out the first 5 rows</span>
-    <span class='kw'>pos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span>)
-    <span class='fu'>insertText</span>(<span class='kw'>pos</span>, <span class='st'>"# "</span>)
+    <span class='va'>pos</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span><span class='op'>(</span><span class='va'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>)</span>
+    <span class='fu'>insertText</span><span class='op'>(</span><span class='va'>pos</span>, <span class='st'>"# "</span><span class='op'>)</span>
 
     <span class='co'># uncomment the first 5 rows, undoing the previous action</span>
-    <span class='kw'>rng</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span>), <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span>(<span class='kw'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>3</span>))
-    <span class='fu'>modifyRange</span>(<span class='kw'>rng</span>, <span class='st'>""</span>)
+    <span class='va'>rng</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span><span class='op'>(</span><span class='va'>c</span>, <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span><span class='op'>(</span><span class='va'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/funprog.html'>Map</a></span><span class='op'>(</span><span class='va'>c</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='fu'>modifyRange</span><span class='op'>(</span><span class='va'>rng</span>, <span class='st'>""</span><span class='op'>)</span>
 </pre>
 
 <p><code>modifyRange</code> is a synonym for <code>insertText</code>, but makes its intent

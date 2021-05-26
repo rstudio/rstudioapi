@@ -48,8 +48,8 @@
 
 <meta property="og:title" content="Exists/get for RStudio functions — hasFun" />
 <meta property="og:description" content="These are specialized versions of get and
-exists that look in the rstudio package namespace.
-If RStudio is not running,  hasFun will return FALSE." />
+exists that look in the rstudio package namespace. If
+RStudio is not running, hasFun will return FALSE." />
 <meta property="og:image" content="https://rstudio.github.io/rstudioapi/logo.svg" />
 
 
@@ -82,7 +82,7 @@ If RStudio is not running,  hasFun will return FALSE." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -122,7 +122,7 @@ If RStudio is not running,  hasFun will return FALSE." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,13 +146,13 @@ If RStudio is not running,  hasFun will return FALSE." />
 
     <div class="ref-description">
     <p>These are specialized versions of <code><a href='https://rdrr.io/r/base/get.html'>get</a></code> and
-<code><a href='https://rdrr.io/r/base/exists.html'>exists</a></code> that look in the rstudio package namespace.
-If RStudio is not running,  <code>hasFun</code> will return <code>FALSE</code>.</p>
+<code><a href='https://rdrr.io/r/base/exists.html'>exists</a></code> that look in the rstudio package namespace. If
+RStudio is not running, <code>hasFun</code> will return <code>FALSE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>hasFun</span>(<span class='kw'>name</span>, version_needed = <span class='kw'>NULL</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>hasFun</span><span class='op'>(</span><span class='va'>name</span>, version_needed <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>findFun</span>(<span class='kw'>name</span>, version_needed = <span class='kw'>NULL</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'>findFun</span><span class='op'>(</span><span class='va'>name</span>, version_needed <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,8 +164,8 @@ If RStudio is not running,  <code>hasFun</code> will return <code>FALSE</code>.<
     <tr>
       <th>version_needed</th>
       <td><p>An optional version specification. If supplied,
-ensures that RStudio is at least that version. This is useful if
-function behavior has changed over time.</p></td>
+ensures that RStudio is at least that version. This is useful if function
+behavior has changed over time.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -176,8 +176,10 @@ function behavior has changed over time.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>rstudioapi</span>::<span class='fu'>hasFun</span>(<span class='st'>"viewer"</span>)
-</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='fu'>rstudioapi</span><span class='fu'>::</span><span class='fu'>hasFun</span><span class='op'>(</span><span class='st'>"viewer"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

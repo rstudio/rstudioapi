@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,7 +146,7 @@
     <p>Updates specific properties from the current dialog box.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>updateDialog</span>(<span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>updateDialog</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,16 +159,14 @@
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Currently, the only dialog with support for this action is the
-New Connection dialog in which the code preview can be
-updated through this API.</p>
-<pre>
-    <span class='fu'>updateDialog</span>(code = <span class='st'>"con &lt;- NULL"</span>)
-</pre>
+    <p>Currently, the only dialog with support for this action is the New
+Connection dialog in which the code preview can be updated through this API.</p>
+<pre> <span class='fu'>updateDialog</span><span class='op'>(</span>code <span class='op'>=</span> <span class='st'>"con &lt;- NULL"</span><span class='op'>)</span> </pre>
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>The <code>updateDialog</code> function was added in version 1.1.67 of RStudio.</p>
+    <p>The <code>updateDialog</code> function was added in version 1.1.67 of
+RStudio.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

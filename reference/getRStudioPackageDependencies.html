@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.11.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/rstudioapi/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -146,7 +146,7 @@
     <p>Gets a list of the all the R packages that RStudio depends on in some way.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getRStudioPackageDependencies</span>()</pre>
+    <pre class="usage"><span class='fu'>getRStudioPackageDependencies</span><span class='op'>(</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -154,15 +154,12 @@
     <p>A data frame containing a row per R package.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The data frame of package dependencies contains the following
-columns:</p><dl>
-<dt>name</dt><dd><p>The name of the R package.</p></dd>
-<dt>version</dt><dd><p>The required minimum version of the R package.</p></dd>
-<dt>location</dt><dd><p>Where RStudio expects the package to be, <code>cran</code> for
-a CRAN-like repository or <code>embedded</code> for development packages
-embedded in RStudio itself.</p></dd>
-<dt>source</dt><dd><p>Whether the package should be installed from source.</p></dd>
-
+    <p>The data frame of package dependencies contains the following columns:</p><dl>
+<dt>name</dt><dd><p>The name of the R package.</p></dd> <dt>version</dt><dd><p>The
+required minimum version of the R package.</p></dd> <dt>location</dt><dd><p>Where RStudio
+expects the package to be, <code>cran</code> for a CRAN-like repository or
+<code>embedded</code> for development packages embedded in RStudio itself.</p></dd>
+<dt>source</dt><dd><p>Whether the package should be installed from source.</p></dd> 
 </dl>
 
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
