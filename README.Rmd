@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Travis-CI Build Status](https://travis-ci.org/rstudio/rstudioapi.svg?branch=master)](https://travis-ci.org/rstudio/rstudioapi)
 [![CRAN status](https://www.r-pkg.org/badges/version/rstudioapi)](https://CRAN.R-project.org/package=rstudioapi)
+[![Codecov test coverage](https://codecov.io/gh/rstudio/rstudioapi/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio/rstudioapi?branch=master)
+[![R-CMD-check](https://github.com/rstudio/rstudioapi/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/rstudioapi/actions)
 <!-- badges: end -->
 
 The `rstudioapi` package is designed to make it easy to conditionally access the

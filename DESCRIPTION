@@ -21,6 +21,7 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    clipr
+    clipr,
+    covr
 VignetteBuilder: knitr
 Encoding: UTF-8

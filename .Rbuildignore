@@ -9,3 +9,5 @@
 ^README\.md$
 ^README\.Rmd$
 ^tags$
+^codecov\.yml$
+^\.github$
