@@ -11,3 +11,5 @@
 ^tags$
 ^codecov\.yml$
 ^\.github$
+^docs$
+^pkgdown$
