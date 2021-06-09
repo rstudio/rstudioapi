@@ -249,32 +249,6 @@ navigateToFile <- function(file = character(0),
 }
 
 
-#' Ask the user for a password interactively
-#' 
-#' Ask the user for a password interactively.
-#' 
-#' RStudio also sets the global \code{askpass} option to the
-#' \code{rstudioapi::askForPassword} function so that it can be invoked in a
-#' front-end independent manner.
-#' 
-#' @param prompt The prompt to be shown to the user.
-#' 
-#' @note The \code{askForPassword} function was added in version 0.99.853 of
-#'   RStudio.
-#' 
-#' @examples
-#' 
-#' \dontrun{
-#' rstudioapi::askForPassword("Please enter your password")
-#' }
-#' 
-#' @export askForPassword
-askForPassword <- function(prompt = "Please enter your password") {
-  callFun("askForPassword", prompt)
-}
-
-
-
 #' Retrieve path to active RStudio project
 #' 
 #' Get the path to the active RStudio project (if any). If the path contains
