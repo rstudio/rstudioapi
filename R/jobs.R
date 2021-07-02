@@ -23,12 +23,15 @@
 #' ... })}. The function will be passed a parameter named \code{id} with the
 #' job ID that invoked it.
 #' 
-#' There are two special action names: \describe{ \item{stop}{If there is an
+#' There are three special action names: \describe{ \item{stop}{If there is an
 #' action named \code{stop}, then the job will have a Stop button in in the
 #' Jobs pane, and pressing that button will invoke the \code{stop} action.}
 #' \item{info}{If there is an action named \code{info}, then the job will have
 #' an informational link in the Jobs pane rather than an output display, and
-#' clicking the link will invoke the \code{info} action.} }
+#' clicking the link will invoke the \code{info} action.}
+#' \item{replay}{If there is an action named \code{replay}, then the job will
+#' have a Replay button that displays when the job has finished running. Clicking
+#' the button will invoke the \code{replay} action.}}
 #' @seealso Other jobs: \code{\link{jobAddOutput}()},
 #' \code{\link{jobAddProgress}()}, \code{\link{jobRemove}()},
 #' \code{\link{jobRunScript}()}, \code{\link{jobSetProgress}()},
