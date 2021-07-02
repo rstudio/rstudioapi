@@ -9,7 +9,7 @@ articles:
   r-session: r-session.html
   terminal: terminal.html
   visual-mode: visual-mode.html
-last_built: 2021-05-26T22:37Z
+last_built: 2021-07-02T23:15Z
 urls:
   reference: https://rstudio.github.io/rstudioapi/reference
   article: https://rstudio.github.io/rstudioapi/articles

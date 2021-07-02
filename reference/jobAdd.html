@@ -206,13 +206,16 @@ further updates of the job's status.</p>
 invoke on the job; for example: <code>actions = list(stop = function(id) {
 ... })</code>. The function will be passed a parameter named <code>id</code> with the
 job ID that invoked it.</p>
-<p>There are two special action names:</p><dl>
+<p>There are three special action names:</p><dl>
 <dt>stop</dt><dd><p>If there is an
 action named <code>stop</code>, then the job will have a Stop button in in the
 Jobs pane, and pressing that button will invoke the <code>stop</code> action.</p></dd>
 <dt>info</dt><dd><p>If there is an action named <code>info</code>, then the job will have
 an informational link in the Jobs pane rather than an output display, and
-clicking the link will invoke the <code>info</code> action.</p></dd> 
+clicking the link will invoke the <code>info</code> action.</p></dd>
+<dt>replay</dt><dd><p>If there is an action named <code>replay</code>, then the job will
+have a Replay button that displays when the job has finished running. Clicking
+the button will invoke the <code>replay</code> action.</p></dd>
 </dl>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
