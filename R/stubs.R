@@ -172,11 +172,10 @@ viewer <- function(url, height = NULL) {
 #' \code{column} \tab The column number for the associated marker. \cr
 #' \code{message} \tab A message associated with the marker at this location. \cr
 #' }
-#' 
-#' Note that if the \code{message} field is of class "html" (i.e.
-#' \code{inherits(message, "html") == TRUE}) then its contents will be treated
-#' as HTML.
-#' 
+#'
+#' Note the marker \code{message} can contain ANSI SGR codes for formatting.
+#' The \code{cli} package can format text for style and color.
+#'  
 #' @param name The name of marker set. If there is a market set with this name
 #'   already being shown, those markers will be replaced.
 #'

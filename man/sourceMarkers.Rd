@@ -41,9 +41,8 @@ as follows (all are required):
 \code{message} \tab A message associated with the marker at this location. \cr
 }
 
-Note that if the \code{message} field is of class "html" (i.e.
-\code{inherits(message, "html") == TRUE}) then its contents will be treated
-as HTML.
+Note the marker \code{message} can contain ANSI SGR codes for formatting.
+The \code{cli} package can format text for style and color.
 }
 \note{
 The \code{sourceMarkers} function was added in version 0.99.225 of
