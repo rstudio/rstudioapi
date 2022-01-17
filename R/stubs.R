@@ -343,6 +343,8 @@ savePlotAsImage <- function(file,
 #' 
 #' @param focus Boolean; focus the console after sending code?
 #' 
+#' @param animate Boolean; should the code be animated as if someone was typing it ?
+#' 
 #' @note The \code{sendToConsole} function was added in version 0.99.787 of
 #'   RStudio.
 #' 
@@ -354,12 +356,13 @@ savePlotAsImage <- function(file,
 #' 
 #' 
 #' @export
-sendToConsole <- function(code, execute = TRUE, echo = TRUE, focus = TRUE) {
+sendToConsole <- function(code, execute = TRUE, echo = TRUE, focus = TRUE, animate = FALSE) {
   callFun("sendToConsole",
           code = code,
           echo = echo,
           execute = execute,
-          focus = focus)
+          focus = focus, 
+          animate = animate)
 }
 
 #' Persistent keys and values
