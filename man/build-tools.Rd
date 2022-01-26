@@ -26,7 +26,7 @@ Check, install, and use build tools as required.
 \details{
 These functions are intended to be used together -- one should
 first check whether build tools are available, and when not,
-prompt for installation. For example:\if{html}{\out{<div class="R">}}\preformatted{compile_model <- function(...) \{
+prompt for installation. For example:\if{html}{\out{<div class="sourceCode R">}}\preformatted{compile_model <- function(...) \{
 
   if (rstudioapi::isAvailable()) \{
 

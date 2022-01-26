@@ -1,5 +1,9 @@
 
-isChildProcess <- function() {
+#' Is this a job
+#' 
+#' @return TRUE if this is a job
+#' @export
+isJob <- function() {
   !is.na(Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA))
 }
 
