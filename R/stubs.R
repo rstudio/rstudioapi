@@ -343,7 +343,7 @@ savePlotAsImage <- function(file,
 #' 
 #' @param focus Boolean; focus the console after sending code?
 #' 
-#' @param animate Boolean; should the code be animated as if someone was typing it ?
+#' @param animate Boolean; should the submitted code be animated, as if someone was typing it?
 #' 
 #' @note The \code{sendToConsole} function was added in version 0.99.787 of
 #'   RStudio.
