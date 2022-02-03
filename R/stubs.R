@@ -336,8 +336,9 @@ savePlotAsImage <- function(file,
 #' 
 #' @param code The \R code to be executed, as a character vector.
 #' 
-#' @param execute Boolean; execute the code immediately or just enter the text
-#'   into the console?
+#' @param execute Boolean; should the code be executed after being submitted
+#'   to the console? If `FALSE`, `code` is submitted to the console but is
+#'   not executed.
 #'   
 #' @param echo Boolean; echo the code in the console as it is executed?
 #' 
@@ -351,7 +352,7 @@ savePlotAsImage <- function(file,
 #' @examples
 #' 
 #' \dontrun{
-#' rstudioapi::sendToConsole(".Platform", execute = TRUE)
+#' rstudioapi::sendToConsole(".Platform", execute = FALSE, animate = TRUE)
 #' }
 #' 
 #' 

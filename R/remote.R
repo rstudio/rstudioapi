@@ -1,7 +1,16 @@
 
-#' Is this a job
+#' Detect RStudio Jobs
 #' 
-#' @return TRUE if this is a job
+#' Use this function to detect whether RStudio is running an R "job".
+#' These jobs are normally used for actions taken in the Jobs tab, as well
+#' as within the \R build pane.
+#' 
+#' This function is primarily intended to be used by package authors, who
+#' need to customize the behavior of their methods when run within an
+#' RStudio job.
+#' 
+#' @return Boolean; `TRUE` if this is an RStudio job.
+#' 
 #' @export
 isJob <- function() {
   !is.na(Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA))

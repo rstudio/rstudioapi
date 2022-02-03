@@ -2,13 +2,20 @@
 % Please edit documentation in R/remote.R
 \name{isJob}
 \alias{isJob}
-\title{Is this a job}
+\title{Detect RStudio Jobs}
 \usage{
 isJob()
 }
 \value{
-TRUE if this is a job
+Boolean; \code{TRUE} if this is an RStudio job.
 }
 \description{
-Is this a job
+Use this function to detect whether RStudio is running an R "job".
+These jobs are normally used for actions taken in the Jobs tab, as well
+as within the \R build pane.
+}
+\details{
+This function is primarily intended to be used by package authors, who
+need to customize the behavior of their methods when run within an
+RStudio job.
 }

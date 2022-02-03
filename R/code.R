@@ -95,22 +95,22 @@ callFun <- function(fname, ...) {
     return(callRemote(sys.call(), parent.frame()))
   
   verifyAvailable()
-  if (usingTools())
-    found <- exists(toolsName(fname), envir = toolsEnv(), mode = "function")
-  else
-    found <- exists(fname, envir = asNamespace("rstudio"), mode = "function")
-  if (!found)
+  
+  # get reference to RStudio function
+  f <- tryCatch(findFun(fname, mode = "function"), error = identity)
+  if (inherits(f, "error"))
     stop("Function ", fname, " not found in RStudio", call. = FALSE)
   
-  f <- findFun(fname, mode = "function")
-  
+  # drop arguments that aren't accepted by RStudio
+  # (ensure backwards-compatibility with older versions of RStudio)
   args <- list(...)
   if (!"..." %in% names(formals(f)))
-  {
-     while (length(args) > length(formals(f)))
-       args <- args[-length(args)]
-  }
+    if (length(args) > length(formals(f)))
+      length(args) <- length(formals(f))
+  
+  # invoke the function
   do.call(f, args)
+  
 }
 
 
