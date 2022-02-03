@@ -23,7 +23,7 @@
 #' @export
 isAvailable <- function(version_needed = NULL, child_ok = FALSE) {
 
-  if (child_ok && isChildProcess())
+  if (child_ok && isJob())
     return(callRemote(sys.call(), parent.frame()))
 
   identical(.Platform$GUI, "RStudio") && version_ok(version_needed)
@@ -91,7 +91,7 @@ getVersion <- function() {
 #' @export callFun
 callFun <- function(fname, ...) {
   
-  if (isChildProcess())
+  if (isJob())
     return(callRemote(sys.call(), parent.frame()))
   
   verifyAvailable()
