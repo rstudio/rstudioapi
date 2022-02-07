@@ -12,6 +12,7 @@
 \alias{documentSave}
 \alias{documentSaveAll}
 \alias{documentNew}
+\alias{documentOpen}
 \alias{documentClose}
 \title{Interact with Documents open in RStudio}
 \usage{
@@ -39,6 +40,8 @@ documentNew(
   position = document_position(0, 0),
   execute = FALSE
 )
+
+documentOpen(path, line = -1L, col = -1L, moveCursor = TRUE)
 
 documentClose(id = NULL, save = TRUE)
 }
@@ -68,6 +71,13 @@ target the currently-active or last-active editor in the Source pane.}
 
 \item{execute}{Should the code be executed after the document
 is created?}
+
+\item{line}{The line in the document to navigate to.}
+
+\item{col}{The column in the document to navigate to.}
+
+\item{moveCursor}{Boolean; move the cursor to the requested location after
+opening the document?}
 
 \item{save}{Whether to commit unsaved changes to the document before closing it.}
 }

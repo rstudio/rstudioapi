@@ -232,6 +232,23 @@ documentNew <- function(
   callFun("documentNew", type, text, position[1], position[2], execute)
 }
 
+#' @param line The line in the document to navigate to.
+#' @param col The column in the document to navigate to.
+#' @param moveCursor Boolean; move the cursor to the requested location after
+#'   opening the document?
+#'
+#' @name rstudio-documents
+#' @export
+documentOpen <- function(
+    path,
+    line = -1L,
+    col = -1L,
+    moveCursor = TRUE)
+{
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
+  callFun("documentOpen", path, line, col, moveCursor)
+}
+
 #' @param save Whether to commit unsaved changes to the document before closing it.
 #'
 #' @note The \code{documentClose} function was introduced in RStudio 1.2.1255
