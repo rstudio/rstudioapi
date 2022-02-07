@@ -1,6 +1,10 @@
 
 # rstudioapi 0.14 (UNRELEASED)
 
+* Added `documentOpen()`, for opening a document in RStudio and optionally
+  navigating the cursor to a particular point in the file. The method is
+  synchronous and returns the document ID upon completion.
+
 * Fixed an issue where `rstudioapi::askForSecret()` would erroneously fall back
   to using `rstudioapi::askForPassword()` during Knit.
 
