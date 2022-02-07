@@ -29,7 +29,7 @@ RStudio.
 \examples{
 
 \dontrun{
-rstudioapi::sendToConsole(".Platform", execute = TRUE)
+rstudioapi::sendToConsole(".Platform", execute = FALSE, animate = TRUE)
 }
 
 
