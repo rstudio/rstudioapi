@@ -198,6 +198,9 @@ documentSaveAll <- function() {
 #' \code{contents} \tab The contents of the document.\cr
 #' \code{selection} \tab A \code{list} of selections. See \bold{Details} for more information.\cr
 #' }
+#' 
+#' @param id The ID of a particular document, as retrieved by `documentId()`
+#'   or similar. Supported in RStudio 2022.06.0 or newer.
 #'
 #' @rdname rstudio-editors
 #' @name rstudio-editors
@@ -208,8 +211,8 @@ getActiveDocumentContext <- function() {
 
 #' @name rstudio-editors
 #' @export
-getSourceEditorContext <- function() {
-  getDocumentContext("getSourceEditorContext")
+getSourceEditorContext <- function(id = NULL) {
+  getDocumentContext("getSourceEditorContext", id)
 }
 
 #' @name rstudio-editors

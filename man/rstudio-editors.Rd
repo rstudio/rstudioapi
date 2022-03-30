@@ -9,9 +9,13 @@
 \usage{
 getActiveDocumentContext()
 
-getSourceEditorContext()
+getSourceEditorContext(id = NULL)
 
 getConsoleEditorContext()
+}
+\arguments{
+\item{id}{The ID of a particular document, as retrieved by \code{documentId()}
+or similar.}
 }
 \value{
 A \code{list} with elements:

@@ -207,14 +207,20 @@ primary_selection.document_selection <- function(x, ...) {
   x[[1]]
 }
 
-getDocumentContext <- function(fn) {
-  context <- callFun(fn)
+getDocumentContext <- function(fn, id = NULL) {
+  
+  context <- if (is.null(id))
+    callFun(fn)
+  else
+    callFun(fn, id)
 
-  if (is.null(context)) return(NULL)
+  if (is.null(context))
+    return(NULL)
   
   Encoding(context$path) <- "UTF-8"
   Encoding(context$contents) <- "UTF-8"
   context$selection <- as.document_selection(context$selection)
   
   structure(context, class = "document_context")
+  
 }
