@@ -23,7 +23,8 @@
 #'   executions.
 #' @export executeCommand
 executeCommand <- function(commandId, quiet = FALSE) {
-  callFun("executeCommand", commandId = commandId, quiet = quiet)
+  response <- callFun("executeCommand", commandId = commandId, quiet = quiet)
+  invisible(response)
 }
 
 #' Register Command Callback
