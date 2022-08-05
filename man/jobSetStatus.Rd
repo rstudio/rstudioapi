@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobSetStatus}
 \alias{jobSetStatus}
-\title{Set Job Status}
+\title{Set Background Job Status}
 \usage{
 jobSetStatus(job, status)
 }
@@ -12,7 +12,7 @@ jobSetStatus(job, status)
 \item{status}{Text describing job's new status.}
 }
 \description{
-Update a job's informational status text.
+Update a background job's informational status text.
 }
 \seealso{
 Other jobs: \code{\link{jobAddOutput}()},

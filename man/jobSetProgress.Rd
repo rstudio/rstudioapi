@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobSetProgress}
 \alias{jobSetProgress}
-\title{Set Job Progress}
+\title{Set Background Job Progress}
 \usage{
 jobSetProgress(job, units)
 }
@@ -12,7 +12,7 @@ jobSetProgress(job, units)
 \item{units}{The integer number of total units of work completed so far.}
 }
 \description{
-Updates the progress for a job.
+Updates the progress for a background job.
 }
 \seealso{
 Other jobs: \code{\link{jobAddOutput}()},

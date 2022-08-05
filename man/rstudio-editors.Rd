@@ -15,7 +15,7 @@ getConsoleEditorContext()
 }
 \arguments{
 \item{id}{The ID of a particular document, as retrieved by \code{documentId()}
-or similar.}
+or similar. Supported in RStudio 2022.06.0 or newer.}
 }
 \value{
 A \code{list} with elements:

@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherControlJob}
 \alias{launcherControlJob}
-\title{Interact with (Control) a Job}
+\title{Interact with (Control) a Workbench Job}
 \usage{
 launcherControlJob(
   jobId,
@@ -18,5 +18,5 @@ launcher plugins support different subsets of these operations -- consult
 your launcher plugin documentation to see which operations are supported.}
 }
 \description{
-Interact with a job.
+Interact with a Workbench job.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherContainer}
 \alias{launcherContainer}
-\title{Define a Launcher Container}
+\title{Define a Workbench Launcher Container}
 \usage{
 launcherContainer(image, runAsUserId = NULL, runAsGroupId = NULL)
 }

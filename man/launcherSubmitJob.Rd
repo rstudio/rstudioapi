@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherSubmitJob}
 \alias{launcherSubmitJob}
-\title{Submit a Launcher Job}
+\title{Submit a Workbench Job}
 \usage{
 launcherSubmitJob(
   name,
@@ -90,7 +90,7 @@ applicable to batch systems like LSF.}
 environment, in addition to any specified in this call.}
 }
 \description{
-Submit a launcher job. See
+Submit a Workbench job. See
 https://docs.rstudio.com/job-launcher/latest/index.html for more
 information.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobRunScript}
 \alias{jobRunScript}
-\title{Run R Script As Job}
+\title{Run R Script As Background Job}
 \usage{
 jobRunScript(
   path,

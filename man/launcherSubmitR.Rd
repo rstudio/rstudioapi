@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherSubmitR}
 \alias{launcherSubmitR}
-\title{Execute an R Script as a Launcher Job}
+\title{Execute an R Script as a Workbench Job}
 \usage{
 launcherSubmitR(script, cluster = "Local", container = NULL)
 }
@@ -16,8 +16,8 @@ Kubernetes).}
 \item{container}{The container to be used for launched jobs.}
 }
 \description{
-Convenience function for running an R script as a launcher job using
-whichever R is found on the path in the launcher cluster.
+Convenience function for running an R script as a Workbench job using
+whichever R is found on the path in the Workbench launcher cluster.
 }
 \details{
 See \code{\link[=launcherSubmitJob]{launcherSubmitJob()}} for running jobs

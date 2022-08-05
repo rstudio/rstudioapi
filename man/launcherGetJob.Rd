@@ -2,13 +2,13 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherGetJob}
 \alias{launcherGetJob}
-\title{Retrieve Job Information}
+\title{Retrieve Workbench Job Information}
 \usage{
 launcherGetJob(jobId)
 }
 \arguments{
-\item{jobId}{The id of a launcher job.}
+\item{jobId}{The id of a Workbench job.}
 }
 \description{
-Retrieve information on a job with id \code{jobId}.
+Retrieve information on a Workbench job with id \code{jobId}.
 }

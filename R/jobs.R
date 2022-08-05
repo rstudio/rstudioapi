@@ -1,9 +1,9 @@
 #' Add a Job
 #' 
-#' Inform RStudio's Jobs pane that a job has been added.
+#' Inform RStudio's Background Jobs pane that a job has been added.
 #' 
 #' 
-#' @param name The job's name.
+#' @param name The background job's name.
 #' @param status The initial status text for the job; optional.
 #' @param progressUnits The integer number of units of work in the job; for
 #' example, \code{100L} if the job's progress is expressed in percentages. Use
@@ -11,8 +11,8 @@
 #' @param actions A list of actions that can be performed on the job (see
 #' Actions).
 #' @param running Whether the job is currently running.
-#' @param autoRemove Whether to remove the job from the Jobs pane when it's
-#' complete.
+#' @param autoRemove Whether to remove the job from the Background Jobs pane 
+#' when it's complete.
 #' @param show Whether to show the job in the Jobs pane.
 #' @return An ID representing the newly added job, used as a handle to provide
 #' further updates of the job's status.
@@ -27,8 +27,8 @@
 #' action named \code{stop}, then the job will have a Stop button in in the
 #' Jobs pane, and pressing that button will invoke the \code{stop} action.}
 #' \item{info}{If there is an action named \code{info}, then the job will have
-#' an informational link in the Jobs pane rather than an output display, and
-#' clicking the link will invoke the \code{info} action.}
+#' an informational link in the Background Jobs pane rather than an output display, 
+#' and clicking the link will invoke the \code{info} action.}
 #' \item{replay}{If there is an action named \code{replay}, then the job will
 #' have a Replay button that displays when the job has finished running. Clicking
 #' the button will invoke the \code{replay} action.}}
@@ -50,9 +50,9 @@ jobAdd <- function(name, status = "", progressUnits = 0L, actions = NULL, runnin
 
 
 
-#' Remove a Job
+#' Remove a Background Job
 #' 
-#' Remove a job from RStudio's Jobs pane.
+#' Remove a background job from RStudio's Background Jobs pane.
 #' 
 #' 
 #' @param job The ID of the job to remove.
@@ -67,9 +67,9 @@ jobRemove <- function(job) {
 
 
 
-#' Set Job Progress
+#' Set Background Job Progress
 #' 
-#' Updates the progress for a job.
+#' Updates the progress for a background job.
 #' 
 #' 
 #' @param job The ID of the job to set progress for.
@@ -85,9 +85,9 @@ jobSetProgress <- function(job, units) {
 
 
 
-#' Add Job Progress
+#' Add Background Job Progress
 #' 
-#' Adds incremental progress units to a job.
+#' Adds incremental progress units to a background job.
 #' 
 #' 
 #' @param job The ID of the job to update progress for.
@@ -103,9 +103,9 @@ jobAddProgress <- function(job, units) {
 
 
 
-#' Set Job Status
+#' Set Background Job Status
 #' 
-#' Update a job's informational status text.
+#' Update a background job's informational status text.
 #' 
 #' 
 #' @param job The ID of the job to update.
@@ -122,9 +122,9 @@ jobSetStatus <- function(job, status) {
 
 
 
-#' Set Job State
+#' Set Background Job State
 #' 
-#' Changes the state of a job.
+#' Changes the state of a background job.
 #' 
 #' 
 #' @param job The ID of the job on which to change state.
@@ -147,9 +147,9 @@ jobSetState <- function(job, state = c("idle", "running", "succeeded", "cancelle
 
 
 
-#' Add Job Output
+#' Add Background Job Output
 #' 
-#' Adds text output to a job.
+#' Adds text output to a background job.
 #' 
 #' 
 #' @param job The ID of the job that has emitted text.
@@ -167,7 +167,7 @@ jobAddOutput <- function(job, output, error = FALSE) {
 
 
 
-#' Run R Script As Job
+#' Run R Script As Background Job
 #' 
 #' Starts an R script as a background job.
 #' 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobSetState}
 \alias{jobSetState}
-\title{Set Job State}
+\title{Set Background Job State}
 \usage{
 jobSetState(
   job,
@@ -15,7 +15,7 @@ jobSetState(
 \item{state}{The new job state.}
 }
 \description{
-Changes the state of a job.
+Changes the state of a background job.
 }
 \section{States}{
 

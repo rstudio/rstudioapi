@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobAddOutput}
 \alias{jobAddOutput}
-\title{Add Job Output}
+\title{Add Background Job Output}
 \usage{
 jobAddOutput(job, output, error = FALSE)
 }
@@ -14,7 +14,7 @@ jobAddOutput(job, output, error = FALSE)
 \item{error}{Whether the output represents an error.}
 }
 \description{
-Adds text output to a job.
+Adds text output to a background job.
 }
 \seealso{
 Other jobs: \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},

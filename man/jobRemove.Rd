@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobRemove}
 \alias{jobRemove}
-\title{Remove a Job}
+\title{Remove a Background Job}
 \usage{
 jobRemove(job)
 }
@@ -10,7 +10,7 @@ jobRemove(job)
 \item{job}{The ID of the job to remove.}
 }
 \description{
-Remove a job from RStudio's Jobs pane.
+Remove a background job from RStudio's Background Jobs pane.
 }
 \seealso{
 Other jobs: \code{\link{jobAddOutput}()},

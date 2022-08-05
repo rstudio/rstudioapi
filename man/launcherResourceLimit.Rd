@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherResourceLimit}
 \alias{launcherResourceLimit}
-\title{Define a Launcher Resource Limit}
+\title{Define a Workbench Launcher Resource Limit}
 \usage{
 launcherResourceLimit(type, value)
 }

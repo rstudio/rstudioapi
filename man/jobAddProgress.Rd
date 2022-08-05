@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobAddProgress}
 \alias{jobAddProgress}
-\title{Add Job Progress}
+\title{Add Background Job Progress}
 \usage{
 jobAddProgress(job, units)
 }
@@ -12,7 +12,7 @@ jobAddProgress(job, units)
 \item{units}{The integer number of new progress units completed.}
 }
 \description{
-Adds incremental progress units to a job.
+Adds incremental progress units to a background job.
 }
 \seealso{
 Other jobs: \code{\link{jobAddOutput}()}, \code{\link{jobAdd}()},
