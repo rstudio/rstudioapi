@@ -127,6 +127,17 @@ reference:
     - dictionaries
     - executeCommand
     - translateLocalUrl
+    - chunk-callbacks
+    - filesPaneNavigate
+    - getRStudioPackageDependencies
+    - highlightUi
+    - isJob
+    - registerCommandCallback
+    - registerCommandStreamCallback
+    - selections
+    - systemUsername
+    - unregisterCommandCallback
+    - userIdentity
 
 
 
