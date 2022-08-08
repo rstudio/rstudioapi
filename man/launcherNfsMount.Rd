@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherNfsMount}
 \alias{launcherNfsMount}
-\title{Define a Launcher NFS Mount}
+\title{Define a Workbench Launcher NFS Mount}
 \usage{
 launcherNfsMount(host, path, mountPath, readOnly = TRUE)
 }

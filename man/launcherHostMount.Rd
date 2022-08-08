@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherHostMount}
 \alias{launcherHostMount}
-\title{Define a Launcher Host Mount}
+\title{Define a Workbench Launcher Host Mount}
 \usage{
 launcherHostMount(path, mountPath, readOnly = TRUE)
 }

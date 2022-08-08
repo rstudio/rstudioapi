@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherConfig}
 \alias{launcherConfig}
-\title{Define a Launcher Configuration}
+\title{Define a Workbench Launcher Configuration}
 \usage{
 launcherConfig(name, value = NULL)
 }
@@ -13,7 +13,7 @@ launcherConfig(name, value = NULL)
 string.}
 }
 \description{
-Define a launcher configuration, suitable for use with the \code{config}
+Define a Workbench launcher configuration, suitable for use with the \code{config}
 argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{

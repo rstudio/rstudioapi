@@ -15,7 +15,7 @@ jobAdd(
 )
 }
 \arguments{
-\item{name}{The job's name.}
+\item{name}{The background job's name.}
 
 \item{status}{The initial status text for the job; optional.}
 
@@ -28,8 +28,8 @@ Actions).}
 
 \item{running}{Whether the job is currently running.}
 
-\item{autoRemove}{Whether to remove the job from the Jobs pane when it's
-complete.}
+\item{autoRemove}{Whether to remove the job from the Background Jobs pane
+when it's complete.}
 
 \item{show}{Whether to show the job in the Jobs pane.}
 }
@@ -38,7 +38,7 @@ An ID representing the newly added job, used as a handle to provide
 further updates of the job's status.
 }
 \description{
-Inform RStudio's Jobs pane that a job has been added.
+Inform RStudio's Background Jobs pane that a job has been added.
 }
 \section{Actions}{
 
@@ -52,8 +52,8 @@ There are three special action names: \describe{ \item{stop}{If there is an
 action named \code{stop}, then the job will have a Stop button in in the
 Jobs pane, and pressing that button will invoke the \code{stop} action.}
 \item{info}{If there is an action named \code{info}, then the job will have
-an informational link in the Jobs pane rather than an output display, and
-clicking the link will invoke the \code{info} action.}
+an informational link in the Background Jobs pane rather than an output display,
+and clicking the link will invoke the \code{info} action.}
 \item{replay}{If there is an action named \code{replay}, then the job will
 have a Replay button that displays when the job has finished running. Clicking
 the button will invoke the \code{replay} action.}}

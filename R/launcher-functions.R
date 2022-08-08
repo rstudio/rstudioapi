@@ -1,6 +1,6 @@
-#' Retrieve Launcher Information
+#' Retrieve Workbench Launcher Information
 #'
-#' Retrieve information about the launcher, as well as the different clusters
+#' Retrieve information about the Workbench launcher, as well as the different clusters
 #' that the launcher has been configured to use.
 #'
 #' @name launcher
@@ -9,10 +9,10 @@ launcherGetInfo <- function() {
   callLauncherFun("launcher.getInfo")
 }
 
-#' Check if Launcher is Available
+#' Check if Workbench Launcher is Available
 #'
-#' Check if the RStudio launcher is available and configured to support
-#' 'ad-hoc' jobs; that is, jobs normally launched by the user through
+#' Check if the Workbench launcher is available and configured to support
+#' Workbench jobs; that is, jobs normally launched by the user through
 #' the RStudio IDE's user interface.
 #'
 #' @name launcher
@@ -21,9 +21,9 @@ launcherAvailable <- function() {
   callLauncherFun("launcher.jobsFeatureAvailable")
 }
 
-#' Retrieve Job Information
+#' Retrieve Workbench Job Information
 #'
-#' Retrieve information on launcher jobs.
+#' Retrieve information on Workbench jobs.
 #'
 #' @param statuses Return only jobs whose status matches one of `statuses`.
 #'   Valid statuses are: Pending, Running, Suspended, Failed, Finished, Killed,
@@ -54,12 +54,12 @@ launcherGetJobs <- function(statuses = NULL,
 
 
 
-#' Retrieve Job Information
+#' Retrieve Workbench Job Information
 #' 
-#' Retrieve information on a job with id \code{jobId}.
+#' Retrieve information on a Workbench job with id \code{jobId}.
 #' 
 #' 
-#' @param jobId The id of a launcher job.
+#' @param jobId The id of a Workbench job.
 #' @export launcherGetJob
 launcherGetJob <- function(jobId) {
   callLauncherFun("launcher.getJob",
@@ -68,9 +68,9 @@ launcherGetJob <- function(jobId) {
 
 
 
-#' Define a Launcher Configuration
+#' Define a Workbench Launcher Configuration
 #' 
-#' Define a launcher configuration, suitable for use with the \code{config}
+#' Define a Workbench launcher configuration, suitable for use with the \code{config}
 #' argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 #' 
 #' 
@@ -102,7 +102,7 @@ launcherConfig <- function(name, value = NULL)
 
 
 
-#' Define a Launcher Container
+#' Define a Workbench Launcher Container
 #' 
 #' Define a launcher container, suitable for use with the \code{container}
 #' argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
@@ -137,7 +137,7 @@ launcherContainer <- function(image,
 
 
 
-#' Define a Launcher Placement Constraint
+#' Define a Workbench Launcher Placement Constraint
 #' 
 #' Define a launcher placement constraint, suitable for use with the
 #' \code{placementConstraints} argument to
@@ -162,7 +162,7 @@ launcherPlacementConstraint <- function(name,
 
 
 
-#' Define a Launcher Resource Limit
+#' Define a Workbench Launcher Resource Limit
 #' 
 #' Define a launcher resource limit, suitable for use with the
 #' \code{resourceLimits} argument to
@@ -188,7 +188,7 @@ launcherResourceLimit <- function(type, value) {
 
 
 
-#' Define a Launcher Host Mount
+#' Define a Workbench Launcher Host Mount
 #' 
 #' Define a launcher host mount, suitable for use with the \code{mounts}
 #' argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can
@@ -216,7 +216,7 @@ launcherHostMount <- function(path,
 
 
 
-#' Define a Launcher NFS Mount
+#' Define a Workbench Launcher NFS Mount
 #' 
 #' Define a launcher NFS mount, suitable for use with the \code{mounts}
 #' argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can
@@ -248,9 +248,9 @@ launcherNfsMount <- function(host,
 
 
 
-#' Submit a Launcher Job
+#' Submit a Workbench Job
 #' 
-#' Submit a launcher job. See
+#' Submit a Workbench job. See
 #' https://docs.rstudio.com/job-launcher/latest/index.html for more
 #' information.
 #' 
@@ -352,10 +352,10 @@ launcherSubmitJob <- function(name,
 
 
 
-#' Execute an R Script as a Launcher Job
+#' Execute an R Script as a Workbench Job
 #' 
-#' Convenience function for running an R script as a launcher job using
-#' whichever R is found on the path in the launcher cluster.
+#' Convenience function for running an R script as a Workbench job using
+#' whichever R is found on the path in the Workbench launcher cluster.
 #' 
 #' See \code{\link[=launcherSubmitJob]{launcherSubmitJob()}} for running jobs
 #' with full control over command, environment, and so forth.
@@ -393,9 +393,9 @@ launcherSubmitR <- function(script,
 
 
 
-#' Interact with (Control) a Job
+#' Interact with (Control) a Workbench Job
 #' 
-#' Interact with a job.
+#' Interact with a Workbench job.
 #' 
 #' 
 #' @param jobId The job id.

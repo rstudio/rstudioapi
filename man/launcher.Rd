@@ -5,7 +5,7 @@
 \alias{launcherGetInfo}
 \alias{launcherAvailable}
 \alias{launcherGetJobs}
-\title{Retrieve Launcher Information}
+\title{Retrieve Workbench Launcher Information}
 \usage{
 launcherGetInfo()
 
@@ -33,12 +33,12 @@ of these requested tags will be returned.}
 as RStudio R sessions?}
 }
 \description{
-Retrieve information about the launcher, as well as the different clusters
+Retrieve information about the Workbench launcher, as well as the different clusters
 that the launcher has been configured to use.
 
-Check if the RStudio launcher is available and configured to support
-'ad-hoc' jobs; that is, jobs normally launched by the user through
+Check if the Workbench launcher is available and configured to support
+Workbench jobs; that is, jobs normally launched by the user through
 the RStudio IDE's user interface.
 
-Retrieve information on launcher jobs.
+Retrieve information on Workbench jobs.
 }

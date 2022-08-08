@@ -2,7 +2,7 @@
 % Please edit documentation in R/launcher-functions.R
 \name{launcherPlacementConstraint}
 \alias{launcherPlacementConstraint}
-\title{Define a Launcher Placement Constraint}
+\title{Define a Workbench Launcher Placement Constraint}
 \usage{
 launcherPlacementConstraint(name, value = NULL)
 }

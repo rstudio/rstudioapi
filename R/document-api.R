@@ -235,6 +235,7 @@ documentNew <- function(
   callFun("documentNew", type, text, position[1], position[2], execute)
 }
 
+#' @param path The path to the document.
 #' @param line The line in the document to navigate to.
 #' @param col The column in the document to navigate to.
 #' @param moveCursor Boolean; move the cursor to the requested location after

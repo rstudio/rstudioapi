@@ -72,6 +72,8 @@ target the currently-active or last-active editor in the Source pane.}
 \item{execute}{Should the code be executed after the document
 is created?}
 
+\item{path}{The path to the document.}
+
 \item{line}{The line in the document to navigate to.}
 
 \item{col}{The column in the document to navigate to.}
