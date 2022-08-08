@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.13.0-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.13.0-9000</span>
       </span>
     </div>
 
@@ -51,7 +53,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -77,7 +79,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/rstudio/rstudioapi/">
+  <a href="https://github.com/rstudio/rstudioapi/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -98,7 +100,7 @@
       <h1 data-toc-skip>File Dialogs</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/rstudio/rstudioapi/blob/master/vignettes/dialogs.Rmd"><code>vignettes/dialogs.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/rstudio/rstudioapi/blob/HEAD/vignettes/dialogs.Rmd" class="external-link"><code>vignettes/dialogs.Rmd</code></a></small>
       <div class="hidden name"><code>dialogs.Rmd</code></div>
 
     </div>
@@ -108,31 +110,31 @@
 <p>Using the <code>rstudioapi</code> package, you can request input from the user with various dialogs.</p>
 <p>The <code><a href="../reference/file-dialogs.html">selectFile()</a></code> and <code><a href="../reference/file-dialogs.html">selectDirectory()</a></code> APIs allow you to request the name of an existing or non-existing path on the system.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># request the path to an existing .csv file on disk</span>
-<span class="va">path</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/file-dialogs.html">selectFile</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Select CSV File"</span>,
-                               filter <span class="op">=</span> <span class="st">"CSV Files (*.csv)"</span>,
-                               existing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="co"># now, you could read the data using e.g. 'readr::read_csv()'</span>
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu">read_csv</span><span class="op">(</span><span class="va">path</span><span class="op">)</span>
-
-<span class="co"># request a file path (e.g. where you would like to save a new file)</span>
-<span class="va">target</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/file-dialogs.html">selectFile</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Save File"</span>,
-                                 label <span class="op">=</span> <span class="st">"Save"</span>,
-                                 existing <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-
-<span class="co"># save data to the path provided by the user</span>
-<span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">data</span>, file <span class="op">=</span> <span class="va">target</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># request the path to an existing .csv file on disk</span></span>
+<span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/file-dialogs.html">selectFile</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Select CSV File"</span>,</span>
+<span>                               filter <span class="op">=</span> <span class="st">"CSV Files (*.csv)"</span>,</span>
+<span>                               existing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># now, you could read the data using e.g. 'readr::read_csv()'</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu">read_csv</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># request a file path (e.g. where you would like to save a new file)</span></span>
+<span><span class="va">target</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/file-dialogs.html">selectFile</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Save File"</span>,</span>
+<span>                                 label <span class="op">=</span> <span class="st">"Save"</span>,</span>
+<span>                                 existing <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># save data to the path provided by the user</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">data</span>, file <span class="op">=</span> <span class="va">target</span><span class="op">)</span></span></code></pre></div>
 <p>Use <code><a href="../reference/askForPassword.html">rstudioapi::askForPassword()</a></code> to request a password, or other credentials, from a user.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/askForPassword.html">askForPassword</a></span><span class="op">(</span>
-  prompt <span class="op">=</span> <span class="st">"Please provide your GitHub access token."</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">token</span> <span class="op">&lt;-</span> <span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/askForPassword.html">askForPassword</a></span><span class="op">(</span></span>
+<span>  prompt <span class="op">=</span> <span class="st">"Please provide your GitHub access token."</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>Use <code><a href="../reference/showDialog.html">rstudioapi::showDialog()</a></code> to display an informative dialog to the user. This dialog is used to report some kind of status or information to the user; it does not request any input.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/showDialog.html">showDialog</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Hello, world!"</span>,
-                       message <span class="op">=</span> <span class="st">"You're &lt;b&gt;awesome!&lt;/b&gt;"</span>,
-                       url <span class="op">=</span> <span class="st">"http://www.example.com"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/showDialog.html">showDialog</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Hello, world!"</span>,</span>
+<span>                       message <span class="op">=</span> <span class="st">"You're &lt;b&gt;awesome!&lt;/b&gt;"</span>,</span>
+<span>                       url <span class="op">=</span> <span class="st">"http://www.example.com"</span><span class="op">)</span></span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -144,11 +146,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Kevin Ushey, JJ Allaire, <a href="http://hadley.nz">Hadley Wickham</a>, Gary Ritchie.</p>
+  <p></p>
+<p>Developed by Kevin Ushey, JJ Allaire, Hadley Wickham, Gary Ritchie.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -156,6 +160,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/404.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/dialogs.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/document-manipulation.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/projects.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/r-session.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/terminal.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/articles/visual-mode.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/authors.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/news/index.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/addTheme.html</loc>
@@ -76,7 +112,13 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/highlightUi.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/isAvailable.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/isJob.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/jobAdd.html</loc>
@@ -263,26 +305,5 @@
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/writeRStudioPreference.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/dialogs.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/document-manipulation.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/introduction.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/projects.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/r-session.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/terminal.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/rstudioapi/articles/visual-mode.html</loc>
   </url>
 </urlset>
