@@ -148,5 +148,7 @@ version 1.4.843 of RStudio.
 
 The \code{documentNew} function was introduced in RStudio 1.2.640.
 
+The \code{documentOpen} function was introduced in RStudio 1.4.1106.
+
 The \code{documentClose} function was introduced in RStudio 1.2.1255
 }

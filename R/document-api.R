@@ -241,6 +241,8 @@ documentNew <- function(
 #' @param moveCursor Boolean; move the cursor to the requested location after
 #'   opening the document?
 #'
+#' @note The \code{documentOpen} function was introduced in RStudio 1.4.1106.
+#'
 #' @name rstudio-documents
 #' @export
 documentOpen <- function(
