@@ -98,7 +98,8 @@ available and on the <code>PATH</code>.</p></dd>
     <h2>Details</h2>
     <p>These functions are intended to be used together -- one should
 first check whether build tools are available, and when not,
-prompt for installation. For example:</p><div class="sourceCode R"><pre><code><span><span class="va">compile_model</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+prompt for installation. For example:</p>
+<p></p><div class="sourceCode R"><pre><code><span><span class="va">compile_model</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="fu">rstudioapi</span><span class="fu">::</span><span class="fu"><a href="../reference/isAvailable.html">isAvailable</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
