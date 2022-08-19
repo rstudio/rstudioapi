@@ -1,6 +1,8 @@
 
 # rstudioapi 0.14 (UNRELEASED)
 
+* `documentPath()` now marks the encoding of file paths as UTF-8. (#257)
+
 * `getSourceEditorContext()` gains the `id` argument, to be used to request
   the editor context for a document with an already-known ID. (#251)
   

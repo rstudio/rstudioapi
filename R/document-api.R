@@ -163,7 +163,9 @@ documentId <- function(allowConsole = TRUE) {
 #' @name rstudio-documents
 #' @export
 documentPath <- function(id = NULL) {
-  callFun("documentPath", id = id)
+  path <- callFun("documentPath", id = id)
+  Encoding(path) <- "UTF-8"
+  path
 }
 
 #' @name rstudio-documents
