@@ -91,13 +91,22 @@ environment, in addition to any specified in this call.}
 }
 \description{
 Submit a Workbench job. See
-https://docs.rstudio.com/job-launcher/latest/index.html for more
+\url{https://docs.rstudio.com/job-launcher/latest/index.html} for more
 information.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
+Other job-launcher functionality: 
+\code{\link{launcherAvailable}()},
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherControlJob}()},
+\code{\link{launcherGetInfo}()},
+\code{\link{launcherGetJobs}()},
+\code{\link{launcherGetJob}()},
+\code{\link{launcherHostMount}()},
 \code{\link{launcherNfsMount}()},
 \code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitR}()}
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitR}()}
 }
+\concept{job-launcher functionality}

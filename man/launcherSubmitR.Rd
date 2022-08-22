@@ -24,9 +24,18 @@ See \code{\link[=launcherSubmitJob]{launcherSubmitJob()}} for running jobs
 with full control over command, environment, and so forth.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
+Other job-launcher functionality: 
+\code{\link{launcherAvailable}()},
+\code{\link{launcherConfig}()},
+\code{\link{launcherContainer}()},
+\code{\link{launcherControlJob}()},
+\code{\link{launcherGetInfo}()},
+\code{\link{launcherGetJobs}()},
+\code{\link{launcherGetJob}()},
+\code{\link{launcherHostMount}()},
 \code{\link{launcherNfsMount}()},
 \code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()}
+\code{\link{launcherResourceLimit}()},
+\code{\link{launcherSubmitJob}()}
 }
+\concept{job-launcher functionality}

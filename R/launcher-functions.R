@@ -3,7 +3,7 @@
 #' Retrieve information about the Workbench launcher, as well as the different clusters
 #' that the launcher has been configured to use.
 #'
-#' @name launcher
+#' @family job-launcher functionality
 #' @export
 launcherGetInfo <- function() {
   callLauncherFun("launcher.getInfo")
@@ -15,7 +15,7 @@ launcherGetInfo <- function() {
 #' Workbench jobs; that is, jobs normally launched by the user through
 #' the RStudio IDE's user interface.
 #'
-#' @name launcher
+#' @family job-launcher functionality
 #' @export
 launcherAvailable <- function() {
   callLauncherFun("launcher.jobsFeatureAvailable")
@@ -38,7 +38,7 @@ launcherAvailable <- function() {
 #' @param tags An optional set of tags. Only jobs that have been assigned one
 #'   of these requested tags will be returned.
 #'
-#' @name launcher
+#' @family job-launcher functionality
 #' @export
 launcherGetJobs <- function(statuses = NULL,
                             fields = NULL,
@@ -60,7 +60,9 @@ launcherGetJobs <- function(statuses = NULL,
 #' 
 #' 
 #' @param jobId The id of a Workbench job.
-#' @export launcherGetJob
+#' 
+#' @family job-launcher functionality
+#' @export
 launcherGetJob <- function(jobId) {
   callLauncherFun("launcher.getJob",
                   jobId = jobId)
@@ -75,14 +77,12 @@ launcherGetJob <- function(jobId) {
 #' 
 #' 
 #' @param name The name of the launcher configuration.
+#' 
 #' @param value The configuration value. Must either be an integer, float, or
-#' string.
-#' @seealso Other job submission: \code{\link{launcherContainer}()},
-#' \code{\link{launcherHostMount}()}, \code{\link{launcherNfsMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
-#' \code{\link{launcherSubmitR}()}
-#' @export launcherConfig
+#'   string.
+#'   
+#' @family job-launcher functionality
+#' @export
 launcherConfig <- function(name, value = NULL)
 {
   valueType <- if (is.integer(value))
@@ -109,16 +109,15 @@ launcherConfig <- function(name, value = NULL)
 #' 
 #' 
 #' @param image The container image to use.
+#' 
 #' @param runAsUserId The user id to run as within the container. Defaults to
-#' the container-specified user.
+#'   the container-specified user.
+#'   
 #' @param runAsGroupId The group id to run as within the container. Defaults to
-#' the container-specified group.
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherHostMount}()}, \code{\link{launcherNfsMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
-#' \code{\link{launcherSubmitR}()}
-#' @export launcherContainer
+#'   the container-specified group.
+#'   
+#' @family job-launcher functionality
+#' @export
 launcherContainer <- function(image,
                               runAsUserId = NULL,
                               runAsGroupId = NULL)
@@ -145,13 +144,12 @@ launcherContainer <- function(image,
 #' 
 #' 
 #' @param name The name of this placement constraint.
+#' 
 #' @param value The value of the constraint. A job will only be placed on a
-#' requested node if the requested placement constraint is present.
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-#' \code{\link{launcherNfsMount}()}, \code{\link{launcherResourceLimit}()},
-#' \code{\link{launcherSubmitJob}()}, \code{\link{launcherSubmitR}()}
-#' @export launcherPlacementConstraint
+#'   requested node if the requested placement constraint is present.
+#'   
+#' @family job-launcher functionality
+#' @export
 launcherPlacementConstraint <- function(name,
                                         value = NULL)
 {
@@ -170,16 +168,14 @@ launcherPlacementConstraint <- function(name,
 #' 
 #' 
 #' @param type The resource limit type. Must be one of cpuCount, cpuFrequency,
-#' cpuSet, cpuTime, memory, memorySwap. Different launcher plugins may support
-#' different subsets of these resource limit types; please consult the plugin
-#' documentation to learn which limits are supported.
+#'   cpuSet, cpuTime, memory, memorySwap. Different launcher plugins may support
+#'   different subsets of these resource limit types; please consult the plugin
+#'   documentation to learn which limits are supported.
+#'   
 #' @param value The formatted value of the requested limit.
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-#' \code{\link{launcherNfsMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherSubmitJob}()}, \code{\link{launcherSubmitR}()}
-#' @export launcherResourceLimit
+#' 
+#' @family job-launcher functionality
+#' @export
 launcherResourceLimit <- function(type, value) {
   callLauncherFun("launcher.newResourceLimit",
                   type = type,
@@ -194,15 +190,13 @@ launcherResourceLimit <- function(type, value) {
 #' argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can
 #' be used to mount a path from the host into the generated container.
 #' 
-#' 
 #' @param path The host path to be mounted.
+#' 
 #' @param mountPath The destination path for the mount in the container.
+#' 
 #' @param readOnly Boolean; should the path be mounted read-only?
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherContainer}()}, \code{\link{launcherNfsMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
-#' \code{\link{launcherSubmitR}()}
+#' 
+#' @family job-launcher functionality
 #' @export launcherHostMount
 launcherHostMount <- function(path,
                               mountPath,
@@ -225,14 +219,14 @@ launcherHostMount <- function(path,
 #' 
 #' 
 #' @param host The host name, or IP address, of the NFS server.
+#' 
 #' @param path The NFS path to be mounted.
+#' 
 #' @param mountPath The destination path for the mount in the container.
+#' 
 #' @param readOnly Boolean; should the path be mounted read-only?
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
-#' \code{\link{launcherSubmitR}()}
+#' 
+#' @family job-launcher functionality
 #' @export launcherNfsMount
 launcherNfsMount <- function(host,
                              path,
@@ -251,55 +245,71 @@ launcherNfsMount <- function(host,
 #' Submit a Workbench Job
 #' 
 #' Submit a Workbench job. See
-#' https://docs.rstudio.com/job-launcher/latest/index.html for more
+#' <https://docs.rstudio.com/job-launcher/latest/index.html> for more
 #' information.
 #' 
 #' 
 #' @param name A descriptive name to assign to the job.
+#' 
 #' @param cluster The name of the cluster this job should be submitted to.
+#' 
 #' @param tags A set of user-defined tags, used for searching and querying
-#' jobs.
+#'   jobs.
 #' @param command The command to run within the job. This is executed via the
-#' system shell. Only one of command or exe should be specified.
+#'   system shell. Only one of command or exe should be specified.
+#'   
 #' @param exe The (fully pathed) executable to run within the job. Only one of
-#' \code{command} or \code{exe} should be specified.
+#'   \code{command} or \code{exe} should be specified.
+#'   
 #' @param args An array of arguments to pass to the command / executable.
+#' 
 #' @param environment A list of environment variables to be set for processes
-#' launched with this job.
+#'   launched with this job.
+#'   
 #' @param stdin Data to be written to stdin when the job process is launched.
+#' 
 #' @param stdoutFile The file used for the job's generated standard output. Not
-#' all launcher plugins support this parameter.
+#'   all launcher plugins support this parameter.
+#'   
 #' @param stderrFile The file used for the job's generated standard error. Not
-#' all launcher plugins support this parameter.
+#'   all launcher plugins support this parameter.
+#'   
 #' @param workingDirectory The working directory to be used by the command /
-#' executable associated with this job.
+#'   executable associated with this job.
+#'   
 #' @param host The host that the job is running on, or the desired host during
-#' job submission.
+#'   job submission.
+#'   
 #' @param container The container to be used for launched jobs.
+#' 
 #' @param exposedPorts The ports that are exposed by services running on a
-#' container. Only applicable to systems that support containers.
+#'   container. Only applicable to systems that support containers.
+#'   
 #' @param mounts A list of mount points. See
-#' \code{\link[=launcherHostMount]{launcherHostMount()}} and
-#' \code{\link[=launcherNfsMount]{launcherNfsMount()}} for more information.
+#'   \code{\link[=launcherHostMount]{launcherHostMount()}} and
+#'   \code{\link[=launcherNfsMount]{launcherNfsMount()}} for more information.
+#' 
 #' @param placementConstraints A list of placement constraints. See
-#' \code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}}
-#' for more information.
+#'   \code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}}
+#'   for more information.
+#'   
 #' @param resourceLimits A list of resource limits. See
-#' \code{\link[=launcherResourceLimit]{launcherResourceLimit()}} for more
-#' information.
+#'   \code{\link[=launcherResourceLimit]{launcherResourceLimit()}} for more
+#'   information.
+#'   
 #' @param queues A list of available submission queues for the cluster. Only
-#' applicable to batch systems like LSF.
+#'   applicable to batch systems like LSF.
+#'   
 #' @param config A list of cluster-specific configuration options. See
-#' \code{\link[=launcherConfig]{launcherConfig()}} for more information.
+#'   \code{\link[=launcherConfig]{launcherConfig()}} for more information.
+#'   
 #' @param user The user-name of the job owner.
+#' 
 #' @param applyConfigSettings Apply server-configured mounts, exposedPorts, and
-#' environment, in addition to any specified in this call.
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-#' \code{\link{launcherNfsMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitR}()}
-#' @export launcherSubmitJob
+#'   environment, in addition to any specified in this call.
+#'   
+#' @family job-launcher functionality
+#' @export
 launcherSubmitJob <- function(name,
                               cluster = "Local",
                               tags = NULL,
@@ -361,16 +371,15 @@ launcherSubmitJob <- function(name,
 #' with full control over command, environment, and so forth.
 #' 
 #' @param script Fully qualified path of R script. Must be a path that is
-#' available in the job container (if using containerized job cluster such as
-#' Kubernetes).
+#'   available in the job container (if using containerized job cluster such as
+#'   Kubernetes).
+#' 
 #' @param cluster The name of the cluster this job should be submitted to.
+#' 
 #' @param container The container to be used for launched jobs.
-#' @seealso Other job submission: \code{\link{launcherConfig}()},
-#' \code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-#' \code{\link{launcherNfsMount}()},
-#' \code{\link{launcherPlacementConstraint}()},
-#' \code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()}
-#' @export launcherSubmitR
+#' 
+#' @family job-launcher functionality
+#' @export
 launcherSubmitR <- function(script,
                             cluster = "Local",
                             container = NULL)
@@ -399,11 +408,14 @@ launcherSubmitR <- function(script,
 #' 
 #' 
 #' @param jobId The job id.
+#' 
 #' @param operation The operation to execute. The operation should be one of
-#' \code{c("suspend", "resume", "stop", "kill", "cancel")}. Note that different
-#' launcher plugins support different subsets of these operations -- consult
-#' your launcher plugin documentation to see which operations are supported.
-#' @export launcherControlJob
+#'   \code{c("suspend", "resume", "stop", "kill", "cancel")}. Note that different
+#'   launcher plugins support different subsets of these operations -- consult
+#'   your launcher plugin documentation to see which operations are supported.
+#'
+#' @family job-launcher functionality
+#' @export
 launcherControlJob <- function(jobId,
                                operation = c("suspend", "resume", "stop", "kill", "cancel"))
 {
