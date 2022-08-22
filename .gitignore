@@ -1,5 +1,8 @@
 .Rproj.user
 .Rhistory
 .RData
-inst/doc
+
 docs
+inst/doc
+man/*.html
+
