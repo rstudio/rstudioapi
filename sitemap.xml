@@ -145,7 +145,7 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/jobSetStatus.html</loc>
   </url>
   <url>
-    <loc>https://rstudio.github.io/rstudioapi/reference/launcher.html</loc>
+    <loc>https://rstudio.github.io/rstudioapi/reference/launcherAvailable.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/launcherConfig.html</loc>
@@ -157,7 +157,13 @@
     <loc>https://rstudio.github.io/rstudioapi/reference/launcherControlJob.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/launcherGetInfo.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/launcherGetJob.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/rstudioapi/reference/launcherGetJobs.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/rstudioapi/reference/launcherHostMount.html</loc>
