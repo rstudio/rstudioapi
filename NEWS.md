@@ -1,5 +1,8 @@
 
-# rstudioapi 0.14 (UNRELEASED)
+# rstudioapi 0.15  (UNRELEASED)
+
+
+# rstudioapi 0.14
 
 * `documentPath()` now marks the encoding of file paths as UTF-8. (#257)
 
