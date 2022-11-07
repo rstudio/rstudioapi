@@ -19,9 +19,9 @@ argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can
 be used to mount a path from the host into the generated container.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()}, \code{\link{launcherNfsMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
-\code{\link{launcherSubmitR}()}
+Other job submission: \code{\link[=launcherConfig]{launcherConfig()}},
+\code{\link[=launcherContainer]{launcherContainer()}}, \code{\link[=launcherNfsMount]{launcherNfsMount()}},
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}}, \code{\link[=launcherSubmitJob]{launcherSubmitJob()}},
+\code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }

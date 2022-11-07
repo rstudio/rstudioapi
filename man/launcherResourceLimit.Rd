@@ -20,9 +20,7 @@ Define a launcher resource limit, suitable for use with the
 \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-\code{\link{launcherNfsMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherSubmitJob}()}, \code{\link{launcherSubmitR}()}
+Other job submission:  \code{\link[=launcherConfig]{launcherConfig()}}, \code{\link[=launcherContainer]{launcherContainer()}},
+\code{\link[=launcherHostMount]{launcherHostMount()}}, \code{\link[=launcherNfsMount]{launcherNfsMount()}}, \code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}}, \code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }

@@ -22,9 +22,9 @@ be used to mount a path from a networked filesystem into a newly generated
 container.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitJob}()},
-\code{\link{launcherSubmitR}()}
+Other job submission: \code{\link[=launcherConfig]{launcherConfig()}},
+\code{\link[=launcherContainer]{launcherContainer()}}, \code{\link[=launcherNfsMount]{launcherNfsMount()}},
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}}, \code{\link[=launcherSubmitJob]{launcherSubmitJob()}},
+\code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }

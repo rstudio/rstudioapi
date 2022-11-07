@@ -95,9 +95,9 @@ https://docs.rstudio.com/job-launcher/latest/index.html for more
 information.
 }
 \seealso{
-Other job submission: \code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()}, \code{\link{launcherHostMount}()},
-\code{\link{launcherNfsMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()}, \code{\link{launcherSubmitR}()}
+Other job submission: \code{\link[=launcherConfig]{launcherConfig()}},
+\code{\link[=launcherContainer]{launcherContainer()}}, \code{\link[=launcherNfsMount]{launcherNfsMount()}},
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}}, \code{\link[=launcherSubmitJob]{launcherSubmitJob()}},
+\code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }
