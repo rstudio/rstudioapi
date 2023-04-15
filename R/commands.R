@@ -13,8 +13,9 @@
 #' 
 #' The command is run asynchronously, so no status is returned.
 #' 
-#' See the RStudio Server Professional Administration Guide appendix for a list
-#' of supported command IDs.
+#' See the [RStudio Server Professional Administration
+#' Guide](https://docs.posit.co/ide/server-pro/reference/rstudio_ide_commands.html)
+#' for a list of supported command IDs.
 #' 
 #' @param commandId The ID of the command to execute.
 #' @param quiet Whether to show an error if the command does not exist.
