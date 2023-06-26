@@ -91,7 +91,7 @@ environment, in addition to any specified in this call.}
 }
 \description{
 Submit a Workbench job. See
-\url{https://docs.rstudio.com/job-launcher/latest/index.html} for more
+\url{https://docs.posit.co/job-launcher/latest/index.html} for more
 information.
 }
 \seealso{

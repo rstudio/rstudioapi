@@ -245,7 +245,7 @@ launcherNfsMount <- function(host,
 #' Submit a Workbench Job
 #' 
 #' Submit a Workbench job. See
-#' <https://docs.rstudio.com/job-launcher/latest/index.html> for more
+#' <https://docs.posit.co/job-launcher/latest/index.html> for more
 #' information.
 #' 
 #' 

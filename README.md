@@ -8,15 +8,15 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rstudioapi)](https://CRAN.R-project.org/package=rstudioapi)
 [![Codecov test
-coverage](https://codecov.io/gh/rstudio/rstudioapi/branch/main/graph/badge.svg)](https://codecov.io/gh/rstudio/rstudioapi?branch=main)
+coverage](https://codecov.io/gh/rstudio/rstudioapi/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rstudio/rstudioapi?branch=main)
 [![R-CMD-check](https://github.com/rstudio/rstudioapi/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/rstudioapi/actions)
 <!-- badges: end -->
 
 The `rstudioapi` package is designed to make it easy to conditionally
-access the [RStudio](https://rstudio.com/) API from CRAN packages,
-avoiding any potential problems with `R CMD check`. This package
-contains a handful of useful wrapper functions to access the API. To see
-the functions that are currently available in the API, run
+access the [RStudio](https://posit.co/) API from CRAN packages, avoiding
+any potential problems with `R CMD check`. This package contains a
+handful of useful wrapper functions to access the API. To see the
+functions that are currently available in the API, run
 `help(package = "rstudioapi")`
 
 ## Installation
@@ -41,6 +41,7 @@ The `rstudioapi` package is designed to never be attached to your search
 path. Always prefix function calls with `rstudioapi::`.
 
 ``` r
+
 # Returns T/F
 rstudioapi::isAvailable()
 # Returns error if not available

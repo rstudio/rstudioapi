@@ -21,7 +21,7 @@ distributed with RStudio.
 \code{userDictionariesPath()} gives the path where users can provide their
 own custom \code{hunspell} dictionaries. See:
 
-\url{https://support.rstudio.com/hc/en-us/articles/200551916-Spelling-Dictionaries}
+\url{https://support.posit.co/hc/en-us/articles/200551916-Spelling-Dictionaries}
 
 for more information.
 }
