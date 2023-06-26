@@ -10,7 +10,7 @@ Authors@R: c(
     person("Gary", "Ritchie", role = c("aut"), email = "gary@posit.co"),
     person(family = "RStudio", role = "cph")
     )
-Maintainer: Kevin Ushey <kevin@posit.co>
+Maintainer: Kevin Ushey <kevin@rstudio.com>
 License: MIT + file LICENSE
 URL: https://rstudio.github.io/rstudioapi/,
     https://github.com/rstudio/rstudioapi
