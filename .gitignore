@@ -6,3 +6,5 @@ docs
 inst/doc
 man/*.html
 
+/doc/
+/Meta/
