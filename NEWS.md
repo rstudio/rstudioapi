@@ -1,7 +1,7 @@
 # rstudioapi 0.15.0
 
-* Added `getDelegatedAzureToken` for Posit Workbench users needing to expose OAuth2
-  tokens for Azure services that have already had permissions configured
+* Added `getDelegatedAzureToken` for Posit Workbench users needing to expose 
+  OAuth2 tokens for Azure services that have already had permissions configured
 
 # rstudioapi 0.14
 
