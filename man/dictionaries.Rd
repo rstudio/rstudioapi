@@ -19,11 +19,7 @@ used by RStudio for spell checking.
 distributed with RStudio.
 
 \code{userDictionariesPath()} gives the path where users can provide their
-own custom \code{hunspell} dictionaries. See:
-
-\url{https://support.posit.co/hc/en-us/articles/200551916-Spelling-Dictionaries-in-the-RStudio-IDE}
-
-for more information.
+own custom \code{hunspell} dictionaries.
 }
 \note{
 The \code{dictionariesPath()} and \code{userDictionariesPath()} functions were

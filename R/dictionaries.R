@@ -8,11 +8,7 @@
 #' distributed with RStudio.
 #'
 #' `userDictionariesPath()` gives the path where users can provide their
-#' own custom `hunspell` dictionaries. See:
-#'
-#' \url{https://support.posit.co/hc/en-us/articles/200551916-Spelling-Dictionaries-in-the-RStudio-IDE}
-#'
-#' for more information.
+#' own custom `hunspell` dictionaries.
 #'
 #' @note The `dictionariesPath()` and `userDictionariesPath()` functions were
 #'   introduced with RStudio 1.2.1202.
