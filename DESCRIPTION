@@ -4,7 +4,7 @@ Description: Access the RStudio API (if available) and provide informative error
     messages when it's not.
 Version: 0.15.0
 Authors@R: c(
-    person("Kevin", "Ushey", role = c("aut", "cre"), email = "kevin@posit.co"),
+    person("Kevin", "Ushey", role = c("aut", "cre"), email = "kevin@rstudio.com"),
     person("JJ", "Allaire", role = c("aut"), email = "jj@posit.co"),
     person("Hadley", "Wickham", role = c("aut"), email = "hadley@posit.co"),
     person("Gary", "Ritchie", role = c("aut"), email = "gary@posit.co"),
