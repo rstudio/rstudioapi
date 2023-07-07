@@ -10,7 +10,7 @@ vignette: >
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
-The `rstudioapi` package provides a collection of functions that can be used to interact with the [RStudio terminal tab](https://support.posit.co/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal).
+The `rstudioapi` package provides a collection of functions that can be used to interact with the [RStudio terminal tab](https://support.posit.co/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal-in-the-RStudio-IDE).
 
 There are two primary approaches to using these functions. 
 
