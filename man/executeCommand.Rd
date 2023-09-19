@@ -26,8 +26,8 @@ see an error.
 
 The command is run asynchronously, so no status is returned.
 
-See the RStudio Server Professional Administration Guide appendix for a list
-of supported command IDs.
+See the \href{https://docs.posit.co/ide/server-pro/reference/rstudio_ide_commands.html}{RStudio Server Professional Administration Guide}
+for a list of supported command IDs.
 }
 \note{
 The \code{executeCommand} function was introduced in RStudio 1.2.1261.

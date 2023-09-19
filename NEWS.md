@@ -1,5 +1,7 @@
 # rstudioapi (development version)
 
+* Added `setGhostText()` for setting ghost text in the current editor.
+
 # rstudioapi 0.15.0
 
 * Added `getDelegatedAzureToken` for Posit Workbench users needing to expose 
