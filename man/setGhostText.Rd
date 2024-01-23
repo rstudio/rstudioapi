@@ -10,5 +10,8 @@ setGhostText(text)
 \item{text}{The ghost text to set.}
 }
 \description{
-Set ghost text in the current document.
+Set ghost text in the current document. The ghost text will be inserted at
+the current cursor position. Ghost text can be inserted into the document
+by pressing Tab, and will be automatically dismissed if the user navigates
+the cursor away.
 }
