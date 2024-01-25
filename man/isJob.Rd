@@ -2,9 +2,15 @@
 % Please edit documentation in R/remote.R
 \name{isJob}
 \alias{isJob}
+\alias{isBackgroundJob}
+\alias{isWorkbenchJob}
 \title{Detect RStudio Jobs}
 \usage{
 isJob()
+
+isBackgroundJob()
+
+isWorkbenchJob()
 }
 \value{
 Boolean; \code{TRUE} if this is an RStudio job.
@@ -15,6 +21,12 @@ These jobs are normally used for actions taken in the Jobs tab, as well
 as within the \R build pane.
 }
 \details{
+\code{isWorkbenchJob()} is used to detect scripts which have been launched as
+Workbench jobs, and is only available in RStudio Workbench 2024.04 or newer.
+These jobs use the RStudio Launcher to run \R scripts on remote clusters, as
+opposed to \code{isBackgroundJob()}, which is used to detect background jobs
+which are run on the local machine.
+
 This function is primarily intended to be used by package authors, who
 need to customize the behavior of their methods when run within an
 RStudio job.

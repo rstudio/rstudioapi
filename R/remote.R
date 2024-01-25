@@ -5,6 +5,12 @@
 #' These jobs are normally used for actions taken in the Jobs tab, as well
 #' as within the \R build pane.
 #' 
+#' `isWorkbenchJob()` is used to detect scripts which have been launched as
+#' Workbench jobs, and is only available in RStudio Workbench 2024.04 or newer.
+#' These jobs use the RStudio Launcher to run \R scripts on remote clusters, as
+#' opposed to `isBackgroundJob()`, which is used to detect background jobs
+#' which are run on the local machine.
+#' 
 #' This function is primarily intended to be used by package authors, who
 #' need to customize the behavior of their methods when run within an
 #' RStudio job.
@@ -13,7 +19,19 @@
 #' 
 #' @export
 isJob <- function() {
+  isBackgroundJob() || isWorkbenchJob()
+}
+
+#' @name isJob
+#' @export
+isBackgroundJob <- function() {
   !is.na(Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA))
+}
+
+#' @name isJob
+#' @export
+isWorkbenchJob <- function() {
+  identical(Sys.getenv("RSTUDIO_WORKBENCH_JOB"), "1")
 }
 
 callRemote <- function(call, frame) {
