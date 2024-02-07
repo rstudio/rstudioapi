@@ -1,5 +1,8 @@
 # rstudioapi (development version)
 
+* `restartSession()` gains the `clean` argument, for RStudio 2024.04
+  and newer.
+
 * Added `setGhostText()` for setting ghost text in the current editor.
 
 # rstudioapi 0.15.0
