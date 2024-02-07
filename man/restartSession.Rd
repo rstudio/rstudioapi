@@ -4,15 +4,20 @@
 \alias{restartSession}
 \title{Restart the R Session}
 \usage{
-restartSession(command = "")
+restartSession(command = "", clean = FALSE)
 }
 \arguments{
 \item{command}{A command (as a string) to be run after restarting.}
+
+\item{clean}{Boolean; when \code{FALSE}, the current \R session (including
+loaded packages and data objects) will be saved and restored in the
+new session.}
 }
 \description{
 Restart the RStudio session.
 }
 \note{
 The \code{restartSession} function was added in version 1.1.281 of
-RStudio.
+RStudio. Support for the \code{clean} argument was added for version 2024.04
+release of RStudio; it is silently ignored in older versions of RStudio.
 }

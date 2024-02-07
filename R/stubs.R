@@ -426,13 +426,17 @@ hasColorConsole <- function() {
 #' 
 #' 
 #' @param command A command (as a string) to be run after restarting.
+#' @param clean Boolean; when `FALSE`, the current \R session (including
+#'   loaded packages and data objects) will be saved and restored in the
+#'   new session.
 #' 
 #' @note The \code{restartSession} function was added in version 1.1.281 of
-#'   RStudio.
+#'   RStudio. Support for the `clean` argument was added for version 2024.04
+#'   release of RStudio; it is silently ignored in older versions of RStudio.
 #'   
 #' @export
-restartSession <- function(command = "") {
-  callFun("restartSession", command)
+restartSession <- function(command = "", clean = FALSE) {
+  callFun("restartSession", command, clean)
 }
 
 
