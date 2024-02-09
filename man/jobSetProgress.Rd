@@ -15,8 +15,15 @@ jobSetProgress(job, units)
 Updates the progress for a background job.
 }
 \seealso{
-Other jobs: \code{\link{jobAddOutput}()},
-\code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-\code{\link{jobRemove}()}, \code{\link{jobRunScript}()},
-\code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
+Other jobs: 
+\code{\link{jobAdd}()},
+\code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()},
+\code{\link{jobGetState}()},
+\code{\link{jobList}()},
+\code{\link{jobRemove}()},
+\code{\link{jobRunScript}()},
+\code{\link{jobSetState}()},
+\code{\link{jobSetStatus}()}
 }
+\concept{jobs}

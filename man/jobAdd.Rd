@@ -60,8 +60,15 @@ the button will invoke the \code{replay} action.}}
 }
 
 \seealso{
-Other jobs: \code{\link{jobAddOutput}()},
-\code{\link{jobAddProgress}()}, \code{\link{jobRemove}()},
-\code{\link{jobRunScript}()}, \code{\link{jobSetProgress}()},
-\code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
+Other jobs: 
+\code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()},
+\code{\link{jobGetState}()},
+\code{\link{jobList}()},
+\code{\link{jobRemove}()},
+\code{\link{jobRunScript}()},
+\code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()},
+\code{\link{jobSetStatus}()}
 }
+\concept{jobs}

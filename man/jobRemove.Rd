@@ -13,8 +13,15 @@ jobRemove(job)
 Remove a background job from RStudio's Background Jobs pane.
 }
 \seealso{
-Other jobs: \code{\link{jobAddOutput}()},
-\code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-\code{\link{jobRunScript}()}, \code{\link{jobSetProgress}()},
-\code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
+Other jobs: 
+\code{\link{jobAdd}()},
+\code{\link{jobAddOutput}()},
+\code{\link{jobAddProgress}()},
+\code{\link{jobGetState}()},
+\code{\link{jobList}()},
+\code{\link{jobRunScript}()},
+\code{\link{jobSetProgress}()},
+\code{\link{jobSetState}()},
+\code{\link{jobSetStatus}()}
 }
+\concept{jobs}

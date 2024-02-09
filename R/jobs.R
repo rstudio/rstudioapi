@@ -1,3 +1,4 @@
+
 #' Add a Job
 #' 
 #' Inform RStudio's Background Jobs pane that a job has been added.
@@ -32,11 +33,9 @@
 #' \item{replay}{If there is an action named \code{replay}, then the job will
 #' have a Replay button that displays when the job has finished running. Clicking
 #' the button will invoke the \code{replay} action.}}
-#' @seealso Other jobs: \code{\link{jobAddOutput}()},
-#' \code{\link{jobAddProgress}()}, \code{\link{jobRemove}()},
-#' \code{\link{jobRunScript}()}, \code{\link{jobSetProgress}()},
-#' \code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
-#' @export jobAdd
+#' 
+#' @family jobs
+#' @export
 jobAdd <- function(name, status = "", progressUnits = 0L, actions = NULL, running = FALSE,
                    autoRemove = TRUE, show = TRUE) {
     callFun("addJob", name          = name,
@@ -54,13 +53,10 @@ jobAdd <- function(name, status = "", progressUnits = 0L, actions = NULL, runnin
 #' 
 #' Remove a background job from RStudio's Background Jobs pane.
 #' 
-#' 
 #' @param job The ID of the job to remove.
-#' @seealso Other jobs: \code{\link{jobAddOutput}()},
-#' \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRunScript}()}, \code{\link{jobSetProgress}()},
-#' \code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
-#' @export jobRemove
+#' 
+#' @family jobs
+#' @export
 jobRemove <- function(job) {
     callFun("removeJob", job = job)
 }
@@ -71,14 +67,11 @@ jobRemove <- function(job) {
 #' 
 #' Updates the progress for a background job.
 #' 
-#' 
 #' @param job The ID of the job to set progress for.
 #' @param units The integer number of total units of work completed so far.
-#' @seealso Other jobs: \code{\link{jobAddOutput}()},
-#' \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRemove}()}, \code{\link{jobRunScript}()},
-#' \code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
-#' @export jobSetProgress
+#' 
+#' @family jobs
+#' @export
 jobSetProgress <- function(job, units) {
     callFun("setJobProgress", job = job, units = units)
 }
@@ -92,11 +85,9 @@ jobSetProgress <- function(job, units) {
 #' 
 #' @param job The ID of the job to update progress for.
 #' @param units The integer number of new progress units completed.
-#' @seealso Other jobs: \code{\link{jobAddOutput}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRemove}()}, \code{\link{jobRunScript}()},
-#' \code{\link{jobSetProgress}()}, \code{\link{jobSetState}()},
-#' \code{\link{jobSetStatus}()}
-#' @export jobAddProgress
+#'
+#' @family jobs
+#' @export
 jobAddProgress <- function(job, units) {
     callFun("addJobProgress", job = job, units = units)
 }
@@ -110,17 +101,22 @@ jobAddProgress <- function(job, units) {
 #' 
 #' @param job The ID of the job to update.
 #' @param status Text describing job's new status.
-#' @seealso Other jobs: \code{\link{jobAddOutput}()},
-#' \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRemove}()}, \code{\link{jobRunScript}()},
-#' \code{\link{jobSetProgress}()}, \code{\link{jobSetState}()}
-#' @export jobSetStatus
+#'
+#' @family jobs
+#' @export
 jobSetStatus <- function(job, status) {
     callFun("setJobStatus", job = job, status = status)
 }
 
-
-
+#' Get Background Job State
+#' 
+#' @param job The ID of the job.
+#' 
+#' @family jobs
+#' @export
+jobGetState <- function(job) {
+    callFun("getJobState", job = job)
+}
 
 #' Set Background Job State
 #' 
@@ -135,11 +131,9 @@ jobSetStatus <- function(job, status) {
 #' waiting to run.} \item{running}{The job is actively running.}
 #' \item{succeeded}{The job has finished successfully.} \item{cancelled}{The
 #' job was cancelled.} \item{failed}{The job finished but did not succeed.} }
-#' @seealso Other jobs: \code{\link{jobAddOutput}()},
-#' \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRemove}()}, \code{\link{jobRunScript}()},
-#' \code{\link{jobSetProgress}()}, \code{\link{jobSetStatus}()}
-#' @export jobSetState
+#' 
+#' @family jobs
+#' @export
 jobSetState <- function(job, state = c("idle", "running", "succeeded", "cancelled", "failed")) {
     callFun("setJobState", job = job, state = state)
 }
@@ -155,11 +149,9 @@ jobSetState <- function(job, state = c("idle", "running", "succeeded", "cancelle
 #' @param job The ID of the job that has emitted text.
 #' @param output The text output emitted by the job.
 #' @param error Whether the output represents an error.
-#' @seealso Other jobs: \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRemove}()}, \code{\link{jobRunScript}()},
-#' \code{\link{jobSetProgress}()}, \code{\link{jobSetState}()},
-#' \code{\link{jobSetStatus}()}
-#' @export jobAddOutput
+#'
+#' @family jobs
+#' @export
 jobAddOutput <- function(job, output, error = FALSE) {
     callFun("addJobOutput", job = job, output = output, error = error)
 }
@@ -183,11 +175,9 @@ jobAddOutput <- function(job, output, error = FALSE) {
 #' objects created by the job. Use \code{""} (the default) to skip export,
 #' \code{"R_GlobalEnv"}` to export to the global environment, or the name of an
 #' environment object to create an object with that name.
-#' @seealso Other jobs: \code{\link{jobAddOutput}()},
-#' \code{\link{jobAddProgress}()}, \code{\link{jobAdd}()},
-#' \code{\link{jobRemove}()}, \code{\link{jobSetProgress}()},
-#' \code{\link{jobSetState}()}, \code{\link{jobSetStatus}()}
-#' @export jobRunScript
+#'
+#' @family jobs
+#' @export
 jobRunScript <- function(path, name = NULL, encoding = "unknown", workingDir = NULL,
                          importEnv = FALSE, exportEnv = "") {
     path <- normalizePath(path, winslash = "/", mustWork = TRUE)
@@ -197,4 +187,14 @@ jobRunScript <- function(path, name = NULL, encoding = "unknown", workingDir = N
                             workingDir = workingDir,
                             importEnv  = importEnv,
                             exportEnv  = exportEnv)
+}
+
+#' List Background Jobs
+#' 
+#' List any registered background jobs.
+#' 
+#' @family jobs
+#' @export
+jobList <- function() {
+    callFun("listJobs")
 }
