@@ -47,7 +47,7 @@ bugReport <- function() {
     utils::file.edit(file)
   }
 
-  url <- "https://github.com/rstudio/rstudio/issues/new"
+  url <- "https://github.com/rstudio/rstudio/issues/new?assignees=&labels=bug%2Cnew&projects=&template=1_bug_report.md&title="
   utils::browseURL(url)
 
 }
