@@ -4,7 +4,7 @@
 \alias{showDialog}
 \title{Show Dialog Box}
 \usage{
-showDialog(title, message, url = "")
+showDialog(title, message, url = "", timeout = 10)
 }
 \arguments{
 \item{title}{The title to display in the dialog box.}
@@ -14,6 +14,8 @@ dialog area. Contents can contain the following HTML tags: "p", "em",
 "strong", "b" and "i".}
 
 \item{url}{An optional url to display under the \code{message}.}
+
+\item{timeout}{Timeout (in seconds) passed to \code{callFun()} if running as a job (see \code{?isJob}).}
 }
 \description{
 Shows a dialog box with a given title and contents.

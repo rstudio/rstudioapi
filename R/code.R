@@ -81,7 +81,8 @@ getVersion <- function() {
 #' 
 #' 
 #' @param fname name of the RStudio function to call.
-#' @param ... Other arguments passed on to the function
+#' @param ... Other arguments passed on to the function.
+#'   In particular, a `timeout` argument (in seconds) can be specified, by keyword only, for a remote call if running as a job (see `?isJob`).
 #' @examples
 #' 
 #' if (rstudioapi::isAvailable()) {
@@ -90,9 +91,18 @@ getVersion <- function() {
 #' 
 #' @export callFun
 callFun <- function(fname, ...) {
+  args <- list(...)
   
-  if (isJob())
-    return(callRemote(sys.call(), parent.frame()))
+  if (isJob()) {
+    if (is.null(args$timeout)) {
+      return(callRemote(sys.call(), 
+                        parent.frame()))
+    } else {
+      return(callRemote(sys.call(), 
+                        parent.frame(),
+                        timeout = args$timeout))
+    }
+  }
   
   verifyAvailable()
   
@@ -103,7 +113,6 @@ callFun <- function(fname, ...) {
   
   # drop arguments that aren't accepted by RStudio
   # (ensure backwards-compatibility with older versions of RStudio)
-  args <- list(...)
   if (!"..." %in% names(formals(f)))
     if (length(args) > length(formals(f)))
       length(args) <- length(formals(f))

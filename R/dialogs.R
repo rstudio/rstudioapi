@@ -10,10 +10,11 @@
 #' dialog area. Contents can contain the following HTML tags: "p", "em",
 #' "strong", "b" and "i".
 #' @param url An optional url to display under the \code{message}.
+#' @param timeout Timeout (in seconds) passed to `callFun()` if running as a job (see `?isJob`).
 #' @note The \code{showDialog} function was added in version 1.1.67 of RStudio.
 #' @export showDialog
-showDialog <- function(title, message, url = "") {
-  callFun("showDialog", title, message, url)
+showDialog <- function(title, message, url = "", timeout = 10) {
+  callFun("showDialog", title, message, url, timeout = timeout)
 }
 
 

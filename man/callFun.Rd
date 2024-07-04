@@ -9,7 +9,8 @@ callFun(fname, ...)
 \arguments{
 \item{fname}{name of the RStudio function to call.}
 
-\item{...}{Other arguments passed on to the function}
+\item{...}{Other arguments passed on to the function.
+In particular, a \code{timeout} argument (in seconds) can be specified, by keyword only, for a remote call if running as a job (see \code{?isJob}).}
 }
 \description{
 This function will return an error if RStudio is not running, or the

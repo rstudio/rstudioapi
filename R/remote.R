@@ -34,7 +34,19 @@ isWorkbenchJob <- function() {
   identical(Sys.getenv("RSTUDIO_WORKBENCH_JOB"), "1")
 }
 
-callRemote <- function(call, frame) {
+#' Make remote call.
+#' 
+#' This function facilitates making a remote call in an RStudio job by serializing
+#' the call and its arguments, sending them to the remote environment, and waiting
+#' for the response.
+#'
+#' @param call An unevaluated function call captured by `sys.call()`, representing
+#'   the original function invocation to be executed remotely.
+#' @param frame The environment in which to evaluate the arguments of the `call`.
+#'   This is typically the parent frame captured by `parent.frame()` in the calling function.
+#' @param timeout Timeout (in seconds) if running as a job (see `?isJob`).
+#' @return The response from the remote execution of the function call.
+callRemote <- function(call, frame, timeout = 10) {
 
   # check for active request / response
   requestFile  <- Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA)
@@ -80,7 +92,7 @@ callRemote <- function(call, frame) {
 
     # check for lack of response
     diff <- difftime(Sys.time(), now, units = "secs")
-    if (diff > 10)
+    if (diff > timeout)
       stop("RStudio did not respond to rstudioapi IPC request")
 
     # wait a bit
