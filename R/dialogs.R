@@ -2,17 +2,28 @@
 #' 
 #' Shows a dialog box with a given title and contents.
 #' 
-#' \preformatted{ showDialog("A dialog", "Showing <b>bold</b> text in the
-#' message.") }
-#' 
 #' @param title The title to display in the dialog box.
+#' 
 #' @param message A character vector with the contents to display in the main
-#' dialog area. Contents can contain the following HTML tags: "p", "em",
-#' "strong", "b" and "i".
-#' @param url An optional url to display under the \code{message}.
+#'   dialog area. Contents can contain the following HTML tags: "p", "em",
+#'   "strong", "b" and "i".
+#'   
+#' @param url An optional URL to display under the \code{message}.
+#' 
+#' @param timeout An optional timeout (in seconds). When set, if the user takes
+#'   longer than this timeout to provide a response, the request will be aborted.
+#'   
 #' @note The \code{showDialog} function was added in version 1.1.67 of RStudio.
-#' @export showDialog
-showDialog <- function(title, message, url = "") {
+#' 
+#' @examples
+#' if (rstudioapi::isAvailable()) {
+#'   rstudioapi::showDialog("Example Dialog", "This is an <b>example</b> dialog.")
+#' }
+#' 
+#' @export
+showDialog <- function(title, message, url = "", timeout = 60) {
+  opts <- options(rstudioapi.remote.timeout = timeout)
+  on.exit(options(opts), add = TRUE)
   callFun("showDialog", title, message, url)
 }
 
