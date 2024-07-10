@@ -4,7 +4,7 @@
 \alias{showQuestion}
 \title{Show Question Dialog Box}
 \usage{
-showQuestion(title, message, ok = NULL, cancel = NULL)
+showQuestion(title, message, ok = NULL, cancel = NULL, timeout = 60)
 }
 \arguments{
 \item{title}{The title to display in the dialog box.}
@@ -17,6 +17,9 @@ OK button.}
 
 \item{cancel}{An optional character vector that overrides the caption for
 the Cancel button.}
+
+\item{timeout}{A timeout (in seconds). When set, if the user takes
+longer than this timeout to provide a response, the request will be aborted.}
 }
 \description{
 Shows a dialog box asking a question.

@@ -15,7 +15,7 @@ dialog area. Contents can contain the following HTML tags: "p", "em",
 
 \item{url}{An optional URL to display under the \code{message}.}
 
-\item{timeout}{An optional timeout (in seconds). When set, if the user takes
+\item{timeout}{A timeout (in seconds). When set, if the user takes
 longer than this timeout to provide a response, the request will be aborted.}
 }
 \description{

@@ -4,7 +4,7 @@
 \alias{showPrompt}
 \title{Show Prompt Dialog Box}
 \usage{
-showPrompt(title, message, default = NULL)
+showPrompt(title, message, default = NULL, timeout = 60)
 }
 \arguments{
 \item{title}{The title to display in the dialog box.}
@@ -14,6 +14,9 @@ dialog area.}
 
 \item{default}{An optional character vector that fills the prompt field with
 a default value.}
+
+\item{timeout}{A timeout (in seconds). When set, if the user takes
+longer than this timeout to provide a response, the request will be aborted.}
 }
 \description{
 Shows a dialog box with a prompt field.
