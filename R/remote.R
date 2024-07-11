@@ -39,7 +39,7 @@ callRemote <- function(call, frame) {
   # check for active request / response
   requestFile  <- Sys.getenv("RSTUDIOAPI_IPC_REQUESTS_FILE", unset = NA)
   responseFile <- Sys.getenv("RSTUDIOAPI_IPC_RESPONSE_FILE", unset = NA)
-  secret   <- Sys.getenv("RSTUDIOAPI_IPC_SHARED_SECRET", unset = NA)
+  secret       <- Sys.getenv("RSTUDIOAPI_IPC_SHARED_SECRET", unset = NA)
   if (is.na(requestFile) || is.na(responseFile) || is.na(secret))
     stop("internal error: callRemote() called without remote connection")
   
@@ -50,17 +50,17 @@ callRemote <- function(call, frame) {
   attr(call, "srcref") <- NULL
 
   # ensure rstudioapi functions get appropriate prefix
-  if (is.name(call[[1L]])) {
-    call_fun <- call("::", as.name("rstudioapi"), call[[1L]])
+  callFun <- if (is.name(call[[1L]])) {
+     call("::", as.name("rstudioapi"), call[[1L]])
   } else {
-    call_fun <- call[[1L]]
+    call[[1L]]
   }
   
   # ensure arguments are evaluated before sending request
   call[[1L]] <- quote(base::list)
   args <- eval(call, envir = frame)
   
-  call <- as.call(c(call_fun, args))
+  call <- as.call(c(callFun, args))
 
   # write to tempfile and rename, to ensure atomicity
   data <- list(secret = secret, call = call)
@@ -72,6 +72,7 @@ callRemote <- function(call, frame) {
   # in theory we'd just do a blocking read but there isn't really a good
   # way to do this in a cross-platform way without additional dependencies
   now <- Sys.time()
+  timeout <- getOption("rstudioapi.remote.timeout", default = 10)
   repeat {
 
     # check for response
@@ -80,7 +81,7 @@ callRemote <- function(call, frame) {
 
     # check for lack of response
     diff <- difftime(Sys.time(), now, units = "secs")
-    if (diff > 10)
+    if (diff > timeout)
       stop("RStudio did not respond to rstudioapi IPC request")
 
     # wait a bit

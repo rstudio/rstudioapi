@@ -4,7 +4,7 @@
 \alias{showDialog}
 \title{Show Dialog Box}
 \usage{
-showDialog(title, message, url = "")
+showDialog(title, message, url = "", timeout = 60)
 }
 \arguments{
 \item{title}{The title to display in the dialog box.}
@@ -13,15 +13,20 @@ showDialog(title, message, url = "")
 dialog area. Contents can contain the following HTML tags: "p", "em",
 "strong", "b" and "i".}
 
-\item{url}{An optional url to display under the \code{message}.}
+\item{url}{An optional URL to display under the \code{message}.}
+
+\item{timeout}{A timeout (in seconds). When set, if the user takes
+longer than this timeout to provide a response, the request will be aborted.}
 }
 \description{
 Shows a dialog box with a given title and contents.
 }
-\details{
-\preformatted{ showDialog("A dialog", "Showing <b>bold</b> text in the
-message.") }
-}
 \note{
 The \code{showDialog} function was added in version 1.1.67 of RStudio.
+}
+\examples{
+if (rstudioapi::isAvailable()) {
+  rstudioapi::showDialog("Example Dialog", "This is an <b>example</b> dialog.")
+}
+
 }
