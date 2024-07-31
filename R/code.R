@@ -1,6 +1,6 @@
-#' Check if RStudio is running
+#' Check if rstudioapi support is available
 #' 
-#' Check if RStudio is running.
+#' Check if `rstudioapi` functionality is available in the current \R session.
 #' 
 #' @aliases isAvailable verifyAvailable
 #' 

@@ -3,7 +3,7 @@
 \name{isAvailable}
 \alias{isAvailable}
 \alias{verifyAvailable}
-\title{Check if RStudio is running}
+\title{Check if rstudioapi support is available}
 \usage{
 isAvailable(version_needed = NULL, child_ok = FALSE)
 
@@ -23,7 +23,7 @@ through \code{rstudioapi}.}
 if RStudio is not running
 }
 \description{
-Check if RStudio is running.
+Check if \code{rstudioapi} functionality is available in the current \R session.
 }
 \examples{
 
