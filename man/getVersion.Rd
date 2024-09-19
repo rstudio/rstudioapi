@@ -2,7 +2,7 @@
 % Please edit documentation in R/code.R
 \name{getVersion}
 \alias{getVersion}
-\title{Return the current version of the RStudio API}
+\title{Return the current version of the RStudio IDE}
 \usage{
 getVersion()
 }
@@ -11,7 +11,7 @@ A \code{\link{numeric_version}} which you can compare to a string
 and get correct results.
 }
 \description{
-Return the current version of the RStudio API
+Return the current version of the RStudio IDE
 }
 \examples{
 
