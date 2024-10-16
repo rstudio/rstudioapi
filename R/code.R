@@ -56,29 +56,40 @@ verifyAvailable <- function(version_needed = NULL) {
 #' based on the version of RStudio currently available.
 #'
 #' @returns A `"numeric_version"` object, giving the version of RStudio in use.
-#' 
+#'
 #' @export
 getVersion <- function() {
-  verifyAvailable()
-  
+
+  # use API if available
+  if (hasFun("getVersion"))
+    return(callFun("getVersion"))
+
+  # use fallback if not
   base <- .BaseNamespaceEnv
   version <- base$.Call("rs_rstudioVersion", PACKAGE = "(embedding)")
   package_version(version)
+
 }
 
 #' Report whether RStudio Desktop or RStudio Server is in use
-#' 
+#'
 #' Use `getMode()` if you need to differentiate between server
 #' and desktop installations of RStudio.
-#' 
+#'
 #' @returns "desktop" for RStudio Desktop installations, and
 #'   "server" for RStudio Server / RStudio Workbench installations.
-#'   
+#'
 #' @export
 getMode <- function() {
-  verifyAvailable()
+
+  # use API if available
+  if (hasFun("getMode"))
+    return(callFun("getMode"))
+
+  # use fallback if not
   rstudio <- as.environment("tools:rstudio")
   if (rstudio$.rs.isDesktop()) "desktop" else "server"
+  
 }
 
 
