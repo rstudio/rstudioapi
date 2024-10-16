@@ -1,6 +1,9 @@
 
 # rstudioapi (under development)
 
+* Added `getMode()`, which can be used to differentiate between Desktop
+  and Server installations of RStudio. (#280)
+
 # rstudioapi 0.16.0
 
 * `restartSession()` gains the `clean` argument, for RStudio 2024.04
