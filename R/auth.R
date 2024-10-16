@@ -18,3 +18,6 @@ getDelegatedAzureToken <- function(resource) {
   }
   callFun("getDelegatedAzureToken", resource)
 }
+
+
+test
