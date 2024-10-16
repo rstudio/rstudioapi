@@ -89,7 +89,7 @@ getMode <- function() {
   # use fallback if not
   rstudio <- as.environment("tools:rstudio")
   if (rstudio$.rs.isDesktop()) "desktop" else "server"
-  
+
 }
 
 
