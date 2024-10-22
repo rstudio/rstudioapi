@@ -65,6 +65,7 @@ getVersion <- function() {
     return(callFun("getVersion"))
 
   # use fallback if not
+  verifyAvailable()
   base <- .BaseNamespaceEnv
   version <- base$.Call("rs_rstudioVersion", PACKAGE = "(embedding)")
   package_version(version)
@@ -87,6 +88,7 @@ getMode <- function() {
     return(callFun("getMode"))
 
   # use fallback if not
+  verifyAvailable()
   rstudio <- as.environment("tools:rstudio")
   if (rstudio$.rs.isDesktop()) "desktop" else "server"
 

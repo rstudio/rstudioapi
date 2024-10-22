@@ -1,4 +1,8 @@
-# rstudioapi (development version)
+# rstudioapi 0.17.1
+
+* Ensure a more appropriate error message is emitted for calls to
+  `rstudioapi::getVersion()` and `rstudioapi::getMode()` outside
+  of RStudio.
 
 
 # rstudioapi 0.17.0
