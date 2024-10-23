@@ -1,3 +1,5 @@
+# rstudioapi (development version)
+
 # rstudioapi 0.17.1
 
 * Ensure a more appropriate error message is emitted for calls to
