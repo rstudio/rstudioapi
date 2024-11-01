@@ -23,6 +23,7 @@ bugReport <- function() {
   rVersion <- rInfo$R.version$version.string
   rVersion <- sub("^R version", "", rVersion, fixed = TRUE)
   osVersion <- rInfo$running
+  if (is.null(osVersion)) osVersion <- "<undetermined osVersion>"
 
   templateFile <- system.file("resources/bug-report.md", package = "rstudioapi")
   template <- readLines(templateFile)
