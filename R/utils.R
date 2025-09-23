@@ -20,6 +20,11 @@ renderTemplate <- function(template, data) {
 
 checkApiArguments <- function(fname, f, args) {
 
+  # allow opt-out just in case
+  enabled <- getOption("rstudioapi.checkApiArguments", default = TRUE)
+  if (identical(enabled, FALSE))
+    return(args)
+
   # check for arguments supplied by the user that aren't available
   # in the current version of RStudio
   unsupportedArgNames <- setdiff(names(args), names(formals(f)))
