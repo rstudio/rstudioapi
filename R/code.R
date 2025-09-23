@@ -126,9 +126,11 @@ callFun <- function(fname, ...) {
   # drop arguments that aren't accepted by RStudio
   # (ensure backwards-compatibility with older versions of RStudio)
   args <- list(...)
-  if (!"..." %in% names(formals(f)))
+  if (!"..." %in% names(formals(f))) {
+    args <- checkApiArguments(fname, f, args)
     if (length(args) > length(formals(f)))
       length(args) <- length(formals(f))
+  }
 
   # invoke the function
   do.call(f, args)
@@ -183,7 +185,7 @@ usingTools <- function() {
 }
 
 toolsName <- function(name) {
-  paste(".rs.api.", name, sep="")
+  paste(".rs.api.", name, sep = "")
 }
 
 toolsEnv <- function() {
