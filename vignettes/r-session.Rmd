@@ -1,5 +1,5 @@
 ---
-title: "Interacting with the R Session"
+title: "Interact with the R Session"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Interact with the R Session}
