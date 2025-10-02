@@ -9,7 +9,7 @@
 status](https://www.r-pkg.org/badges/version/rstudioapi)](https://CRAN.R-project.org/package=rstudioapi)
 [![Codecov test
 coverage](https://codecov.io/gh/rstudio/rstudioapi/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rstudio/rstudioapi?branch=main)
-[![R-CMD-check](https://github.com/rstudio/rstudioapi/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/rstudioapi/actions)
+[![R-CMD-check](https://github.com/rstudio/rstudioapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/rstudioapi/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The `rstudioapi` package is designed to make it easy to conditionally
