@@ -22,6 +22,7 @@ launcherSubmitJob(
   mounts = NULL,
   placementConstraints = NULL,
   resourceLimits = NULL,
+  resourceProfile = NULL,
   queues = NULL,
   config = NULL,
   user = Sys.getenv("USER"),
@@ -77,6 +78,9 @@ for more information.}
 \item{resourceLimits}{A list of resource limits. See
 \code{\link[=launcherResourceLimit]{launcherResourceLimit()}} for more
 information.}
+
+\item{resourceProfile}{A resource profile name to be used for the job. The
+resource profile must be defined in the cluster configuration.}
 
 \item{queues}{A list of available submission queues for the cluster. Only
 applicable to batch systems like LSF.}
