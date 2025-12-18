@@ -229,7 +229,7 @@ getConsoleEditorContext <- function() {
 #' @export
 documentNew <- function(
   text,
-  type = NULL,
+  type = "r",
   position = document_position(0, 0),
   execute = FALSE)
 {
