@@ -1,5 +1,8 @@
 # rstudioapi (development version)
 
+* `rstudioapi::documentNew()` now accepts arbitrary document types. (#316)
+
+
 # rstudioapi 0.17.1
 
 * Ensure a more appropriate error message is emitted for calls to
