@@ -17,14 +17,13 @@ URL: https://rstudio.github.io/rstudioapi/,
 BugReports: https://github.com/rstudio/rstudioapi/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Imports:
-    httr,
-    jsonlite
 Suggests:
     testthat,
     knitr,
     rmarkdown,
     clipr,
-    covr
+    covr,
+    httr,
+    jsonlite
 VignetteBuilder: knitr
 Encoding: UTF-8

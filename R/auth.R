@@ -19,6 +19,54 @@ getDelegatedAzureToken <- function(resource) {
   callFun("getDelegatedAzureToken", resource)
 }
 
+# Internal helper to check if running in Posit Workbench
+.checkWorkbenchSession <- function() {
+  if (Sys.getenv("POSIT_PRODUCT") != "WORKBENCH") {
+    stop("OAuth functionality is only available within Posit Workbench sessions.")
+  }
+}
+
+# Internal helper to check version requirement
+.checkWorkbenchVersion <- function(feature_name = "OAuth functionality") {
+  # Try to get version from versionInfo() first, fall back to environment variable
+  version_info <- tryCatch(
+    versionInfo(),
+    error = function(e) {
+      # If versionInfo() fails (e.g., RStudio not running), fall back to environment variable
+      wb_version <- Sys.getenv("RSTUDIO_VERSION")
+      if (nzchar(wb_version)) {
+        list(version = wb_version)
+      } else {
+        NULL
+      }
+    }
+  )
+
+  # Check if version meets minimum requirement
+  if (!is.null(version_info) && !is.null(version_info$version)) {
+    required_version <- numeric_version("2025.11.0")
+    current_version <- tryCatch(
+      {
+        # Handle both numeric_version objects and strings
+        if (inherits(version_info$version, "numeric_version")) {
+          version_info$version
+        } else {
+          numeric_version(gsub("[-+].*$", "", as.character(version_info$version)))
+        }
+      },
+      error = function(e) NULL
+    )
+
+    if (!is.null(current_version) && current_version < required_version) {
+      stop(sprintf(
+        "%s require Posit Workbench version 2025.11.0 or later. Current version: %s",
+        feature_name,
+        version_info$version
+      ))
+    }
+  }
+}
+
 #' Retrieve OAuth Credentials for Integrations
 #'
 #' Retrieve OAuth credentials for a configured OAuth integration in Posit Workbench.
@@ -26,13 +74,13 @@ getDelegatedAzureToken <- function(resource) {
 #' to authenticate with external services. This works in any IDE running within a
 #' Posit Workbench session.
 #'
-#' @param integration_id The ID of the OAuth integration configured in Posit Workbench.
+#' @param audience The GUID of the OAuth integration configured in Posit Workbench.
 #'
 #' @return A list containing:
 #' \describe{
 #'   \item{access_token}{The OAuth access token.}
 #'   \item{expiry}{The token expiry time as a POSIXct datetime object.}
-#'   \item{integration_id}{The integration ID that was used to retrieve the credentials.}
+#'   \item{audience}{The integration GUID (audience) that was used to retrieve the credentials.}
 #' }
 #' Returns \code{NULL} if the credentials cannot be retrieved or the integration is not found.
 #'
@@ -42,36 +90,210 @@ getDelegatedAzureToken <- function(resource) {
 #' @examples
 #' \dontrun{
 #' # Retrieve OAuth credentials for an integration
-#' creds <- getOAuthCredentials("my-oauth-integration-id")
+#' creds <- getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
 #' if (!is.null(creds)) {
 #'   cat("Access token:", creds$access_token, "\n")
 #'   cat("Expires at:", format(creds$expiry), "\n")
 #' }
 #' }
 #' @export
-getOAuthCredentials <- function(integration_id) {
-  # Check if we're in a Workbench session
-  if (Sys.getenv("POSIT_PRODUCT") != "WORKBENCH") {
-    stop("OAuth credentials are only available within Posit Workbench sessions.")
+getOAuthCredentials <- function(audience) {
+  .checkWorkbenchSession()
+  .checkWorkbenchVersion("OAuth credentials")
+
+  # Prepare request body (matching Python implementation exactly)
+  # Note: The RPC endpoint expects "uuid" parameter
+  body <- list(
+    method = "/oauth_token",
+    kwparams = list(
+      uuid = audience
+    )
+  )
+
+  # Make RPC call
+  response <- .callWorkbenchRPC(
+    endpoint_path = "/oauth_token",
+    body = body,
+    error_context = "retrieving OAuth credentials"
+  )
+
+  # Check if result is false (unsuccessful)
+  if (!is.null(response$result) && !isTRUE(response$result)) {
+    return(NULL)
   }
 
-  # Check version requirement (2025.11.0+)
-  wb_version <- Sys.getenv("RSTUDIO_VERSION")
-  if (nzchar(wb_version)) {
-    required_version <- numeric_version("2025.11.0")
-    current_version <- tryCatch(
-      numeric_version(gsub("[-+].*$", "", wb_version)),
-      error = function(e) NULL
+  # Return credentials if found
+  if (!is.null(response$access_token)) {
+    return(list(
+      access_token = response$access_token,
+      expiry = as.POSIXct(response$expiry, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC"),
+      audience = audience
+    ))
+  }
+
+  return(NULL)
+}
+
+#' Get OAuth Integrations
+#'
+#' Retrieve a list of all OAuth integrations configured in Posit Workbench.
+#' This returns metadata about each integration including its authentication status,
+#' scopes, and configuration details.
+#'
+#' @return A list of OAuth integrations, where each element contains:
+#' \describe{
+#'   \item{type}{The integration type (e.g., "custom").}
+#'   \item{name}{The integration name.}
+#'   \item{display_name}{The display name (may be NULL).}
+#'   \item{client_id}{The OAuth client ID.}
+#'   \item{auth_url}{The authorization URL.}
+#'   \item{token_url}{The token URL.}
+#'   \item{scopes}{A character vector of OAuth scopes.}
+#'   \item{issuer}{The OAuth issuer URL.}
+#'   \item{authenticated}{Boolean indicating if currently authenticated.}
+#'   \item{guid}{The globally unique identifier for this integration (useful for \code{getOAuthCredentials()}).}
+#' }
+#' Returns an empty list if no integrations are configured.
+#'
+#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' in any IDE running within a Posit Workbench session (not just RStudio).
+#'
+#' @examples
+#' \dontrun{
+#' # Get all OAuth integrations
+#' integrations <- getOAuthIntegrations()
+#'
+#' # Show all integrations
+#' for (int in integrations) {
+#'   cat(sprintf("%s (%s): %s\n",
+#'               int$name,
+#'               int$guid,
+#'               if (int$authenticated) "authenticated" else "not authenticated"))
+#' }
+#'
+#' # Filter to authenticated integrations only
+#' authenticated <- Filter(function(x) x$authenticated, integrations)
+#'
+#' # Get credentials for the first authenticated integration
+#' if (length(authenticated) > 0) {
+#'   creds <- getOAuthCredentials(audience = authenticated[[1]]$guid)
+#' }
+#' }
+#' @export
+getOAuthIntegrations <- function() {
+  .checkWorkbenchSession()
+  .checkWorkbenchVersion("OAuth integrations")
+
+  # Prepare request body
+  body <- list(
+    method = "/oauth_integrations",
+    kwparams = list()
+  )
+
+  # Make RPC call
+  response <- .callWorkbenchRPC(
+    endpoint_path = "/oauth_integrations",
+    body = body,
+    error_context = "retrieving OAuth integrations"
+  )
+
+  # Check if result is false (unsuccessful)
+  if (!is.null(response$result) && !isTRUE(response$result)) {
+    return(list())
+  }
+
+  # Flatten the providers structure and return just the integrations
+  if (!is.null(response$providers) && length(response$providers) > 0) {
+    all_integrations <- unlist(
+      lapply(response$providers, function(provider) {
+        if (!is.null(provider$integrations)) {
+          provider$integrations
+        } else {
+          list()
+        }
+      }),
+      recursive = FALSE
     )
 
-    if (!is.null(current_version) && current_version < required_version) {
-      stop(sprintf(
-        "OAuth credentials require Posit Workbench version 2025.11.0 or later. Current version: %s",
-        wb_version
-      ))
+    # Rename uid to guid for consistency
+    all_integrations <- lapply(all_integrations, function(integration) {
+      if (!is.null(integration$uid)) {
+        integration$guid <- integration$uid
+        integration$uid <- NULL
+      }
+      integration
+    })
+
+    return(all_integrations)
+  }
+
+  # Return empty list if no providers/integrations found
+  return(list())
+}
+
+#' Get a Specific OAuth Integration
+#'
+#' Retrieve metadata for a specific OAuth integration by its globally unique identifier.
+#' This is a convenience function that filters the results from \code{getOAuthIntegrations()}.
+#'
+#' @param guid The globally unique identifier (GUID) of the OAuth integration to retrieve.
+#'
+#' @return A list containing the integration metadata:
+#' \describe{
+#'   \item{type}{The integration type (e.g., "custom").}
+#'   \item{name}{The integration name.}
+#'   \item{display_name}{The display name (may be NULL).}
+#'   \item{client_id}{The OAuth client ID.}
+#'   \item{auth_url}{The authorization URL.}
+#'   \item{token_url}{The token URL.}
+#'   \item{scopes}{A character vector of OAuth scopes.}
+#'   \item{issuer}{The OAuth issuer URL.}
+#'   \item{authenticated}{Boolean indicating if currently authenticated.}
+#'   \item{guid}{The globally unique identifier for this integration.}
+#' }
+#' Returns \code{NULL} if no integration with the specified GUID is found.
+#'
+#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' in any IDE running within a Posit Workbench session (not just RStudio).
+#'
+#' @examples
+#' \dontrun{
+#' # Get a specific integration by GUID
+#' integration <- getOAuthIntegration("4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
+#'
+#' if (!is.null(integration)) {
+#'   cat("Found integration:", integration$name, "\n")
+#'   cat("Authenticated:", integration$authenticated, "\n")
+#'
+#'   # Get credentials if authenticated
+#'   if (integration$authenticated) {
+#'     creds <- getOAuthCredentials(audience = integration$guid)
+#'   }
+#' }
+#' }
+#' @export
+getOAuthIntegration <- function(guid) {
+  if (missing(guid) || !is.character(guid) || length(guid) != 1 || !nzchar(guid)) {
+    stop("guid must be a non-empty character string")
+  }
+
+  # Get all integrations
+  integrations <- getOAuthIntegrations()
+
+  # Find the matching integration
+  for (integration in integrations) {
+    if (!is.null(integration$guid) && integration$guid == guid) {
+      return(integration)
     }
   }
 
+  # Not found
+  return(NULL)
+}
+
+# Internal helper to call Workbench RPC endpoints
+# Handles: server URL, RPC cookie, error checking, result validation
+.callWorkbenchRPC <- function(endpoint_path, body, error_context = "RPC call") {
   # Get the RPC cookie for authentication
   rpc_cookie <- .getRPCCookie()
 
@@ -82,15 +304,7 @@ getOAuthCredentials <- function(integration_id) {
   }
 
   # Make the API request
-  endpoint <- paste0(server_url, "/oauth_token")
-
-  # Prepare request body (matching Python implementation exactly)
-  body <- list(
-    method = "/oauth_token",
-    kwparams = list(
-      uuid = integration_id
-    )
-  )
+  endpoint <- paste0(server_url, endpoint_path)
 
   # Make HTTP request (POST with JSON body)
   response <- .workbenchRequest(
@@ -107,24 +321,11 @@ getOAuthCredentials <- function(integration_id) {
     } else {
       as.character(response$error)
     }
-    stop(sprintf("Error retrieving OAuth credentials: %s", error_msg))
+    stop(sprintf("Error %s: %s", error_context, error_msg))
   }
 
-  # Check if result is false (unsuccessful)
-  if (!is.null(response$result) && !isTRUE(response$result)) {
-    return(NULL)
-  }
-
-  # Return credentials if found
-  if (!is.null(response$access_token)) {
-    return(list(
-      access_token = response$access_token,
-      expiry = as.POSIXct(response$expiry, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC"),
-      integration_id = integration_id
-    ))
-  }
-
-  return(NULL)
+  # Return the full response (caller can check result field if needed)
+  response
 }
 
 # Internal helper to get RPC cookie
@@ -158,6 +359,11 @@ getOAuthCredentials <- function(integration_id) {
   # Check if httr is available
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("Package 'httr' is required for OAuth functionality. Please install it with: install.packages('httr')")
+  }
+
+  # Check if jsonlite is available
+  if (!requireNamespace("jsonlite", quietly = TRUE)) {
+    stop("Package 'jsonlite' is required for OAuth functionality. Please install it with: install.packages('jsonlite')")
   }
 
   # Prepare headers

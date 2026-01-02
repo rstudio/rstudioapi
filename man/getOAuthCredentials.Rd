@@ -4,17 +4,17 @@
 \alias{getOAuthCredentials}
 \title{Retrieve OAuth Credentials for Integrations}
 \usage{
-getOAuthCredentials(integration_id)
+getOAuthCredentials(audience)
 }
 \arguments{
-\item{integration_id}{The ID of the OAuth integration configured in Posit Workbench.}
+\item{audience}{The GUID of the OAuth integration configured in Posit Workbench.}
 }
 \value{
 A list containing:
 \describe{
 \item{access_token}{The OAuth access token.}
 \item{expiry}{The token expiry time as a POSIXct datetime object.}
-\item{integration_id}{The integration ID that was used to retrieve the credentials.}
+\item{audience}{The integration GUID (audience) that was used to retrieve the credentials.}
 }
 Returns \code{NULL} if the credentials cannot be retrieved or the integration is not found.
 }
@@ -31,7 +31,7 @@ in any IDE running within a Posit Workbench session (not just RStudio).
 \examples{
 \dontrun{
 # Retrieve OAuth credentials for an integration
-creds <- getOAuthCredentials("my-oauth-integration-id")
+creds <- getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
 if (!is.null(creds)) {
   cat("Access token:", creds$access_token, "\n")
   cat("Expires at:", format(creds$expiry), "\n")
