@@ -1,3 +1,11 @@
+# Feature names and their minimum version requirements
+.WORKBENCH_FEATURE_DELEGATED_AZURE <- "Delegated Azure tokens"
+.WORKBENCH_FEATURE_OAUTH <- "OAuth functionality"
+
+.WORKBENCH_MIN_VERSIONS <- list()
+.WORKBENCH_MIN_VERSIONS[[.WORKBENCH_FEATURE_DELEGATED_AZURE]] <- "2024.12.0"
+.WORKBENCH_MIN_VERSIONS[[.WORKBENCH_FEATURE_OAUTH]] <- "2026.01.0"
+
 #' OAuth2 Tokens for Delegated Azure Resources
 #'
 #' When Workbench is using Azure Active Directory for sign-in, this function can
@@ -6,65 +14,56 @@
 #'
 #' @param resource The name of an Azure resource or service, normally a URL.
 #'
+#' @return A list containing the OAuth2 token details, or NULL if unavailable.
+#'
 #' @examples
 #' \dontrun{
 #' getDelegatedAzureToken("https://storage.azure.com")
 #' }
 #' @export
 getDelegatedAzureToken <- function(resource) {
-  version <- versionInfo()
-  if (is.null(version$edition)) {
-    stop("Delegated Azure Credentials are not available in the open-source edition of RStudio.")
-  }
-  callFun("getDelegatedAzureToken", resource)
-}
-
-# Internal helper to check if running in Posit Workbench
-.checkWorkbenchSession <- function() {
-  if (Sys.getenv("POSIT_PRODUCT") != "WORKBENCH") {
-    stop("OAuth functionality is only available within Posit Workbench sessions.")
-  }
-}
-
-# Internal helper to check version requirement
-.checkWorkbenchVersion <- function(feature_name = "OAuth functionality") {
-  # Try to get version from versionInfo() first, fall back to environment variable
-  version_info <- tryCatch(
-    versionInfo(),
-    error = function(e) {
-      # If versionInfo() fails (e.g., RStudio not running), fall back to environment variable
-      wb_version <- Sys.getenv("RSTUDIO_VERSION")
-      if (nzchar(wb_version)) {
-        list(version = wb_version)
-      } else {
-        NULL
+  # Try the internal RStudio API first (works in RStudio IDE)
+  result <- tryCatch(
+    {
+      version <- versionInfo()
+      if (is.null(version$edition)) {
+        stop("Delegated Azure Credentials are not available in the open-source edition of RStudio.")
       }
+      callFun("getDelegatedAzureToken", resource)
+    },
+    error = function(e) {
+      # If callFun fails, fall back to RPC endpoint (works in any Workbench session)
+      NULL
     }
   )
 
-  # Check if version meets minimum requirement
-  if (!is.null(version_info) && !is.null(version_info$version)) {
-    required_version <- numeric_version("2025.11.0")
-    current_version <- tryCatch(
-      {
-        # Handle both numeric_version objects and strings
-        if (inherits(version_info$version, "numeric_version")) {
-          version_info$version
-        } else {
-          numeric_version(gsub("[-+].*$", "", as.character(version_info$version)))
-        }
-      },
-      error = function(e) NULL
-    )
-
-    if (!is.null(current_version) && current_version < required_version) {
-      stop(sprintf(
-        "%s require Posit Workbench version 2025.11.0 or later. Current version: %s",
-        feature_name,
-        version_info$version
-      ))
-    }
+  # If callFun succeeded, return its result
+  if (!is.null(result)) {
+    return(result)
   }
+
+  # Fallback: use the RPC endpoint
+  .checkWorkbenchSession()
+  .checkWorkbenchVersion(.WORKBENCH_FEATURE_DELEGATED_AZURE)
+
+  # Prepare request body
+  body <- list(
+    params = list(resource)
+  )
+
+  # Make RPC call (will throw error if result=false or other issues)
+  response <- .callWorkbenchRPC(
+    method = "delegated_azure_token",
+    body = body,
+    error_context = "retrieving delegated Azure token"
+  )
+
+  # Return the token object
+  if (!is.null(response$token)) {
+    return(response$token)
+  }
+
+  return(NULL)
 }
 
 #' Retrieve OAuth Credentials for Integrations
@@ -99,12 +98,11 @@ getDelegatedAzureToken <- function(resource) {
 #' @export
 getOAuthCredentials <- function(audience) {
   .checkWorkbenchSession()
-  .checkWorkbenchVersion("OAuth credentials")
+  .checkWorkbenchVersion(.WORKBENCH_FEATURE_OAUTH)
 
   # Prepare request body (matching Python implementation exactly)
   # Note: The RPC endpoint expects "uuid" parameter
   body <- list(
-    method = "/oauth_token",
     kwparams = list(
       uuid = audience
     )
@@ -112,15 +110,10 @@ getOAuthCredentials <- function(audience) {
 
   # Make RPC call
   response <- .callWorkbenchRPC(
-    endpoint_path = "/oauth_token",
+    method = "oauth_token",
     body = body,
     error_context = "retrieving OAuth credentials"
   )
-
-  # Check if result is false (unsuccessful)
-  if (!is.null(response$result) && !isTRUE(response$result)) {
-    return(NULL)
-  }
 
   # Return credentials if found
   if (!is.null(response$access_token)) {
@@ -182,25 +175,19 @@ getOAuthCredentials <- function(audience) {
 #' @export
 getOAuthIntegrations <- function() {
   .checkWorkbenchSession()
-  .checkWorkbenchVersion("OAuth integrations")
+  .checkWorkbenchVersion(.WORKBENCH_FEATURE_OAUTH)
 
   # Prepare request body
   body <- list(
-    method = "/oauth_integrations",
     kwparams = list()
   )
 
   # Make RPC call
   response <- .callWorkbenchRPC(
-    endpoint_path = "/oauth_integrations",
+    method = "oauth_integrations",
     body = body,
     error_context = "retrieving OAuth integrations"
   )
-
-  # Check if result is false (unsuccessful)
-  if (!is.null(response$result) && !isTRUE(response$result)) {
-    return(list())
-  }
 
   # Flatten the providers structure and return just the integrations
   if (!is.null(response$providers) && length(response$providers) > 0) {
@@ -291,9 +278,71 @@ getOAuthIntegration <- function(guid) {
   return(NULL)
 }
 
+# Internal helper to check if running in Posit Workbench
+.checkWorkbenchSession <- function() {
+  if (Sys.getenv("POSIT_PRODUCT") != "WORKBENCH") {
+    stop("OAuth functionality is only available within Posit Workbench sessions.")
+  }
+}
+
+# Internal helper to check version requirement
+.checkWorkbenchVersion <- function(feature_name) {
+  # Look up minimum version for this feature
+  min_version <- .WORKBENCH_MIN_VERSIONS[[feature_name]]
+  if (is.null(min_version)) {
+    stop(sprintf("Unknown feature name: %s", feature_name))
+  }
+
+  # Try to get version from versionInfo() first, fall back to environment variable
+  version_info <- tryCatch(
+    versionInfo(),
+    error = function(e) {
+      # If versionInfo() fails (e.g., RStudio not running), fall back to environment variable
+      wb_version <- Sys.getenv("RSTUDIO_VERSION")
+      if (nzchar(wb_version)) {
+        list(version = wb_version)
+      } else {
+        NULL
+      }
+    }
+  )
+
+  # Check if version meets minimum requirement
+  if (!is.null(version_info) && !is.null(version_info$version)) {
+    version_string <- as.character(version_info$version)
+
+    # Skip version check for dev builds
+    if (grepl("dev", version_string, ignore.case = TRUE)) {
+      return(invisible(NULL))
+    }
+
+    required_version <- numeric_version(min_version)
+    current_version <- tryCatch(
+      {
+        # Handle both numeric_version objects and strings
+        if (inherits(version_info$version, "numeric_version")) {
+          version_info$version
+        } else {
+          numeric_version(gsub("[-+].*$", "", version_string))
+        }
+      },
+      error = function(e) NULL
+    )
+
+    if (!is.null(current_version) && current_version < required_version) {
+      stop(sprintf(
+        "%s require Posit Workbench version %s or later. Current version: %s",
+        feature_name,
+        min_version,
+        version_info$version
+      ))
+    }
+  }
+}
+
 # Internal helper to call Workbench RPC endpoints
 # Handles: server URL, RPC cookie, error checking, result validation
-.callWorkbenchRPC <- function(endpoint_path, body, error_context = "RPC call") {
+.callWorkbenchRPC <- function(method, body, error_context = "RPC call") {
   # Get the RPC cookie for authentication
   rpc_cookie <- .getRPCCookie()
 
@@ -303,8 +352,11 @@ getOAuthIntegration <- function(guid) {
     stop("RS_SERVER_ADDRESS environment variable not set. Cannot determine Posit Workbench server address.")
   }
 
-  # Make the API request
-  endpoint <- paste0(server_url, endpoint_path)
+  # Make the API request (add leading slash for URL path)
+  endpoint <- paste0(server_url, "/", method)
+
+  # Add the method field to the body (RPC convention)
+  body$method <- method
 
   # Make HTTP request (POST with JSON body)
   response <- .workbenchRequest(
@@ -314,7 +366,7 @@ getOAuthIntegration <- function(guid) {
     rpc_cookie = rpc_cookie
   )
 
-  # Check for errors in response
+  # Check for JSON-RPC error field
   if (!is.null(response$error)) {
     error_msg <- if (is.list(response$error)) {
       paste(response$error$message, response$error$description, sep = ": ")
@@ -324,7 +376,26 @@ getOAuthIntegration <- function(guid) {
     stop(sprintf("Error %s: %s", error_context, error_msg))
   }
 
-  # Return the full response (caller can check result field if needed)
+  # Check if result is false (unsuccessful)
+  if (!is.null(response$result) && !isTRUE(response$result)) {
+    # Check for detailed error messages
+    if (!is.null(response$detail)) {
+      stop(sprintf("Error %s: %s", error_context, response$detail))
+    }
+
+    # Check for OAuth2-specific errors
+    if (!is.null(response$oauth2_error)) {
+      oauth_err <- response$oauth2_error
+      error_code <- if (!is.null(oauth_err$error)) oauth_err$error else "unknown"
+      error_desc <- if (!is.null(oauth_err$error_description)) oauth_err$error_description else "no description"
+      stop(sprintf("OAuth2 error %s: %s - %s", error_context, error_code, error_desc))
+    }
+
+    # Generic failure with no detail
+    stop(sprintf("Error %s: request failed with result=false", error_context))
+  }
+
+  # Return the full response for the caller to extract needed fields
   response
 }
 

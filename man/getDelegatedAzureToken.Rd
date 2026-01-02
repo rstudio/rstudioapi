@@ -9,6 +9,9 @@ getDelegatedAzureToken(resource)
 \arguments{
 \item{resource}{The name of an Azure resource or service, normally a URL.}
 }
+\value{
+A list containing the OAuth2 token details, or NULL if unavailable.
+}
 \description{
 When Workbench is using Azure Active Directory for sign-in, this function can
 return an OAuth2 token for a service Workbench users have delegated access
