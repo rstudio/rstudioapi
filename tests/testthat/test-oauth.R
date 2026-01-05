@@ -30,7 +30,7 @@ test_that("getOAuthCredentials requires minimum version", {
   # Expect error about version requirement
   expect_error(
     getOAuthCredentials("test-integration"),
-    "OAuth functionality require Posit Workbench version 2025.11.0 or later"
+    "OAuth functionality require Posit Workbench version 2026.01.0 or later"
   )
 
   # Restore environment
@@ -56,7 +56,7 @@ test_that("getOAuthCredentials handles missing RPC cookie", {
 
   # Set environment to simulate Workbench with correct version but no cookie
   Sys.setenv(POSIT_PRODUCT = "WORKBENCH")
-  Sys.setenv(RSTUDIO_VERSION = "2025.11.0")
+  Sys.setenv(RSTUDIO_VERSION = "2026.01.0")
   Sys.unsetenv("RS_SESSION_RPC_COOKIE")
   Sys.unsetenv("PWB_SESSION_RUNTIME_DIR")
 
@@ -118,7 +118,7 @@ test_that("getOAuthIntegrations requires minimum version", {
   # Expect error about version requirement
   expect_error(
     getOAuthIntegrations(),
-    "OAuth functionality require Posit Workbench version 2025.11.0 or later"
+    "OAuth functionality require Posit Workbench version 2026.01.0 or later"
   )
 
   # Restore environment
@@ -144,7 +144,7 @@ test_that("getOAuthIntegrations handles missing RPC cookie", {
 
   # Set environment to simulate Workbench with correct version but no cookie
   Sys.setenv(POSIT_PRODUCT = "WORKBENCH")
-  Sys.setenv(RSTUDIO_VERSION = "2025.11.0")
+  Sys.setenv(RSTUDIO_VERSION = "2026.01.0")
   Sys.unsetenv("RS_SESSION_RPC_COOKIE")
   Sys.unsetenv("PWB_SESSION_RUNTIME_DIR")
 

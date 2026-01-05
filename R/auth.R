@@ -218,10 +218,74 @@ getOAuthIntegrations <- function() {
   return(list())
 }
 
+#' Find OAuth Integration by Criteria
+#'
+#' Search for an OAuth integration that matches the specified criteria. Returns the first
+#' integration that matches all provided filter parameters. If no parameters are provided,
+#' returns the first available integration.
+#'
+#' @param type Optional integration type to match (e.g., "custom").
+#' @param name Optional integration name to match.
+#' @param display_name Optional display name to match.
+#' @param guid Optional globally unique identifier (GUID) to match.
+#' @param authenticated Optional logical indicating whether to match only authenticated integrations (TRUE),
+#'   only unauthenticated integrations (FALSE), or either (NULL, the default).
+#'
+#' @return A list containing the integration metadata, or \code{NULL} if no matching integration is found.
+#'
+#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' in any IDE running within a Posit Workbench session (not just RStudio).
+#'
+#' @examples
+#' \dontrun{
+#' # Find by GUID
+#' integration <- findOAuthIntegration(guid = "4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
+#'
+#' # Find by name
+#' integration <- findOAuthIntegration(name = "my-github-integration")
+#'
+#' # Find authenticated integration of specific type
+#' integration <- findOAuthIntegration(type = "custom", authenticated = TRUE)
+#'
+#' # Find by display name
+#' integration <- findOAuthIntegration(display_name = "GitHub Production")
+#' }
+#' @export
+findOAuthIntegration <- function(type = NULL, name = NULL, display_name = NULL, guid = NULL, authenticated = NULL) {
+  # Get all integrations
+  integrations <- getOAuthIntegrations()
+
+  # Find the first matching integration
+  for (integration in integrations) {
+    # Check each filter criterion (only if provided)
+    if (!is.null(type) && (is.null(integration$type) || integration$type != type)) {
+      next
+    }
+    if (!is.null(name) && (is.null(integration$name) || integration$name != name)) {
+      next
+    }
+    if (!is.null(display_name) && (is.null(integration$display_name) || integration$display_name != display_name)) {
+      next
+    }
+    if (!is.null(guid) && (is.null(integration$guid) || integration$guid != guid)) {
+      next
+    }
+    if (!is.null(authenticated) && (is.null(integration$authenticated) || integration$authenticated != authenticated)) {
+      next
+    }
+
+    # All criteria matched
+    return(integration)
+  }
+
+  # No match found
+  return(NULL)
+}
+
 #' Get a Specific OAuth Integration
 #'
 #' Retrieve metadata for a specific OAuth integration by its globally unique identifier.
-#' This is a convenience function that filters the results from \code{getOAuthIntegrations()}.
+#' This is a convenience function that calls \code{findOAuthIntegration(guid = guid)}.
 #'
 #' @param guid The globally unique identifier (GUID) of the OAuth integration to retrieve.
 #'
@@ -264,18 +328,7 @@ getOAuthIntegration <- function(guid) {
     stop("guid must be a non-empty character string")
   }
 
-  # Get all integrations
-  integrations <- getOAuthIntegrations()
-
-  # Find the matching integration
-  for (integration in integrations) {
-    if (!is.null(integration$guid) && integration$guid == guid) {
-      return(integration)
-    }
-  }
-
-  # Not found
-  return(NULL)
+  findOAuthIntegration(guid = guid)
 }
 
 # Internal helper to check if running in Posit Workbench
@@ -293,50 +346,33 @@ getOAuthIntegration <- function(guid) {
     stop(sprintf("Unknown feature name: %s", feature_name))
   }
 
-  # Try to get version from versionInfo() first, fall back to environment variable
-  version_info <- tryCatch(
-    versionInfo(),
-    error = function(e) {
-      # If versionInfo() fails (e.g., RStudio not running), fall back to environment variable
-      wb_version <- Sys.getenv("RSTUDIO_VERSION")
-      if (nzchar(wb_version)) {
-        list(version = wb_version)
-      } else {
-        NULL
-      }
-    }
+  # Get Workbench version from environment variable
+  wb_version <- Sys.getenv("RSTUDIO_VERSION")
+
+  # If environment variable not set, skip version check
+  if (!nzchar(wb_version)) {
+    return(invisible(NULL))
+  }
+
+  # Skip version check for dev builds
+  if (grepl("dev", wb_version, ignore.case = TRUE)) {
+    return(invisible(NULL))
+  }
+
+  # Compare versions
+  required_version <- numeric_version(min_version)
+  current_version <- tryCatch(
+    numeric_version(gsub("[-+].*$", "", wb_version)),
+    error = function(e) NULL
   )
 
-  # Check if version meets minimum requirement
-  if (!is.null(version_info) && !is.null(version_info$version)) {
-    version_string <- as.character(version_info$version)
-
-    # Skip version check for dev builds
-    if (grepl("dev", version_string, ignore.case = TRUE)) {
-      return(invisible(NULL))
-    }
-
-    required_version <- numeric_version(min_version)
-    current_version <- tryCatch(
-      {
-        # Handle both numeric_version objects and strings
-        if (inherits(version_info$version, "numeric_version")) {
-          version_info$version
-        } else {
-          numeric_version(gsub("[-+].*$", "", version_string))
-        }
-      },
-      error = function(e) NULL
-    )
-
-    if (!is.null(current_version) && current_version < required_version) {
-      stop(sprintf(
-        "%s require Posit Workbench version %s or later. Current version: %s",
-        feature_name,
-        min_version,
-        version_info$version
-      ))
-    }
+  if (!is.null(current_version) && current_version < required_version) {
+    stop(sprintf(
+      "%s require Posit Workbench version %s or later. Current version: %s",
+      feature_name,
+      min_version,
+      wb_version
+    ))
   }
 }
 
