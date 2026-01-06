@@ -30,7 +30,7 @@ test_that("getOAuthCredentials requires minimum version", {
   # Expect error about version requirement
   expect_error(
     getOAuthCredentials("test-integration"),
-    "OAuth functionality require Posit Workbench version 2026.01.0 or later"
+    "This API is not available in Posit Workbench version 2024.01.0\\. Please upgrade to version 2026\\.01\\.0 or later\\."
   )
 
   # Restore environment
@@ -118,7 +118,7 @@ test_that("getOAuthIntegrations requires minimum version", {
   # Expect error about version requirement
   expect_error(
     getOAuthIntegrations(),
-    "OAuth functionality require Posit Workbench version 2026.01.0 or later"
+    "This API is not available in Posit Workbench version 2024.01.0\\. Please upgrade to version 2026\\.01\\.0 or later\\."
   )
 
   # Restore environment

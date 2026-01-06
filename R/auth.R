@@ -78,7 +78,7 @@ getDelegatedAzureToken <- function(resource) {
 #' }
 #' Returns \code{NULL} if the credentials cannot be retrieved or the integration is not found.
 #'
-#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' @note This function requires Posit Workbench version 2026.01.0 or later. It works
 #' in any IDE running within a Posit Workbench session (not just RStudio).
 #'
 #' @examples
@@ -139,7 +139,7 @@ getOAuthCredentials <- function(audience) {
 #' }
 #' Returns an empty list if no integrations are configured.
 #'
-#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' @note This function requires Posit Workbench version 2026.01.0 or later. It works
 #' in any IDE running within a Posit Workbench session (not just RStudio).
 #'
 #' @examples
@@ -221,7 +221,7 @@ getOAuthIntegrations <- function() {
 #'
 #' @return A list containing the integration metadata, or \code{NULL} if no matching integration is found.
 #'
-#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' @note This function requires Posit Workbench version 2026.01.0 or later. It works
 #' in any IDE running within a Posit Workbench session (not just RStudio).
 #'
 #' @examples
@@ -288,7 +288,7 @@ findOAuthIntegration <- function(type = NULL, name = NULL, display_name = NULL, 
 #' }
 #' Returns \code{NULL} if no integration with the specified GUID is found.
 #'
-#' @note This function requires Posit Workbench version 2025.11.0 or later. It works
+#' @note This function requires Posit Workbench version 2026.01.0 or later. It works
 #' in any IDE running within a Posit Workbench session (not just RStudio).
 #'
 #' @examples
@@ -338,6 +338,7 @@ getOAuthIntegration <- function(guid) {
   }
 
   wb_version <- Sys.getenv("RSTUDIO_VERSION")
+  long_version <- wb_version  # Initialize with env var value
 
   # RSTUDIO_VERSION is not set in RStudio sessions, but versionInfo() should match the Workbench version
   if (!nzchar(wb_version)) {
