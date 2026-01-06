@@ -354,10 +354,22 @@ getOAuthIntegration <- function(guid) {
     stop(sprintf("Unknown feature name: %s", feature_name))
   }
 
-  # Get Workbench version from environment variable
+  # Get Workbench version from environment variable first
   wb_version <- Sys.getenv("RSTUDIO_VERSION")
 
-  # If environment variable not set, skip version check
+  # If environment variable not set, fallback to versionInfo()
+  if (!nzchar(wb_version)) {
+    version_info <- tryCatch(
+      versionInfo(),
+      error = function(e) NULL
+    )
+
+    if (!is.null(version_info) && !is.null(version_info$version)) {
+      wb_version <- as.character(version_info$version)
+    }
+  }
+
+  # If still no version, skip version check
   if (!nzchar(wb_version)) {
     return(invisible(NULL))
   }
