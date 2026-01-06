@@ -333,9 +333,17 @@ getOAuthIntegration <- function(guid) {
 
 # Internal helper to check if running in Posit Workbench
 .checkWorkbenchSession <- function() {
-  if (Sys.getenv("POSIT_PRODUCT") != "WORKBENCH") {
-    stop("OAuth functionality is only available within Posit Workbench sessions.")
+  if (Sys.getenv("POSIT_PRODUCT") == "WORKBENCH") {
+    return(invisible(NULL))
   }
+
+  # Fall back to RS_SERVER_ADDRESS for older versions
+  # TODO: Remove RS_SERVER_ADDRESS check when 2025.09 falls out of support
+  if (nzchar(Sys.getenv("RS_SERVER_ADDRESS"))) {
+    return(invisible(NULL))
+  }
+
+  stop("OAuth functionality is only available within Posit Workbench sessions.")
 }
 
 # Internal helper to check version requirement
