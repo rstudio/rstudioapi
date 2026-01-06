@@ -369,10 +369,9 @@ getOAuthIntegration <- function(guid) {
 
   if (!is.null(current_version) && current_version < required_version) {
     stop(sprintf(
-      "%s require Posit Workbench version %s or later. Current version: %s",
-      feature_name,
-      min_version,
-      long_version
+      "This API is not available in Posit Workbench version %s. Please upgrade to version %s or later.",
+      long_version,
+      min_version
     ))
   }
 }
