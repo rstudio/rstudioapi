@@ -36,7 +36,7 @@ documentSaveAll()
 
 documentNew(
   text,
-  type = c("r", "rmarkdown", "sql"),
+  type = "r",
   position = document_position(0, 0),
   execute = FALSE
 )
@@ -67,7 +67,8 @@ through \code{\link{document_range}()}.}
 console is currently focused? Set this to \code{FALSE} if you'd always like to
 target the currently-active or last-active editor in the Source pane.}
 
-\item{type}{The type of document to be created.}
+\item{type}{The type of document to be created. One of \code{"r"} (default),
+\code{"rmarkdown"}, or \code{"sql"}.}
 
 \item{execute}{Should the code be executed after the document
 is created?}

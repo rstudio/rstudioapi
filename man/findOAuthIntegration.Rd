@@ -33,7 +33,7 @@ integration that matches all provided filter parameters. If no parameters are pr
 returns the first available integration.
 }
 \note{
-This function requires Posit Workbench version 2025.11.0 or later. It works
+This function requires Posit Workbench version 2026.01.0 or later. It works
 in any IDE running within a Posit Workbench session (not just RStudio).
 }
 \examples{

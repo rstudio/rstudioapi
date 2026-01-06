@@ -230,11 +230,11 @@ getConsoleEditorContext <- function() {
 #' @export
 documentNew <- function(
   text,
-  type = c("r", "rmarkdown", "sql"),
+  type = "r",
   position = document_position(0, 0),
   execute = FALSE)
 {
-  type <- match.arg(type)
+  type <- match.arg(type, choices = c("r", "rmarkdown", "sql"))
   callFun("documentNew", type, text, position[1], position[2], execute)
 }
 

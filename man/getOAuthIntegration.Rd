@@ -30,7 +30,7 @@ Retrieve metadata for a specific OAuth integration by its globally unique identi
 This is a convenience function that calls \code{findOAuthIntegration(guid = guid)}.
 }
 \note{
-This function requires Posit Workbench version 2025.11.0 or later. It works
+This function requires Posit Workbench version 2026.01.0 or later. It works
 in any IDE running within a Posit Workbench session (not just RStudio).
 }
 \examples{
