@@ -348,6 +348,7 @@ getOAuthIntegration <- function(guid) {
 
     if (!is.null(version_info) && !is.null(version_info$version)) {
       wb_version <- as.character(version_info$version)
+      long_version <- version_info$long_version
     }
   }
 
@@ -371,7 +372,7 @@ getOAuthIntegration <- function(guid) {
       "%s require Posit Workbench version %s or later. Current version: %s",
       feature_name,
       min_version,
-      wb_version
+      long_version
     ))
   }
 }
