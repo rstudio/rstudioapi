@@ -37,28 +37,23 @@ getDelegatedAzureToken <- function(resource) {
     }
   )
 
-  # If callFun succeeded, return its result
   if (!is.null(result)) {
     return(result)
   }
 
-  # Fallback: use the RPC endpoint
   .checkWorkbenchSession()
   .checkWorkbenchVersion(.WORKBENCH_FEATURE_DELEGATED_AZURE)
 
-  # Prepare request body
   body <- list(
     params = list(resource)
   )
 
-  # Make RPC call (will throw error if result=false or other issues)
   response <- .callWorkbenchRPC(
     method = "delegated_azure_token",
     body = body,
     error_context = "retrieving delegated Azure token"
   )
 
-  # Return the token object
   if (!is.null(response$token)) {
     return(response$token)
   }
@@ -100,22 +95,18 @@ getOAuthCredentials <- function(audience) {
   .checkWorkbenchSession()
   .checkWorkbenchVersion(.WORKBENCH_FEATURE_OAUTH)
 
-  # Prepare request body (matching Python implementation exactly)
-  # Note: The RPC endpoint expects "uuid" parameter
   body <- list(
     kwparams = list(
       uuid = audience
     )
   )
 
-  # Make RPC call
   response <- .callWorkbenchRPC(
     method = "oauth_token",
     body = body,
     error_context = "retrieving OAuth credentials"
   )
 
-  # Return credentials if found
   if (!is.null(response$access_token)) {
     return(list(
       access_token = response$access_token,
@@ -177,12 +168,10 @@ getOAuthIntegrations <- function() {
   .checkWorkbenchSession()
   .checkWorkbenchVersion(.WORKBENCH_FEATURE_OAUTH)
 
-  # Prepare request body
   body <- list(
     kwparams = list()
   )
 
-  # Make RPC call
   response <- .callWorkbenchRPC(
     method = "oauth_integrations",
     body = body,
@@ -214,7 +203,6 @@ getOAuthIntegrations <- function() {
     return(all_integrations)
   }
 
-  # Return empty list if no providers/integrations found
   return(list())
 }
 
@@ -252,12 +240,9 @@ getOAuthIntegrations <- function() {
 #' }
 #' @export
 findOAuthIntegration <- function(type = NULL, name = NULL, display_name = NULL, guid = NULL, authenticated = NULL) {
-  # Get all integrations
   integrations <- getOAuthIntegrations()
 
-  # Find the first matching integration
   for (integration in integrations) {
-    # Check each filter criterion (only if provided)
     if (!is.null(type) && (is.null(integration$type) || integration$type != type)) {
       next
     }
@@ -274,7 +259,6 @@ findOAuthIntegration <- function(type = NULL, name = NULL, display_name = NULL, 
       next
     }
 
-    # All criteria matched
     return(integration)
   }
 
@@ -348,16 +332,14 @@ getOAuthIntegration <- function(guid) {
 
 # Internal helper to check version requirement
 .checkWorkbenchVersion <- function(feature_name) {
-  # Look up minimum version for this feature
   min_version <- .WORKBENCH_MIN_VERSIONS[[feature_name]]
   if (is.null(min_version)) {
     stop(sprintf("Unknown feature name: %s", feature_name))
   }
 
-  # Get Workbench version from environment variable first
   wb_version <- Sys.getenv("RSTUDIO_VERSION")
 
-  # If environment variable not set, fallback to versionInfo()
+  # RSTUDIO_VERSION is not set in RStudio sessions, but versionInfo() should match the Workbench version
   if (!nzchar(wb_version)) {
     version_info <- tryCatch(
       versionInfo(),
@@ -369,7 +351,6 @@ getOAuthIntegration <- function(guid) {
     }
   }
 
-  # If still no version, skip version check
   if (!nzchar(wb_version)) {
     return(invisible(NULL))
   }
@@ -379,7 +360,6 @@ getOAuthIntegration <- function(guid) {
     return(invisible(NULL))
   }
 
-  # Compare versions
   required_version <- numeric_version(min_version)
   current_version <- tryCatch(
     numeric_version(gsub("[-+].*$", "", wb_version)),
@@ -402,19 +382,15 @@ getOAuthIntegration <- function(guid) {
   # Get the RPC cookie for authentication
   rpc_cookie <- .getRPCCookie()
 
-  # Get the server address
   server_url <- Sys.getenv("RS_SERVER_ADDRESS")
   if (!nzchar(server_url)) {
     stop("RS_SERVER_ADDRESS environment variable not set. Cannot determine Posit Workbench server address.")
   }
 
-  # Make the API request (add leading slash for URL path)
   endpoint <- paste0(server_url, "/", method)
 
-  # Add the method field to the body (RPC convention)
   body$method <- method
 
-  # Make HTTP request (POST with JSON body)
   response <- .workbenchRequest(
     url = endpoint,
     method = "POST",
@@ -432,9 +408,7 @@ getOAuthIntegration <- function(guid) {
     stop(sprintf("Error %s: %s", error_context, error_msg))
   }
 
-  # Check if result is false (unsuccessful)
   if (!is.null(response$result) && !isTRUE(response$result)) {
-    # Check for detailed error messages
     if (!is.null(response$detail)) {
       stop(sprintf("Error %s: %s", error_context, response$detail))
     }
@@ -447,11 +421,9 @@ getOAuthIntegration <- function(guid) {
       stop(sprintf("OAuth2 error %s: %s - %s", error_context, error_code, error_desc))
     }
 
-    # Generic failure with no detail
     stop(sprintf("Error %s: request failed with result=false", error_context))
   }
 
-  # Return the full response for the caller to extract needed fields
   response
 }
 
@@ -463,7 +435,6 @@ getOAuthIntegration <- function(guid) {
     return(cookie)
   }
 
-  # Try to read from file
   runtime_dir <- Sys.getenv("PWB_SESSION_RUNTIME_DIR")
   if (nzchar(runtime_dir)) {
     cookie_file <- file.path(runtime_dir, "rpc_cookie")
@@ -483,17 +454,14 @@ getOAuthIntegration <- function(guid) {
 
 # Internal helper to make authenticated requests to Workbench
 .workbenchRequest <- function(url, method = "GET", body = NULL, rpc_cookie = NULL) {
-  # Check if httr is available
   if (!requireNamespace("httr", quietly = TRUE)) {
     stop("Package 'httr' is required for OAuth functionality. Please install it with: install.packages('httr')")
   }
 
-  # Check if jsonlite is available
   if (!requireNamespace("jsonlite", quietly = TRUE)) {
     stop("Package 'jsonlite' is required for OAuth functionality. Please install it with: install.packages('jsonlite')")
   }
 
-  # Prepare headers
   headers <- httr::add_headers(
     "Content-Type" = "application/json"
   )
@@ -505,7 +473,6 @@ getOAuthIntegration <- function(guid) {
     )
   }
 
-  # Determine SSL verification settings
   verify_ssl <- TRUE
   ca_bundle <- Sys.getenv("REQUESTS_CA_BUNDLE")
   if (!nzchar(ca_bundle)) {
@@ -528,7 +495,6 @@ getOAuthIntegration <- function(guid) {
       ssl_config
     )
   } else if (method == "GET" && !is.null(body)) {
-    # For GET with body, use POST-style request
     httr::GET(
       url,
       body = body,
@@ -540,7 +506,6 @@ getOAuthIntegration <- function(guid) {
     httr::GET(url, headers, ssl_config)
   }
 
-  # Check HTTP status
   if (httr::http_error(response)) {
     stop(sprintf(
       "HTTP request failed with status %s: %s",
@@ -549,7 +514,6 @@ getOAuthIntegration <- function(guid) {
     ))
   }
 
-  # Parse JSON response
   content <- httr::content(response, "text", encoding = "UTF-8")
   jsonlite::fromJSON(content, simplifyVector = FALSE)
 }
