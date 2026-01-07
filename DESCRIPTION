@@ -24,6 +24,7 @@ Suggests:
     clipr,
     covr,
     curl,
-    jsonlite
+    jsonlite,
+    withr
 VignetteBuilder: knitr
 Encoding: UTF-8
