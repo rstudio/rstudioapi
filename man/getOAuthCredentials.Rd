@@ -16,7 +16,7 @@ A list containing:
 \item{expiry}{The token expiry time as a POSIXct datetime object.}
 \item{audience}{The integration GUID (audience) that was used to retrieve the credentials.}
 }
-Returns \code{NULL} if the credentials cannot be retrieved or the integration is not found.
+Throws an error if the credentials cannot be retrieved or the integration is not found.
 }
 \description{
 Retrieve OAuth credentials for a configured OAuth integration in Posit Workbench.

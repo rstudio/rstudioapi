@@ -10,7 +10,7 @@ getDelegatedAzureToken(resource)
 \item{resource}{The name of an Azure resource or service, normally a URL.}
 }
 \value{
-A list containing the OAuth2 token details, or NULL if unavailable.
+A list containing the OAuth2 token details. Throws an error if unavailable.
 }
 \description{
 When Workbench is using Azure Active Directory for sign-in, this function can

@@ -5,7 +5,6 @@
 \title{Find OAuth Integration by Criteria}
 \usage{
 findOAuthIntegration(
-  type = NULL,
   name = NULL,
   display_name = NULL,
   guid = NULL,
@@ -13,16 +12,16 @@ findOAuthIntegration(
 )
 }
 \arguments{
-\item{type}{Optional integration type to match (e.g., "custom").}
+\item{name}{Optional integration name to match. Supports regular expressions.
+For exact matches, use anchors like \code{^github-main$}.}
 
-\item{name}{Optional integration name to match.}
+\item{display_name}{Optional display name to match. Supports regular expressions.
+For exact matches, use anchors like \code{^GitHub Production$}.}
 
-\item{display_name}{Optional display name to match.}
-
-\item{guid}{Optional globally unique identifier (GUID) to match.}
+\item{guid}{Optional globally unique identifier (GUID) to match. Exact match only.}
 
 \item{authenticated}{Optional logical indicating whether to match only authenticated integrations (TRUE),
-only unauthenticated integrations (FALSE), or either (NULL, the default).}
+only unauthenticated integrations (FALSE), or either (NULL, the default). Exact match only.}
 }
 \value{
 A list containing the integration metadata, or \code{NULL} if no matching integration is found.
@@ -38,16 +37,16 @@ in any IDE running within a Posit Workbench session (not just RStudio).
 }
 \examples{
 \dontrun{
-# Find by GUID
+# Find by exact name
+integration <- findOAuthIntegration(name = "^my-github-integration$")
+
+# Find by name pattern (any integration with "github" in the name)
+integration <- findOAuthIntegration(name = "github")
+
+# Find authenticated integration by display name pattern
+integration <- findOAuthIntegration(display_name = "GitHub.*", authenticated = TRUE)
+
+# Find by exact GUID
 integration <- findOAuthIntegration(guid = "4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
-
-# Find by name
-integration <- findOAuthIntegration(name = "my-github-integration")
-
-# Find authenticated integration of specific type
-integration <- findOAuthIntegration(type = "custom", authenticated = TRUE)
-
-# Find by display name
-integration <- findOAuthIntegration(display_name = "GitHub Production")
 }
 }
