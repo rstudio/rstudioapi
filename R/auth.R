@@ -14,7 +14,7 @@
 #'
 #' @param resource The name of an Azure resource or service, normally a URL.
 #'
-#' @return A list containing the OAuth2 token details, or NULL if unavailable.
+#' @return A list containing the OAuth2 token details. Throws an error if unavailable.
 #'
 #' @examples
 #' \dontrun{
@@ -54,11 +54,11 @@ getDelegatedAzureToken <- function(resource) {
     error_context = "retrieving delegated Azure token"
   )
 
-  if (!is.null(response$token)) {
-    return(response$token)
+  if (is.null(response$token)) {
+    stop("Malformed response: missing 'token' field")
   }
 
-  NULL
+  response$token
 }
 
 #' Retrieve OAuth Credentials for Integrations
@@ -76,7 +76,7 @@ getDelegatedAzureToken <- function(resource) {
 #'   \item{expiry}{The token expiry time as a POSIXct datetime object.}
 #'   \item{audience}{The integration GUID (audience) that was used to retrieve the credentials.}
 #' }
-#' Returns \code{NULL} if the credentials cannot be retrieved or the integration is not found.
+#' Throws an error if the credentials cannot be retrieved or the integration is not found.
 #'
 #' @note This function requires Posit Workbench version 2026.01.0 or later. It works
 #' in any IDE running within a Posit Workbench session (not just RStudio).
@@ -107,15 +107,16 @@ getOAuthCredentials <- function(audience) {
     error_context = "retrieving OAuth credentials"
   )
 
-  if (!is.null(response$access_token)) {
-    if (!is.null(response$expiry)) {
-      response$expiry <- as.POSIXct(response$expiry, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC")
-    }
-    response$audience <- audience
-    return(response)
+  if (is.null(response$access_token)) {
+    stop("Malformed response: missing 'access_token' field")
   }
 
-  NULL
+  if (!is.null(response$expiry)) {
+    response$expiry <- as.POSIXct(response$expiry, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC")
+  }
+  response$audience <- audience
+
+  response
 }
 
 #' Get OAuth Integrations
@@ -437,11 +438,14 @@ getRPCCookie <- function() {
     if (file.exists(cookie_file)) {
       cookie <- tryCatch(
         readLines(cookie_file, n = 1, warn = FALSE),
-        error = function(e) NULL
+        error = function(e) {
+          stop(sprintf("RPC cookie file exists at '%s' but could not be read: %s", cookie_file, e$message))
+        }
       )
-      if (!is.null(cookie) && nzchar(cookie)) {
-        return(cookie)
+      if (is.null(cookie) || !nzchar(cookie)) {
+        stop(sprintf("RPC cookie file exists at '%s' but is empty", cookie_file))
       }
+      return(cookie)
     }
   }
 
