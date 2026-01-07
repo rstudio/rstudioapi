@@ -212,7 +212,6 @@ getOAuthIntegrations <- function() {
 #' integration that matches all provided filter parameters. If no parameters are provided,
 #' returns the first available integration.
 #'
-#' @param type Optional integration type to match (e.g., "custom").
 #' @param name Optional integration name to match.
 #' @param display_name Optional display name to match.
 #' @param guid Optional globally unique identifier (GUID) to match.
@@ -226,9 +225,6 @@ getOAuthIntegrations <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' # Find by GUID
-#' integration <- findOAuthIntegration(guid = "4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
-#'
 #' # Find by name
 #' integration <- findOAuthIntegration(name = "my-github-integration")
 #'
@@ -239,13 +235,10 @@ getOAuthIntegrations <- function() {
 #' integration <- findOAuthIntegration(display_name = "GitHub Production")
 #' }
 #' @export
-findOAuthIntegration <- function(type = NULL, name = NULL, display_name = NULL, guid = NULL, authenticated = NULL) {
+findOAuthIntegration <- function(name = NULL, display_name = NULL, guid = NULL, authenticated = NULL) {
   integrations <- getOAuthIntegrations()
 
   for (integration in integrations) {
-    if (!is.null(type) && (is.null(integration$type) || integration$type != type)) {
-      next
-    }
     if (!is.null(name) && (is.null(integration$name) || integration$name != name)) {
       next
     }
