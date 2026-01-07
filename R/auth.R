@@ -23,22 +23,8 @@
 #' @export
 getDelegatedAzureToken <- function(resource) {
   # Try the internal RStudio API first (works in RStudio IDE)
-  result <- tryCatch(
-    {
-      version <- versionInfo()
-      if (is.null(version$edition)) {
-        stop("Delegated Azure Credentials are not available in the open-source edition of RStudio.")
-      }
-      callFun("getDelegatedAzureToken", resource)
-    },
-    error = function(e) {
-      # If callFun fails, fall back to RPC endpoint (works in any Workbench session)
-      NULL
-    }
-  )
-
-  if (!is.null(result)) {
-    return(result)
+  if (hasFun("getDelegatedAzureToken")) {
+    return(callFun("getDelegatedAzureToken", resource))
   }
 
   assertWorkbenchSession()
