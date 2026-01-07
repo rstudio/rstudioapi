@@ -199,11 +199,13 @@ getOAuthIntegrations <- function() {
 #' integration that matches all provided filter parameters. If no parameters are provided,
 #' returns the first available integration.
 #'
-#' @param name Optional integration name to match.
-#' @param display_name Optional display name to match.
-#' @param guid Optional globally unique identifier (GUID) to match.
+#' @param name Optional integration name to match. Supports regular expressions.
+#'   For exact matches, use anchors like \code{^github-main$}.
+#' @param display_name Optional display name to match. Supports regular expressions.
+#'   For exact matches, use anchors like \code{^GitHub Production$}.
+#' @param guid Optional globally unique identifier (GUID) to match. Exact match only.
 #' @param authenticated Optional logical indicating whether to match only authenticated integrations (TRUE),
-#'   only unauthenticated integrations (FALSE), or either (NULL, the default).
+#'   only unauthenticated integrations (FALSE), or either (NULL, the default). Exact match only.
 #'
 #' @return A list containing the integration metadata, or \code{NULL} if no matching integration is found.
 #'
@@ -212,25 +214,32 @@ getOAuthIntegrations <- function() {
 #'
 #' @examples
 #' \dontrun{
-#' # Find by name
-#' integration <- findOAuthIntegration(name = "my-github-integration")
+#' # Find by exact name
+#' integration <- findOAuthIntegration(name = "^my-github-integration$")
 #'
-#' # Find authenticated integration of specific type
-#' integration <- findOAuthIntegration(type = "custom", authenticated = TRUE)
+#' # Find by name pattern (any integration with "github" in the name)
+#' integration <- findOAuthIntegration(name = "github")
 #'
-#' # Find by display name
-#' integration <- findOAuthIntegration(display_name = "GitHub Production")
+#' # Find authenticated integration by display name pattern
+#' integration <- findOAuthIntegration(display_name = "GitHub.*", authenticated = TRUE)
+#'
+#' # Find by exact GUID
+#' integration <- findOAuthIntegration(guid = "4c1cfecb-1927-4f19-bc2f-d8ac261364e0")
 #' }
 #' @export
 findOAuthIntegration <- function(name = NULL, display_name = NULL, guid = NULL, authenticated = NULL) {
   integrations <- getOAuthIntegrations()
 
   for (integration in integrations) {
-    if (!is.null(name) && (is.null(integration$name) || integration$name != name)) {
-      next
+    if (!is.null(name)) {
+      if (is.null(integration$name) || !grepl(name, integration$name)) {
+        next
+      }
     }
-    if (!is.null(display_name) && (is.null(integration$display_name) || integration$display_name != display_name)) {
-      next
+    if (!is.null(display_name)) {
+      if (is.null(integration$display_name) || !grepl(display_name, integration$display_name)) {
+        next
+      }
     }
     if (!is.null(guid) && (is.null(integration$guid) || integration$guid != guid)) {
       next
