@@ -448,66 +448,58 @@ getOAuthIntegration <- function(guid) {
 
 # Internal helper to make authenticated requests to Workbench
 .workbenchRequest <- function(url, method = "GET", body = NULL, rpc_cookie = NULL) {
-  if (!requireNamespace("httr", quietly = TRUE)) {
-    stop("Package 'httr' is required for OAuth functionality. Please install it with: install.packages('httr')")
+  if (!requireNamespace("curl", quietly = TRUE)) {
+    stop("Package 'curl' is required for OAuth functionality. Please install it with: install.packages('curl')")
   }
 
   if (!requireNamespace("jsonlite", quietly = TRUE)) {
     stop("Package 'jsonlite' is required for OAuth functionality. Please install it with: install.packages('jsonlite')")
   }
 
-  headers <- httr::add_headers(
-    "Content-Type" = "application/json"
-  )
+  handle <- curl::new_handle()
 
+  headers <- list("Content-Type" = "application/json")
   if (!is.null(rpc_cookie)) {
-    headers <- httr::add_headers(
-      "Content-Type" = "application/json",
-      "X-RS-Session-Server-RPC-Cookie" = rpc_cookie
-    )
+    headers[["X-RS-Session-Server-RPC-Cookie"]] <- rpc_cookie
   }
+  curl::handle_setheaders(handle, .list = headers)
 
-  verify_ssl <- TRUE
+  # Configure SSL certificate bundle if available
   ca_bundle <- Sys.getenv("REQUESTS_CA_BUNDLE")
   if (!nzchar(ca_bundle)) {
     ca_bundle <- Sys.getenv("CURL_CA_BUNDLE")
   }
+  if (nzchar(ca_bundle)) {
+    curl::handle_setopt(handle, cainfo = ca_bundle)
+  }
 
-  ssl_config <- if (nzchar(ca_bundle)) {
-    httr::config(cainfo = ca_bundle)
-  } else {
-    httr::config(ssl_verifypeer = verify_ssl)
+  # Set POST options if needed
+  if (method == "POST") {
+    json <- jsonlite::toJSON(body, auto_unbox = TRUE)
+    curl::handle_setopt(
+      handle = handle,
+      post = TRUE,
+      postfields = json
+    )
   }
 
   # Make request
-  response <- if (method == "POST") {
-    httr::POST(
-      url,
-      body = body,
-      encode = "json",
-      headers,
-      ssl_config
-    )
-  } else if (method == "GET" && !is.null(body)) {
-    httr::GET(
-      url,
-      body = body,
-      encode = "json",
-      headers,
-      ssl_config
-    )
-  } else {
-    httr::GET(url, headers, ssl_config)
-  }
+  response <- tryCatch(
+    curl::curl_fetch_memory(url, handle = handle),
+    error = function(e) {
+      stop(sprintf("HTTP request failed: %s", e$message))
+    }
+  )
 
-  if (httr::http_error(response)) {
+  if (response$status_code >= 400) {
+    content <- enc2utf8(rawToChar(response$content))
     stop(sprintf(
       "HTTP request failed with status %s: %s",
-      httr::status_code(response),
-      httr::content(response, "text", encoding = "UTF-8")
+      response$status_code,
+      content
     ))
   }
 
-  content <- httr::content(response, "text", encoding = "UTF-8")
+  content <- enc2utf8(rawToChar(response$content))
   jsonlite::fromJSON(content, simplifyVector = FALSE)
 }

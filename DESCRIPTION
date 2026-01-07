@@ -23,7 +23,7 @@ Suggests:
     rmarkdown,
     clipr,
     covr,
-    httr,
+    curl,
     jsonlite
 VignetteBuilder: knitr
 Encoding: UTF-8
