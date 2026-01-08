@@ -5,7 +5,7 @@ test_that("OAuth functions fail gracefully outside Workbench", {
   )
 
   expect_error(
-    getOAuthCredentials("test-integration"),
+    getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac261364e0"),
     "OAuth functionality is only available within Posit Workbench sessions"
   )
 
@@ -27,7 +27,7 @@ test_that("OAuth functions require minimum version", {
   )
 
   expect_error(
-    getOAuthCredentials("test-integration"),
+    getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac261364e0"),
     "This API is not available in Posit Workbench version 2024.01.0\\. Please upgrade to version 2026\\.01\\.0 or later\\."
   )
 
@@ -46,7 +46,7 @@ test_that("OAuth functions handle missing RPC cookie", {
   )
 
   expect_error(
-    getOAuthCredentials("test-integration"),
+    getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac261364e0"),
     "RPC cookie not found"
   )
 
@@ -66,7 +66,7 @@ test_that("OAuth functions allow dev versions", {
   # Should not error about version requirement (will error about connection, but that's OK)
   # Error message may vary: "HTTP request failed", "Could not resolve host", "Failed to connect", etc.
   expect_error(
-    getOAuthCredentials("test-integration"),
+    getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac261364e0"),
     class = "error"
   )
 })
@@ -90,5 +90,22 @@ test_that("getOAuthIntegration validates guid parameter", {
   expect_error(
     getOAuthIntegration(c("guid1", "guid2")),
     "guid must be a non-empty character string"
+  )
+})
+
+test_that("getOAuthCredentials validates GUID format", {
+  expect_error(
+    getOAuthCredentials("not-a-guid"),
+    "audience must be a valid GUID"
+  )
+
+  expect_error(
+    getOAuthCredentials("4c1cfecb19274f19bc2fd8ac261364e0"),
+    "audience must be a valid GUID"
+  )
+
+  expect_error(
+    getOAuthCredentials("4c1cfecb-1927-4f19-bc2f-d8ac26136"),
+    "audience must be a valid GUID"
   )
 })

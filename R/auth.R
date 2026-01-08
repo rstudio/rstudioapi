@@ -22,6 +22,10 @@
 #' }
 #' @export
 getDelegatedAzureToken <- function(resource) {
+  if (missing(resource) || !is.character(resource) || length(resource) != 1 || !nzchar(resource)) {
+    stop("resource must be a non-empty character string")
+  }
+
   # Try the internal RStudio API first (works in RStudio IDE)
   if (hasFun("getDelegatedAzureToken")) {
     return(callFun("getDelegatedAzureToken", resource))
@@ -78,6 +82,21 @@ getDelegatedAzureToken <- function(resource) {
 #' }
 #' @export
 getOAuthCredentials <- function(audience) {
+  # Validate input
+  if (missing(audience) || !is.character(audience) || length(audience) != 1 || !nzchar(audience)) {
+    stop("audience must be a non-empty character string")
+  }
+
+  # Validate GUID format
+  guid_pattern <- "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+  if (!grepl(guid_pattern, audience)) {
+    stop(
+      "audience must be a valid GUID (e.g., '4c1cfecb-1927-4f19-bc2f-d8ac261364e0').\n",
+      "Use getOAuthIntegrations() to list available integrations and their GUIDs, or\n",
+      "use findOAuthIntegration() to search for a specific integration by name."
+    )
+  }
+
   assertWorkbenchSession()
   assertWorkbenchVersion(.WORKBENCH_FEATURE_OAUTH)
 
