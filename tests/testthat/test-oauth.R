@@ -1,5 +1,3 @@
-context("OAuth API")
-
 test_that("OAuth functions fail gracefully outside Workbench", {
   withr::local_envvar(
     POSIT_PRODUCT = NA,
