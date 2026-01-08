@@ -35,7 +35,7 @@ getDelegatedAzureToken <- function(resource) {
   assertWorkbenchVersion(.WORKBENCH_FEATURE_DELEGATED_AZURE)
 
   body <- list(
-    params = list(resource)
+    params = list(jsonlite::unbox(resource))
   )
 
   response <- callWorkbenchRPC(
@@ -102,7 +102,7 @@ getOAuthCredentials <- function(audience) {
 
   body <- list(
     kwparams = list(
-      uuid = audience
+      uuid = jsonlite::unbox(audience)
     )
   )
 
@@ -400,7 +400,7 @@ callWorkbenchRPC <- function(method, body, error_context = "RPC call") {
 
   endpoint <- paste0(server_url, "/", method)
 
-  body$method <- method
+  body$method <- jsonlite::unbox(method)
 
   response <- workbenchRequest(
     url = endpoint,
@@ -495,7 +495,7 @@ workbenchRequest <- function(url, method = "GET", body = NULL, rpc_cookie = NULL
 
   # Set POST options if needed
   if (method == "POST") {
-    json <- jsonlite::toJSON(body, auto_unbox = TRUE)
+    json <- jsonlite::toJSON(body)
     curl::handle_setopt(
       handle = handle,
       post = TRUE,
