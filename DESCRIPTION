@@ -22,6 +22,9 @@ Suggests:
     knitr,
     rmarkdown,
     clipr,
-    covr
+    covr,
+    curl,
+    jsonlite,
+    withr
 VignetteBuilder: knitr
 Encoding: UTF-8

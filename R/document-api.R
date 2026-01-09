@@ -19,7 +19,8 @@
 #' @param ranges A list of one or more ranges, typically created
 #'   through \code{\link{document_range}()}.
 #'
-#' @param type The type of document to be created.
+#' @param type The type of document to be created. One of \code{"r"} (default),
+#'   \code{"rmarkdown"}, or \code{"sql"}.
 #'
 #' @param execute Should the code be executed after the document
 #'   is created?
@@ -233,7 +234,7 @@ documentNew <- function(
   position = document_position(0, 0),
   execute = FALSE)
 {
-  type <- match.arg(type)
+  type <- match.arg(type, choices = c("r", "rmarkdown", "sql"))
   callFun("documentNew", type, text, position[1], position[2], execute)
 }
 
