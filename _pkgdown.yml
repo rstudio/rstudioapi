@@ -90,6 +90,7 @@ reference:
     - findOAuthIntegration
     - getOAuthCredentials
     - getDelegatedAzureToken
+    - getIdentityToken
 
   - title    : Themes
     desc     : Work with RStudio editor themes.
