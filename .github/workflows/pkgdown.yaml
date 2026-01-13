@@ -8,9 +8,9 @@ name: pkgdown
 
 jobs:
   pkgdown:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
-      RSPM: https://packagemanager.rstudio.com/cran/__linux__/bionic/latest
+      RSPM: https://packagemanager.rstudio.com/cran/__linux__/jammy/latest
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
@@ -33,8 +33,8 @@ jobs:
           path: |
             ${{ env.R_LIBS_USER }}/*
             !${{ env.R_LIBS_USER }}/pak
-          key: ubuntu-18.04-${{ steps.install-r.outputs.installed-r-version }}-1-${{ hashFiles('.github/r-depends.rds') }}
-          restore-keys: ubuntu-18.04-${{ steps.install-r.outputs.installed-r-version }}-1-
+          key: ubuntu-latest-${{ steps.install-r.outputs.installed-r-version }}-1-${{ hashFiles('.github/r-depends.rds') }}
+          restore-keys: ubuntu-latest-${{ steps.install-r.outputs.installed-r-version }}-1-
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
