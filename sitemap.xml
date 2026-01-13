@@ -31,6 +31,7 @@
 <url><loc>https://rstudio.github.io/rstudioapi/reference/findOAuthIntegration.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/getActiveProject.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/getDelegatedAzureToken.html</loc></url>
+<url><loc>https://rstudio.github.io/rstudioapi/reference/getIdentityToken.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/getMode.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/getOAuthCredentials.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/getOAuthIntegration.html</loc></url>
