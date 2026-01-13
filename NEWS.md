@@ -2,6 +2,8 @@
 
 * `rstudioapi::documentNew()` now accepts arbitrary document types. (#316)
 
+* Added `getIdentityToken()` for retrieving the current user's identity token
+  on Posit Workbench, if possible.
 
 # rstudioapi 0.17.1
 

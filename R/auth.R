@@ -51,6 +51,38 @@ getDelegatedAzureToken <- function(resource) {
   response$token
 }
 
+#' Get the User's Identity Token
+#'
+#' Retrieve the user's OpenID Connect identity token for the current Posit
+#' Workbench session, if any. This token can be used to authenticate with
+#' services that trust Workbench's identity provider.
+#'
+#' @return A list containing:
+#' \describe{
+#'   \item{token}{The identity token string.}
+#'   \item{expiry}{The token expiry time as a POSIXct datetime object.}
+#' }
+#' Throws an error if the token cannot be retrieved.
+#'
+#' @note This function works for any IDE running within a Posit Workbench
+#'   session, not just RStudio.
+#'
+#' @export
+getIdentityToken <- function() {
+  assertWorkbenchSession()
+
+  response <- callWorkbenchRPC(
+    method = "id_token",
+    body = list(),
+    error_context = "retrieving identity token"
+  )
+
+  list(
+    token = response$token,
+    expiry = as.POSIXct(response$expiry, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC")
+  )
+}
+
 #' Retrieve OAuth Credentials for Integrations
 #'
 #' Retrieve OAuth credentials for a configured OAuth integration in Posit Workbench.
@@ -335,7 +367,7 @@ assertWorkbenchSession <- function() {
     return(invisible(NULL))
   }
 
-  stop("OAuth functionality is only available within Posit Workbench sessions.")
+  stop("This functionality is only available within Posit Workbench sessions.")
 }
 
 # Internal helper to assert version requirement
