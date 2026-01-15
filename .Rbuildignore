@@ -1,4 +1,5 @@
 ^.*\.Rproj$
+^\.claude$
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^_pkgdown\.yml$
