@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rstudioapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.17.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.18.0.9000</span>
       </span>
     </div>
 
@@ -71,8 +71,24 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="rstudioapi-development-version">rstudioapi (development version)<a class="anchor" aria-label="anchor" href="#rstudioapi-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.18.0" id="rstudioapi-0180">rstudioapi 0.18.0<small>2026-01-16</small><a class="anchor" aria-label="anchor" href="#rstudioapi-0180"></a></h2>
 <ul><li><p><code><a href="../reference/rstudio-documents.html">rstudioapi::documentNew()</a></code> now accepts arbitrary document types. (<a href="https://github.com/rstudio/rstudioapi/issues/316" class="external-link">#316</a>)</p></li>
 <li><p>Added <code><a href="../reference/getIdentityToken.html">getIdentityToken()</a></code> for retrieving the current user’s identity token on Posit Workbench, if possible.</p></li>
+<li>
+<p>Added OAuth integration functions for Posit Workbench:</p>
+<ul><li>
+<code><a href="../reference/getOAuthIntegrations.html">getOAuthIntegrations()</a></code>: List all configured OAuth integrations.</li>
+<li>
+<code><a href="../reference/getOAuthIntegration.html">getOAuthIntegration()</a></code>: Get metadata for a specific integration by GUID.</li>
+<li>
+<code><a href="../reference/findOAuthIntegration.html">findOAuthIntegration()</a></code>: Search for integrations by name, display name, GUID, or authentication status, with regex support.</li>
+<li>
+<code><a href="../reference/getOAuthCredentials.html">getOAuthCredentials()</a></code>: Retrieve OAuth credentials for an integration.</li>
+</ul></li>
+<li><p><code><a href="../reference/getDelegatedAzureToken.html">getDelegatedAzureToken()</a></code> now works in any IDE running within a Posit Workbench session, not just RStudio.</p></li>
+<li><p><code><a href="../reference/launcherSubmitJob.html">launcherSubmitJob()</a></code> gains the <code>resourceProfile</code> argument.</p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.17.1" id="rstudioapi-0171">rstudioapi 0.17.1<small>2024-10-22</small><a class="anchor" aria-label="anchor" href="#rstudioapi-0171"></a></h2>
