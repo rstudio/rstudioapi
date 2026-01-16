@@ -1,3 +1,5 @@
+# rstudioapi (development version)
+
 # rstudioapi 0.18.0
 
 * `rstudioapi::documentNew()` now accepts arbitrary document types. (#316)
