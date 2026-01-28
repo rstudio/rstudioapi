@@ -1,5 +1,9 @@
 # rstudioapi (development version)
 
+* Added `showEditSuggestion()` for displaying edit suggestions in the RStudio
+  editor. The function takes a document range and suggested replacement text,
+  allowing RStudio to present a visual diff that users can accept or dismiss.
+
 # rstudioapi 0.18.0
 
 * `rstudioapi::documentNew()` now accepts arbitrary document types. (#316)

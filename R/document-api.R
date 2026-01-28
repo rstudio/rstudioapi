@@ -181,6 +181,82 @@ documentSaveAll <- function() {
   callFun("documentSaveAll")
 }
 
+#' Show an Edit Suggestion in RStudio
+#'
+#' Displays an edit suggestion for a specified range in the active document.
+#' The suggestion shows what text would replace the given range. RStudio
+#' computes and displays the necessary insertions and deletions.
+#'
+#' @param range A document range (or object coercible to a range) indicating
+#'   where the suggestion applies. Can be a \code{\link{document_range}} object or
+#'   a numeric vector of the form \code{c(start_row, start_col, end_row, end_col)}.
+#'
+#' @param text Character string containing the suggested replacement text for
+#'   the specified range.
+#'
+#' @param id The document id. When \code{NULL} or blank, the suggestion will
+#'   be shown in the currently open, or last focused, RStudio document.
+#'
+#' @return Invisibly returns \code{TRUE} if the suggestion was successfully shown,
+#'   \code{FALSE} otherwise.
+#'
+#' @details
+#' The edit suggestion appears in the RStudio editor, showing what would change
+#' if the suggestion were accepted. Users can accept or dismiss the suggestion
+#' through RStudio's UI.
+#'
+#' The \code{range} parameter specifies the region of text that would be replaced.
+#' RStudio automatically computes the minimal diff between the current text in
+#' that range and the suggested \code{text}.
+#'
+#' @note The \code{showEditSuggestion} function was added in version 2026.01.0
+#'   of RStudio.
+#'
+#' @seealso \code{\link{setGhostText}} for inline completion suggestions,
+#'   \code{\link{insertText}} for direct text insertion,
+#'   \code{\link{modifyRange}} for programmatic range modification.
+#'
+#' @examples
+#' \dontrun{
+#' # Suggest replacing a word
+#' range <- document_range(c(5, 1), c(5, 10))
+#' showEditSuggestion(range, "corrected_text")
+#'
+#' # Using vector notation
+#' showEditSuggestion(c(5, 1, 5, 10), "corrected_text")
+#'
+#' # Suggest for current selection
+#' context <- getActiveDocumentContext()
+#' selection <- primary_selection(context)
+#' showEditSuggestion(selection$range, "improved code")
+#' }
+#'
+#' @export
+showEditSuggestion <- function(range, text, id = NULL) {
+  
+  # Check if function is available in this RStudio version
+  if (!hasFun("showEditSuggestion")) {
+    warning("showEditSuggestion requires RStudio 2026.01.0 or newer")
+    return(invisible(FALSE))
+  }
+  
+  # Validate and coerce range parameter
+  range <- as.document_range(range)
+  
+  # Validate text parameter
+  if (!is.character(text) || length(text) != 1) {
+    stop("'text' must be a single character string")
+  }
+  
+  # Call the RStudio API
+  callFun("showEditSuggestion",
+          range = range,
+          text = text,
+          id = id)
+  
+  invisible(TRUE)
+}
+
 #' Retrieve Information about an RStudio Editor
 #'
 #' Returns information about an RStudio editor.
