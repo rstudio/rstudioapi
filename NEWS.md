@@ -1,5 +1,9 @@
 # rstudioapi (development version)
 
+* `getMode()` no longer fails on very old versions of RStudio that lack the
+  internal `.rs.isDesktop()` helper. In that case, it now falls back to
+  `versionInfo()$mode`, which has been available since RStudio 0.97.124. (#326)
+
 * Added `showEditSuggestion()` for displaying edit suggestions in the RStudio
   editor. The function takes a document range and suggested replacement text,
   allowing RStudio to present a visual diff that users can accept or dismiss.
