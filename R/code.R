@@ -89,8 +89,18 @@ getMode <- function() {
 
   # use fallback if not
   verifyAvailable()
-  rstudio <- as.environment("tools:rstudio")
-  if (rstudio$.rs.isDesktop()) "desktop" else "server"
+
+  # prefer the internal '.rs.isDesktop()' helper when available; this is
+  # fast, and lets us avoid the relatively slow 'versionInfo()' call, which
+  # reads the RStudio citation file (#280)
+  rstudio <- toolsEnv()
+  if (is.function(rstudio$.rs.isDesktop))
+    return(if (rstudio$.rs.isDesktop()) "desktop" else "server")
+
+  # otherwise, fall back to 'versionInfo()'; its '$mode' field has been
+  # available since RStudio 0.97.124, and so works even with very old
+  # versions of RStudio that lack the '.rs.isDesktop()' helper (#326)
+  versionInfo()$mode
 
 }
 
