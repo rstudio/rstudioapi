@@ -16,7 +16,6 @@ URL: https://rstudio.github.io/rstudioapi/,
     https://github.com/rstudio/rstudioapi
 BugReports: https://github.com/rstudio/rstudioapi/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Suggests:
     testthat,
     knitr,
@@ -25,6 +24,8 @@ Suggests:
     covr,
     curl,
     jsonlite,
+    R6,
     withr
 VignetteBuilder: knitr
 Encoding: UTF-8
+Config/roxygen2/version: 8.0.0

@@ -1,5 +1,14 @@
 # rstudioapi (development version)
 
+* `getDelegatedAzureToken()` gains an `as` argument. With `as = "AzureToken"`,
+  the token is returned as an R6 object compatible with the `AzureToken` class
+  from the `AzureAuth` package, so it can be passed directly to packages like
+  `AzureGraph` and `Microsoft365R`. (rstudio/rstudio#17619)
+
+* `getDelegatedAzureToken()` now returns the same token shape in all IDEs:
+  the relative `expires_in` field is converted to an absolute `expires_at`
+  timestamp, matching what RStudio sessions already returned.
+
 * `getMode()` no longer fails on very old versions of RStudio that lack the
   internal `.rs.isDesktop()` helper. In that case, it now falls back to
   `versionInfo()$mode`, which has been available since RStudio 0.97.124. (#326)

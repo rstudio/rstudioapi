@@ -21,18 +21,18 @@ your launcher plugin documentation to see which operations are supported.}
 Interact with a Workbench job.
 }
 \seealso{
-Other job-launcher functionality: 
-\code{\link{launcherAvailable}()},
-\code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()},
-\code{\link{launcherGetInfo}()},
-\code{\link{launcherGetJob}()},
-\code{\link{launcherGetJobs}()},
-\code{\link{launcherHostMount}()},
-\code{\link{launcherNfsMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitJob}()},
-\code{\link{launcherSubmitR}()}
+Other job-launcher functionality:
+\code{\link[=launcherAvailable]{launcherAvailable()}},
+\code{\link[=launcherConfig]{launcherConfig()}},
+\code{\link[=launcherContainer]{launcherContainer()}},
+\code{\link[=launcherGetInfo]{launcherGetInfo()}},
+\code{\link[=launcherGetJob]{launcherGetJob()}},
+\code{\link[=launcherGetJobs]{launcherGetJobs()}},
+\code{\link[=launcherHostMount]{launcherHostMount()}},
+\code{\link[=launcherNfsMount]{launcherNfsMount()}},
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}},
+\code{\link[=launcherSubmitJob]{launcherSubmitJob()}},
+\code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }
 \concept{job-launcher functionality}

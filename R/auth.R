@@ -14,41 +14,174 @@
 #'
 #' @param resource The name of an Azure resource or service, normally a URL.
 #'
-#' @return A list containing the OAuth2 token details. Throws an error if unavailable.
+#' @param as The form of the returned token. `"list"` (the default) returns a
+#'   plain list of OAuth2 token details. `"AzureToken"` returns an R6 object
+#'   compatible with the `AzureToken` class from the \pkg{AzureAuth} package,
+#'   so it can be passed directly to packages like \pkg{AzureGraph} and
+#'   \pkg{Microsoft365R}. The \pkg{R6} package must be installed for this
+#'   option.
+#'
+#' @return When `as = "list"`, a list containing the OAuth2 token details,
+#'   including the fields `access_token`, `token_type`, `scope`, and
+#'   `expires_at` (the expiry time, in seconds since the Unix epoch). When
+#'   `as = "AzureToken"`, an R6 object of class `AzureToken` wrapping the same
+#'   details, with a `refresh()` method that requests a new delegated token
+#'   from Workbench. Throws an error if a token is unavailable.
 #'
 #' @examples
 #' \dontrun{
 #' getDelegatedAzureToken("https://storage.azure.com")
+#'
+#' # Authenticate with Microsoft Graph using AzureGraph / Microsoft365R
+#' token <- getDelegatedAzureToken("https://graph.microsoft.com/", as = "AzureToken")
+#' gr <- AzureGraph::ms_graph$new(token = token)
+#' site <- Microsoft365R::get_sharepoint_site(
+#'   site_url = "https://example.sharepoint.com/sites/my-site",
+#'   token = token
+#' )
 #' }
 #' @export
-getDelegatedAzureToken <- function(resource) {
+getDelegatedAzureToken <- function(resource, as = c("list", "AzureToken")) {
   if (missing(resource) || !is.character(resource) || length(resource) != 1 || !nzchar(resource)) {
     stop("resource must be a non-empty character string")
   }
+  as <- match.arg(as)
 
   # Try the internal RStudio API first (works in RStudio IDE)
   if (hasFun("getDelegatedAzureToken")) {
-    return(callFun("getDelegatedAzureToken", resource))
+    token <- callFun("getDelegatedAzureToken", resource)
+  } else {
+    assertWorkbenchSession()
+    assertWorkbenchVersion(.WORKBENCH_FEATURE_DELEGATED_AZURE)
+
+    body <- list(
+      params = list(jsonlite::unbox(resource))
+    )
+
+    response <- callWorkbenchRPC(
+      method = "delegated_azure_token",
+      body = body,
+      error_context = "retrieving delegated Azure token"
+    )
+
+    if (is.null(response$token)) {
+      stop("Malformed response: missing 'token' field")
+    }
+
+    token <- response$token
   }
 
-  assertWorkbenchSession()
-  assertWorkbenchVersion(.WORKBENCH_FEATURE_DELEGATED_AZURE)
+  token <- normalizeDelegatedAzureToken(token)
 
-  body <- list(
-    params = list(jsonlite::unbox(resource))
-  )
-
-  response <- callWorkbenchRPC(
-    method = "delegated_azure_token",
-    body = body,
-    error_context = "retrieving delegated Azure token"
-  )
-
-  if (is.null(response$token)) {
-    stop("Malformed response: missing 'token' field")
+  if (as == "AzureToken") {
+    return(asDelegatedAzureToken(token, resource))
   }
 
-  response$token
+  token
+}
+
+# Internal helper to normalize delegated Azure token lists. The internal
+# RStudio API converts the relative 'expires_in' to an absolute 'expires_at';
+# the direct Workbench RPC path returns the raw token endpoint response. Make
+# both paths return the same shape.
+normalizeDelegatedAzureToken <- function(token) {
+  if (is.null(token$expires_at) && !is.null(token$expires_in)) {
+    token$expires_at <- as.numeric(Sys.time()) + as.numeric(token$expires_in)
+    token$expires_in <- NULL
+    token$ext_expires_in <- NULL
+  }
+
+  token
+}
+
+# Internal helper to add the credential fields expected by consumers of the
+# 'AzureToken' interface (e.g. AzureGraph::process_headers reads 'token_type'
+# and 'access_token'; AzureAuth's validate() reads 'expires_on').
+delegatedAzureCredentials <- function(token) {
+  if (is.null(token$token_type)) {
+    token$token_type <- "Bearer"
+  }
+
+  if (!is.null(token$expires_at)) {
+    token$expires_on <- as.character(round(as.numeric(token$expires_at)))
+  }
+
+  token
+}
+
+# Internal helper to wrap a delegated Azure token in an R6 object compatible
+# with the 'AzureToken' class from the AzureAuth package. The object is not a
+# subclass of AzureAuth's implementation (AzureAuth need not be installed);
+# it provides the fields and methods that AzureGraph, Microsoft365R, and
+# related packages rely on. Refreshing requests a new delegated token from
+# Workbench, which owns the underlying refresh token.
+asDelegatedAzureToken <- function(token, resource) {
+  if (!requireNamespace("R6", quietly = TRUE)) {
+    stop("Package 'R6' is required when as = \"AzureToken\". Please install it with: install.packages('R6')")
+  }
+
+  generator <- R6::R6Class("AzureToken",
+
+    public = list(
+
+      version = 1,
+      resource = NULL,
+      scope = NULL,
+      tenant = NULL,
+      aad_host = NULL,
+      auth_type = "delegated",
+      client = NULL,
+      token_args = list(),
+      authorize_args = list(),
+      credentials = NULL,
+
+      initialize = function(token, resource) {
+        self$credentials <- delegatedAzureCredentials(token)
+        self$resource <- resource
+      },
+
+      cache = function() {
+        invisible(self)
+      },
+
+      hash = function() {
+        paste0("rstudioapi-delegated-", gsub("[^A-Za-z0-9._-]+", "-", self$resource))
+      },
+
+      validate = function() {
+        expires_on <- self$credentials$expires_on
+        if (is.null(expires_on) || is.na(expires_on)) {
+          return(TRUE)
+        }
+
+        as.numeric(Sys.time()) < as.numeric(expires_on)
+      },
+
+      can_refresh = function() {
+        TRUE
+      },
+
+      refresh = function() {
+        token <- getDelegatedAzureToken(self$resource, as = "list")
+        self$credentials <- delegatedAzureCredentials(token)
+        invisible(self)
+      },
+
+      print = function(...) {
+        cat("<Delegated Azure token (Posit Workbench)>\n")
+        cat("  resource:", self$resource, "\n")
+        expires_on <- self$credentials$expires_on
+        if (!is.null(expires_on)) {
+          expiry <- as.POSIXct(as.numeric(expires_on), origin = "1970-01-01")
+          cat("  expires:", format(expiry), "\n")
+        }
+        invisible(self)
+      }
+
+    )
+  )
+
+  generator$new(token, resource)
 }
 
 #' Get the User's Identity Token

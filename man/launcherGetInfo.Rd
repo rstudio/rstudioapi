@@ -11,18 +11,18 @@ Retrieve information about the Workbench launcher, as well as the different clus
 that the launcher has been configured to use.
 }
 \seealso{
-Other job-launcher functionality: 
-\code{\link{launcherAvailable}()},
-\code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()},
-\code{\link{launcherControlJob}()},
-\code{\link{launcherGetJob}()},
-\code{\link{launcherGetJobs}()},
-\code{\link{launcherHostMount}()},
-\code{\link{launcherNfsMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitJob}()},
-\code{\link{launcherSubmitR}()}
+Other job-launcher functionality:
+\code{\link[=launcherAvailable]{launcherAvailable()}},
+\code{\link[=launcherConfig]{launcherConfig()}},
+\code{\link[=launcherContainer]{launcherContainer()}},
+\code{\link[=launcherControlJob]{launcherControlJob()}},
+\code{\link[=launcherGetJob]{launcherGetJob()}},
+\code{\link[=launcherGetJobs]{launcherGetJobs()}},
+\code{\link[=launcherHostMount]{launcherHostMount()}},
+\code{\link[=launcherNfsMount]{launcherNfsMount()}},
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}},
+\code{\link[=launcherSubmitJob]{launcherSubmitJob()}},
+\code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }
 \concept{job-launcher functionality}
