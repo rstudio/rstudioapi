@@ -15,15 +15,15 @@ jobSetStatus(job, status)
 Update a background job's informational status text.
 }
 \seealso{
-Other jobs: 
-\code{\link{jobAdd}()},
-\code{\link{jobAddOutput}()},
-\code{\link{jobAddProgress}()},
-\code{\link{jobGetState}()},
-\code{\link{jobList}()},
-\code{\link{jobRemove}()},
-\code{\link{jobRunScript}()},
-\code{\link{jobSetProgress}()},
-\code{\link{jobSetState}()}
+Other jobs:
+\code{\link[=jobAdd]{jobAdd()}},
+\code{\link[=jobAddOutput]{jobAddOutput()}},
+\code{\link[=jobAddProgress]{jobAddProgress()}},
+\code{\link[=jobGetState]{jobGetState()}},
+\code{\link[=jobList]{jobList()}},
+\code{\link[=jobRemove]{jobRemove()}},
+\code{\link[=jobRunScript]{jobRunScript()}},
+\code{\link[=jobSetProgress]{jobSetProgress()}},
+\code{\link[=jobSetState]{jobSetState()}}
 }
 \concept{jobs}

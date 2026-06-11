@@ -15,15 +15,15 @@ jobAddProgress(job, units)
 Adds incremental progress units to a background job.
 }
 \seealso{
-Other jobs: 
-\code{\link{jobAdd}()},
-\code{\link{jobAddOutput}()},
-\code{\link{jobGetState}()},
-\code{\link{jobList}()},
-\code{\link{jobRemove}()},
-\code{\link{jobRunScript}()},
-\code{\link{jobSetProgress}()},
-\code{\link{jobSetState}()},
-\code{\link{jobSetStatus}()}
+Other jobs:
+\code{\link[=jobAdd]{jobAdd()}},
+\code{\link[=jobAddOutput]{jobAddOutput()}},
+\code{\link[=jobGetState]{jobGetState()}},
+\code{\link[=jobList]{jobList()}},
+\code{\link[=jobRemove]{jobRemove()}},
+\code{\link[=jobRunScript]{jobRunScript()}},
+\code{\link[=jobSetProgress]{jobSetProgress()}},
+\code{\link[=jobSetState]{jobSetState()}},
+\code{\link[=jobSetStatus]{jobSetStatus()}}
 }
 \concept{jobs}

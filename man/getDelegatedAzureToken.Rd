@@ -4,13 +4,25 @@
 \alias{getDelegatedAzureToken}
 \title{OAuth2 Tokens for Delegated Azure Resources}
 \usage{
-getDelegatedAzureToken(resource)
+getDelegatedAzureToken(resource, as = c("list", "AzureToken"))
 }
 \arguments{
 \item{resource}{The name of an Azure resource or service, normally a URL.}
+
+\item{as}{The form of the returned token. \code{"list"} (the default) returns a
+plain list of OAuth2 token details. \code{"AzureToken"} returns an R6 object
+compatible with the \code{AzureToken} class from the \pkg{AzureAuth} package,
+so it can be passed directly to packages like \pkg{AzureGraph} and
+\pkg{Microsoft365R}. The \pkg{R6} package must be installed for this
+option.}
 }
 \value{
-A list containing the OAuth2 token details. Throws an error if unavailable.
+When \code{as = "list"}, a list containing the OAuth2 token details,
+including the fields \code{access_token}, \code{token_type}, \code{scope}, and
+\code{expires_at} (the expiry time, in seconds since the Unix epoch). When
+\code{as = "AzureToken"}, an R6 object of class \code{AzureToken} wrapping the same
+details, with a \code{refresh()} method that requests a new delegated token
+from Workbench. Throws an error if a token is unavailable.
 }
 \description{
 When Workbench is using Azure Active Directory for sign-in, this function can
@@ -20,5 +32,13 @@ to. This requires configuring delegated permissions in Azure itself.
 \examples{
 \dontrun{
 getDelegatedAzureToken("https://storage.azure.com")
+
+# Authenticate with Microsoft Graph using AzureGraph / Microsoft365R
+token <- getDelegatedAzureToken("https://graph.microsoft.com/", as = "AzureToken")
+gr <- AzureGraph::ms_graph$new(token = token)
+site <- Microsoft365R::get_sharepoint_site(
+  site_url = "https://example.sharepoint.com/sites/my-site",
+  token = token
+)
 }
 }

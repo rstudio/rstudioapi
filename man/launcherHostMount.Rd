@@ -19,18 +19,18 @@ argument to \code{\link[=launcherSubmitJob]{launcherSubmitJob()}}. This can
 be used to mount a path from the host into the generated container.
 }
 \seealso{
-Other job-launcher functionality: 
-\code{\link{launcherAvailable}()},
-\code{\link{launcherConfig}()},
-\code{\link{launcherContainer}()},
-\code{\link{launcherControlJob}()},
-\code{\link{launcherGetInfo}()},
-\code{\link{launcherGetJob}()},
-\code{\link{launcherGetJobs}()},
-\code{\link{launcherNfsMount}()},
-\code{\link{launcherPlacementConstraint}()},
-\code{\link{launcherResourceLimit}()},
-\code{\link{launcherSubmitJob}()},
-\code{\link{launcherSubmitR}()}
+Other job-launcher functionality:
+\code{\link[=launcherAvailable]{launcherAvailable()}},
+\code{\link[=launcherConfig]{launcherConfig()}},
+\code{\link[=launcherContainer]{launcherContainer()}},
+\code{\link[=launcherControlJob]{launcherControlJob()}},
+\code{\link[=launcherGetInfo]{launcherGetInfo()}},
+\code{\link[=launcherGetJob]{launcherGetJob()}},
+\code{\link[=launcherGetJobs]{launcherGetJobs()}},
+\code{\link[=launcherNfsMount]{launcherNfsMount()}},
+\code{\link[=launcherPlacementConstraint]{launcherPlacementConstraint()}},
+\code{\link[=launcherResourceLimit]{launcherResourceLimit()}},
+\code{\link[=launcherSubmitJob]{launcherSubmitJob()}},
+\code{\link[=launcherSubmitR]{launcherSubmitR()}}
 }
 \concept{job-launcher functionality}

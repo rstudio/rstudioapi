@@ -134,3 +134,98 @@ test_that("getIdentityToken handles missing RPC cookie", {
     "RPC cookie not found"
   )
 })
+
+test_that("getDelegatedAzureToken validates the 'as' parameter", {
+  expect_error(
+    getDelegatedAzureToken("https://storage.azure.com", as = "oops"),
+    "'arg' should be one of"
+  )
+})
+
+test_that("normalizeDelegatedAzureToken converts expires_in to expires_at", {
+  token <- list(
+    access_token = "abc123",
+    expires_in = 3600,
+    ext_expires_in = 3600
+  )
+
+  before <- as.numeric(Sys.time())
+  normalized <- normalizeDelegatedAzureToken(token)
+  after <- as.numeric(Sys.time())
+
+  expect_null(normalized$expires_in)
+  expect_null(normalized$ext_expires_in)
+  expect_gte(normalized$expires_at, before + 3600)
+  expect_lte(normalized$expires_at, after + 3600)
+
+  # Tokens that already carry expires_at are left alone
+  token <- list(access_token = "abc123", expires_at = 42)
+  expect_identical(normalizeDelegatedAzureToken(token), token)
+})
+
+test_that("asDelegatedAzureToken returns an AzureToken-compatible object", {
+  skip_if_not_installed("R6")
+
+  token <- list(
+    access_token = "abc123",
+    scope = "https://graph.microsoft.com/.default",
+    expires_at = as.numeric(Sys.time()) + 3600
+  )
+
+  obj <- asDelegatedAzureToken(token, "https://graph.microsoft.com/")
+
+  # AzureAuth::is_azure_token() checks R6-ness and the class name
+  expect_true(R6::is.R6(obj))
+  expect_s3_class(obj, "AzureToken")
+
+  expect_identical(obj$resource, "https://graph.microsoft.com/")
+  expect_identical(obj$version, 1)
+  expect_identical(obj$credentials$access_token, "abc123")
+  expect_identical(obj$credentials$token_type, "Bearer")
+  expect_identical(
+    obj$credentials$expires_on,
+    as.character(round(token$expires_at))
+  )
+
+  expect_true(obj$validate())
+  expect_true(obj$can_refresh())
+  expect_output(print(obj), "Delegated Azure token")
+})
+
+test_that("delegated AzureToken objects fail validation once expired", {
+  skip_if_not_installed("R6")
+
+  token <- list(
+    access_token = "abc123",
+    expires_at = as.numeric(Sys.time()) - 10
+  )
+
+  obj <- asDelegatedAzureToken(token, "https://graph.microsoft.com/")
+  expect_false(obj$validate())
+})
+
+test_that("delegated AzureToken refresh requests a new token", {
+  skip_if_not_installed("R6")
+
+  token <- list(
+    access_token = "old-token",
+    expires_at = as.numeric(Sys.time()) - 10
+  )
+  obj <- asDelegatedAzureToken(token, "https://graph.microsoft.com/")
+
+  local_mocked_bindings(
+    getDelegatedAzureToken = function(resource, as = "list") {
+      list(
+        access_token = paste0("new-token-for-", resource),
+        expires_at = as.numeric(Sys.time()) + 3600
+      )
+    }
+  )
+
+  obj$refresh()
+  expect_identical(
+    obj$credentials$access_token,
+    "new-token-for-https://graph.microsoft.com/"
+  )
+  expect_true(obj$validate())
+})
