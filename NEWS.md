@@ -1,3 +1,6 @@
+# rstudioapi (development version)
+
+
 # rstudioapi 0.19.0
 
 * `getDelegatedAzureToken()` gains an `as` argument. With `as = "AzureToken"`,
