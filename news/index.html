@@ -71,7 +71,9 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="rstudioapi-development-version">rstudioapi (development version)<a class="anchor" aria-label="anchor" href="#rstudioapi-development-version"></a></h2>
-</div>
+<ul><li><p><code><a href="../reference/getMode.html">getMode()</a></code> no longer fails on very old versions of RStudio that lack the internal <code>.rs.isDesktop()</code> helper. In that case, it now falls back to <code>versionInfo()$mode</code>, which has been available since RStudio 0.97.124. (<a href="https://github.com/rstudio/rstudioapi/issues/326" class="external-link">#326</a>)</p></li>
+<li><p>Added <code><a href="../reference/showEditSuggestion.html">showEditSuggestion()</a></code> for displaying edit suggestions in the RStudio editor. The function takes a document range and suggested replacement text, allowing RStudio to present a visual diff that users can accept or dismiss.</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.18.0" id="rstudioapi-0180">rstudioapi 0.18.0<small>2026-01-16</small><a class="anchor" aria-label="anchor" href="#rstudioapi-0180"></a></h2>
 <ul><li><p><code><a href="../reference/rstudio-documents.html">rstudioapi::documentNew()</a></code> now accepts arbitrary document types. (<a href="https://github.com/rstudio/rstudioapi/issues/316" class="external-link">#316</a>)</p></li>

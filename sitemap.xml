@@ -88,6 +88,7 @@
 <url><loc>https://rstudio.github.io/rstudioapi/reference/sendToConsole.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/setGhostText.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/showDialog.html</loc></url>
+<url><loc>https://rstudio.github.io/rstudioapi/reference/showEditSuggestion.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/showPrompt.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/showQuestion.html</loc></url>
 <url><loc>https://rstudio.github.io/rstudioapi/reference/sourceMarkers.html</loc></url>
