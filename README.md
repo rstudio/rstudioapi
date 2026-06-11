@@ -8,7 +8,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rstudioapi)](https://CRAN.R-project.org/package=rstudioapi)
 [![Codecov test
-coverage](https://codecov.io/gh/rstudio/rstudioapi/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rstudio/rstudioapi?branch=main)
+coverage](https://codecov.io/gh/rstudio/rstudioapi/graph/badge.svg)](https://app.codecov.io/gh/rstudio/rstudioapi)
 [![R-CMD-check](https://github.com/rstudio/rstudioapi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/rstudioapi/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 

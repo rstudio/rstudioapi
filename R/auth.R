@@ -109,6 +109,9 @@ delegatedAzureCredentials <- function(token) {
   token
 }
 
+# R6 methods reference 'self', which R CMD check cannot resolve statically.
+utils::globalVariables("self")
+
 # Internal helper to wrap a delegated Azure token in an R6 object compatible
 # with the 'AzureToken' class from the AzureAuth package. The object is not a
 # subclass of AzureAuth's implementation (AzureAuth need not be installed);
