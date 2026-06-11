@@ -71,7 +71,9 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="rstudioapi-development-version">rstudioapi (development version)<a class="anchor" aria-label="anchor" href="#rstudioapi-development-version"></a></h2>
-<ul><li><p><code><a href="../reference/getMode.html">getMode()</a></code> no longer fails on very old versions of RStudio that lack the internal <code>.rs.isDesktop()</code> helper. In that case, it now falls back to <code>versionInfo()$mode</code>, which has been available since RStudio 0.97.124. (<a href="https://github.com/rstudio/rstudioapi/issues/326" class="external-link">#326</a>)</p></li>
+<ul><li><p><code><a href="../reference/getDelegatedAzureToken.html">getDelegatedAzureToken()</a></code> gains an <code>as</code> argument. With <code>as = "AzureToken"</code>, the token is returned as an R6 object compatible with the <code>AzureToken</code> class from the <code>AzureAuth</code> package, so it can be passed directly to packages like <code>AzureGraph</code> and <code>Microsoft365R</code>. (rstudio/rstudio#17619)</p></li>
+<li><p><code><a href="../reference/getDelegatedAzureToken.html">getDelegatedAzureToken()</a></code> now returns the same token shape in all IDEs: the relative <code>expires_in</code> field is converted to an absolute <code>expires_at</code> timestamp, matching what RStudio sessions already returned.</p></li>
+<li><p><code><a href="../reference/getMode.html">getMode()</a></code> no longer fails on very old versions of RStudio that lack the internal <code>.rs.isDesktop()</code> helper. In that case, it now falls back to <code>versionInfo()$mode</code>, which has been available since RStudio 0.97.124. (<a href="https://github.com/rstudio/rstudioapi/issues/326" class="external-link">#326</a>)</p></li>
 <li><p>Added <code><a href="../reference/showEditSuggestion.html">showEditSuggestion()</a></code> for displaying edit suggestions in the RStudio editor. The function takes a document range and suggested replacement text, allowing RStudio to present a visual diff that users can accept or dismiss.</p></li>
 </ul></div>
     <div class="section level2">
