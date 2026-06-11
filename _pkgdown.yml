@@ -51,6 +51,7 @@ reference:
     - setCursorPosition
     - setSelectionRanges
     - setGhostText
+    - showEditSuggestion
 
     - documentSave
     - documentSaveAll
