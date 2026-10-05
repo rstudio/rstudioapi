@@ -1,5 +1,13 @@
 # rstudioapi (development version)
 
+* The IPC transport used by background jobs to call back into RStudio has
+  been hardened. Newer RStudio versions check the shared secret before
+  deserializing a request, responses are written atomically and matched to
+  their request, and the secret is removed from the job's environment when
+  rstudioapi loads, so processes spawned by a job no longer inherit the
+  ability to call into the IDE. Older versions of RStudio continue to use the
+  previous transport.
+
 # rstudioapi 0.19.0
 
 * `getDelegatedAzureToken()` gains an `as` argument. With `as = "AzureToken"`,
