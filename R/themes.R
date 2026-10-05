@@ -86,6 +86,10 @@ addTheme <- function(themePath,
 #' 
 #' @param name The unique name of the theme to apply.
 #' @note The \code{applyTheme} function was introduced in RStudio 1.2.879.
+#' @examples
+#' \dontrun{
+#' rstudioapi::applyTheme('Kr Theme')
+#' }
 #' @export applyTheme
 applyTheme <- function(name)
 {
