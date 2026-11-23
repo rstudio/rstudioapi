@@ -92,6 +92,9 @@ Use these functions to interact with documents open in RStudio.
 \code{\link{document_range}} object(s), or numeric vectors coercable to
 such objects.
 
+\code{insertText()} uses 1-based row and column indices. RStudio treats
+a row or column of \code{0} as \code{1}.
+
 To operate on the current selection in a document, call \code{insertText()}
 with only a text argument, e.g.
 
