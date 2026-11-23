@@ -207,6 +207,8 @@ sourceMarkers <- function(name, markers, basePath = NULL,
 #' The \code{navigateToFile} opens a file in RStudio. If the file is already
 #' open, its tab or window is activated.
 #' 
+#' Use [filesPaneNavigate()] to open a directory in the Files pane.
+#'
 #' Once the file is open, the cursor is moved to the specified location. If the
 #' \code{file} argument is empty (the default), then the file is the file
 #' currently in view if one exists. If the \code{line} and \code{column}
@@ -240,6 +242,18 @@ navigateToFile <- function(file = character(0),
                            column = -1L,
                            moveCursor = TRUE)
 {
+  # RStudio jobs can have a different working directory from the IDE session.
+  if (isJob()) {
+    request <- quote(navigateToFile(
+      file, as.integer(line), as.integer(column), as.logical(moveCursor)
+    ))
+    return(callRemote(request, environment()))
+  }
+
+  if (is.character(file) && length(file) == 1L && dir.exists(file)) {
+    stop("Use filesPaneNavigate() to navigate to a directory.", call. = FALSE)
+  }
+
   callFun("navigateToFile",
           file,
           as.integer(line),
