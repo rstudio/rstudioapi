@@ -1,5 +1,7 @@
 # rstudioapi (development version)
 
+* `navigateToFile()` reports an error for directory paths and directs users to `filesPaneNavigate()` (#321).
+
 # rstudioapi 0.19.0
 
 * `getDelegatedAzureToken()` gains an `as` argument. With `as = "AzureToken"`,

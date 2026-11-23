@@ -31,6 +31,8 @@ Open a file in RStudio, optionally at a specified location.
 The \code{navigateToFile} opens a file in RStudio. If the file is already
 open, its tab or window is activated.
 
+Use \code{\link[=filesPaneNavigate]{filesPaneNavigate()}} to open a directory in the Files pane.
+
 Once the file is open, the cursor is moved to the specified location. If the
 \code{file} argument is empty (the default), then the file is the file
 currently in view if one exists. If the \code{line} and \code{column}
