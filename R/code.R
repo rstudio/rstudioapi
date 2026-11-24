@@ -195,7 +195,10 @@ usingTools <- function() {
 }
 
 toolsName <- function(name) {
-  paste(".rs.api.", name, sep = "")
+  name <- paste(".rs.api.", name, sep = "")
+  if (identical(name, ".rs.api.jobRunScript"))
+    name <- ".rs.api.runScriptJob"
+  name
 }
 
 toolsEnv <- function() {

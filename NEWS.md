@@ -1,5 +1,8 @@
 # rstudioapi (development version)
 
+* `hasFun()` and `findFun()` now recognize `"jobRunScript"` as a name for
+  RStudio's script job function (#313).
+
 # rstudioapi 0.19.0
 
 * `getDelegatedAzureToken()` gains an `as` argument. With `as = "AzureToken"`,

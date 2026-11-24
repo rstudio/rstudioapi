@@ -1,3 +1,22 @@
+test_that("the public jobRunScript name resolves to the IDE job function", {
+  local_edition(3)
+
+  rstudio <- new.env(parent = emptyenv())
+  rstudio$.rs.api.versionInfo <- function() list()
+  rstudio$.rs.api.runScriptJob <- function(...) NULL
+  local_mocked_bindings(
+    isAvailable = function(...) TRUE,
+    toolsEnv = function() rstudio
+  )
+
+  expect_true(hasFun("jobRunScript", mode = "function"))
+  expect_true(hasFun("runScriptJob", mode = "function"))
+  expect_identical(findFun("jobRunScript", mode = "function"), rstudio$.rs.api.runScriptJob)
+
+  rm(".rs.api.runScriptJob", envir = rstudio)
+  expect_false(hasFun("jobRunScript"))
+})
+
 test_that("getMode() prefers the fast '.rs.isDesktop()' helper when available", {
   local_edition(3)
 
